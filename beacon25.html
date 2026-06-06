@@ -115,9 +115,81 @@ body.dark body::after{background-image:linear-gradient(to right,rgba(255,255,255
     </div>
     <div class="hero-bignum" aria-hidden="true">25</div>
   </div>
-  <div class="section"><div class="sec-left"><span class="sec-icon">🎯</span><span class="sec-label">What you'll<br>learn</span></div><div class="sec-right"><p>You'll build your first real automation with Make.com — no code, just drag and drop.</p></div></div>
-<div class="section"><div class="sec-left"><span class="sec-icon">🧪</span><span class="sec-label">Try it<br>now</span></div><div class="sec-right"><h2>Your turn</h2><p><em>Screens and menus may look slightly different — that's normal. Just explore and you'll find your way. 😊</em></p><p>Follow the steps in this Beacon and try the prompts and tools described above.</p></div></div>
-<div class="complete"><div><span class="complete-icon">✅</span></div><div><span class="complete-badge">Beacon complete</span><h2>Well done.</h2><p>Keep going — the next Beacon is waiting for you.</p></div></div>
+  <div class="section"><div class="sec-left"><span class="sec-icon">🎯</span><span class="sec-label">What you'll<br>learn</span></div><div class="sec-right"><p>In this Beacon, you'll discover what automation actually means — and build your first one.</p>
+<p>You'll use a tool called <a href="http://make.com/" target="_blank" style="color:var(--accent)">Make.com</a> to create a simple "if this happens, do that" rule — without writing a single line of code.</p>
+<p>By the end, you'll have your very first automated workflow running in the real world.</p></div></div>
+<div class="section"><div class="sec-left"><span class="sec-icon">🛠️</span><span class="sec-label">Meet the<br>tool</span></div><div class="sec-right"><p><strong>Make.com</strong> is a visual automation platform. Instead of writing code, you drag and drop blocks to connect apps and create rules.</p>
+<p>The idea is simple: <em>when something happens in one place, Make does something in another place — automatically.</em></p>
+<p>For example:</p>
+<ul style="padding-left:1.2rem;margin:0.5rem 0">
+<li style="margin-bottom:0.4rem;color:#444">When you receive an email with an attachment → save it to Google Drive</li>
+<li style="margin-bottom:0.4rem;color:#444">When a new row is added to a spreadsheet → send yourself a reminder</li>
+<li style="margin-bottom:0.4rem;color:#444">When you fill out a form → get a notification on your phone</li>
+</ul>
+<p>Make.com works with thousands of apps. Today you'll use Google services — because you already have a Gmail account.</p>
+<p>🔗 Go to: <a href="https://www.make.com/" target="_blank" style="color:var(--accent)">https://www.make.com</a> and click <strong>Get started free</strong>.</p>
+<p>On the sign-up page, click <strong>Sign up with Google</strong> and follow the steps — you'll enter your name and country, then click <strong>Sign up for free</strong>.</p>
+<p>Make will then ask you a few questions about yourself — just pick the options that feel right and continue. At the end, click <strong>Get started</strong>.</p></div></div>
+<div class="section"><div class="sec-left"><span class="sec-icon">⚙</span><span class="sec-label">️ **What<br>is a scenario?**</span></div><div class="sec-right"><p>In Make.com, your automation is called a <strong>scenario</strong>.</p>
+<p>A scenario has two parts:</p>
+<p><strong>Trigger</strong> — the thing that starts the automation.</p>
+<p><em>Example: "A new row is added to my Google Sheet."</em></p>
+<p><strong>Action</strong> — what happens as a result.</p>
+<p><em>Example: "Send me an email."</em></p>
+<p>That's it. Trigger → Action. If this, then that.</p>
+<p>Every time the trigger fires, Make runs the action automatically — even if you're not at your computer.</p></div></div>
+<div class="section"><div class="sec-left"><span class="sec-icon">📦</span><span class="sec-label">**How Make.com<br>counts usage**</span></div><div class="sec-right"><p>Make.com's free plan gives you <strong>1,000 operations per month</strong>.</p>
+<p>An operation is one step in your scenario. So a trigger + one action = 2 operations per run.</p>
+<p>For a simple automation that runs once a day, 1,000 operations is plenty of room to explore.</p>
+<p>You also get <strong>2 active scenarios</strong> on the free plan — more than enough to get started.</p></div></div>
+<div class="section"><div class="sec-left"><span class="sec-icon">🧪</span><span class="sec-label">Try it<br>now</span></div><div class="sec-right"><p><em>Screens and menus may look slightly different — that's normal. Just explore and you'll find your way. 😊</em></p>
+<p>You're going to build a real automation. When you add a row to a Google Sheet, Make will send you a confirmation email.</p>
+<p><strong>Step 1 — Set up your Google Sheet</strong></p>
+<p>Open Google Sheets (sheets.google.com) and create a new blank spreadsheet. Name it <strong>"My Automation Test"</strong>.</p>
+<p>In the first row, add these column headers:</p>
+<p><code style="background:var(--off);padding:0.1em 0.4em;border-radius:3px;font-size:0.85em">Task</code> | <code style="background:var(--off);padding:0.1em 0.4em;border-radius:3px;font-size:0.85em">Status</code> | <code style="background:var(--off);padding:0.1em 0.4em;border-radius:3px;font-size:0.85em">Date</code></p>
+<p>Leave it open — you'll come back to it.</p>
+<p><strong>Step 2 — Build your scenario in Make</strong></p>
+<ol style="padding-left:1.4rem;margin:0.5rem 0">
+<li style="margin-bottom:0.4rem;color:#444">Go to <a href="https://www.make.com/" target="_blank" style="color:var(--accent)">https://www.make.com</a>, sign in, and click <strong>+ Create scenario</strong> in the top right corner</li>
+<li style="margin-bottom:0.4rem;color:#444">A tip window may appear — just close it with the <strong>X</strong></li>
+<li style="margin-bottom:0.4rem;color:#444">Click the large <strong>+</strong> circle in the middle of the screen</li>
+<li style="margin-bottom:0.4rem;color:#444">Search for <strong>Google Sheets</strong> and select it</li>
+<li style="margin-bottom:0.4rem;color:#444">Choose the trigger: <strong>Watch New Rows</strong> — don't worry if you see a small "Acid" badge next to it, that's normal</li>
+<li style="margin-bottom:0.4rem;color:#444">Click <strong>Create a connection</strong>, then <strong>Sign in with Google</strong></li>
+<li style="margin-bottom:0.4rem;color:#444">An permission screen will appear — tick <strong>both checkboxes</strong> (Google Drive + Google Sheets) or click <strong>Select all</strong>, then click <strong>Continue</strong>. This is important — without it, Make can't find your spreadsheet.</li>
+<li style="margin-bottom:0.4rem;color:#444">Back in the Google Sheets settings, click <strong>Click here to choose file</strong> under Spreadsheet ID and select <strong>My Automation Test</strong>. Leave all other fields as they are and click <strong>Save</strong></li>
+<li style="margin-bottom:0.4rem;color:#444">A "Choose where to start" window appears — select <strong>All</strong> and click <strong>Save</strong></li>
+<li style="margin-bottom:0.4rem;color:#444">Click the small <strong>+</strong> button to the right of the Google Sheets block</li>
+<li style="margin-bottom:0.4rem;color:#444">Search for <strong>Gmail</strong> and select <strong>Send an email</strong></li>
+<li style="margin-bottom:0.4rem;color:#444">Click <strong>Create a connection</strong>, then <strong>Sign in with Google</strong> again</li>
+<li style="margin-bottom:0.4rem;color:#444">Fill in:</li>
+</ol>
+<p>- <strong>To:</strong> click <strong>+ Add recipient</strong> and enter your Gmail address</p>
+<p>- <strong>Subject:</strong> <code style="background:var(--off);padding:0.1em 0.4em;border-radius:3px;font-size:0.85em">New row added to my sheet!</code></p>
+<p>- <strong>Content:</strong> <code style="background:var(--off);padding:0.1em 0.4em;border-radius:3px;font-size:0.85em">A new task was just added.</code></p>
+<ol style="padding-left:1.4rem;margin:0.5rem 0">
+<li style="margin-bottom:0.4rem;color:#444">Click <strong>Save</strong></li>
+<li style="margin-bottom:0.4rem;color:#444">Click <strong>Run once</strong> (bottom left), then switch to your Google Sheet and add a new row: <code style="background:var(--off);padding:0.1em 0.4em;border-radius:3px;font-size:0.85em">Buy groceries | Pending | Today</code></li>
+<li style="margin-bottom:0.4rem;color:#444">Check your inbox — the email should arrive within a minute! 📬</li>
+</ol></div></div>
+<div class="section"><div class="sec-left"><span class="sec-icon">👀</span><span class="sec-label">What to<br>notice</span></div><div class="sec-right"><p>After the scenario runs, look at the two blocks on the canvas. Each one now has a small <strong>✓1</strong> badge at the top — that means one item passed through each step successfully.</p>
+<p>Click on either badge to see exactly what data Make processed.</p>
+<p>That's the moment it clicks: <em>Make didn't just run your code — it read a real row from a real spreadsheet and sent a real email. You built something that works.</em></p></div></div>
+<div class="section"><div class="sec-left"><span class="sec-icon">💡</span><span class="sec-label">Good to<br>know</span></div><div class="sec-right"><p><strong>Make runs on a schedule, not instantly.</strong></p>
+<p>On the free plan, your scenario checks for new rows every <strong>15 minutes</strong> when running automatically. The <strong>Run once</strong> button bypasses this — great for testing.</p>
+<p><strong>You may see a reauthorization notice.</strong></p>
+<p>Sometimes Make shows a yellow warning saying you need to reauthorize your connection by a certain date. This is normal — just follow the link if it appears.</p>
+<p><strong>You can turn scenarios on and off.</strong></p>
+<p>The toggle in the scenario view switches it between active and paused. Active means it runs automatically every 15 minutes. Paused means it waits.</p>
+<p><strong>Two active scenarios is plenty for learning.</strong></p>
+<p>The free plan allows 2 running at the same time. You can build more — just keep only 2 turned on.</p>
+<p><strong>Automation isn't just for tech people.</strong></p>
+<p>The whole point of Make is that anyone can build workflows. If you can describe a rule in plain English — "when this happens, do that" — you can build it here.</p></div></div>
+<div class="complete"><div><span class="complete-icon">✅</span></div><div><span class="complete-badge">Beacon complete</span><p>You just built your first real automation. No code. No IT department. Just a trigger, an action, and a rule that works while you sleep.</p>
+<p><strong>Up next → Beacon 26: Build without code</strong></p>
+<p>You'll use an AI tool called Lovable to create a simple app — just by describing what you want. Yes, really.</p>
+<p>No rush. Come back whenever you're ready. 🙂</p></div></div>
   <p class="closing">No rush. Come back whenever you're ready. &#128578;</p>
   <div class="beacon-nav">
     <a href="beacon24.html" class="bn-prev">&larr; Beacon 24 &mdash; Presentations, Effortlessly</a>
