@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>vAIble · Beacon 4 — Write It Better</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--paper:#FAF8F3;--ink:#0E0E0E;--mid:#7A7A7A;--line:#E4E2DC;--accent:#0041CC;--red:#CC3300;--off:#F4F3EF}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:'Instrument Sans',sans-serif;overflow-x:hidden}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(to right,rgba(0,0,0,0.022) 1px,transparent 1px);background-size:80px 100%}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:stretch;height:52px;background:var(--paper);border-bottom:1px solid var(--line)}
+.nav-brand{display:flex;align-items:center;padding:0 2rem;border-right:1px solid var(--line)}
+.nav-logo{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:1.35rem;color:var(--ink);text-decoration:none}
+.nav-logo strong{font-style:normal;color:var(--accent)}
+.nav-crumb{display:flex;align-items:center;padding:0 1.5rem;font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--mid);border-right:1px solid var(--line)}
+.nav-actions{display:flex;align-items:center;padding:0 1.5rem;gap:1.5rem;margin-left:auto}
+.nav-back{font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--mid);text-decoration:none;transition:color 0.2s}
+.nav-back:hover{color:var(--ink)}
+.theme-btn{background:none;border:none;cursor:pointer;font-family:'Instrument Sans',sans-serif;font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--mid)}
+.prog-bar{position:fixed;top:52px;left:0;right:0;z-index:199;height:32px;background:var(--paper);border-bottom:1px solid var(--line);display:flex;align-items:center}
+.prog-label{padding:0 1.5rem;font-size:0.65rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--mid);white-space:nowrap;border-right:1px solid var(--line);height:100%;display:flex;align-items:center}
+.prog-track-wrap{flex:1;height:100%;display:flex;align-items:center;padding:0 1.5rem;border-right:1px solid var(--line)}
+.prog-track{width:100%;height:1px;background:var(--line);position:relative}
+.prog-fill{position:absolute;left:0;top:0;height:1px;background:var(--accent)}
+.prog-dot{position:absolute;top:-4px;width:9px;height:9px;border-radius:50%;background:var(--accent);transform:translateX(-50%)}
+.prog-pct{padding:0 1.5rem;font-size:0.65rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--mid);white-space:nowrap;height:100%;display:flex;align-items:center}
+.page{max-width:960px;margin:0 auto;padding:6.5rem 3rem 6rem;position:relative;z-index:1}
+.beacon-hero{display:grid;grid-template-columns:1fr auto;gap:3rem;align-items:end;padding-bottom:3rem;margin-bottom:3rem;border-bottom:1px solid var(--line)}
+.hero-meta{display:flex;align-items:center;gap:1.2rem;margin-bottom:1.5rem}
+.hero-tag{font-size:0.65rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.hero-sep{width:32px;height:1px;background:var(--line)}
+.hero-num{font-size:0.65rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--mid)}
+.hero-title{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:clamp(3rem,5vw,5.5rem);line-height:0.95;letter-spacing:-2px;color:var(--ink)}
+.hero-sub{margin-top:1.2rem;font-size:0.92rem;line-height:1.75;color:var(--mid);max-width:400px}
+.hero-bignum{font-family:'Playfair Display',serif;font-weight:900;font-style:italic;font-size:clamp(7rem,12vw,11rem);line-height:1;letter-spacing:-6px;color:var(--line);user-select:none;align-self:flex-end}
+.section{display:grid;grid-template-columns:180px 1fr;gap:3rem;border-top:1px solid var(--line);padding:2.5rem 0;opacity:0;transform:translateY(16px);transition:opacity 0.6s ease,transform 0.6s ease}
+.section.visible{opacity:1;transform:translateY(0)}
+.sec-left{padding-top:0.2rem}
+.sec-icon{font-size:1.3rem;margin-bottom:0.5rem;display:block}
+.sec-label{font-size:0.65rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--mid);line-height:1.5}
+.sec-right h2{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:1.5rem;letter-spacing:-0.5px;margin-bottom:1rem;color:var(--ink);line-height:1.2}
+.sec-right p{font-size:0.92rem;line-height:1.85;color:#444;margin-bottom:0.8rem}
+.sec-right p:last-child{margin-bottom:0}
+.sec-right em{color:var(--accent);font-style:italic}
+.sec-right strong{color:var(--ink);font-weight:600}
+.sec-right ul{padding-left:1.3rem;margin:0.5rem 0 0.8rem}
+.sec-right li{font-size:0.92rem;line-height:1.8;color:#444;margin-bottom:0.2rem}
+.prompt-wrap{margin:1.2rem 0;border:1px solid var(--line)}
+.prompt-topbar{display:flex;justify-content:space-between;align-items:center;padding:0.5rem 1rem;border-bottom:1px solid var(--line);background:var(--off)}
+.prompt-topbar-label{font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--mid)}
+.copy-btn{background:var(--ink);color:var(--paper);border:none;padding:0.25rem 0.8rem;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;font-family:'Instrument Sans',sans-serif;transition:background 0.2s}
+.copy-btn:hover{background:var(--accent)}
+.copy-btn.copied{background:#007733}
+.prompt-text{padding:1.2rem 1.5rem;font-family:'Playfair Display',serif;font-style:italic;font-size:1rem;line-height:1.85;color:var(--ink)}
+.chips-header{font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--mid);margin:1.2rem 0 0.6rem}
+.chips{display:flex;flex-wrap:wrap;gap:0.4rem;margin-bottom:1.2rem}
+.chip{padding:0.35rem 0.9rem;border:1px solid var(--line);border-radius:999px;font-size:0.8rem;color:#555;cursor:default;background:var(--paper);font-family:'Instrument Sans',sans-serif}
+.followup-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:1rem 0}
+.followup-item{background:var(--paper);padding:0.9rem 1.2rem;font-size:0.82rem;font-style:italic;color:#666;line-height:1.5}
+.example-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin:1rem 0}
+.example-item{background:var(--paper);padding:1rem 1.2rem}
+.example-label{font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--mid);margin-bottom:0.4rem}
+.example-text{font-size:0.85rem;color:#555;line-height:1.6;font-style:italic}
+.complete{border-top:1px solid var(--line);padding:2.5rem 0 0;display:grid;grid-template-columns:180px 1fr;gap:3rem;opacity:0;transform:translateY(16px);transition:opacity 0.6s,transform 0.6s}
+.complete.visible{opacity:1;transform:translateY(0)}
+.complete-badge{display:inline-block;font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:0.5rem}
+.complete h2{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:1.5rem;letter-spacing:-0.5px;color:var(--ink);margin-bottom:1rem}
+.complete p{font-size:0.92rem;line-height:1.85;color:#444;margin-bottom:0.5rem}
+.complete strong{color:var(--ink);font-weight:600}
+.complete-icon{font-size:2rem;display:block}
+.beacon-nav{display:flex;justify-content:space-between;align-items:center;margin-top:3rem;padding-top:2rem;border-top:1px solid var(--line)}
+.bn-prev{font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--mid);text-decoration:none;transition:color 0.2s}
+.bn-prev:hover{color:var(--ink)}
+.bn-next{font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);text-decoration:none;font-weight:600;border-bottom:1px solid var(--accent);padding-bottom:2px;transition:opacity 0.2s}
+.bn-next:hover{opacity:0.65}
+.closing{text-align:center;font-family:'Playfair Display',serif;font-style:italic;color:var(--mid);font-size:0.9rem;margin-top:2.5rem}
+body.dark{--paper:#0D0D0D;--off:#131312;--ink:#F0EFE9;--line:#222220;--mid:#666660;--accent:#4D8AFF;--red:#FF6644;background:var(--paper);color:var(--ink)}
+body.dark nav,body.dark .prog-bar{background:#0D0D0D;border-color:#222220}
+body.dark .nav-brand,body.dark .nav-crumb{border-color:#222220}
+body.dark .prog-track-wrap{border-color:#222220}
+body.dark .hero-bignum{color:#161614}
+body.dark .section{border-color:#222220}
+body.dark .sec-right p,.dark .sec-right li{color:#aaa}
+body.dark .prompt-wrap{border-color:#222220}
+body.dark .prompt-topbar{background:#111110;border-color:#222220}
+body.dark .followup-grid,.dark .example-grid{background:#222220}
+body.dark .followup-item,.dark .example-item{background:#0D0D0D;color:#888}
+body.dark .complete{border-color:#222220}
+body.dark .complete p{color:#aaa}
+body.dark .beacon-nav{border-color:#222220}
+body.dark body::after{background-image:linear-gradient(to right,rgba(255,255,255,0.015) 1px,transparent 1px)}
+@media(max-width:860px){.beacon-hero{grid-template-columns:1fr}.hero-bignum{display:none}.section,.complete{grid-template-columns:1fr;gap:1rem}.sec-left{display:flex;align-items:center;gap:0.8rem}.sec-icon{margin-bottom:0;font-size:1.1rem}.followup-grid{grid-template-columns:1fr}.example-grid{grid-template-columns:1fr}}
+@media(max-width:640px){nav{flex-wrap:wrap;height:auto}.nav-brand{padding:0.7rem 1.2rem}.nav-crumb{display:none}.nav-actions{padding:0.7rem 1.2rem}.prog-bar{flex-wrap:wrap;height:auto}.prog-label,.prog-pct{padding:0.35rem 1rem}.prog-track-wrap{padding:0.35rem 1rem;border-right:none}.page{padding:7rem 1.2rem 4rem}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-brand"><a href="index.html" class="nav-logo">v<strong>AI</strong>ble</a></div>
+  <div class="nav-crumb">Text & Communication</div>
+  <div class="nav-actions"><a href="index.html" class="nav-back">← All Beacons</a><button class="theme-btn" id="themeToggle">☾ Dark</button></div>
+</nav>
+<div class="prog-bar">
+  <div class="prog-label">Beacon 4 of 30</div>
+  <div class="prog-track-wrap"><div class="prog-track"><div class="prog-fill" style="width:13.33%"></div><div class="prog-dot" style="left:13.33%"></div></div></div>
+  <div class="prog-pct">13% complete</div>
+</div>
+<div class="page">
+
+  <div class="beacon-hero">
+    <div>
+      <div class="hero-meta">
+        <span class="hero-tag">✍️ Text & Communication</span>
+        <div class="hero-sep"></div>
+        <span class="hero-num">Beacon 04</span>
+      </div>
+      <h1 class="hero-title">Write It<br>Better</h1>
+      <p class="hero-sub">How to ask an AI to write a professional email for you — even when you're not sure what to say.</p>
+    </div>
+    <div class="hero-bignum" aria-hidden="true">04</div>
+  </div>
+
+  <div class="section">
+    <div class="sec-left"><span class="sec-icon">🎯</span><span class="sec-label">What you'll<br>learn</span></div>
+    <div class="sec-right">
+      <p>How to ask an AI to write a professional email for you — even when you're not sure what to say.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-left"><span class="sec-icon">✉️</span><span class="sec-label">Finding the<br>right words</span></div>
+    <div class="sec-right">
+      <h2>The awkward email problem</h2>
+      <p>Sometimes you need to send an email, but you just don't know how to start. Maybe you want to cancel a subscription. Or say no to something. Finding the right words can feel uncomfortable.</p>
+      <p>AI is great at this. You describe what you want — and it writes the email for you.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-left"><span class="sec-icon">📝</span><span class="sec-label">A real<br>example</span></div>
+    <div class="sec-right">
+      <h2>Let's try it</h2>
+      <p>Imagine you want to cancel a gym membership. You don't want to be rude, but you want to be clear. Here's what you could type into ChatGPT, Claude, or Gemini:</p>
+      <div class="prompt-wrap">
+        <div class="prompt-topbar"><span class="prompt-topbar-label">Example prompt</span><button class="copy-btn" id="copyBtnp1" onclick="copyPrompt('p1')">Copy</button></div>
+        <div class="prompt-text" id="p1">"Write a short, polite email to cancel my gym membership. I joined 3 months ago but I'm not using it anymore. Keep it friendly and professional."</div>
+      </div>
+      <p>That's it. No need to write anything yourself — just explain the situation in plain words.</p>
+      <p>The AI will write a complete, polished email for you. Read it, adjust anything you'd like to change, and send it. If you don't like the first result, just ask for a different version:</p>
+      <div class="followup-grid">
+        <div class="followup-item">"Make it shorter."</div>
+        <div class="followup-item">"Make it more formal."</div>
+        <div class="followup-item">"Add that I'd like a confirmation."</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-left"><span class="sec-icon">🧪</span><span class="sec-label">Try it<br>now</span></div>
+    <div class="sec-right">
+      <h2>Your turn</h2>
+      <p><em>Screens and menus may look slightly different — that's normal. Just explore and you'll find your way. 😊</em></p>
+      <p>Open <strong>Claude, ChatGPT, or Gemini</strong> — whichever you prefer. Think of an email you've been putting off. A few ideas:</p>
+      <div class="chips">
+        <span class="chip">following up on something you never heard back about</span>
+        <span class="chip">saying no to an invitation without sounding rude</span>
+        <span class="chip">asking a colleague for a favour you feel awkward about</span>
+        <span class="chip">writing a polite complaint to a shop or service</span>
+        <span class="chip">thanking someone you should have thanked a while ago</span>
+      </div>
+      <p>Describe your situation to the AI in plain words — like you'd explain it to a friend:</p>
+      <div class="prompt-wrap">
+        <div class="prompt-topbar"><span class="prompt-topbar-label">Ready-made prompt</span><button class="copy-btn" id="copyBtnp2" onclick="copyPrompt('p2')">Copy</button></div>
+        <div class="prompt-text" id="p2">"Write a short, polite email to follow up on a job application I sent two weeks ago. I haven't heard back. I want to sound professional but not pushy."</div>
+      </div>
+      <p>Read the result. Then ask for one small change — just to see what happens.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-left"><span class="sec-icon">👀</span><span class="sec-label">What to<br>notice</span></div>
+    <div class="sec-right">
+      <h2>The awkward part is gone</h2>
+      <p>That thing you were putting off? The AI just handled the awkward part for you — in seconds. And it doesn't sound robotic. It sounds like something you'd actually send.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="sec-left"><span class="sec-icon">💡</span><span class="sec-label">Good to<br>know</span></div>
+    <div class="sec-right">
+      <h2>This works for many types of emails</h2>
+      <div class="example-grid">
+        <div class="example-item">
+          <p class="example-label">Thank-you email</p>
+          <p class="example-text">"Write a short thank-you email to a colleague who helped me with a project."</p>
+        </div>
+        <div class="example-item">
+          <p class="example-label">Complaint email</p>
+          <p class="example-text">"Write a polite but firm complaint email to a hotel about a noisy room."</p>
+        </div>
+      </div>
+      <p>Just describe the situation, and let the AI do the writing.</p>
+    </div>
+  </div>
+
+  <div class="complete">
+    <div><span class="complete-icon">✅</span></div>
+    <div>
+      <span class="complete-badge">Beacon complete</span>
+      <h2>You just wrote a real email.</h2>
+      <p>And learned how to adjust the result with a simple follow-up.</p>
+      <p><strong>Up next — Beacon 5:</strong> Lost in translation? You'll discover how AI can help you translate text, understand tricky phrases, and even pick up a few words in a new language.</p>
+    </div>
+  </div>
+
+  <p class="closing">No rush. Come back whenever you're ready. 🙂</p>
+  <div class="beacon-nav">
+    <a href="beacon3.html" class="bn-prev">← Beacon 3 — Pick Your Companion</a>
+    <a href="beacon5.html" class="bn-next">Beacon 5 — Lost in Translation →</a>
+  </div>
+</div>
+<script>
+const btn=document.getElementById('themeToggle');
+btn.addEventListener('click',()=>{document.body.classList.toggle('dark');btn.textContent=document.body.classList.contains('dark')?'○ Light':'☾ Dark'});
+const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')}),{threshold:0.07});
+document.querySelectorAll('.section,.complete').forEach(el=>obs.observe(el));
+function copyPrompt(id){const t=document.getElementById(id).innerText;navigator.clipboard.writeText(t).then(()=>{const b=document.getElementById('copyBtn'+id);b.textContent='Copied!';b.classList.add('copied');setTimeout(()=>{b.textContent='Copy';b.classList.remove('copied')},2000)})}
+</script>
+</body>
+</html>

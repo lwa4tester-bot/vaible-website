@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>vAIble — AI for plain people.</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --paper:#FAF8F3;
+  --ink:#0E0E0E;
+  --mid:#7A7A7A;
+  --line:#E4E2DC;
+  --accent:#0041CC;
+  --red:#CC3300;
+  --off:#F4F3EF;
+}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:'Instrument Sans',sans-serif;overflow-x:hidden}
+
+body::after{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:linear-gradient(to right,rgba(0,0,0,0.022) 1px,transparent 1px);
+  background-size:80px 100%;
+}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:stretch;height:52px;
+  background:var(--paper);border-bottom:1px solid var(--line);
+}
+.nav-brand{display:flex;align-items:center;padding:0 2rem;border-right:1px solid var(--line)}
+.nav-logo{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:1.35rem;color:var(--ink);text-decoration:none}
+.nav-logo strong{font-style:normal;color:var(--accent)}
+.nav-links{display:flex;align-items:stretch}
+.nav-link{
+  display:flex;align-items:center;padding:0 1.5rem;
+  font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--mid);text-decoration:none;border-right:1px solid var(--line);
+  transition:color 0.2s;
+}
+.nav-link:hover{color:var(--ink)}
+.nav-actions{display:flex;align-items:center;padding:0 1.5rem;gap:1.5rem;margin-left:auto}
+.nav-cta{
+  background:var(--ink);color:var(--paper);
+  font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;
+  padding:0.4rem 1.2rem;text-decoration:none;transition:background 0.2s;
+}
+.nav-cta:hover{background:var(--accent)}
+.theme-btn{background:none;border:none;cursor:pointer;font-family:'Instrument Sans',sans-serif;font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--mid)}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;display:grid;
+  grid-template-rows:1fr auto;
+  padding-top:52px;
+  position:relative;z-index:1;
+  border-bottom:1px solid var(--line);
+}
+.hero-main{
+  display:grid;grid-template-columns:1fr 1fr;
+  align-items:center;
+  max-width:1200px;margin:0 auto;
+  padding:6rem 3rem 4rem;gap:6rem;width:100%;
+}
+.hero-tag{
+  font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--accent);font-weight:600;margin-bottom:1.5rem;display:block;
+}
+.hero-title{
+  font-family:'Playfair Display',serif;font-style:italic;font-weight:700;
+  font-size:clamp(3.5rem,6vw,6.5rem);line-height:0.95;letter-spacing:-2px;
+  margin-bottom:1.5rem;
+}
+.hero-title em{font-style:normal;color:var(--accent)}
+.hero-sub{font-size:1rem;line-height:1.8;color:var(--mid);max-width:400px;margin-bottom:2.5rem}
+.hero-actions{display:flex;align-items:center;gap:2rem}
+.btn-primary{
+  background:var(--ink);color:var(--paper);
+  font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;
+  padding:0.8rem 2rem;text-decoration:none;transition:background 0.2s;
+}
+.btn-primary:hover{background:var(--accent)}
+.btn-ghost{
+  font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--mid);text-decoration:none;
+  border-bottom:1px solid var(--line);padding-bottom:2px;
+  transition:color 0.2s,border-color 0.2s;
+}
+.btn-ghost:hover{color:var(--ink);border-color:var(--ink)}
+
+/* HERO RIGHT */
+.hero-right{position:relative}
+.hero-stat-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:1px;
+  background:var(--line);border:1px solid var(--line);
+}
+.hero-stat{
+  background:var(--paper);padding:2rem 1.8rem;
+  transition:background 0.2s;
+}
+.hero-stat:hover{background:var(--off)}
+.stat-num{
+  font-family:'Playfair Display',serif;font-style:italic;font-weight:700;
+  font-size:3rem;letter-spacing:-2px;line-height:1;
+  color:var(--ink);margin-bottom:0.3rem;
+}
+.stat-label{font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--mid)}
+.hero-stat.accent-stat{background:var(--ink)}
+.hero-stat.accent-stat .stat-num{color:var(--paper)}
+.hero-stat.accent-stat .stat-label{color:rgba(255,255,255,0.5)}
+
+/* TICKER */
+.ticker-wrap{
+  border-top:1px solid var(--line);overflow:hidden;
+  padding:0.7rem 0;background:var(--paper);
+}
+.ticker{display:flex;gap:3rem;animation:ticker 24s linear infinite;white-space:nowrap}
+.ticker-item{
+  font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--mid);flex-shrink:0;
+}
+.ticker-dot{color:var(--accent);font-size:0.5rem}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── FEATURES ── */
+.features{
+  max-width:1200px;margin:0 auto;
+  padding:6rem 3rem;
+  position:relative;z-index:1;
+  border-bottom:1px solid var(--line);
+}
+.section-header{
+  display:grid;grid-template-columns:1fr 1fr;gap:4rem;
+  margin-bottom:4rem;padding-bottom:3rem;border-bottom:1px solid var(--line);
+}
+.section-eyebrow{font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);margin-bottom:1rem;display:block}
+.section-title{
+  font-family:'Playfair Display',serif;font-style:italic;font-weight:700;
+  font-size:clamp(2rem,3.5vw,3.2rem);letter-spacing:-1px;line-height:1.05;
+}
+.section-sub{font-size:0.92rem;line-height:1.8;color:var(--mid);padding-top:1.5rem}
+
+.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.feature-item{background:var(--paper);padding:2rem;transition:background 0.2s}
+.feature-item:hover{background:var(--off)}
+.feat-icon{font-size:1.3rem;margin-bottom:1rem;display:block}
+.feat-title{font-weight:600;font-size:0.92rem;margin-bottom:0.5rem}
+.feat-desc{font-size:0.82rem;line-height:1.7;color:var(--mid)}
+
+/* ── BEACONS ── */
+.beacons{
+  background:var(--ink);
+  position:relative;z-index:1;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.beacons-inner{max-width:1200px;margin:0 auto;padding:6rem 3rem}
+.beacons-inner .section-eyebrow{color:rgba(255,255,255,0.4)}
+.beacons-inner .section-title{color:white}
+.beacons-inner .section-sub{color:rgba(255,255,255,0.45)}
+.beacons-inner .section-header{border-color:rgba(255,255,255,0.08)}
+
+.blocks-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.08)}
+.block-item{
+  background:var(--ink);padding:2rem;
+  transition:background 0.2s;
+}
+.block-item:hover{background:#1A1A18}
+.block-icon{font-size:1.2rem;margin-bottom:1rem;display:block}
+.block-title{font-weight:600;font-size:0.92rem;color:white;margin-bottom:0.5rem}
+.block-desc{font-size:0.82rem;line-height:1.7;color:rgba(255,255,255,0.45)}
+.block-range{
+  display:inline-block;margin-top:1rem;
+  font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;
+  color:rgba(255,255,255,0.3);border-top:1px solid rgba(255,255,255,0.1);
+  padding-top:0.8rem;width:100%;
+}
+
+/* ── TOOLS ── */
+.tools{
+  max-width:1200px;margin:0 auto;padding:6rem 3rem;
+  position:relative;z-index:1;border-bottom:1px solid var(--line);
+}
+.tools-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:4rem}
+.tool-item{background:var(--paper);padding:2.5rem 2rem;transition:background 0.2s}
+.tool-item:hover{background:var(--off)}
+.tool-name{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:1.5rem;letter-spacing:-0.5px;margin-bottom:0.6rem}
+.tool-desc{font-size:0.85rem;line-height:1.75;color:var(--mid)}
+.tool-url{
+  display:inline-block;margin-top:1rem;
+  font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--accent);text-decoration:none;
+  border-bottom:1px solid var(--accent);padding-bottom:2px;
+  transition:opacity 0.2s;
+}
+.tool-url:hover{opacity:0.6}
+
+/* ── CTA ── */
+.cta{
+  background:var(--ink);
+  position:relative;z-index:1;overflow:hidden;
+  border-bottom:1px solid var(--line);
+}
+.cta-bg{
+  position:absolute;inset:0;
+  font-family:'Playfair Display',serif;font-style:italic;font-weight:900;
+  font-size:28vw;color:rgba(255,255,255,0.03);
+  display:flex;align-items:center;justify-content:center;
+  letter-spacing:-8px;pointer-events:none;white-space:nowrap;
+  user-select:none;
+}
+.cta-inner{
+  max-width:1200px;margin:0 auto;padding:6rem 3rem;
+  display:grid;grid-template-columns:1fr auto;
+  align-items:end;gap:4rem;position:relative;z-index:1;
+}
+.cta-title{
+  font-family:'Playfair Display',serif;font-style:italic;font-weight:700;
+  font-size:clamp(2.5rem,5vw,5rem);letter-spacing:-2px;line-height:0.95;color:white;
+  margin-bottom:1rem;
+}
+.cta-sub{font-size:0.92rem;line-height:1.75;color:rgba(255,255,255,0.45);max-width:420px}
+.btn-cta{
+  background:white;color:var(--ink);
+  font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:700;
+  padding:1rem 2.5rem;text-decoration:none;white-space:nowrap;
+  transition:background 0.2s,color 0.2s;align-self:flex-end;
+}
+.btn-cta:hover{background:var(--accent);color:white}
+
+/* ── COFFEE ── */
+.coffee{
+  max-width:700px;margin:0 auto;
+  padding:5rem 3rem;text-align:center;
+  position:relative;z-index:1;
+  border-bottom:1px solid var(--line);
+}
+.coffee-title{font-family:'Playfair Display',serif;font-style:italic;font-size:1.8rem;margin-bottom:0.8rem}
+.coffee-sub{font-size:0.88rem;line-height:1.8;color:var(--mid);margin-bottom:2rem}
+.btn-coffee{
+  display:inline-block;background:var(--ink);color:var(--paper);
+  font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;
+  padding:0.8rem 2rem;text-decoration:none;transition:background 0.2s;
+}
+.btn-coffee:hover{background:var(--accent)}
+
+/* ── FOOTER ── */
+footer{
+  display:flex;align-items:stretch;height:48px;
+  border-top:1px solid var(--line);background:var(--paper);
+  position:relative;z-index:1;
+}
+.foot-brand{display:flex;align-items:center;padding:0 2rem;border-right:1px solid var(--line)}
+.foot-logo{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:1.1rem;color:var(--ink);text-decoration:none}
+.foot-logo strong{font-style:normal;color:var(--accent)}
+.foot-copy{display:flex;align-items:center;padding:0 1.5rem;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--mid)}
+.foot-made{display:flex;align-items:center;padding:0 1.5rem;font-size:0.65rem;color:var(--mid);margin-left:auto;border-left:1px solid var(--line)}
+
+/* ── DARK ── */
+body.dark{--paper:#0D0D0D;--off:#131312;--ink:#F0EFE9;--line:#222220;--mid:#666660;--accent:#4D8AFF;--red:#FF6644;background:var(--paper);color:var(--ink)}
+body.dark nav,body.dark footer{background:#0D0D0D}
+body.dark .hero-stat{background:#0D0D0D}
+body.dark .hero-stat:hover{background:#161614}
+body.dark .hero-stat.accent-stat{background:#F0EFE9}
+body.dark .hero-stat.accent-stat .stat-num{color:#0D0D0D}
+body.dark .hero-stat.accent-stat .stat-label{color:rgba(0,0,0,0.5)}
+body.dark .feature-item,body.dark .tool-item{background:#0D0D0D}
+body.dark .feature-item:hover,body.dark .tool-item:hover{background:#161614}
+body.dark .beacons{background:#111110}
+body.dark .block-item{background:#111110}
+body.dark .block-item:hover{background:#1A1A18}
+body.dark .cta{background:#111110}
+body.dark .ticker-wrap{background:#0D0D0D}
+body.dark body::after{background-image:linear-gradient(to right,rgba(255,255,255,0.015) 1px,transparent 1px)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .hero-main{grid-template-columns:1fr;gap:3rem;padding:5rem 2rem 3rem}
+  .hero-stat-grid{grid-template-columns:repeat(4,1fr)}
+  .section-header{grid-template-columns:1fr}
+  .feature-grid,.blocks-grid,.tools-grid{grid-template-columns:1fr 1fr}
+  .cta-inner{grid-template-columns:1fr;gap:2rem}
+}
+@media(max-width:600px){
+  nav{flex-wrap:wrap;height:auto}
+  .nav-brand{padding:0.7rem 1.2rem}
+  .nav-links{display:none}
+  .nav-actions{padding:0.7rem 1.2rem}
+  .features,.beacons-inner,.tools,.coffee{padding:4rem 1.5rem}
+  .hero-main{padding:5rem 1.5rem 3rem}
+  .feature-grid,.blocks-grid,.tools-grid{grid-template-columns:1fr}
+  .hero-stat-grid{grid-template-columns:1fr 1fr}
+  .cta-inner{padding:4rem 1.5rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">
+    <a href="#" class="nav-logo">v<strong>AI</strong>ble</a>
+  </div>
+  <div class="nav-links">
+    <a href="#beacons" class="nav-link">The Course</a>
+    <a href="#tools" class="nav-link">Tools</a>
+  </div>
+  <div class="nav-actions">
+    <a href="prerequisites.html" class="nav-cta">Start for free</a>
+    <button class="theme-btn" id="themeToggle">☾ Dark</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-main">
+    <div>
+      <span class="hero-tag">Free · Self-paced · No sign-up required</span>
+      <h1 class="hero-title">AI for<br>plain<br><em>people.</em></h1>
+      <p class="hero-sub">Not just for CEOs. A friendly, self-paced course for curious people who want to use AI in everyday life — no tech background needed, no pressure.</p>
+      <div class="hero-actions">
+        <a href="prerequisites.html" class="btn-primary">Start the course →</a>
+        <a href="#beacons" class="btn-ghost">See what's inside</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-stat-grid">
+        <div class="hero-stat">
+          <div class="stat-num">30</div>
+          <div class="stat-label">Beacons</div>
+        </div>
+        <div class="hero-stat accent-stat">
+          <div class="stat-num">Free</div>
+          <div class="stat-label">Always</div>
+        </div>
+        <div class="hero-stat">
+          <div class="stat-num">3</div>
+          <div class="stat-label">AI Tools</div>
+        </div>
+        <div class="hero-stat">
+          <div class="stat-num">0</div>
+          <div class="stat-label">Prerequisites</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ticker-wrap">
+    <div class="ticker">
+      <span class="ticker-item">ChatGPT</span><span class="ticker-dot">·</span>
+      <span class="ticker-item">Claude</span><span class="ticker-dot">·</span>
+      <span class="ticker-item">Gemini</span><span class="ticker-dot">·</span>
+      <span class="ticker-item">Leonardo AI</span><span class="ticker-dot">·</span>
+      <span class="ticker-item">ElevenLabs</span><span class="ticker-dot">·</span>
+      <span class="ticker-item">Canva AI</span><span class="ticker-dot">·</span>
+      <span class="ticker-item">Suno</span><span class="ticker-dot">·</span>
+      <span class="ticker-item">Pika</span><span class="ticker-dot">·</span>
+      <span class="ticker-item">Perplexity</span><span class="ticker-dot">·</span>
+      <span class="ticker-item">NotebookLM</span><span class="ticker-dot">·</span>
+      <span class="ticker-item">Gamma</span><span class="ticker-dot">·</span>
+      <span class="ticker-item">Make.com</span><span class="ticker-dot">·</span>
+      <span class="ticker-item">CapCut AI</span><span class="ticker-dot">·</span>
+      <span class="ticker-item">ChatGPT</span><span class="ticker-dot">·</span>
+      <span class="ticker-item">Claude</span><span class="ticker-dot">·</span>
+      <span class="ticker-item">Gemini</span><span class="ticker-dot">·</span>
+      <span class="ticker-item">Leonardo AI</span><span class="ticker-dot">·</span>
+      <span class="ticker-item">ElevenLabs</span><span class="ticker-dot">·</span>
+      <span class="ticker-item">Canva AI</span><span class="ticker-dot">·</span>
+      <span class="ticker-item">Suno</span><span class="ticker-dot">·</span>
+      <span class="ticker-item">Pika</span><span class="ticker-dot">·</span>
+      <span class="ticker-item">Perplexity</span><span class="ticker-dot">·</span>
+      <span class="ticker-item">NotebookLM</span><span class="ticker-dot">·</span>
+      <span class="ticker-item">Gamma</span><span class="ticker-dot">·</span>
+      <span class="ticker-item">Make.com</span><span class="ticker-dot">·</span>
+      <span class="ticker-item">CapCut AI</span><span class="ticker-dot">·</span>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+  <div class="section-header">
+    <div>
+      <span class="section-eyebrow">Why vAIble</span>
+      <h2 class="section-title">Made for real people,<br>not tech experts.</h2>
+    </div>
+    <p class="section-sub">Everything is designed to feel easy, useful, and actually relevant — right from Beacon 1. No jargon, no pressure, no prior knowledge needed.</p>
+  </div>
+
+  <div class="feature-grid">
+    <div class="feature-item">
+      <span class="feat-icon">🎯</span>
+      <p class="feat-title">No jargon</p>
+      <p class="feat-desc">Clear, friendly language throughout. If it's confusing, we explain it.</p>
+    </div>
+    <div class="feature-item">
+      <span class="feat-icon">⏱️</span>
+      <p class="feat-title">Your pace</p>
+      <p class="feat-desc">No deadlines, no pressure. Come back whenever you feel like it.</p>
+    </div>
+    <div class="feature-item">
+      <span class="feat-icon">💸</span>
+      <p class="feat-title">100% free</p>
+      <p class="feat-desc">Every Beacon is free. Every tool has a free tier. No credit card, ever.</p>
+    </div>
+    <div class="feature-item">
+      <span class="feat-icon">🛠️</span>
+      <p class="feat-title">Hands-on</p>
+      <p class="feat-desc">Each Beacon includes a ready-made prompt to try immediately.</p>
+    </div>
+    <div class="feature-item">
+      <span class="feat-icon">🌍</span>
+      <p class="feat-title">Real life use cases</p>
+      <p class="feat-desc">Emails, photos, music, planning — AI for actual everyday moments.</p>
+    </div>
+    <div class="feature-item">
+      <span class="feat-icon">🔦</span>
+      <p class="feat-title">30 Beacons</p>
+      <p class="feat-desc">That's our word for lessons. Self-contained, bite-sized, always ready.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BEACONS -->
+<section class="beacons" id="beacons">
+  <div class="beacons-inner">
+    <div class="section-header">
+      <div>
+        <span class="section-eyebrow">The journey</span>
+        <h2 class="section-title" style="color:white">30 Beacons.<br>One big adventure.</h2>
+      </div>
+      <p class="section-sub">Six thematic blocks take you from your very first AI conversation to building your own mini-project. We call each lesson a Beacon — 30 in total.</p>
+    </div>
+
+    <div class="blocks-grid">
+      <div class="block-item">
+        <span class="block-icon">🌊</span>
+        <p class="block-title">Introduction</p>
+        <p class="block-desc">Meet AI for the first time. Pick your favourite tool. No fear, just curiosity.</p>
+        <span class="block-range">Beacons 1 – 3</span>
+      </div>
+      <div class="block-item">
+        <span class="block-icon">✍️</span>
+        <p class="block-title">Text & Communication</p>
+        <p class="block-desc">Write better emails, translate anything, summarize long documents in seconds.</p>
+        <span class="block-range">Beacons 4 – 9</span>
+      </div>
+      <div class="block-item">
+        <span class="block-icon">🎨</span>
+        <p class="block-title">Image Creation & Design</p>
+        <p class="block-desc">Generate images, create posters, edit photos — no design skills needed.</p>
+        <span class="block-range">Beacons 10 – 14</span>
+      </div>
+      <div class="block-item">
+        <span class="block-icon">🎬</span>
+        <p class="block-title">Video & Audio</p>
+        <p class="block-desc">Clone your voice, generate music, add captions, create short videos.</p>
+        <span class="block-range">Beacons 15 – 19</span>
+      </div>
+      <div class="block-item">
+        <span class="block-icon">⚡</span>
+        <p class="block-title">Everyday Productivity</p>
+        <p class="block-desc">Plan your week, tame your spreadsheets, never forget a meeting again.</p>
+        <span class="block-range">Beacons 20 – 24</span>
+      </div>
+      <div class="block-item">
+        <span class="block-icon">🚀</span>
+        <p class="block-title">Advanced Tools</p>
+        <p class="block-desc">Automate tasks, build mini apps without code, create your own AI assistant.</p>
+        <span class="block-range">Beacons 25 – 29</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section class="tools" id="tools">
+  <div class="section-header">
+    <div>
+      <span class="section-eyebrow">The tools</span>
+      <h2 class="section-title">Three tools.<br>Endless possibilities.</h2>
+    </div>
+    <p class="section-sub">The whole course is built around three free AI tools. You'll get to know each one and decide which feels right for you.</p>
+  </div>
+
+  <div class="tools-grid">
+    <div class="tool-item">
+      <p class="tool-name">ChatGPT</p>
+      <p class="tool-desc">The world's most popular AI assistant. Great for writing, brainstorming, and everyday tasks.</p>
+      <a href="https://chatgpt.com" target="_blank" class="tool-url">chatgpt.com →</a>
+    </div>
+    <div class="tool-item">
+      <p class="tool-name">Claude</p>
+      <p class="tool-desc">Thoughtful, clear, and great with longer texts. Perfect for careful, nuanced help.</p>
+      <a href="https://claude.ai" target="_blank" class="tool-url">claude.ai →</a>
+    </div>
+    <div class="tool-item">
+      <p class="tool-name">Gemini</p>
+      <p class="tool-desc">Google's AI. Excellent for research, image understanding, and connecting with Google tools.</p>
+      <a href="https://gemini.google.com" target="_blank" class="tool-url">gemini.google.com →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="start">
+  <div class="cta-bg" aria-hidden="true">vAIble</div>
+  <div class="cta-inner">
+    <div>
+      <h2 class="cta-title">Ready to<br>begin?</h2>
+      <p class="cta-sub">No sign-up required. Just open Beacon 1 and start exploring. It's free — and it'll stay that way.</p>
+    </div>
+    <a href="prerequisites.html" class="btn-cta">Go to Beacon 1 →</a>
+  </div>
+</section>
+
+<!-- COFFEE -->
+<div class="coffee">
+  <h2 class="coffee-title">Enjoy the course?</h2>
+  <p class="coffee-sub">vAIble is completely free — and will stay that way. If it made your day a little easier or sparked some genuine curiosity, you're welcome to buy us a coffee. No pressure at all.</p>
+  <a href="https://ko-fi.com" target="_blank" class="btn-coffee">Buy us a coffee ☕</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-brand">
+    <a href="#" class="foot-logo">v<strong>AI</strong>ble</a>
+  </div>
+  <div class="foot-copy">A free AI literacy course for everyone.</div>
+  <div class="foot-made">Made with prompts. ✦</div>
+</footer>
+
+<script>
+const btn = document.getElementById('themeToggle');
+btn.addEventListener('click', () => {
+  document.body.classList.toggle('dark');
+  btn.textContent = document.body.classList.contains('dark') ? '○ Light' : '☾ Dark';
+});
+</script>
+</body>
+</html>

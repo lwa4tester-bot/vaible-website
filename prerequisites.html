@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>vAIble · Prerequisites — Before You Begin</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --paper:#FAF8F3;--ink:#0E0E0E;--mid:#7A7A7A;--line:#E4E2DC;
+  --accent:#0041CC;--red:#CC3300;--off:#F4F3EF;
+  --green:#006633;--amber:#996600;
+}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:'Instrument Sans',sans-serif;overflow-x:hidden}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(to right,rgba(0,0,0,0.022) 1px,transparent 1px);background-size:80px 100%}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:stretch;height:52px;background:var(--paper);border-bottom:1px solid var(--line)}
+.nav-brand{display:flex;align-items:center;padding:0 2rem;border-right:1px solid var(--line)}
+.nav-logo{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:1.35rem;color:var(--ink);text-decoration:none}
+.nav-logo strong{font-style:normal;color:var(--accent)}
+.nav-actions{display:flex;align-items:center;padding:0 1.5rem;gap:1.5rem;margin-left:auto}
+.nav-back{font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--mid);text-decoration:none;transition:color 0.2s}
+.nav-back:hover{color:var(--ink)}
+.theme-btn{background:none;border:none;cursor:pointer;font-family:'Instrument Sans',sans-serif;font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--mid)}
+
+/* LAYOUT */
+.page{max-width:960px;margin:0 auto;padding:6rem 3rem 6rem;position:relative;z-index:1}
+
+/* HEADER */
+.page-header{
+  display:grid;grid-template-columns:1fr auto;gap:3rem;align-items:end;
+  padding-bottom:3rem;margin-bottom:3rem;border-bottom:1px solid var(--line);
+}
+.header-tag{font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:1rem;display:block}
+.page-title{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:clamp(3rem,5vw,5rem);line-height:0.95;letter-spacing:-2px}
+.page-sub{font-size:0.92rem;line-height:1.8;color:var(--mid);max-width:360px;align-self:end}
+
+/* SECTION */
+.section{
+  display:grid;grid-template-columns:180px 1fr;gap:3rem;
+  border-top:1px solid var(--line);padding:2.5rem 0;
+  opacity:0;transform:translateY(14px);
+  transition:opacity 0.55s ease,transform 0.55s ease;
+}
+.section.visible{opacity:1;transform:translateY(0)}
+.sec-left{padding-top:0.2rem}
+.sec-icon{font-size:1.3rem;margin-bottom:0.5rem;display:block}
+.sec-label{font-size:0.65rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--mid);line-height:1.5}
+.sec-right h2{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:1.5rem;letter-spacing:-0.5px;margin-bottom:1rem;color:var(--ink);line-height:1.2}
+.sec-right p{font-size:0.92rem;line-height:1.85;color:#444;margin-bottom:0.8rem}
+.sec-right p:last-child{margin-bottom:0}
+.sec-right em{color:var(--accent);font-style:italic}
+.sec-right strong{color:var(--ink);font-weight:600}
+
+/* GMAIL STEPS */
+.steps{list-style:none;margin:1rem 0;counter-reset:steps}
+.step{
+  counter-increment:steps;
+  display:grid;grid-template-columns:32px 1fr;gap:1rem;
+  padding:0.8rem 0;border-bottom:1px solid var(--line);
+  font-size:0.88rem;line-height:1.7;color:#444;
+}
+.step:last-child{border-bottom:none}
+.step::before{
+  content:counter(steps);
+  font-family:'Playfair Display',serif;font-style:italic;font-weight:700;
+  font-size:1rem;color:var(--accent);padding-top:0.1rem;
+}
+
+/* FREE TIER TABLE */
+.tier-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1px;background:var(--line);border:1px solid var(--line);
+  margin:1.2rem 0;
+}
+.tier-card{background:var(--paper);padding:1.8rem 1.5rem}
+.tier-name{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:1.2rem;margin-bottom:0.3rem}
+.tier-model{font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--mid);margin-bottom:1.2rem;padding-bottom:0.8rem;border-bottom:1px solid var(--line)}
+.tier-rows{}
+.tier-row{display:flex;justify-content:space-between;align-items:baseline;padding:0.45rem 0;border-bottom:1px solid var(--line);gap:1rem}
+.tier-row:last-child{border-bottom:none}
+.tier-key{font-size:0.78rem;color:var(--mid);flex-shrink:0}
+.tier-val{font-size:0.78rem;font-weight:600;color:var(--ink);text-align:right}
+.tier-val.good{color:var(--green)}
+.tier-val.warn{color:var(--amber)}
+
+/* VERDICT ROW */
+.verdict-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:1.2rem 0}
+.verdict-item{background:var(--off);padding:1.5rem;text-align:center}
+.verdict-icon{font-size:1.5rem;margin-bottom:0.5rem;display:block}
+.verdict-name{font-weight:600;font-size:0.85rem;margin-bottom:0.3rem}
+.verdict-text{font-size:0.78rem;color:var(--mid);line-height:1.6}
+
+/* WARNING BOX */
+.warning-box{
+  border:1px solid var(--line);border-left:3px solid var(--amber);
+  background:var(--off);padding:1.2rem 1.5rem;margin:1.2rem 0;
+  font-size:0.88rem;line-height:1.75;color:#555;
+}
+.warning-box strong{color:var(--ink)}
+
+/* UPDATE NOTE */
+.update-note{
+  border:1px solid var(--line);padding:1.2rem 1.5rem;
+  background:var(--off);margin:1.2rem 0;
+  display:flex;align-items:flex-start;gap:1rem;
+  font-size:0.82rem;line-height:1.7;color:var(--mid);
+}
+.update-icon{font-size:1.1rem;flex-shrink:0;margin-top:0.1rem}
+
+/* NEXT LINK */
+.next-section{
+  border-top:1px solid var(--line);padding-top:2.5rem;margin-top:1rem;
+  display:flex;justify-content:flex-end;
+  opacity:0;transform:translateY(14px);transition:opacity 0.55s,transform 0.55s;
+}
+.next-section.visible{opacity:1;transform:translateY(0)}
+.btn-next{
+  background:var(--ink);color:var(--paper);
+  font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;
+  padding:0.8rem 2rem;text-decoration:none;transition:background 0.2s;
+}
+.btn-next:hover{background:var(--accent)}
+
+.closing{text-align:center;font-family:'Playfair Display',serif;font-style:italic;color:var(--mid);font-size:0.9rem;margin-top:2.5rem}
+
+/* DARK */
+body.dark{--paper:#0D0D0D;--off:#131312;--ink:#F0EFE9;--line:#222220;--mid:#666660;--accent:#4D8AFF;background:var(--paper);color:var(--ink)}
+body.dark nav{background:#0D0D0D}
+body.dark .tier-card{background:#0D0D0D}
+body.dark .verdict-item{background:#131312}
+body.dark .warning-box,.dark .update-note{background:#131312}
+body.dark .sec-right p{color:#aaa}
+body.dark .step{color:#aaa}
+body.dark body::after{background-image:linear-gradient(to right,rgba(255,255,255,0.015) 1px,transparent 1px)}
+
+/* RESPONSIVE */
+@media(max-width:860px){
+  .section{grid-template-columns:1fr;gap:1rem}
+  .sec-left{display:flex;align-items:center;gap:0.8rem}
+  .sec-icon{margin-bottom:0;font-size:1.1rem}
+  .page-header{grid-template-columns:1fr}
+  .tier-grid,.verdict-grid{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  nav{flex-wrap:wrap;height:auto}
+  .nav-brand{padding:0.7rem 1.2rem}
+  .nav-actions{padding:0.7rem 1.2rem}
+  .page{padding:6rem 1.2rem 4rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">
+    <a href="index.html" class="nav-logo">v<strong>AI</strong>ble</a>
+  </div>
+  <div class="nav-actions">
+    <a href="index.html" class="nav-back">← Course Home</a>
+    <button class="theme-btn" id="themeToggle">☾ Dark</button>
+  </div>
+</nav>
+
+<div class="page">
+
+  <div class="page-header">
+    <div>
+      <span class="header-tag">✅ Prerequisites</span>
+      <h1 class="page-title">Before you<br>begin.</h1>
+    </div>
+    <p class="page-sub">Two things to sort before Beacon 1 — a Gmail account and a quick look at what's free. Five minutes, and you're ready.</p>
+  </div>
+
+  <!-- GMAIL -->
+  <div class="section">
+    <div class="sec-left">
+      <span class="sec-icon">📧</span>
+      <span class="sec-label">Step one</span>
+    </div>
+    <div class="sec-right">
+      <h2>You'll need a Gmail account</h2>
+      <p>All three tools in this course — ChatGPT, Claude, and Gemini — can be accessed with a free Google account. If you already have Gmail, you're all set.</p>
+      <p>If not, here's how to create one:</p>
+      <ol class="steps">
+        <li>Go to <strong>accounts.google.com/signup</strong></li>
+        <li>Enter your name and choose a Gmail address</li>
+        <li>Create a password and complete the short verification</li>
+        <li>That's it — your Google account is ready</li>
+      </ol>
+      <div class="warning-box">
+        <strong>💡 Two-factor authentication:</strong> Google may ask you to add a phone number for security during setup. This is optional but recommended — it protects your account and makes recovery easier.
+      </div>
+    </div>
+  </div>
+
+  <!-- FREE TIER -->
+  <div class="section">
+    <div class="sec-left">
+      <span class="sec-icon">💸</span>
+      <span class="sec-label">Step two</span>
+    </div>
+    <div class="sec-right">
+      <h2>Yes, they're genuinely free</h2>
+      <p>All three tools have a free tier that's more than enough for this course. Here's exactly what you get — and where the limits are.</p>
+
+      <div class="tier-grid">
+        <div class="tier-card">
+          <p class="tier-name">ChatGPT</p>
+          <p class="tier-model">GPT-5 family · Free tier</p>
+          <div class="tier-rows">
+            <div class="tier-row"><span class="tier-key">Model</span><span class="tier-val good">GPT-5 (limited)</span></div>
+            <div class="tier-row"><span class="tier-key">Message limit</span><span class="tier-val warn">Rolling 5-hr window</span></div>
+            <div class="tier-row"><span class="tier-key">Web search</span><span class="tier-val good">✓ Included</span></div>
+            <div class="tier-row"><span class="tier-key">File uploads</span><span class="tier-val good">✓ Included</span></div>
+            <div class="tier-row"><span class="tier-key">Image generation</span><span class="tier-val good">✓ Limited</span></div>
+            <div class="tier-row"><span class="tier-key">Custom GPTs</span><span class="tier-val warn">Paid only</span></div>
+          </div>
+        </div>
+
+        <div class="tier-card">
+          <p class="tier-name">Claude</p>
+          <p class="tier-model">Claude Sonnet · Free tier</p>
+          <div class="tier-rows">
+            <div class="tier-row"><span class="tier-key">Model</span><span class="tier-val good">Sonnet (mid-tier)</span></div>
+            <div class="tier-row"><span class="tier-key">Message limit</span><span class="tier-val warn">~15–40 / 5 hrs</span></div>
+            <div class="tier-row"><span class="tier-key">Context window</span><span class="tier-val good">200K tokens</span></div>
+            <div class="tier-row"><span class="tier-key">File uploads</span><span class="tier-val good">✓ 20 files/chat</span></div>
+            <div class="tier-row"><span class="tier-key">Web search</span><span class="tier-val good">✓ Included</span></div>
+            <div class="tier-row"><span class="tier-key">Opus model</span><span class="tier-val warn">Paid only</span></div>
+          </div>
+        </div>
+
+        <div class="tier-card">
+          <p class="tier-name">Gemini</p>
+          <p class="tier-model">Gemini 2.5 Flash · Free tier</p>
+          <div class="tier-rows">
+            <div class="tier-row"><span class="tier-key">Model</span><span class="tier-val good">2.5 Flash</span></div>
+            <div class="tier-row"><span class="tier-key">Message limit</span><span class="tier-val good">Generous for most</span></div>
+            <div class="tier-row"><span class="tier-key">Context window</span><span class="tier-val good">1M tokens</span></div>
+            <div class="tier-row"><span class="tier-key">Image generation</span><span class="tier-val good">✓ ~100/day</span></div>
+            <div class="tier-row"><span class="tier-key">Google Workspace</span><span class="tier-val good">✓ Included</span></div>
+            <div class="tier-row"><span class="tier-key">Pro models</span><span class="tier-val warn">Paid only</span></div>
+          </div>
+        </div>
+      </div>
+
+      <p>For everyday use — writing, research, translation, image creation, planning — all three free tiers are more than enough. You won't need to pay anything to complete this course.</p>
+
+      <div class="warning-box">
+        <strong>⚠️ Heads up:</strong> None of the three tools publish exact message limits — they're managed dynamically. If you hit a limit, the tool will let you know and suggest waiting a short time. It happens rarely during normal use.
+      </div>
+
+      <div class="update-note">
+        <span class="update-icon">🔄</span>
+        <span>Free tier details change from time to time. If something looks different from what's described here, that's normal — just ask the tool directly: <em>"What can I do for free on this plan?"</em></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- VERDICT -->
+  <div class="section">
+    <div class="sec-left">
+      <span class="sec-icon">🎯</span>
+      <span class="sec-label">The verdict</span>
+    </div>
+    <div class="sec-right">
+      <h2>Which one should you start with?</h2>
+      <p>All three are excellent. There's no wrong choice. But here's a quick feel for each — pick whichever sounds most like you.</p>
+
+      <div class="verdict-grid">
+        <div class="verdict-item">
+          <span class="verdict-icon">🟢</span>
+          <p class="verdict-name">ChatGPT</p>
+          <p class="verdict-text">If you want the most widely used tool with the broadest feature set.</p>
+        </div>
+        <div class="verdict-item">
+          <span class="verdict-icon">🟠</span>
+          <p class="verdict-name">Claude</p>
+          <p class="verdict-text">If you prefer careful, thoughtful answers and love working with long documents.</p>
+        </div>
+        <div class="verdict-item">
+          <span class="verdict-icon">🔵</span>
+          <p class="verdict-name">Gemini</p>
+          <p class="verdict-text">If you already use Google tools and want the smoothest integration.</p>
+        </div>
+      </div>
+
+      <p>You'll get to know all three during the course — so there's no pressure to commit now. Try one today, and switch whenever you feel like it.</p>
+    </div>
+  </div>
+
+  <!-- NEXT -->
+  <div class="next-section">
+    <a href="beacon1.html" class="btn-next">You're ready — go to Beacon 1 →</a>
+  </div>
+
+  <p class="closing">No rush. Come back whenever you're ready. 🙂</p>
+
+</div>
+
+<script>
+const btn = document.getElementById('themeToggle');
+btn.addEventListener('click', () => {
+  document.body.classList.toggle('dark');
+  btn.textContent = document.body.classList.contains('dark') ? '○ Light' : '☾ Dark';
+});
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.07 });
+document.querySelectorAll('.section, .next-section').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
