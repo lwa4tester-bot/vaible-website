@@ -81,7 +81,7 @@ body.dark .beacon-nav{border-color:#222220}
 body.dark body::after{background-image:linear-gradient(to right,rgba(255,255,255,0.015) 1px,transparent 1px)}
 @media(max-width:860px){.beacon-hero{grid-template-columns:1fr}.hero-bignum{display:none}.section,.complete{grid-template-columns:1fr;gap:1rem}.sec-left{display:flex;align-items:center;gap:0.8rem}.sec-icon{margin-bottom:0;font-size:1.1rem}}
 @media(max-width:640px){nav{flex-wrap:wrap;height:auto}.nav-brand{padding:0.7rem 1.2rem}.nav-crumb{display:none}.nav-actions{padding:0.7rem 1.2rem}.prog-bar{flex-wrap:wrap;height:auto}.prog-label,.prog-pct{padding:0.35rem 1rem}.prog-track-wrap{padding:0.35rem 1rem;border-right:none}.page{padding:7rem 1.2rem 4rem}}
-.beacon-nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 0;border-top:2px solid var(--line);margin-top:1rem}
+.beacon-nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 0;border-top:2px dashed var(--line);margin-top:1rem}
 .bn-prev{display:flex;align-items:center;gap:0.6rem;padding:0.6rem 1.2rem;border:2px solid var(--line);border-radius:999px;text-decoration:none;font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--mid);font-weight:600;transition:all 0.2s}
 .bn-prev:hover{border-color:var(--ink);color:var(--ink)}
 .bn-prev.disabled{opacity:0.3;pointer-events:none}
@@ -113,7 +113,7 @@ body.dark body::after{background-image:linear-gradient(to right,rgba(255,255,255
     </div>
     <div class="hero-bignum" aria-hidden="true">27</div>
   </div>
-  <div class="callout" data-light-bg="#F1EFE8" style="background:#F1EFE8" data-dark-bg="#444441">
+  <div class="callout" data-light-bg="#F1EFE8" style="background:#F1EFE8;border:2px solid #B8B4A8" data-dark-bg="#444441">
   <div class="callout-title" data-light-color="#2C2C2A" style="color:#2C2C2A" data-dark-color="#D3D1C7">🎯 What you'll learn</div>
   <div class="callout-body" data-light-color="#444441" style="color:#444441" data-dark-color="#B4B2A9"><ul style="padding-left:1.2rem;margin:0.5rem 0">
 <li style="margin-bottom:0.4rem;color:#444">What an AI agent actually is — and why it's different from a regular chat</li>
@@ -122,7 +122,7 @@ body.dark body::after{background-image:linear-gradient(to right,rgba(255,255,255
 <li style="margin-bottom:0.4rem;color:#444">Why this feels like a big leap — and why it's more approachable than it sounds</li>
 </ul></div>
 </div>
-<div class="callout" data-light-bg="#E1F5EE" style="background:#E1F5EE" data-dark-bg="#085041">
+<div class="callout" data-light-bg="#E1F5EE" style="background:#E1F5EE;border:2px solid #3DB88A" data-dark-bg="#085041">
   <div class="callout-title" data-light-color="#085041" style="color:#085041" data-dark-color="#9FE1CB">🛠️ Meet the tool</div>
   <div class="callout-body" data-light-color="#0F6E56" style="color:#0F6E56" data-dark-color="#5DCAA5"><p>You've been talking <em>to</em> AI so far.</p>
 <p>An agent is AI that works <em>for</em> you.</p>
@@ -130,7 +130,7 @@ body.dark body::after{background-image:linear-gradient(to right,rgba(255,255,255
 <p>Think of it like this: instead of asking "how do I plan a trip to Lisbon?" and then manually following every step yourself — an agent could research options, build an itinerary, draft a packing list, and write a summary. All from one instruction.</p>
 <p>You don't need special software for this. Claude and ChatGPT can both act as basic agents — today, on the free plan.</p></div>
 </div>
-<div class="callout" data-light-bg="#E6F1FB" style="background:#E6F1FB" data-dark-bg="#0C447C">
+<div class="callout" data-light-bg="#E6F1FB" style="background:#E6F1FB;border:2px solid #6BAEE8" data-dark-bg="#0C447C">
   <div class="callout-title" data-light-color="#0C447C" style="color:#0C447C" data-dark-color="#B5D4F4">🧭 **One goal, many steps**</div>
   <div class="callout-body" data-light-color="#185FA5" style="color:#185FA5" data-dark-color="#85B7EB"><p>Here's what makes an agent different:</p>
 <p><strong>Normal AI chat:</strong></p>
@@ -140,7 +140,7 @@ body.dark body::after{background-image:linear-gradient(to right,rgba(255,255,255
 <p>You're still in charge. The AI just does more of the legwork.</p>
 <p>This is sometimes called <em>agentic behaviour</em> — and it's already built into Claude and ChatGPT. You just need to know how to trigger it.</p></div>
 </div>
-<div class="callout" data-light-bg="#E6F1FB" style="background:#E6F1FB" data-dark-bg="#0C447C">
+<div class="callout" data-light-bg="#E6F1FB" style="background:#E6F1FB;border:2px solid #6BAEE8" data-dark-bg="#0C447C">
   <div class="callout-title" data-light-color="#0C447C" style="color:#0C447C" data-dark-color="#B5D4F4">💬 **How to trigger agent mode**</div>
   <div class="callout-body" data-light-color="#185FA5" style="color:#185FA5" data-dark-color="#85B7EB"><p>You don't need to press a special button. The trick is how you phrase your request.</p>
 <p><strong>Instead of asking one narrow question</strong>, give the AI a broader goal with context — and ask it to think through the steps itself.</p>
@@ -149,7 +149,7 @@ body.dark body::after{background-image:linear-gradient(to right,rgba(255,255,255
 <p>That's it. The AI will plan its own approach, execute it step by step, and show you the work.</p>
 <p>Some tools — like Claude's Projects feature or ChatGPT's memory settings — let you build on this over time. But even in a single conversation, you can experience what agent-style AI feels like.</p></div>
 </div>
-<div class="callout" data-light-bg="#FAEEDA" style="background:#FAEEDA" data-dark-bg="#633806">
+<div class="callout" data-light-bg="#FAEEDA" style="background:#FAEEDA;border:2px solid #E8A020" data-dark-bg="#633806">
   <div class="callout-title" data-light-color="#633806" style="color:#633806" data-dark-color="#FAC775">🧪 Try it now</div>
   <div class="callout-body" data-light-color="#854F0B" style="color:#854F0B" data-dark-color="#EF9F27"><p><em>Screens and menus may look slightly different — that's normal. Just explore and you'll find your way. 😊</em></p>
 <p>You're going to give Claude and ChatGPT the same agent-style goal — and see how each one approaches it.</p>
@@ -173,14 +173,14 @@ body.dark body::after{background-image:linear-gradient(to right,rgba(255,255,255
 <li style="margin-bottom:0.4rem;color:#444">Create a learning path for a hobby you've always wanted to try</li>
 </ul></div>
 </div>
-<div class="callout" data-light-bg="#FAECE7" style="background:#FAECE7" data-dark-bg="#4A1B0C">
+<div class="callout" data-light-bg="#FAECE7" style="background:#FAECE7;border:2px solid #E8724A" data-dark-bg="#4A1B0C">
   <div class="callout-title" data-light-color="#4A1B0C" style="color:#4A1B0C" data-dark-color="#F5C4B3">👀 What to notice</div>
   <div class="callout-body" data-light-color="#712B13" style="color:#712B13" data-dark-color="#F0997B"><p>Look at how each AI <em>organised</em> its response — not just what it said.</p>
 <p>Did it create sections? Label them by week? Include resources without you asking for specific ones?</p>
 <p>Notice that you gave one goal — and the AI built a structure around it. That's the "oh" moment here: <strong>you didn't manage the steps. The AI did.</strong></p>
 <p>That's what makes this different from a regular question.</p></div>
 </div>
-<div class="callout" data-light-bg="#EEEDFE" style="background:#EEEDFE" data-dark-bg="#26215C">
+<div class="callout" data-light-bg="#EEEDFE" style="background:#EEEDFE;border:2px solid #8880E8" data-dark-bg="#26215C">
   <div class="callout-title" data-light-color="#26215C" style="color:#26215C" data-dark-color="#CECBF6">💡 Good to know</div>
   <div class="callout-body" data-light-color="#3C3489" style="color:#3C3489" data-dark-color="#AFA9EC"><p><strong>"Agent" is a spectrum, not a switch.</strong></p>
 <p>The simple version you tried here is just a well-prompted conversation. More advanced agents — like the kind used in tools such as Make.com (Beacon 25) — can take actions, use external data, and run on their own. But the thinking is the same: one goal, multiple steps, AI handles the flow.</p>
@@ -189,7 +189,7 @@ body.dark body::after{background-image:linear-gradient(to right,rgba(255,255,255
 <p><strong>You're still the boss.</strong></p>
 <p>Agents don't replace your judgment. They handle the legwork so you can focus on the decisions that matter.</p></div>
 </div>
-<div class="callout" data-light-bg="#EAF3DE" style="background:#EAF3DE" data-dark-bg="#173404">
+<div class="callout" data-light-bg="#EAF3DE" style="background:#EAF3DE;border:2px solid #7BBF3A" data-dark-bg="#173404">
   <div class="callout-title" data-light-color="#173404" style="color:#173404" data-dark-color="#C0DD97">✅ Beacon complete</div>
   <div class="callout-body" data-light-color="#27500A" style="color:#27500A" data-dark-color="#97C459"><p>You just experienced what it feels like when AI works <em>through</em> a goal — not just <em>at</em> a question.</p>
 <p>That shift in how you give instructions? That's a superpower now.</p>

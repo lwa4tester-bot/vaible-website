@@ -81,7 +81,7 @@ body.dark .beacon-nav{border-color:#222220}
 body.dark body::after{background-image:linear-gradient(to right,rgba(255,255,255,0.015) 1px,transparent 1px)}
 @media(max-width:860px){.beacon-hero{grid-template-columns:1fr}.hero-bignum{display:none}.section,.complete{grid-template-columns:1fr;gap:1rem}.sec-left{display:flex;align-items:center;gap:0.8rem}.sec-icon{margin-bottom:0;font-size:1.1rem}}
 @media(max-width:640px){nav{flex-wrap:wrap;height:auto}.nav-brand{padding:0.7rem 1.2rem}.nav-crumb{display:none}.nav-actions{padding:0.7rem 1.2rem}.prog-bar{flex-wrap:wrap;height:auto}.prog-label,.prog-pct{padding:0.35rem 1rem}.prog-track-wrap{padding:0.35rem 1rem;border-right:none}.page{padding:7rem 1.2rem 4rem}}
-.beacon-nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 0;border-top:2px solid var(--line);margin-top:1rem}
+.beacon-nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 0;border-top:2px dashed var(--line);margin-top:1rem}
 .bn-prev{display:flex;align-items:center;gap:0.6rem;padding:0.6rem 1.2rem;border:2px solid var(--line);border-radius:999px;text-decoration:none;font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--mid);font-weight:600;transition:all 0.2s}
 .bn-prev:hover{border-color:var(--ink);color:var(--ink)}
 .bn-prev.disabled{opacity:0.3;pointer-events:none}
@@ -113,14 +113,14 @@ body.dark body::after{background-image:linear-gradient(to right,rgba(255,255,255
     </div>
     <div class="hero-bignum" aria-hidden="true">26</div>
   </div>
-  <div class="callout" data-light-bg="#F1EFE8" style="background:#F1EFE8" data-dark-bg="#444441">
+  <div class="callout" data-light-bg="#F1EFE8" style="background:#F1EFE8;border:2px solid #B8B4A8" data-dark-bg="#444441">
   <div class="callout-title" data-light-color="#2C2C2A" style="color:#2C2C2A" data-dark-color="#D3D1C7">🎯 What you'll learn</div>
   <div class="callout-body" data-light-color="#444441" style="color:#444441" data-dark-color="#B4B2A9"><p>In this Beacon, you'll build a real, working mini app — using nothing but words.</p>
 <p>No code. No technical skills. Just a clear idea and a prompt.</p>
 <p>You'll use a tool called Lovable, which turns your description into a fully functioning web app — one that you can actually open in a browser and share with anyone.</p>
 <p>This is one of the most surprising things AI can do today. Let's try it.</p></div>
 </div>
-<div class="callout" data-light-bg="#E1F5EE" style="background:#E1F5EE" data-dark-bg="#085041">
+<div class="callout" data-light-bg="#E1F5EE" style="background:#E1F5EE;border:2px solid #3DB88A" data-dark-bg="#085041">
   <div class="callout-title" data-light-color="#085041" style="color:#085041" data-dark-color="#9FE1CB">🛠️ Meet the tool</div>
   <div class="callout-body" data-light-color="#0F6E56" style="color:#0F6E56" data-dark-color="#5DCAA5"><p><strong>Lovable</strong> is an AI-powered app builder. You describe what you want, and it writes all the code for you — then instantly publishes your app online.</p>
 <p>You don't need to know anything about programming. You just chat with it, like you would with Claude or ChatGPT.</p>
@@ -134,7 +134,7 @@ body.dark body::after{background-image:linear-gradient(to right,rgba(255,255,255
 <li style="margin-bottom:0.4rem;color:#444">That's more than enough for this Beacon</li>
 </ul></div>
 </div>
-<div class="callout" data-light-bg="#FAEEDA" style="background:#FAEEDA" data-dark-bg="#633806">
+<div class="callout" data-light-bg="#FAEEDA" style="background:#FAEEDA;border:2px solid #E8A020" data-dark-bg="#633806">
   <div class="callout-title" data-light-color="#633806" style="color:#633806" data-dark-color="#FAC775">🧪 Try it now</div>
   <div class="callout-body" data-light-color="#854F0B" style="color:#854F0B" data-dark-color="#EF9F27"><p><em>Screens and menus may look slightly different — that's normal. Just explore and you'll find your way. 😊</em></p>
 <p>You're going to build a simple <strong>daily habit tracker</strong> — an app where you can tick off small habits each day, like drinking water, going for a walk, or reading for 10 minutes.</p>
@@ -161,13 +161,13 @@ body.dark body::after{background-image:linear-gradient(to right,rgba(255,255,255
 <p style="font-style:italic;border-left:3px solid var(--accent);padding-left:1rem;margin:0.8rem 0;color:#555"><em>Add a fourth habit: "No phone before breakfast."</em></p>
 <p>Lovable will update the app instantly.</p></div>
 </div>
-<div class="callout" data-light-bg="#FAECE7" style="background:#FAECE7" data-dark-bg="#4A1B0C">
+<div class="callout" data-light-bg="#FAECE7" style="background:#FAECE7;border:2px solid #E8724A" data-dark-bg="#4A1B0C">
   <div class="callout-title" data-light-color="#4A1B0C" style="color:#4A1B0C" data-dark-color="#F5C4B3">👀 What to notice</div>
   <div class="callout-body" data-light-color="#712B13" style="color:#712B13" data-dark-color="#F0997B"><p>Look at the app running in the preview panel — or open it in a browser tab.</p>
 <p>Notice that the checkboxes actually work. When you tick a habit, the counter updates. This isn't just a picture of an app — it's a real, interactive web app, built entirely from your description.</p>
 <p>The bigger insight: <strong>you just built software by writing a sentence.</strong> That's what "no-code AI" means — and it changes what's possible for anyone, regardless of technical background.</p></div>
 </div>
-<div class="callout" data-light-bg="#EEEDFE" style="background:#EEEDFE" data-dark-bg="#26215C">
+<div class="callout" data-light-bg="#EEEDFE" style="background:#EEEDFE;border:2px solid #8880E8" data-dark-bg="#26215C">
   <div class="callout-title" data-light-color="#26215C" style="color:#26215C" data-dark-color="#CECBF6">💡 Good to know</div>
   <div class="callout-body" data-light-color="#3C3489" style="color:#3C3489" data-dark-color="#AFA9EC"><p><strong>About the free plan credits:</strong></p>
 <p>Each message you send uses roughly one credit. You have 5 per day — so plan your prompts thoughtfully. One well-written prompt is usually better than five quick ones.</p>
@@ -187,7 +187,7 @@ body.dark body::after{background-image:linear-gradient(to right,rgba(255,255,255
 </ul>
 <p>Each one is just a prompt away.</p></div>
 </div>
-<div class="callout" data-light-bg="#EAF3DE" style="background:#EAF3DE" data-dark-bg="#173404">
+<div class="callout" data-light-bg="#EAF3DE" style="background:#EAF3DE;border:2px solid #7BBF3A" data-dark-bg="#173404">
   <div class="callout-title" data-light-color="#173404" style="color:#173404" data-dark-color="#C0DD97">✅ Beacon complete</div>
   <div class="callout-body" data-light-color="#27500A" style="color:#27500A" data-dark-color="#97C459"><p>You just built and published a real web app — without writing a single line of code.</p>
 <p>That's not a small thing. Not long ago, this would have taken a developer days to create. You did it in minutes, with a sentence.</p>

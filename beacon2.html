@@ -85,7 +85,7 @@ body.dark .beacon-nav{border-color:#222220}
 body.dark body::after{background-image:linear-gradient(to right,rgba(255,255,255,0.015) 1px,transparent 1px)}
 @media(max-width:860px){.beacon-hero{grid-template-columns:1fr}.hero-bignum{display:none}.section,.complete{grid-template-columns:1fr;gap:1rem}.sec-left{display:flex;align-items:center;gap:0.8rem}.sec-icon{margin-bottom:0;font-size:1.1rem}.compare-grid{grid-template-columns:1fr}}
 @media(max-width:640px){nav{flex-wrap:wrap;height:auto}.nav-brand{padding:0.7rem 1.2rem}.nav-crumb{display:none}.nav-actions{padding:0.7rem 1.2rem}.prog-bar{flex-wrap:wrap;height:auto}.prog-label,.prog-pct{padding:0.35rem 1rem}.prog-track-wrap{padding:0.35rem 1rem;border-right:none}.page{padding:7rem 1.2rem 4rem}}
-.beacon-nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 0;border-top:2px solid var(--line);margin-top:1rem}
+.beacon-nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 0;border-top:2px dashed var(--line);margin-top:1rem}
 .bn-prev{display:flex;align-items:center;gap:0.6rem;padding:0.6rem 1.2rem;border:2px solid var(--line);border-radius:999px;text-decoration:none;font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--mid);font-weight:600;transition:all 0.2s}
 .bn-prev:hover{border-color:var(--ink);color:var(--ink)}
 .bn-prev.disabled{opacity:0.3;pointer-events:none}
@@ -119,19 +119,19 @@ body.dark body::after{background-image:linear-gradient(to right,rgba(255,255,255
     <div class="hero-bignum" aria-hidden="true">02</div>
   </div>
 
-  <div class="callout" data-light-bg="#F1EFE8" style="background:#F1EFE8" data-dark-bg="#444441">
+  <div class="callout" data-light-bg="#F1EFE8" style="background:#F1EFE8;border:2px solid #B8B4A8" data-dark-bg="#444441">
   <div class="callout-title" data-light-color="#2C2C2A" style="color:#2C2C2A" data-dark-color="#D3D1C7">🎯 What you'll learn</div>
   <div class="callout-body" data-light-color="#444441" style="color:#444441" data-dark-color="#B4B2A9"><p>By the end of this Beacon, you'll know how to write messages to an AI — and get answers that are actually useful.</p></div>
 </div>
 
-  <div class="callout" data-light-bg="#E6F1FB" style="background:#E6F1FB" data-dark-bg="#0C447C">
+  <div class="callout" data-light-bg="#E6F1FB" style="background:#E6F1FB;border:2px solid #6BAEE8" data-dark-bg="#0C447C">
   <div class="callout-title" data-light-color="#0C447C" style="color:#0C447C" data-dark-color="#B5D4F4">💬 Just a conversation</div>
   <div class="callout-body" data-light-color="#185FA5" style="color:#185FA5" data-dark-color="#85B7EB"><h3>It's just a conversation</h3>
       <p>Talking to an AI is like texting a very knowledgeable friend. You don't need special commands. You don't need to be technical. Just write what you need — in plain English.</p>
       <p>When you type something to an AI, that message is called a <strong>prompt</strong>. The AI reads your prompt and writes back a response. That's it. Prompt → Response.</p></div>
 </div>
 
-  <div class="callout" data-light-bg="#E6F1FB" style="background:#E6F1FB" data-dark-bg="#0C447C">
+  <div class="callout" data-light-bg="#E6F1FB" style="background:#E6F1FB;border:2px solid #6BAEE8" data-dark-bg="#0C447C">
   <div class="callout-title" data-light-color="#0C447C" style="color:#0C447C" data-dark-color="#B5D4F4">🔑 One simple rule</div>
   <div class="callout-body" data-light-color="#185FA5" style="color:#185FA5" data-dark-color="#85B7EB"><h3>Be specific</h3>
       <p>The more specific your prompt, the better the answer.</p>
@@ -148,7 +148,7 @@ body.dark body::after{background-image:linear-gradient(to right,rgba(255,255,255
     </div>
   </div>
 
-  <div class="callout" data-light-bg="#E1F5EE" style="background:#E1F5EE" data-dark-bg="#085041">
+  <div class="callout" data-light-bg="#E1F5EE" style="background:#E1F5EE;border:2px solid #3DB88A" data-dark-bg="#085041">
   <div class="callout-title" data-light-color="#085041" style="color:#085041" data-dark-color="#9FE1CB">🛠️ Three things that help</div>
   <div class="callout-body" data-light-color="#0F6E56" style="color:#0F6E56" data-dark-color="#5DCAA5"><h3>Every great prompt has these</h3>
       <div class="tip-grid">
@@ -168,7 +168,7 @@ body.dark body::after{background-image:linear-gradient(to right,rgba(255,255,255
     </div>
   </div>
 
-  <div class="callout" data-light-bg="#FAEEDA" style="background:#FAEEDA" data-dark-bg="#633806">
+  <div class="callout" data-light-bg="#FAEEDA" style="background:#FAEEDA;border:2px solid #E8A020" data-dark-bg="#633806">
   <div class="callout-title" data-light-color="#633806" style="color:#633806" data-dark-color="#FAC775">🧪 Try it now</div>
   <div class="callout-body" data-light-color="#854F0B" style="color:#854F0B" data-dark-color="#EF9F27"><h3>See the difference yourself</h3>
       <p><em>Screens and menus may look slightly different — that's normal. Just explore and you'll find your way. 😊</em></p>
@@ -187,7 +187,7 @@ body.dark body::after{background-image:linear-gradient(to right,rgba(255,255,255
     </div>
   </div>
 
-  <div class="callout" data-light-bg="#EEEDFE" style="background:#EEEDFE" data-dark-bg="#26215C">
+  <div class="callout" data-light-bg="#EEEDFE" style="background:#EEEDFE;border:2px solid #8880E8" data-dark-bg="#26215C">
   <div class="callout-title" data-light-color="#26215C" style="color:#26215C" data-dark-color="#CECBF6">💡 Good to know</div>
   <div class="callout-body" data-light-color="#3C3489" style="color:#3C3489" data-dark-color="#AFA9EC"><h3>A few things worth knowing</h3>
       <ul>
@@ -198,7 +198,7 @@ body.dark body::after{background-image:linear-gradient(to right,rgba(255,255,255
       </ul></div>
 </div>
 
-  <div class="callout" data-light-bg="#EAF3DE" style="background:#EAF3DE" data-dark-bg="#173404">
+  <div class="callout" data-light-bg="#EAF3DE" style="background:#EAF3DE;border:2px solid #7BBF3A" data-dark-bg="#173404">
   <div class="callout-title" data-light-color="#173404" style="color:#173404" data-dark-color="#C0DD97">✅ Beacon complete</div>
   <div class="callout-body" data-light-color="#27500A" style="color:#27500A" data-dark-color="#97C459"><h3>You know what a prompt is.</h3>
       <p>And more importantly — you know how to write a good one.</p>

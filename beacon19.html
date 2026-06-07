@@ -81,7 +81,7 @@ body.dark .beacon-nav{border-color:#222220}
 body.dark body::after{background-image:linear-gradient(to right,rgba(255,255,255,0.015) 1px,transparent 1px)}
 @media(max-width:860px){.beacon-hero{grid-template-columns:1fr}.hero-bignum{display:none}.section,.complete{grid-template-columns:1fr;gap:1rem}.sec-left{display:flex;align-items:center;gap:0.8rem}.sec-icon{margin-bottom:0;font-size:1.1rem}}
 @media(max-width:640px){nav{flex-wrap:wrap;height:auto}.nav-brand{padding:0.7rem 1.2rem}.nav-crumb{display:none}.nav-actions{padding:0.7rem 1.2rem}.prog-bar{flex-wrap:wrap;height:auto}.prog-label,.prog-pct{padding:0.35rem 1rem}.prog-track-wrap{padding:0.35rem 1rem;border-right:none}.page{padding:7rem 1.2rem 4rem}}
-.beacon-nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 0;border-top:2px solid var(--line);margin-top:1rem}
+.beacon-nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 0;border-top:2px dashed var(--line);margin-top:1rem}
 .bn-prev{display:flex;align-items:center;gap:0.6rem;padding:0.6rem 1.2rem;border:2px solid var(--line);border-radius:999px;text-decoration:none;font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--mid);font-weight:600;transition:all 0.2s}
 .bn-prev:hover{border-color:var(--ink);color:var(--ink)}
 .bn-prev.disabled{opacity:0.3;pointer-events:none}
@@ -113,11 +113,11 @@ body.dark body::after{background-image:linear-gradient(to right,rgba(255,255,255
     </div>
     <div class="hero-bignum" aria-hidden="true">19</div>
   </div>
-  <div class="callout" data-light-bg="#F1EFE8" style="background:#F1EFE8" data-dark-bg="#444441">
+  <div class="callout" data-light-bg="#F1EFE8" style="background:#F1EFE8;border:2px solid #B8B4A8" data-dark-bg="#444441">
   <div class="callout-title" data-light-color="#2C2C2A" style="color:#2C2C2A" data-dark-color="#D3D1C7">🎯 What you'll learn</div>
   <div class="callout-body" data-light-color="#444441" style="color:#444441" data-dark-color="#B4B2A9"><p>By the end of this Beacon, you'll know how to combine two tools you've already used — ElevenLabs and CapCut AI — to create a short, podcast-style audio piece. You'll write a script, turn it into a voice, and polish it into something worth sharing.</p></div>
 </div>
-<div class="callout" data-light-bg="#E6F1FB" style="background:#E6F1FB" data-dark-bg="#0C447C">
+<div class="callout" data-light-bg="#E6F1FB" style="background:#E6F1FB;border:2px solid #6BAEE8" data-dark-bg="#0C447C">
   <div class="callout-title" data-light-color="#0C447C" style="color:#0C447C" data-dark-color="#B5D4F4">🎙 ️ From words to a mini-podcast</div>
   <div class="callout-body" data-light-color="#185FA5" style="color:#185FA5" data-dark-color="#85B7EB"><p>A podcast sounds complicated. But at its core, it's just a voice telling a story.</p>
 <p>You already know how to do the hard part:</p>
@@ -128,7 +128,7 @@ body.dark body::after{background-image:linear-gradient(to right,rgba(255,255,255
 <p>In this Beacon, you'll combine them — write a short script, generate the voice with ElevenLabs, then bring it into CapCut to add a music background and simple polish.</p>
 <p>No microphone. No recording studio. Just a few lines of text and two tools you've already met.</p></div>
 </div>
-<div class="callout" data-light-bg="#E6F1FB" style="background:#E6F1FB" data-dark-bg="#0C447C">
+<div class="callout" data-light-bg="#E6F1FB" style="background:#E6F1FB;border:2px solid #6BAEE8" data-dark-bg="#0C447C">
   <div class="callout-title" data-light-color="#0C447C" style="color:#0C447C" data-dark-color="#B5D4F4">✍ ️ Writing your script</div>
   <div class="callout-body" data-light-color="#185FA5" style="color:#185FA5" data-dark-color="#85B7EB"><p>The script is everything. A good podcast moment doesn't need to be long — it needs to feel like someone is talking <em>to you</em>, not at you.</p>
 <p>Here's a simple format that works every time:</p>
@@ -140,7 +140,7 @@ body.dark body::after{background-image:linear-gradient(to right,rgba(255,255,255
 <p>Aim for around <strong>60–90 words</strong>. That's roughly 30–45 seconds of audio — the perfect length for a first attempt.</p>
 <p>You can write the script yourself, or ask ChatGPT or Claude to help you draft one. Just give it a topic and say: <em>"Write me a short, friendly 60-word podcast script about [your topic]."</em></p></div>
 </div>
-<div class="callout" data-light-bg="#FAEEDA" style="background:#FAEEDA" data-dark-bg="#633806">
+<div class="callout" data-light-bg="#FAEEDA" style="background:#FAEEDA;border:2px solid #E8A020" data-dark-bg="#633806">
   <div class="callout-title" data-light-color="#633806" style="color:#633806" data-dark-color="#FAC775">🧪 Try it now</div>
   <div class="callout-body" data-light-color="#854F0B" style="color:#854F0B" data-dark-color="#EF9F27"><p><em>Screens and menus may look slightly different — that's normal. Just explore and you'll find your way. 😊</em></p>
 <p><strong>Step 1 — Create your voice clip in ElevenLabs</strong></p>
@@ -163,19 +163,19 @@ body.dark body::after{background-image:linear-gradient(to right,rgba(255,255,255
 <li style="margin-bottom:0.4rem;color:#444">One thing that made you smile this week</li>
 </ol></div>
 </div>
-<div class="callout" data-light-bg="#FAECE7" style="background:#FAECE7" data-dark-bg="#4A1B0C">
+<div class="callout" data-light-bg="#FAECE7" style="background:#FAECE7;border:2px solid #E8724A" data-dark-bg="#4A1B0C">
   <div class="callout-title" data-light-color="#4A1B0C" style="color:#4A1B0C" data-dark-color="#F5C4B3">👀 What to notice</div>
   <div class="callout-body" data-light-color="#712B13" style="color:#712B13" data-dark-color="#F0997B"><p>When you play back your finished clip, pay attention to one thing: <strong>does it sound like a real person talking?</strong></p>
 <p>Notice the small pauses between sentences. Notice how the background music changes the whole mood — the same voice feels completely different over calm piano versus an upbeat beat.</p>
 <p>That's the insight: a podcast isn't really about the recording quality. It's about the atmosphere. And you just built that atmosphere entirely in software.</p></div>
 </div>
-<div class="callout" data-light-bg="#EEEDFE" style="background:#EEEDFE" data-dark-bg="#26215C">
+<div class="callout" data-light-bg="#EEEDFE" style="background:#EEEDFE;border:2px solid #8880E8" data-dark-bg="#26215C">
   <div class="callout-title" data-light-color="#26215C" style="color:#26215C" data-dark-color="#CECBF6">💡 Good to know</div>
   <div class="callout-body" data-light-color="#3C3489" style="color:#3C3489" data-dark-color="#AFA9EC"><p><strong>Free plan heads-up:</strong> ElevenLabs gives you a limited number of characters per month on the free tier — your 60–90 word script uses very little of that. CapCut's free plan is fully capable for this project.</p>
 <p><strong>Your voice, your rules:</strong> You can use the AI-generated voice exactly as it is — or treat it as a rough draft. Some people listen back and rewrite the script until the voice sounds just right. That back-and-forth is part of the process.</p>
 <p><strong>Video or no video? Your call.</strong> When you import an audio file into CapCut, the preview will be black — that's normal. You can either upload a photo or image to use as a background, or simply download the project as-is. Both work perfectly. Try it both ways and see what you prefer.</p></div>
 </div>
-<div class="callout" data-light-bg="#EAF3DE" style="background:#EAF3DE" data-dark-bg="#173404">
+<div class="callout" data-light-bg="#EAF3DE" style="background:#EAF3DE;border:2px solid #7BBF3A" data-dark-bg="#173404">
   <div class="callout-title" data-light-color="#173404" style="color:#173404" data-dark-color="#C0DD97">✅ Beacon complete</div>
   <div class="callout-body" data-light-color="#27500A" style="color:#27500A" data-dark-color="#97C459"><p>You just made a podcast. With a script, a voice, a soundtrack — the whole thing.</p>
 <p>You've now completed the full <strong>Video & Audio block</strong>. From voice cloning to music generation to captions to video to podcast — you've covered more ground than most people ever will.</p>

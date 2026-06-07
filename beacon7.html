@@ -81,7 +81,7 @@ body.dark .beacon-nav{border-color:#222220}
 body.dark body::after{background-image:linear-gradient(to right,rgba(255,255,255,0.015) 1px,transparent 1px)}
 @media(max-width:860px){.beacon-hero{grid-template-columns:1fr}.hero-bignum{display:none}.section,.complete{grid-template-columns:1fr;gap:1rem}.sec-left{display:flex;align-items:center;gap:0.8rem}.sec-icon{margin-bottom:0;font-size:1.1rem}}
 @media(max-width:640px){nav{flex-wrap:wrap;height:auto}.nav-brand{padding:0.7rem 1.2rem}.nav-crumb{display:none}.nav-actions{padding:0.7rem 1.2rem}.prog-bar{flex-wrap:wrap;height:auto}.prog-label,.prog-pct{padding:0.35rem 1rem}.prog-track-wrap{padding:0.35rem 1rem;border-right:none}.page{padding:7rem 1.2rem 4rem}}
-.beacon-nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 0;border-top:2px solid var(--line);margin-top:1rem}
+.beacon-nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 0;border-top:2px dashed var(--line);margin-top:1rem}
 .bn-prev{display:flex;align-items:center;gap:0.6rem;padding:0.6rem 1.2rem;border:2px solid var(--line);border-radius:999px;text-decoration:none;font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--mid);font-weight:600;transition:all 0.2s}
 .bn-prev:hover{border-color:var(--ink);color:var(--ink)}
 .bn-prev.disabled{opacity:0.3;pointer-events:none}
@@ -113,27 +113,27 @@ body.dark body::after{background-image:linear-gradient(to right,rgba(255,255,255
     </div>
     <div class="hero-bignum" aria-hidden="true">07</div>
   </div>
-  <div class="callout" data-light-bg="#F1EFE8" style="background:#F1EFE8" data-dark-bg="#444441">
+  <div class="callout" data-light-bg="#F1EFE8" style="background:#F1EFE8;border:2px solid #B8B4A8" data-dark-bg="#444441">
   <div class="callout-title" data-light-color="#2C2C2A" style="color:#2C2C2A" data-dark-color="#D3D1C7">🎯 What you'll learn</div>
   <div class="callout-body" data-light-color="#444441" style="color:#444441" data-dark-color="#B4B2A9"><p>By the end of this Beacon, you'll know how to use two powerful AI tools — Perplexity and NotebookLM — to research smarter, not harder.</p></div>
 </div>
-<div class="callout" data-light-bg="#E1F5EE" style="background:#E1F5EE" data-dark-bg="#085041">
+<div class="callout" data-light-bg="#E1F5EE" style="background:#E1F5EE;border:2px solid #3DB88A" data-dark-bg="#085041">
   <div class="callout-title" data-light-color="#085041" style="color:#085041" data-dark-color="#9FE1CB">🛠️ Meet the tools</div>
   <div class="callout-body" data-light-color="#0F6E56" style="color:#0F6E56" data-dark-color="#5DCAA5"><h3>Perplexity — your smart search engine</h3><p><strong>Perplexity</strong> is an AI-powered search engine. Instead of a list of links, you get a direct answer — with sources included. → <a href="https://perplexity.ai" target="_blank" style="color:var(--accent)">perplexity.ai</a></p><div class="note-box"><strong>Free tier:</strong> Unlimited basic searches. Pro Searches (advanced queries) capped at 5 per day.</div><h3>NotebookLM — your reading assistant</h3><p><strong>NotebookLM</strong> is a Google tool that lets you upload your own documents — and then ask questions about them. → <a href="https://notebooklm.google.com" target="_blank" style="color:var(--accent)">notebooklm.google.com</a></p><div class="note-box"><strong>Free tier:</strong> 100 notebooks, 50 sources per notebook, 50 chat queries per day, 3 Audio Overviews per day.</div>
 </div></div>
-<div class="callout" data-light-bg="#FAEEDA" style="background:#FAEEDA" data-dark-bg="#633806">
+<div class="callout" data-light-bg="#FAEEDA" style="background:#FAEEDA;border:2px solid #E8A020" data-dark-bg="#633806">
   <div class="callout-title" data-light-color="#633806" style="color:#633806" data-dark-color="#FAC775">🧪 Try it now</div>
   <div class="callout-body" data-light-color="#854F0B" style="color:#854F0B" data-dark-color="#EF9F27"><h3>Two tools, one topic</h3><p><em>Screens and menus may look slightly different — that's normal. Just explore and you'll find your way. 😊</em></p><p class="step-label">Step 1 — Perplexity</p><div class="prompt-wrap"><div class="prompt-topbar"><span class="prompt-topbar-label">Ready-made prompt</span><button class="copy-btn" id="copyBtnp1" onclick="copyPrompt('p1')">Copy</button></div><div class="prompt-text" id="p1">"What are the pros and cons of drinking coffee every day?"</div>
 </div><p class="step-label">Step 2 — NotebookLM</p><p>Go to <strong>notebooklm.google.com</strong>, create a new notebook, add <a href="https://en.wikipedia.org/wiki/Coffee" target="_blank" style="color:var(--accent)">en.wikipedia.org/wiki/Coffee</a> as a website source, then ask:</p><div class="prompt-wrap"><div class="prompt-topbar"><span class="prompt-topbar-label">NotebookLM prompt</span><button class="copy-btn" id="copyBtnp2" onclick="copyPrompt('p2')">Copy</button></div><div class="prompt-text" id="p2">"What are the main health effects of coffee? Give me the key points in simple language."</div></div></div></div>
-<div class="callout" data-light-bg="#FAECE7" style="background:#FAECE7" data-dark-bg="#4A1B0C">
+<div class="callout" data-light-bg="#FAECE7" style="background:#FAECE7;border:2px solid #E8724A" data-dark-bg="#4A1B0C">
   <div class="callout-title" data-light-color="#4A1B0C" style="color:#4A1B0C" data-dark-color="#F5C4B3">👀 What to notice</div>
   <div class="callout-body" data-light-color="#712B13" style="color:#712B13" data-dark-color="#F0997B"><h3>Two different superpowers</h3><p>With Perplexity: the answer comes with sources attached — you can see exactly where each claim comes from. With NotebookLM: it only used <em>your</em> article. No guessing, no internet search — just what you gave it. Two different tools, two different superpowers.</p></div>
 </div>
-<div class="callout" data-light-bg="#EEEDFE" style="background:#EEEDFE" data-dark-bg="#26215C">
+<div class="callout" data-light-bg="#EEEDFE" style="background:#EEEDFE;border:2px solid #8880E8" data-dark-bg="#26215C">
   <div class="callout-title" data-light-color="#26215C" style="color:#26215C" data-dark-color="#CECBF6">💡 Good to know</div>
   <div class="callout-body" data-light-color="#3C3489" style="color:#3C3489" data-dark-color="#AFA9EC"><h3>Use them together</h3><p><strong>Perplexity</strong> → when you want to search for something new on the internet. <strong>NotebookLM</strong> → when you already have a document and want to understand it better. Think of Perplexity as your smart search engine, and NotebookLM as your personal reading assistant.</p></div>
 </div>
-<div class="callout" data-light-bg="#EAF3DE" style="background:#EAF3DE" data-dark-bg="#173404">
+<div class="callout" data-light-bg="#EAF3DE" style="background:#EAF3DE;border:2px solid #7BBF3A" data-dark-bg="#173404">
   <div class="callout-title" data-light-color="#173404" style="color:#173404" data-dark-color="#C0DD97">✅ Beacon complete</div>
   <div class="callout-body" data-light-color="#27500A" style="color:#27500A" data-dark-color="#97C459"><h3>Research — made effortless.</h3><p>You've just discovered two tools that make research feel effortless.</p><p><strong>Up next — Beacon 8:</strong> Fact or Fiction? You'll learn how to tell when AI is getting it right — and when to be skeptical.</p></div>
 </div>
