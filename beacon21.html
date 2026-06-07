@@ -35,43 +35,35 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:str
 .hero-title{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:clamp(3rem,5vw,5.5rem);line-height:0.95;letter-spacing:-2px;color:var(--ink)}
 .hero-sub{margin-top:1.2rem;font-size:0.92rem;line-height:1.75;color:var(--mid);max-width:420px}
 .hero-bignum{font-family:'Playfair Display',serif;font-weight:900;font-style:italic;font-size:clamp(7rem,12vw,11rem);line-height:1;letter-spacing:-6px;color:var(--line);user-select:none;align-self:flex-end}
-.section{display:grid;grid-template-columns:180px 1fr;gap:3rem;border-top:2px solid var(--line);padding:2.5rem 0;opacity:0;transform:translateY(16px);transition:opacity 0.6s ease,transform 0.6s ease}
-.section.visible{opacity:1;transform:translateY(0)}
-.sec-left{padding-top:0.2rem}
-.sec-icon{font-size:1.3rem;margin-bottom:0.5rem;display:block}
-.sec-label{font-size:0.65rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--mid);line-height:1.5}
-.sec-right h2{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:1.5rem;letter-spacing:-0.5px;margin-bottom:1rem;color:var(--ink);line-height:1.2}
-.sec-right p{font-size:0.92rem;line-height:1.85;color:#444;margin-bottom:0.8rem}
-.sec-right p:last-child{margin-bottom:0}
-.sec-right em{color:var(--accent);font-style:italic}
-.sec-right strong{color:var(--ink);font-weight:600}
-.sec-right ul,.sec-right ol{padding-left:1.3rem;margin:0.5rem 0 0.8rem}
-.sec-right li{font-size:0.92rem;line-height:1.8;color:#444;margin-bottom:0.3rem}
-.prompt-wrap{margin:1.2rem 0;border:2px solid var(--line)}
-.prompt-topbar{display:flex;justify-content:space-between;align-items:center;padding:0.5rem 1rem;border-bottom:2px solid var(--line);background:var(--off)}
-.prompt-topbar-label{font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--mid)}
-.copy-btn{background:var(--ink);color:var(--paper);border:none;padding:0.25rem 0.8rem;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;font-family:'Instrument Sans',sans-serif;transition:background 0.2s}
+.callout{border-radius:12px;padding:1.4rem 1.6rem;margin-bottom:12px;opacity:0;transform:translateY(16px);transition:opacity 0.6s ease,transform 0.6s ease}
+.callout.visible{opacity:1;transform:translateY(0)}
+.callout-title{font-family:'Playfair Display',serif;font-style:italic;font-size:1.3rem;font-weight:700;margin-bottom:0.7rem}
+.callout-body{font-size:1.1rem;line-height:2}
+.callout-body p{margin-bottom:0.6rem}
+.callout-body p:last-child{margin-bottom:0}
+.callout-body ul,.callout-body ol{padding-left:1.3rem;margin:0.4rem 0 0.6rem}
+.callout-body li{margin-bottom:0.3rem}
+.callout-body strong{font-weight:700}
+.callout-body em{font-style:italic}
+.callout-body a{text-decoration:underline}
+.callout-body h3{font-family:'Playfair Display',serif;font-style:italic;font-size:1.05rem;font-weight:700;margin:0.8rem 0 0.4rem}
+.prompt-wrap{margin:0.8rem 0;border:2px solid currentColor;border-radius:6px;overflow:hidden;opacity:0.85}
+.prompt-topbar{display:flex;justify-content:space-between;align-items:center;padding:0.4rem 1rem;border-bottom:2px solid currentColor}
+.prompt-topbar-label{font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;font-weight:600}
+.copy-btn{background:var(--ink);color:var(--paper);border:none;padding:0.25rem 0.8rem;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;font-family:'Instrument Sans',sans-serif;transition:background 0.2s;border-radius:3px}
 .copy-btn:hover{background:var(--accent)}
 .copy-btn.copied{background:#007733}
-.prompt-text{padding:1.2rem 1.5rem;font-family:'Playfair Display',serif;font-style:italic;font-size:1rem;line-height:1.85;color:var(--ink)}
-.step-label{font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:1.2rem 0 0.5rem}
-.note-box{border:1px solid var(--line);border-left:3px solid #996600;background:var(--off);padding:1rem 1.2rem;margin:1rem 0;font-size:0.85rem;line-height:1.75;color:#555}
-.note-box strong{color:var(--ink)}
-.chips{display:flex;flex-wrap:wrap;gap:0.4rem;margin:0.8rem 0 1.2rem}
-.chip{padding:0.35rem 0.9rem;border:1px solid var(--line);border-radius:999px;font-size:0.8rem;color:#555;background:var(--paper);font-family:'Instrument Sans',sans-serif}
-.complete{border-top:2px solid var(--line);padding:2.5rem 0 0;display:grid;grid-template-columns:180px 1fr;gap:3rem;opacity:0;transform:translateY(16px);transition:opacity 0.6s,transform 0.6s}
-.complete.visible{opacity:1;transform:translateY(0)}
-.complete-badge{display:inline-block;font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:0.5rem}
-.complete h2{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:1.5rem;letter-spacing:-0.5px;color:var(--ink);margin-bottom:1rem}
-.complete p{font-size:0.92rem;line-height:1.85;color:#444;margin-bottom:0.5rem}
-.complete strong{color:var(--ink);font-weight:600}
-.complete-icon{font-size:2rem;display:block}
-.beacon-nav{display:flex;justify-content:space-between;align-items:center;margin-top:3rem;padding-top:2rem;border-top:2px solid var(--line)}
-.bn-prev{font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--mid);text-decoration:none;transition:color 0.2s}
-.bn-prev:hover{color:var(--ink)}
-.bn-next{font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);text-decoration:none;font-weight:600;border-bottom:1px solid var(--accent);padding-bottom:2px;transition:opacity 0.2s}
-.bn-next:hover{opacity:0.65}
-.closing{text-align:center;font-family:'Playfair Display',serif;font-style:italic;color:var(--mid);font-size:0.9rem;margin-top:2.5rem}
+.prompt-text{padding:1rem 1.2rem;font-family:'Playfair Display',serif;font-style:italic;font-size:1rem;line-height:1.85}
+.chips-header{font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;margin:0.8rem 0 0.5rem;opacity:0.7}
+.chips{display:flex;flex-wrap:wrap;gap:0.4rem;margin-bottom:0.8rem}
+.chip{padding:0.3rem 0.8rem;border:1.5px solid currentColor;border-radius:999px;font-size:0.82rem;cursor:pointer;transition:all 0.15s;background:transparent;font-family:'Instrument Sans',sans-serif;opacity:0.75}
+.chip:hover{opacity:1}
+.chip.active{opacity:1;font-weight:600}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin:0.8rem 0;border-radius:6px;overflow:hidden}
+.tip-grid{display:grid;grid-template-columns:1fr;gap:2px;margin:0.8rem 0;border-radius:6px;overflow:hidden}
+.compare-cell,.tip-cell{padding:0.8rem 1rem;font-size:1rem;line-height:1.7}
+.compare-header{font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;font-weight:600;opacity:0.6;margin-bottom:0.3rem}
+.no-rush{font-family:'Playfair Display',serif;font-style:italic;font-size:1.3rem;color:var(--mid);margin:1.5rem 0 0;text-align:left}
 body.dark{--paper:#0D0D0D;--off:#131312;--ink:#F0EFE9;--line:#3A3A38;--mid:#666660;--accent:#4D8AFF;--red:#FF6644;background:var(--paper);color:var(--ink)}
 body.dark nav,body.dark .prog-bar{background:#0D0D0D;border-color:#222220}
 body.dark .nav-brand,body.dark .nav-crumb{border-color:#222220}
@@ -115,39 +107,56 @@ body.dark body::after{background-image:linear-gradient(to right,rgba(255,255,255
     </div>
     <div class="hero-bignum" aria-hidden="true">21</div>
   </div>
-  <div class="section"><div class="sec-left"><span class="sec-icon">🎯</span><span class="sec-label">What you'll<br>learn</span></div><div class="sec-right"><p>Spreadsheets can feel like a foreign language — rows, columns, formulas, and functions that nobody explains.</p>
+  <div class="callout" data-light-bg="#F1EFE8" style="background:#F1EFE8" data-dark-bg="#444441">
+  <div class="callout-title" data-light-color="#2C2C2A" style="color:#2C2C2A" data-dark-color="#D3D1C7">🎯 What you'll learn</div>
+  <div class="callout-body" data-light-color="#444441" style="color:#444441" data-dark-color="#B4B2A9"><p>Spreadsheets can feel like a foreign language — rows, columns, formulas, and functions that nobody explains.</p>
 <p>In this Beacon, you'll use AI to do the tricky parts for you. No programming knowledge needed. No prior Excel experience required.</p>
 <p>By the end, you'll know how to:</p>
 <ul style="padding-left:1.2rem;margin:0.5rem 0">
 <li style="margin-bottom:0.4rem;color:#444">Ask AI to write a formula — and understand what it actually does</li>
 <li style="margin-bottom:0.4rem;color:#444">Sort and filter data without guessing</li>
 <li style="margin-bottom:0.4rem;color:#444">Fix errors with a little help from your AI assistant</li>
-</ul></div></div>
-<div class="section"><div class="sec-left"><span class="sec-icon">🛠️</span><span class="sec-label">Meet the<br>tools</span></div><div class="sec-right"><p>You'll use two tools in this Beacon — both free, both straightforward.</p>
+</ul></div>
+</div>
+<div class="callout" data-light-bg="#E1F5EE" style="background:#E1F5EE" data-dark-bg="#085041">
+  <div class="callout-title" data-light-color="#085041" style="color:#085041" data-dark-color="#9FE1CB">🛠️ Meet the tools</div>
+  <div class="callout-body" data-light-color="#0F6E56" style="color:#0F6E56" data-dark-color="#5DCAA5"><p>You'll use two tools in this Beacon — both free, both straightforward.</p>
 <p><strong>ChatGPT</strong> — <a href="https://chatgpt.com/" target="_blank" style="color:var(--accent)">https://chatgpt.com</a></p>
 <p>Great at explaining formulas in plain English and generating them on demand.</p>
 <p><strong>Claude</strong> — <a href="https://claude.ai/" target="_blank" style="color:var(--accent)">https://claude.ai</a></p>
 <p>Excellent for checking your work, fixing broken formulas, and walking you through steps calmly.</p>
 <p>You'll also need a spreadsheet to work with. Google Sheets works perfectly — it's free and runs in your browser.</p>
 <p>Open Google Sheets here: <a href="https://sheets.google.com/" target="_blank" style="color:var(--accent)">https://sheets.google.com</a></p>
-<p>(Sign in with your Gmail account if prompted.)</p></div></div>
-<div class="section"><div class="sec-left"><span class="sec-icon">📊</span><span class="sec-label">Spreadsheets: what<br>are they actually for?</span></div><div class="sec-right"><p>A spreadsheet is just a big grid. Each box is called a <strong>cell</strong>. You can put words, numbers, or dates in a cell — and then ask the spreadsheet to do math or organize things for you.</p>
+<p>(Sign in with your Gmail account if prompted.)</p></div>
+</div>
+<div class="callout" data-light-bg="#E6F1FB" style="background:#E6F1FB" data-dark-bg="#0C447C">
+  <div class="callout-title" data-light-color="#0C447C" style="color:#0C447C" data-dark-color="#B5D4F4">📊 Spreadsheets: what are they actually for?</div>
+  <div class="callout-body" data-light-color="#185FA5" style="color:#185FA5" data-dark-color="#85B7EB"><p>A spreadsheet is just a big grid. Each box is called a <strong>cell</strong>. You can put words, numbers, or dates in a cell — and then ask the spreadsheet to do math or organize things for you.</p>
 <p>The magic happens when you write a <strong>formula</strong> — a small instruction that tells the spreadsheet what to calculate.</p>
 <p>The problem? Formulas have their own syntax. Even a tiny typo breaks them.</p>
-<p>That's exactly where AI comes in.</p></div></div>
-<div class="section"><div class="sec-left"><span class="sec-icon">🤖</span><span class="sec-label">Let AI<br>write the formula</span></div><div class="sec-right"><p>You don't need to memorize formula syntax. Just describe what you want in plain English — and ask ChatGPT or Claude to write it for you.</p>
+<p>That's exactly where AI comes in.</p></div>
+</div>
+<div class="callout" data-light-bg="#E6F1FB" style="background:#E6F1FB" data-dark-bg="#0C447C">
+  <div class="callout-title" data-light-color="#0C447C" style="color:#0C447C" data-dark-color="#B5D4F4">🤖 Let AI write the formula</div>
+  <div class="callout-body" data-light-color="#185FA5" style="color:#185FA5" data-dark-color="#85B7EB"><p>You don't need to memorize formula syntax. Just describe what you want in plain English — and ask ChatGPT or Claude to write it for you.</p>
 <p>For example, imagine you have a list of expenses in column B, from row 2 to row 10. You want to add them all up.</p>
 <p>You could ask:</p>
 <p><em>"I have numbers in cells B2 to B10 in Google Sheets. Write me a formula that adds them all together."</em></p>
 <p>ChatGPT or Claude will give you something like:</p>
 <p><code style="background:var(--off);padding:0.1em 0.4em;border-radius:3px;font-size:0.85em">=SUM(B2:B10)</code></p>
 <p>You just paste that into your spreadsheet. Done.</p>
-<p>The AI didn't just give you the formula — it saved you from having to search for it, read documentation, or guess.</p></div></div>
-<div class="section"><div class="sec-left"><span class="sec-icon">🔍</span><span class="sec-label">Understanding what<br>you got</span></div><div class="sec-right"><p>Here's a habit worth building: whenever AI gives you a formula, ask it to explain what it does.</p>
+<p>The AI didn't just give you the formula — it saved you from having to search for it, read documentation, or guess.</p></div>
+</div>
+<div class="callout" data-light-bg="#E6F1FB" style="background:#E6F1FB" data-dark-bg="#0C447C">
+  <div class="callout-title" data-light-color="#0C447C" style="color:#0C447C" data-dark-color="#B5D4F4">🔍 Understanding what you got</div>
+  <div class="callout-body" data-light-color="#185FA5" style="color:#185FA5" data-dark-color="#85B7EB"><p>Here's a habit worth building: whenever AI gives you a formula, ask it to explain what it does.</p>
 <p>Just say: <em>"Can you explain what this formula does, step by step?"</em></p>
 <p>This is how you go from copy-pasting to actually understanding. You don't need to memorize anything — but seeing the explanation once makes it stick.</p>
-<p>AI is patient. It will never make you feel silly for asking.</p></div></div>
-<div class="section"><div class="sec-left"><span class="sec-icon">🧪</span><span class="sec-label">Try it<br>now</span></div><div class="sec-right"><p><em>Screens and menus may look slightly different — that's normal. Just explore and you'll find your way. 😊</em></p>
+<p>AI is patient. It will never make you feel silly for asking.</p></div>
+</div>
+<div class="callout" data-light-bg="#FAEEDA" style="background:#FAEEDA" data-dark-bg="#633806">
+  <div class="callout-title" data-light-color="#633806" style="color:#633806" data-dark-color="#FAC775">🧪 Try it now</div>
+  <div class="callout-body" data-light-color="#854F0B" style="color:#854F0B" data-dark-color="#EF9F27"><p><em>Screens and menus may look slightly different — that's normal. Just explore and you'll find your way. 😊</em></p>
 <p><strong>Step 1 — Set up a quick spreadsheet</strong></p>
 <p>Open Google Sheets (<a href="https://sheets.google.com/" target="_blank" style="color:var(--accent)">https://sheets.google.com</a>) and create a new blank spreadsheet.</p>
 <p>In column A, type these labels in cells A1 to A5:</p>
@@ -164,22 +173,32 @@ body.dark body::after{background-image:linear-gradient(to right,rgba(255,255,255
 <p>Now go to Claude (<a href="https://claude.ai/" target="_blank" style="color:var(--accent)">https://claude.ai</a>) and try this prompt:</p>
 <p><em>"I have a Google Sheets spreadsheet with expense labels in column A and amounts in column B (rows 1–5). I already have a SUM formula in B6. Now I want to find the highest amount in column B. Can you write the formula for that and explain it?"</em></p>
 <p>Paste the formula Claude gives you into cell B7.</p>
-<p>You should see <strong>850</strong> — the highest single expense (Rent).</p></div></div>
-<div class="section"><div class="sec-left"><span class="sec-icon">👀</span><span class="sec-label">What to<br>notice</span></div><div class="sec-right"><p>Look at the two formulas you now have in your spreadsheet — one from ChatGPT, one from Claude.</p>
+<p>You should see <strong>850</strong> — the highest single expense (Rent).</p></div>
+</div>
+<div class="callout" data-light-bg="#FAECE7" style="background:#FAECE7" data-dark-bg="#4A1B0C">
+  <div class="callout-title" data-light-color="#4A1B0C" style="color:#4A1B0C" data-dark-color="#F5C4B3">👀 What to notice</div>
+  <div class="callout-body" data-light-color="#712B13" style="color:#712B13" data-dark-color="#F0997B"><p>Look at the two formulas you now have in your spreadsheet — one from ChatGPT, one from Claude.</p>
 <p>Notice how different they look from what you typed in the cells above them. Yet both of them are doing exactly what you described in plain English.</p>
-<p>The aha moment: you didn't write code. You described what you wanted — and the AI translated it. That's the whole skill.</p></div></div>
-<div class="section"><div class="sec-left"><span class="sec-icon">💡</span><span class="sec-label">Good to<br>know</span></div><div class="sec-right"><p><strong>What if the formula shows an error?</strong></p>
+<p>The aha moment: you didn't write code. You described what you wanted — and the AI translated it. That's the whole skill.</p></div>
+</div>
+<div class="callout" data-light-bg="#EEEDFE" style="background:#EEEDFE" data-dark-bg="#26215C">
+  <div class="callout-title" data-light-color="#26215C" style="color:#26215C" data-dark-color="#CECBF6">💡 Good to know</div>
+  <div class="callout-body" data-light-color="#3C3489" style="color:#3C3489" data-dark-color="#AFA9EC"><p><strong>What if the formula shows an error?</strong></p>
 <p>Don't panic — errors like <code style="background:var(--off);padding:0.1em 0.4em;border-radius:3px;font-size:0.85em">#VALUE!</code> or <code style="background:var(--off);padding:0.1em 0.4em;border-radius:3px;font-size:0.85em">#REF!</code> are common. Just copy the formula and the error message, and paste them into Claude or ChatGPT. Say: <em>"This formula isn't working. What's wrong?"</em> They'll fix it for you.</p>
 <p><strong>Google Sheets vs Excel</strong></p>
 <p>The formulas are almost identical. If you use Excel, just mention it when you ask AI — it will adjust automatically.</p>
 <p><strong>You don't have to understand everything</strong></p>
-<p>It's completely fine to use a formula without fully understanding it. The important thing is that it works — and that you know who to ask when it doesn't.</p></div></div>
-<div class="complete"><div><span class="complete-icon">✅</span></div><div><span class="complete-badge">Beacon complete</span><p>You just used two AI tools to write and explain spreadsheet formulas — without touching a single manual or tutorial.</p>
+<p>It's completely fine to use a formula without fully understanding it. The important thing is that it works — and that you know who to ask when it doesn't.</p></div>
+</div>
+<div class="callout" data-light-bg="#EAF3DE" style="background:#EAF3DE" data-dark-bg="#173404">
+  <div class="callout-title" data-light-color="#173404" style="color:#173404" data-dark-color="#C0DD97">✅ Beacon complete</div>
+  <div class="callout-body" data-light-color="#27500A" style="color:#27500A" data-dark-color="#97C459"><p>You just used two AI tools to write and explain spreadsheet formulas — without touching a single manual or tutorial.</p>
 <p>That's a genuinely useful skill. Spreadsheets will never feel quite as intimidating again.</p>
 <p><strong>Up next: Beacon 22 – Plan like a pro</strong></p>
 <p>You'll use AI to help you build a simple project plan — tasks, deadlines, and priorities — without any special software.</p>
-<p>No rush. Come back whenever you're ready. 🙂</p></div></div>
-  <p class="closing">No rush. Come back whenever you're ready. &#128578;</p>
+<p>No rush. Come back whenever you're ready. 🙂</p></div>
+</div>
+  <p class="no-rush">No rush. Come back whenever you're ready. &#128578;</p>
   <div class="beacon-nav">
     <a href="beacon20.html" class="bn-prev">&larr; Beacon 20 &mdash; Plan Your Week</a>
     <a href="beacon22.html" class="bn-next">Beacon 22 — Never Forget a Meeting →</a>

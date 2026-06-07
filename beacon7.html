@@ -35,43 +35,35 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:str
 .hero-title{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:clamp(3rem,5vw,5.5rem);line-height:0.95;letter-spacing:-2px;color:var(--ink)}
 .hero-sub{margin-top:1.2rem;font-size:0.92rem;line-height:1.75;color:var(--mid);max-width:420px}
 .hero-bignum{font-family:'Playfair Display',serif;font-weight:900;font-style:italic;font-size:clamp(7rem,12vw,11rem);line-height:1;letter-spacing:-6px;color:var(--line);user-select:none;align-self:flex-end}
-.section{display:grid;grid-template-columns:180px 1fr;gap:3rem;border-top:2px solid var(--line);padding:2.5rem 0;opacity:0;transform:translateY(16px);transition:opacity 0.6s ease,transform 0.6s ease}
-.section.visible{opacity:1;transform:translateY(0)}
-.sec-left{padding-top:0.2rem}
-.sec-icon{font-size:1.3rem;margin-bottom:0.5rem;display:block}
-.sec-label{font-size:0.65rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--mid);line-height:1.5}
-.sec-right h2{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:1.5rem;letter-spacing:-0.5px;margin-bottom:1rem;color:var(--ink);line-height:1.2}
-.sec-right p{font-size:0.92rem;line-height:1.85;color:#444;margin-bottom:0.8rem}
-.sec-right p:last-child{margin-bottom:0}
-.sec-right em{color:var(--accent);font-style:italic}
-.sec-right strong{color:var(--ink);font-weight:600}
-.sec-right ul,.sec-right ol{padding-left:1.3rem;margin:0.5rem 0 0.8rem}
-.sec-right li{font-size:0.92rem;line-height:1.8;color:#444;margin-bottom:0.3rem}
-.prompt-wrap{margin:1.2rem 0;border:2px solid var(--line)}
-.prompt-topbar{display:flex;justify-content:space-between;align-items:center;padding:0.5rem 1rem;border-bottom:2px solid var(--line);background:var(--off)}
-.prompt-topbar-label{font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--mid)}
-.copy-btn{background:var(--ink);color:var(--paper);border:none;padding:0.25rem 0.8rem;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;font-family:'Instrument Sans',sans-serif;transition:background 0.2s}
+.callout{border-radius:12px;padding:1.4rem 1.6rem;margin-bottom:12px;opacity:0;transform:translateY(16px);transition:opacity 0.6s ease,transform 0.6s ease}
+.callout.visible{opacity:1;transform:translateY(0)}
+.callout-title{font-family:'Playfair Display',serif;font-style:italic;font-size:1.3rem;font-weight:700;margin-bottom:0.7rem}
+.callout-body{font-size:1.1rem;line-height:2}
+.callout-body p{margin-bottom:0.6rem}
+.callout-body p:last-child{margin-bottom:0}
+.callout-body ul,.callout-body ol{padding-left:1.3rem;margin:0.4rem 0 0.6rem}
+.callout-body li{margin-bottom:0.3rem}
+.callout-body strong{font-weight:700}
+.callout-body em{font-style:italic}
+.callout-body a{text-decoration:underline}
+.callout-body h3{font-family:'Playfair Display',serif;font-style:italic;font-size:1.05rem;font-weight:700;margin:0.8rem 0 0.4rem}
+.prompt-wrap{margin:0.8rem 0;border:2px solid currentColor;border-radius:6px;overflow:hidden;opacity:0.85}
+.prompt-topbar{display:flex;justify-content:space-between;align-items:center;padding:0.4rem 1rem;border-bottom:2px solid currentColor}
+.prompt-topbar-label{font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;font-weight:600}
+.copy-btn{background:var(--ink);color:var(--paper);border:none;padding:0.25rem 0.8rem;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;font-family:'Instrument Sans',sans-serif;transition:background 0.2s;border-radius:3px}
 .copy-btn:hover{background:var(--accent)}
 .copy-btn.copied{background:#007733}
-.prompt-text{padding:1.2rem 1.5rem;font-family:'Playfair Display',serif;font-style:italic;font-size:1rem;line-height:1.85;color:var(--ink)}
-.step-label{font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:1.2rem 0 0.5rem}
-.note-box{border:1px solid var(--line);border-left:3px solid #996600;background:var(--off);padding:1rem 1.2rem;margin:1rem 0;font-size:0.85rem;line-height:1.75;color:#555}
-.note-box strong{color:var(--ink)}
-.chips{display:flex;flex-wrap:wrap;gap:0.4rem;margin:0.8rem 0 1.2rem}
-.chip{padding:0.35rem 0.9rem;border:1px solid var(--line);border-radius:999px;font-size:0.8rem;color:#555;background:var(--paper);font-family:'Instrument Sans',sans-serif}
-.complete{border-top:2px solid var(--line);padding:2.5rem 0 0;display:grid;grid-template-columns:180px 1fr;gap:3rem;opacity:0;transform:translateY(16px);transition:opacity 0.6s,transform 0.6s}
-.complete.visible{opacity:1;transform:translateY(0)}
-.complete-badge{display:inline-block;font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:0.5rem}
-.complete h2{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:1.5rem;letter-spacing:-0.5px;color:var(--ink);margin-bottom:1rem}
-.complete p{font-size:0.92rem;line-height:1.85;color:#444;margin-bottom:0.5rem}
-.complete strong{color:var(--ink);font-weight:600}
-.complete-icon{font-size:2rem;display:block}
-.beacon-nav{display:flex;justify-content:space-between;align-items:center;margin-top:3rem;padding-top:2rem;border-top:2px solid var(--line)}
-.bn-prev{font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--mid);text-decoration:none;transition:color 0.2s}
-.bn-prev:hover{color:var(--ink)}
-.bn-next{font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);text-decoration:none;font-weight:600;border-bottom:1px solid var(--accent);padding-bottom:2px;transition:opacity 0.2s}
-.bn-next:hover{opacity:0.65}
-.closing{text-align:center;font-family:'Playfair Display',serif;font-style:italic;color:var(--mid);font-size:0.9rem;margin-top:2.5rem}
+.prompt-text{padding:1rem 1.2rem;font-family:'Playfair Display',serif;font-style:italic;font-size:1rem;line-height:1.85}
+.chips-header{font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;margin:0.8rem 0 0.5rem;opacity:0.7}
+.chips{display:flex;flex-wrap:wrap;gap:0.4rem;margin-bottom:0.8rem}
+.chip{padding:0.3rem 0.8rem;border:1.5px solid currentColor;border-radius:999px;font-size:0.82rem;cursor:pointer;transition:all 0.15s;background:transparent;font-family:'Instrument Sans',sans-serif;opacity:0.75}
+.chip:hover{opacity:1}
+.chip.active{opacity:1;font-weight:600}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin:0.8rem 0;border-radius:6px;overflow:hidden}
+.tip-grid{display:grid;grid-template-columns:1fr;gap:2px;margin:0.8rem 0;border-radius:6px;overflow:hidden}
+.compare-cell,.tip-cell{padding:0.8rem 1rem;font-size:1rem;line-height:1.7}
+.compare-header{font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;font-weight:600;opacity:0.6;margin-bottom:0.3rem}
+.no-rush{font-family:'Playfair Display',serif;font-style:italic;font-size:1.3rem;color:var(--mid);margin:1.5rem 0 0;text-align:left}
 body.dark{--paper:#0D0D0D;--off:#131312;--ink:#F0EFE9;--line:#3A3A38;--mid:#666660;--accent:#4D8AFF;--red:#FF6644;background:var(--paper);color:var(--ink)}
 body.dark nav,body.dark .prog-bar{background:#0D0D0D;border-color:#222220}
 body.dark .nav-brand,body.dark .nav-crumb{border-color:#222220}
@@ -115,13 +107,31 @@ body.dark body::after{background-image:linear-gradient(to right,rgba(255,255,255
     </div>
     <div class="hero-bignum" aria-hidden="true">07</div>
   </div>
-  <div class="section"><div class="sec-left"><span class="sec-icon">🎯</span><span class="sec-label">What you'll<br>learn</span></div><div class="sec-right"><p>By the end of this Beacon, you'll know how to use two powerful AI tools — Perplexity and NotebookLM — to research smarter, not harder.</p></div></div>
-<div class="section"><div class="sec-left"><span class="sec-icon">🛠️</span><span class="sec-label">Meet the tools</span></div><div class="sec-right"><h2>Perplexity — your smart search engine</h2><p><strong>Perplexity</strong> is an AI-powered search engine. Instead of a list of links, you get a direct answer — with sources included. → <a href="https://perplexity.ai" target="_blank" style="color:var(--accent)">perplexity.ai</a></p><div class="note-box"><strong>Free tier:</strong> Unlimited basic searches. Pro Searches (advanced queries) capped at 5 per day.</div><h2 style="margin-top:1.5rem">NotebookLM — your reading assistant</h2><p><strong>NotebookLM</strong> is a Google tool that lets you upload your own documents — and then ask questions about them. → <a href="https://notebooklm.google.com" target="_blank" style="color:var(--accent)">notebooklm.google.com</a></p><div class="note-box"><strong>Free tier:</strong> 100 notebooks, 50 sources per notebook, 50 chat queries per day, 3 Audio Overviews per day.</div></div></div>
-<div class="section"><div class="sec-left"><span class="sec-icon">🧪</span><span class="sec-label">Try it<br>now</span></div><div class="sec-right"><h2>Two tools, one topic</h2><p><em>Screens and menus may look slightly different — that's normal. Just explore and you'll find your way. 😊</em></p><p class="step-label">Step 1 — Perplexity</p><div class="prompt-wrap"><div class="prompt-topbar"><span class="prompt-topbar-label">Ready-made prompt</span><button class="copy-btn" id="copyBtnp1" onclick="copyPrompt('p1')">Copy</button></div><div class="prompt-text" id="p1">"What are the pros and cons of drinking coffee every day?"</div></div><p class="step-label">Step 2 — NotebookLM</p><p>Go to <strong>notebooklm.google.com</strong>, create a new notebook, add <a href="https://en.wikipedia.org/wiki/Coffee" target="_blank" style="color:var(--accent)">en.wikipedia.org/wiki/Coffee</a> as a website source, then ask:</p><div class="prompt-wrap"><div class="prompt-topbar"><span class="prompt-topbar-label">NotebookLM prompt</span><button class="copy-btn" id="copyBtnp2" onclick="copyPrompt('p2')">Copy</button></div><div class="prompt-text" id="p2">"What are the main health effects of coffee? Give me the key points in simple language."</div></div></div></div>
-<div class="section"><div class="sec-left"><span class="sec-icon">👀</span><span class="sec-label">What to<br>notice</span></div><div class="sec-right"><h2>Two different superpowers</h2><p>With Perplexity: the answer comes with sources attached — you can see exactly where each claim comes from. With NotebookLM: it only used <em>your</em> article. No guessing, no internet search — just what you gave it. Two different tools, two different superpowers.</p></div></div>
-<div class="section"><div class="sec-left"><span class="sec-icon">💡</span><span class="sec-label">Good to<br>know</span></div><div class="sec-right"><h2>Use them together</h2><p><strong>Perplexity</strong> → when you want to search for something new on the internet. <strong>NotebookLM</strong> → when you already have a document and want to understand it better. Think of Perplexity as your smart search engine, and NotebookLM as your personal reading assistant.</p></div></div>
-<div class="complete"><div><span class="complete-icon">✅</span></div><div><span class="complete-badge">Beacon complete</span><h2>Research — made effortless.</h2><p>You've just discovered two tools that make research feel effortless.</p><p><strong>Up next — Beacon 8:</strong> Fact or Fiction? You'll learn how to tell when AI is getting it right — and when to be skeptical.</p></div></div>
-  <p class="closing">No rush. Come back whenever you're ready. &#128578;</p>
+  <div class="callout" data-light-bg="#F1EFE8" style="background:#F1EFE8" data-dark-bg="#444441">
+  <div class="callout-title" data-light-color="#2C2C2A" style="color:#2C2C2A" data-dark-color="#D3D1C7">🎯 What you'll learn</div>
+  <div class="callout-body" data-light-color="#444441" style="color:#444441" data-dark-color="#B4B2A9"><p>By the end of this Beacon, you'll know how to use two powerful AI tools — Perplexity and NotebookLM — to research smarter, not harder.</p></div>
+</div>
+<div class="callout" data-light-bg="#E1F5EE" style="background:#E1F5EE" data-dark-bg="#085041">
+  <div class="callout-title" data-light-color="#085041" style="color:#085041" data-dark-color="#9FE1CB">🛠️ Meet the tools</div>
+  <div class="callout-body" data-light-color="#0F6E56" style="color:#0F6E56" data-dark-color="#5DCAA5"><h3>Perplexity — your smart search engine</h3><p><strong>Perplexity</strong> is an AI-powered search engine. Instead of a list of links, you get a direct answer — with sources included. → <a href="https://perplexity.ai" target="_blank" style="color:var(--accent)">perplexity.ai</a></p><div class="note-box"><strong>Free tier:</strong> Unlimited basic searches. Pro Searches (advanced queries) capped at 5 per day.</div><h3>NotebookLM — your reading assistant</h3><p><strong>NotebookLM</strong> is a Google tool that lets you upload your own documents — and then ask questions about them. → <a href="https://notebooklm.google.com" target="_blank" style="color:var(--accent)">notebooklm.google.com</a></p><div class="note-box"><strong>Free tier:</strong> 100 notebooks, 50 sources per notebook, 50 chat queries per day, 3 Audio Overviews per day.</div>
+</div></div>
+<div class="callout" data-light-bg="#FAEEDA" style="background:#FAEEDA" data-dark-bg="#633806">
+  <div class="callout-title" data-light-color="#633806" style="color:#633806" data-dark-color="#FAC775">🧪 Try it now</div>
+  <div class="callout-body" data-light-color="#854F0B" style="color:#854F0B" data-dark-color="#EF9F27"><h3>Two tools, one topic</h3><p><em>Screens and menus may look slightly different — that's normal. Just explore and you'll find your way. 😊</em></p><p class="step-label">Step 1 — Perplexity</p><div class="prompt-wrap"><div class="prompt-topbar"><span class="prompt-topbar-label">Ready-made prompt</span><button class="copy-btn" id="copyBtnp1" onclick="copyPrompt('p1')">Copy</button></div><div class="prompt-text" id="p1">"What are the pros and cons of drinking coffee every day?"</div>
+</div><p class="step-label">Step 2 — NotebookLM</p><p>Go to <strong>notebooklm.google.com</strong>, create a new notebook, add <a href="https://en.wikipedia.org/wiki/Coffee" target="_blank" style="color:var(--accent)">en.wikipedia.org/wiki/Coffee</a> as a website source, then ask:</p><div class="prompt-wrap"><div class="prompt-topbar"><span class="prompt-topbar-label">NotebookLM prompt</span><button class="copy-btn" id="copyBtnp2" onclick="copyPrompt('p2')">Copy</button></div><div class="prompt-text" id="p2">"What are the main health effects of coffee? Give me the key points in simple language."</div></div></div></div>
+<div class="callout" data-light-bg="#FAECE7" style="background:#FAECE7" data-dark-bg="#4A1B0C">
+  <div class="callout-title" data-light-color="#4A1B0C" style="color:#4A1B0C" data-dark-color="#F5C4B3">👀 What to notice</div>
+  <div class="callout-body" data-light-color="#712B13" style="color:#712B13" data-dark-color="#F0997B"><h3>Two different superpowers</h3><p>With Perplexity: the answer comes with sources attached — you can see exactly where each claim comes from. With NotebookLM: it only used <em>your</em> article. No guessing, no internet search — just what you gave it. Two different tools, two different superpowers.</p></div>
+</div>
+<div class="callout" data-light-bg="#EEEDFE" style="background:#EEEDFE" data-dark-bg="#26215C">
+  <div class="callout-title" data-light-color="#26215C" style="color:#26215C" data-dark-color="#CECBF6">💡 Good to know</div>
+  <div class="callout-body" data-light-color="#3C3489" style="color:#3C3489" data-dark-color="#AFA9EC"><h3>Use them together</h3><p><strong>Perplexity</strong> → when you want to search for something new on the internet. <strong>NotebookLM</strong> → when you already have a document and want to understand it better. Think of Perplexity as your smart search engine, and NotebookLM as your personal reading assistant.</p></div>
+</div>
+<div class="callout" data-light-bg="#EAF3DE" style="background:#EAF3DE" data-dark-bg="#173404">
+  <div class="callout-title" data-light-color="#173404" style="color:#173404" data-dark-color="#C0DD97">✅ Beacon complete</div>
+  <div class="callout-body" data-light-color="#27500A" style="color:#27500A" data-dark-color="#97C459"><h3>Research — made effortless.</h3><p>You've just discovered two tools that make research feel effortless.</p><p><strong>Up next — Beacon 8:</strong> Fact or Fiction? You'll learn how to tell when AI is getting it right — and when to be skeptical.</p></div>
+</div>
+  <p class="no-rush">No rush. Come back whenever you're ready. &#128578;</p>
   <div class="beacon-nav">
     <a href="beacon6.html" class="bn-prev">&larr; Beacon 6 &mdash; Tell Your Story</a>
     <a href="beacon8.html" class="bn-next">Beacon 8 — Fact or Fiction →</a>

@@ -35,50 +35,35 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:str
 .hero-title{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:clamp(3rem,5vw,5.5rem);line-height:0.95;letter-spacing:-2px;color:var(--ink)}
 .hero-sub{margin-top:1.2rem;font-size:0.92rem;line-height:1.75;color:var(--mid);max-width:400px}
 .hero-bignum{font-family:'Playfair Display',serif;font-weight:900;font-style:italic;font-size:clamp(7rem,12vw,11rem);line-height:1;letter-spacing:-6px;color:var(--line);user-select:none;align-self:flex-end}
-.section{display:grid;grid-template-columns:180px 1fr;gap:3rem;border-top:2px solid var(--line);padding:2.5rem 0;opacity:0;transform:translateY(16px);transition:opacity 0.6s ease,transform 0.6s ease}
-.section.visible{opacity:1;transform:translateY(0)}
-.sec-left{padding-top:0.2rem}
-.sec-icon{font-size:1.3rem;margin-bottom:0.5rem;display:block}
-.sec-label{font-size:0.65rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--mid);line-height:1.5}
-.sec-right h2{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:1.5rem;letter-spacing:-0.5px;margin-bottom:1rem;color:var(--ink);line-height:1.2}
-.sec-right p{font-size:0.92rem;line-height:1.85;color:#444;margin-bottom:0.8rem}
-.sec-right p:last-child{margin-bottom:0}
-.sec-right em{color:var(--accent);font-style:italic}
-.sec-right strong{color:var(--ink);font-weight:600}
-.sec-right ul{padding-left:1.3rem;margin:0.5rem 0 0.8rem}
-.sec-right li{font-size:0.92rem;line-height:1.8;color:#444;margin-bottom:0.2rem}
-.tool-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin:1.2rem 0}
-.tool-card{background:var(--paper);padding:1.5rem}
-.tool-card-dot{font-size:1.2rem;margin-bottom:0.5rem;display:block}
-.tool-card-name{font-weight:700;font-size:0.95rem;color:var(--ink);margin-bottom:0.3rem}
-.tool-card-desc{font-size:0.82rem;color:var(--mid);line-height:1.6;margin-bottom:0.7rem}
-.tool-card-feel{font-size:0.78rem;color:#888;font-style:italic;line-height:1.5;margin-bottom:0.7rem}
-.tool-card-link a{font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;color:var(--accent);text-decoration:none;border-bottom:1px solid transparent;transition:border-color 0.2s}
-.tool-card-link a:hover{border-color:var(--accent)}
-.prompt-wrap{margin:1.2rem 0;border:2px solid var(--line)}
-.prompt-topbar{display:flex;justify-content:space-between;align-items:center;padding:0.5rem 1rem;border-bottom:2px solid var(--line);background:var(--off)}
-.prompt-topbar-label{font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--mid)}
-.copy-btn{background:var(--ink);color:var(--paper);border:none;padding:0.25rem 0.8rem;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;font-family:'Instrument Sans',sans-serif;transition:background 0.2s}
+.callout{border-radius:12px;padding:1.4rem 1.6rem;margin-bottom:12px;opacity:0;transform:translateY(16px);transition:opacity 0.6s ease,transform 0.6s ease}
+.callout.visible{opacity:1;transform:translateY(0)}
+.callout-title{font-family:'Playfair Display',serif;font-style:italic;font-size:1.3rem;font-weight:700;margin-bottom:0.7rem}
+.callout-body{font-size:1.1rem;line-height:2}
+.callout-body p{margin-bottom:0.6rem}
+.callout-body p:last-child{margin-bottom:0}
+.callout-body ul,.callout-body ol{padding-left:1.3rem;margin:0.4rem 0 0.6rem}
+.callout-body li{margin-bottom:0.3rem}
+.callout-body strong{font-weight:700}
+.callout-body em{font-style:italic}
+.callout-body a{text-decoration:underline}
+.callout-body h3{font-family:'Playfair Display',serif;font-style:italic;font-size:1.05rem;font-weight:700;margin:0.8rem 0 0.4rem}
+.prompt-wrap{margin:0.8rem 0;border:2px solid currentColor;border-radius:6px;overflow:hidden;opacity:0.85}
+.prompt-topbar{display:flex;justify-content:space-between;align-items:center;padding:0.4rem 1rem;border-bottom:2px solid currentColor}
+.prompt-topbar-label{font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;font-weight:600}
+.copy-btn{background:var(--ink);color:var(--paper);border:none;padding:0.25rem 0.8rem;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;font-family:'Instrument Sans',sans-serif;transition:background 0.2s;border-radius:3px}
 .copy-btn:hover{background:var(--accent)}
 .copy-btn.copied{background:#007733}
-.prompt-text{padding:1.2rem 1.5rem;font-family:'Playfair Display',serif;font-style:italic;font-size:1rem;line-height:1.85;color:var(--ink)}
-.notice-list{list-style:none;margin:0.5rem 0;padding:0}
-.notice-list li{font-size:0.88rem;line-height:1.7;color:#444;padding:0.4rem 0;border-bottom:1px solid var(--line);display:flex;align-items:baseline;gap:0.8rem}
-.notice-list li:last-child{border-bottom:none}
-.notice-list li::before{content:'→';color:var(--accent);font-size:0.8rem;flex-shrink:0}
-.complete{border-top:2px solid var(--line);padding:2.5rem 0 0;display:grid;grid-template-columns:180px 1fr;gap:3rem;opacity:0;transform:translateY(16px);transition:opacity 0.6s,transform 0.6s}
-.complete.visible{opacity:1;transform:translateY(0)}
-.complete-badge{display:inline-block;font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:0.5rem}
-.complete h2{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:1.5rem;letter-spacing:-0.5px;color:var(--ink);margin-bottom:1rem}
-.complete p{font-size:0.92rem;line-height:1.85;color:#444;margin-bottom:0.5rem}
-.complete strong{color:var(--ink);font-weight:600}
-.complete-icon{font-size:2rem;display:block}
-.beacon-nav{display:flex;justify-content:space-between;align-items:center;margin-top:3rem;padding-top:2rem;border-top:2px solid var(--line)}
-.bn-prev{font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--mid);text-decoration:none;transition:color 0.2s}
-.bn-prev:hover{color:var(--ink)}
-.bn-next{font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);text-decoration:none;font-weight:600;border-bottom:1px solid var(--accent);padding-bottom:2px;transition:opacity 0.2s}
-.bn-next:hover{opacity:0.65}
-.closing{text-align:center;font-family:'Playfair Display',serif;font-style:italic;color:var(--mid);font-size:0.9rem;margin-top:2.5rem}
+.prompt-text{padding:1rem 1.2rem;font-family:'Playfair Display',serif;font-style:italic;font-size:1rem;line-height:1.85}
+.chips-header{font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;margin:0.8rem 0 0.5rem;opacity:0.7}
+.chips{display:flex;flex-wrap:wrap;gap:0.4rem;margin-bottom:0.8rem}
+.chip{padding:0.3rem 0.8rem;border:1.5px solid currentColor;border-radius:999px;font-size:0.82rem;cursor:pointer;transition:all 0.15s;background:transparent;font-family:'Instrument Sans',sans-serif;opacity:0.75}
+.chip:hover{opacity:1}
+.chip.active{opacity:1;font-weight:600}
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin:0.8rem 0;border-radius:6px;overflow:hidden}
+.tip-grid{display:grid;grid-template-columns:1fr;gap:2px;margin:0.8rem 0;border-radius:6px;overflow:hidden}
+.compare-cell,.tip-cell{padding:0.8rem 1rem;font-size:1rem;line-height:1.7}
+.compare-header{font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;font-weight:600;opacity:0.6;margin-bottom:0.3rem}
+.no-rush{font-family:'Playfair Display',serif;font-style:italic;font-size:1.3rem;color:var(--mid);margin:1.5rem 0 0;text-align:left}
 body.dark{--paper:#0D0D0D;--off:#131312;--ink:#F0EFE9;--line:#3A3A38;--mid:#666660;--accent:#4D8AFF;--red:#FF6644;background:var(--paper);color:var(--ink)}
 body.dark nav,body.dark .prog-bar{background:#0D0D0D;border-color:#222220}
 body.dark .nav-brand,body.dark .nav-crumb{border-color:#222220}
@@ -126,17 +111,14 @@ body.dark body::after{background-image:linear-gradient(to right,rgba(255,255,255
     <div class="hero-bignum" aria-hidden="true">03</div>
   </div>
 
-  <div class="section">
-    <div class="sec-left"><span class="sec-icon">🎯</span><span class="sec-label">What you'll<br>learn</span></div>
-    <div class="sec-right">
-      <p>By the end of this Beacon, you'll have a feel for the three AI tools — and a sense of which one clicks with you.</p>
-    </div>
-  </div>
+  <div class="callout" data-light-bg="#F1EFE8" style="background:#F1EFE8" data-dark-bg="#444441">
+  <div class="callout-title" data-light-color="#2C2C2A" style="color:#2C2C2A" data-dark-color="#D3D1C7">🎯 What you'll learn</div>
+  <div class="callout-body" data-light-color="#444441" style="color:#444441" data-dark-color="#B4B2A9"><p>By the end of this Beacon, you'll have a feel for the three AI tools — and a sense of which one clicks with you.</p></div>
+</div>
 
-  <div class="section">
-    <div class="sec-left"><span class="sec-icon">💬</span><span class="sec-label">Three tools,<br>three personalities</span></div>
-    <div class="sec-right">
-      <h2>Same question, three different answers</h2>
+  <div class="callout" data-light-bg="#E6F1FB" style="background:#E6F1FB" data-dark-bg="#0C447C">
+  <div class="callout-title" data-light-color="#0C447C" style="color:#0C447C" data-dark-color="#B5D4F4">💬 Three tools, three personalities</div>
+  <div class="callout-body" data-light-color="#185FA5" style="color:#185FA5" data-dark-color="#85B7EB"><h3>Same question, three different answers</h3>
       <p>You've already met them in Beacon 1. Now it's time to get to know them a little better.</p>
       <p>ChatGPT, Claude, and Gemini can all do similar things — but they have different styles. Like people, really. Same question, three different answers.</p>
       <p>There's no best one. There's only the one that feels right <em>to you.</em></p>
@@ -147,7 +129,7 @@ body.dark body::after{background-image:linear-gradient(to right,rgba(255,255,255
           <p class="tool-card-desc">Thorough and reliable. Great at explaining things step by step.</p>
           <p class="tool-card-feel">Feels like a knowledgeable colleague who always comes prepared.</p>
           <div class="tool-card-link"><a href="https://chatgpt.com" target="_blank">chatgpt.com →</a></div>
-        </div>
+</div>
         <div class="tool-card">
           <span class="tool-card-dot">🟠</span>
           <p class="tool-card-name">Claude</p>
@@ -166,54 +148,46 @@ body.dark body::after{background-image:linear-gradient(to right,rgba(255,255,255
     </div>
   </div>
 
-  <div class="section">
-    <div class="sec-left"><span class="sec-icon">🧪</span><span class="sec-label">Try it<br>now</span></div>
-    <div class="sec-right">
-      <h2>One prompt, three personalities</h2>
+  <div class="callout" data-light-bg="#FAEEDA" style="background:#FAEEDA" data-dark-bg="#633806">
+  <div class="callout-title" data-light-color="#633806" style="color:#633806" data-dark-color="#FAC775">🧪 Try it now</div>
+  <div class="callout-body" data-light-color="#854F0B" style="color:#854F0B" data-dark-color="#EF9F27"><h3>One prompt, three personalities</h3>
       <p><em>Screens and menus may look slightly different — that's normal. Just explore and you'll find your way. 😊</em></p>
       <p>Open all three tools and paste the exact same prompt into each one:</p>
       <div class="prompt-wrap">
         <div class="prompt-topbar"><span class="prompt-topbar-label">Ready-made prompt</span><button class="copy-btn" id="copyBtnp1" onclick="copyPrompt('p1')">Copy</button></div>
         <div class="prompt-text" id="p1">"I have to give a short speech at my friend's wedding next month. I've never done this before and I'm a little nervous. Can you help me get started?"</div>
-      </div>
+</div>
       <p>Send it to all three. Then read the answers side by side.</p>
     </div>
   </div>
 
-  <div class="section">
-    <div class="sec-left"><span class="sec-icon">👀</span><span class="sec-label">What to<br>notice</span></div>
-    <div class="sec-right">
-      <h2>You're not looking for the best speech</h2>
+  <div class="callout" data-light-bg="#FAECE7" style="background:#FAECE7" data-dark-bg="#4A1B0C">
+  <div class="callout-title" data-light-color="#4A1B0C" style="color:#4A1B0C" data-dark-color="#F5C4B3">👀 What to notice</div>
+  <div class="callout-body" data-light-color="#712B13" style="color:#712B13" data-dark-color="#F0997B"><h3>You're not looking for the best speech</h3>
       <p>You're looking at how each tool <em>talks to you.</em></p>
       <ul class="notice-list">
         <li>Does it jump straight into structure — or does it acknowledge the nerves first?</li>
         <li>Does it feel warm, or efficient, or somewhere in between?</li>
         <li>Is the tone something you'd actually want to read again?</li>
       </ul>
-      <p>One of them will probably feel more like <em>your</em> kind of helper. That's your companion.</p>
-    </div>
-  </div>
+      <p>One of them will probably feel more like <em>your</em> kind of helper. That's your companion.</p></div>
+</div>
 
-  <div class="section">
-    <div class="sec-left"><span class="sec-icon">💡</span><span class="sec-label">Good to<br>know</span></div>
-    <div class="sec-right">
-      <h2>You don't have to pick just one</h2>
+  <div class="callout" data-light-bg="#EEEDFE" style="background:#EEEDFE" data-dark-bg="#26215C">
+  <div class="callout-title" data-light-color="#26215C" style="color:#26215C" data-dark-color="#CECBF6">💡 Good to know</div>
+  <div class="callout-body" data-light-color="#3C3489" style="color:#3C3489" data-dark-color="#AFA9EC"><h3>You don't have to pick just one</h3>
       <p>You don't have to stick with your choice forever. Most people end up using two or three tools depending on the task. That's completely normal.</p>
-      <p>Think of it like pens. You might use a different one for shopping lists and thank-you cards.</p>
-    </div>
-  </div>
+      <p>Think of it like pens. You might use a different one for shopping lists and thank-you cards.</p></div>
+</div>
 
-  <div class="complete">
-    <div><span class="complete-icon">✅</span></div>
-    <div>
-      <span class="complete-badge">Beacon complete</span>
-      <h2>You've met all three.</h2>
+  <div class="callout" data-light-bg="#EAF3DE" style="background:#EAF3DE" data-dark-bg="#173404">
+  <div class="callout-title" data-light-color="#173404" style="color:#173404" data-dark-color="#C0DD97">✅ Beacon complete</div>
+  <div class="callout-body" data-light-color="#27500A" style="color:#27500A" data-dark-color="#97C459"><h3>You've met all three.</h3>
       <p>You've now spent time with all three tools — and you're starting to get a feel for their personalities.</p>
-      <p><strong>Up next — Beacon 4:</strong> Write it better. You'll use AI to write emails, messages, and everyday texts — clearly and confidently.</p>
-    </div>
-  </div>
+      <p><strong>Up next — Beacon 4:</strong> Write it better. You'll use AI to write emails, messages, and everyday texts — clearly and confidently.</p></div>
+</div>
 
-  <p class="closing">No rush. Come back whenever you're ready. 🙂</p>
+  <p class="no-rush">No rush. Come back whenever you're ready. 🙂</p>
   <div class="beacon-nav">
     <a href="beacon2.html" class="bn-prev">← Beacon 2 — How to Talk to AI</a>
     <a href="beacon4.html" class="bn-next">Beacon 4 — Write It Better →</a>
