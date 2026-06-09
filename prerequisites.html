@@ -56,9 +56,19 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:str
 .sec-right strong{color:var(--ink);font-weight:600}
 
 /* GMAIL STEPS */
-.steps{list-style:none;margin:1rem 0;counter-reset:steps}
-.steps li{padding:0.5rem 0;font-size:0.92rem;line-height:1.8;border-bottom:1px solid var(--line);}
+.steps{list-style:none;margin:1rem 0;padding:0;counter-reset:steps}
+.steps li{
+  counter-increment:steps;
+  display:grid;grid-template-columns:28px 1fr;gap:1rem;
+  padding:0.7rem 0;border-bottom:1px solid var(--line);
+  font-size:0.92rem;line-height:1.8;
+}
 .steps li:last-child{border-bottom:none}
+.steps li::before{
+  content:counter(steps);
+  font-family:'Playfair Display',serif;font-style:italic;font-weight:700;
+  font-size:1.1rem;color:var(--accent);padding-top:0.1rem;
+}
 .step{
   counter-increment:steps;
   display:grid;grid-template-columns:32px 1fr;gap:1rem;
