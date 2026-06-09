@@ -97,11 +97,12 @@ nav{
 .hero-stat-col{display:flex;flex-direction:column;grid-column:2;grid-row:1/3;}
 .hero-stat-desc{
   padding:1.2rem 1.8rem;border-bottom:1px solid var(--line);
-  font-size:0.82rem;line-height:1.7;color:var(--mid);
+  font-size:0.78rem;line-height:1.6;color:var(--mid);
   height:80px;overflow:hidden;display:flex;align-items:center;
+  width:100%;box-sizing:border-box;
 }
-.hero-stat-desc span{display:none}
-.hero-stat-desc span.default{display:block}
+.hero-stat-desc span{display:none !important;word-break:break-word;overflow-wrap:break-word;}
+.hero-stat-desc span.default{display:block !important}
 .hero-stat-grid{
   display:grid;grid-template-columns:1fr 1fr;gap:1px;
   background:var(--line);flex:1;
