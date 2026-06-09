@@ -93,7 +93,16 @@ nav{
 
 /* HERO RIGHT */
 .hero-right{position:relative;display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);}
-.hero-lh{display:flex;align-items:center;justify-content:center;padding:1.5rem;border-right:1px solid var(--line);background:var(--paper);}
+.hero-lh{display:flex;align-items:center;justify-content:center;padding:1.5rem;border-right:1px solid var(--line);background:var(--paper);grid-row:1/3;}
+.hero-stat-col{display:flex;flex-direction:column;}
+.hero-stat-desc{
+  padding:1.2rem 1.8rem;border-bottom:1px solid var(--line);
+  font-size:0.82rem;line-height:1.7;color:var(--mid);
+  min-height:80px;display:flex;align-items:center;
+}
+.hero-stat-desc span{display:none}
+.hero-stat-desc span.active{display:block}
+.hero-stat-desc span.default{display:block}
 .hero-stat-grid{
   display:grid;grid-template-columns:1fr 1fr;gap:1px;
   background:var(--line);
@@ -112,6 +121,12 @@ nav{
 .hero-right:has(.hero-stat:hover) #lh-glow-3{opacity:.5;transition:opacity 0.4s}
 .hero-right:has(.hero-stat:hover) #lh-glow-2{opacity:.8;transition:opacity 0.4s}
 .hero-right:has(.hero-stat:hover) #lh-glow-1{opacity:.9;transition:opacity 0.4s}
+/* Szöveg váltás hover-re */
+.hero-right:has(.hero-stat:hover) .hero-stat-desc span.default{display:none}
+.hero-right:has(.stat-30:hover) .hero-stat-desc span.desc-30{display:block}
+.hero-right:has(.stat-free:hover) .hero-stat-desc span.desc-free{display:block}
+.hero-right:has(.stat-tools:hover) .hero-stat-desc span.desc-tools{display:block}
+.hero-right:has(.stat-pre:hover) .hero-stat-desc span.desc-pre{display:block}
 #lh-glass{transition:fill 0.4s}
 #lh-glow-3,#lh-glow-2,#lh-glow-1{transition:opacity 0.4s}
 .stat-num{
@@ -290,7 +305,7 @@ body.dark body::after{background-image:linear-gradient(to right,rgba(255,255,255
 @media(max-width:900px){
   .hero-main{grid-template-columns:1fr;gap:3rem;padding:5rem 2rem 3rem}
   .hero-right{grid-template-columns:1fr}
-  .hero-lh{border-right:none;border-bottom:1px solid var(--line);}
+  .hero-lh{border-right:none;border-bottom:1px solid var(--line);grid-row:auto;}
   .hero-stat-grid{grid-template-columns:repeat(4,1fr)}
   .section-header{grid-template-columns:1fr}
   .feature-grid,.blocks-grid,.tools-grid{grid-template-columns:1fr 1fr}
@@ -404,22 +419,31 @@ body.dark body::after{background-image:linear-gradient(to right,rgba(255,255,255
           <rect x="95" y="210" width="10" height="16" rx="5" fill="#5A3A28" opacity=".75"/>
         </svg>
       </div>
-      <div class="hero-stat-grid">
-        <div class="hero-stat">
-          <div class="stat-num">30</div>
-          <div class="stat-label">Beacons</div>
+      <div class="hero-stat-col">
+        <div class="hero-stat-desc">
+          <span class="default">Hover over a number to learn more.</span>
+          <span class="desc-30">The course has 30 Beacons — short, focused lessons you can do at your own pace, in any order.</span>
+          <span class="desc-free">vAIble is completely free. No subscription, no trial, no credit card. Just start.</span>
+          <span class="desc-tools">You'll explore 15+ AI tools across text, image, video, audio, and productivity.</span>
+          <span class="desc-pre">No tech background needed. If you can use email, you can do this course.</span>
         </div>
-        <div class="hero-stat accent-stat">
-          <div class="stat-num">Free</div>
-          <div class="stat-label">Always</div>
-        </div>
-        <div class="hero-stat">
-          <div class="stat-num">15+</div>
-          <div class="stat-label">AI Tools</div>
-        </div>
-        <div class="hero-stat">
-          <div class="stat-num">0</div>
-          <div class="stat-label">Prerequisites</div>
+        <div class="hero-stat-grid">
+          <div class="hero-stat stat-30">
+            <div class="stat-num">30</div>
+            <div class="stat-label">Beacons</div>
+          </div>
+          <div class="hero-stat accent-stat stat-free">
+            <div class="stat-num">Free</div>
+            <div class="stat-label">Always</div>
+          </div>
+          <div class="hero-stat stat-tools">
+            <div class="stat-num">15+</div>
+            <div class="stat-label">AI Tools</div>
+          </div>
+          <div class="hero-stat stat-pre">
+            <div class="stat-num">0</div>
+            <div class="stat-label">Prerequisites</div>
+          </div>
         </div>
       </div>
     </div>
