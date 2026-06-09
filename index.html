@@ -93,9 +93,8 @@ nav{
 
 /* HERO RIGHT */
 .hero-right{position:relative;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto 1fr;border:1px solid var(--line);}
-.hero-lh{display:flex;align-items:center;justify-content:center;padding:1.5rem;border-right:1px solid var(--line);background:var(--paper);grid-column:1;grid-row:1/3;}
-.hero-stat-col{display:flex;flex-direction:column;grid-column:2;grid-row:1/3;}
 .hero-stat-desc{
+  grid-column:1/3;grid-row:1;
   padding:1.2rem 1.8rem;border-bottom:1px solid var(--line);
   font-size:0.78rem;line-height:1.6;color:var(--mid);
   height:80px;overflow:hidden;display:flex;align-items:center;
@@ -103,6 +102,8 @@ nav{
 }
 .hero-stat-desc span{display:none !important;word-break:break-word;overflow-wrap:break-word;}
 .hero-stat-desc span.default{display:block !important}
+.hero-lh{display:flex;align-items:center;justify-content:center;padding:1.5rem;border-right:1px solid var(--line);background:var(--paper);grid-column:1;grid-row:2;}
+.hero-stat-col{display:flex;flex-direction:column;grid-column:2;grid-row:2;}
 .hero-stat-grid{
   display:grid;grid-template-columns:1fr 1fr;gap:1px;
   background:var(--line);flex:1;
@@ -123,10 +124,12 @@ nav{
 .hero-right:has(.hero-stat:hover) #lh-glow-1{opacity:.9;transition:opacity 0.4s}
 /* Szöveg váltás hover-re */
 .hero-right:has(.hero-stat:hover) .hero-stat-desc span{display:none !important}
+.hero-right:has(.hero-lh:hover) .hero-stat-desc span{display:none !important}
 .hero-right:has(.stat-30:hover) .hero-stat-desc span.desc-30{display:block !important}
 .hero-right:has(.stat-free:hover) .hero-stat-desc span.desc-free{display:block !important}
 .hero-right:has(.stat-tools:hover) .hero-stat-desc span.desc-tools{display:block !important}
 .hero-right:has(.stat-pre:hover) .hero-stat-desc span.desc-pre{display:block !important}
+.hero-right:has(.hero-lh:hover) .hero-stat-desc span.desc-lh{display:block !important}
 #lh-glass{transition:fill 0.4s}
 #lh-glow-3,#lh-glow-2,#lh-glow-1{transition:opacity 0.4s}
 .stat-num{
@@ -304,8 +307,10 @@ body.dark body::after{background-image:linear-gradient(to right,rgba(255,255,255
 /* ── RESPONSIVE ── */
 @media(max-width:900px){
   .hero-main{grid-template-columns:1fr;gap:3rem;padding:5rem 2rem 3rem}
-  .hero-right{grid-template-columns:1fr}
-  .hero-lh{border-right:none;border-bottom:1px solid var(--line);grid-row:auto;}
+  .hero-right{grid-template-columns:1fr;grid-template-rows:auto auto 1fr}
+  .hero-stat-desc{grid-column:1;grid-row:1}
+  .hero-lh{border-right:none;border-bottom:1px solid var(--line);grid-row:2;grid-column:1;}
+  .hero-stat-col{grid-row:3;grid-column:1;}
   .hero-stat-grid{grid-template-columns:repeat(4,1fr)}
   .section-header{grid-template-columns:1fr}
   .feature-grid,.blocks-grid,.tools-grid{grid-template-columns:1fr 1fr}
@@ -419,14 +424,15 @@ body.dark body::after{background-image:linear-gradient(to right,rgba(255,255,255
           <rect x="95" y="210" width="10" height="16" rx="5" fill="#5A3A28" opacity=".75"/>
         </svg>
       </div>
+      <div class="hero-stat-desc">
+        <span class="default">Hover over a cell to learn more.</span>
+        <span class="desc-lh">A Beacon is a short, focused lesson — like a lighthouse guiding you through the fog of AI.</span>
+        <span class="desc-30">The course has 30 Beacons — short, focused lessons you can do at your own pace, in any order.</span>
+        <span class="desc-free">vAIble is completely free. No subscription, no trial, no credit card. Just start.</span>
+        <span class="desc-tools">You'll explore 15+ AI tools across text, image, video, audio, and productivity.</span>
+        <span class="desc-pre">No tech background needed. If you can use email, you can do this course.</span>
+      </div>
       <div class="hero-stat-col">
-        <div class="hero-stat-desc">
-          <span class="default">Hover over a cell to learn more.</span>
-          <span class="desc-30">The course has 30 Beacons — short, focused lessons you can do at your own pace, in any order.</span>
-          <span class="desc-free">vAIble is completely free. No subscription, no trial, no credit card. Just start.</span>
-          <span class="desc-tools">You'll explore 15+ AI tools across text, image, video, audio, and productivity.</span>
-          <span class="desc-pre">No tech background needed. If you can use email, you can do this course.</span>
-        </div>
         <div class="hero-stat-grid">
           <div class="hero-stat stat-30">
             <div class="stat-num">30</div>
