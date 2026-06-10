@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>vAIble · Beacon 1 — Welcome Aboard</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{--paper:#FAF8F3;--ink:#0E0E0E;--mid:#7A7A7A;--line:#888780;--accent:#0041CC;--red:#CC3300;--off:#F4F3EF}
@@ -53,7 +53,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:str
 .copy-btn{background:var(--ink);color:var(--paper);border:none;padding:0.25rem 0.8rem;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;font-family:'Instrument Sans',sans-serif;transition:background 0.2s;border-radius:3px}
 .copy-btn:hover{background:var(--accent)}
 .copy-btn.copied{background:#007733}
-.prompt-text{padding:1rem 1.2rem;font-family:'Playfair Display',serif;font-style:italic;font-size:1rem;line-height:1.85}
+.prompt-text{padding:1rem 1.2rem;font-family:'IBM Plex Mono',monospace;font-size:0.9rem;line-height:1.8}
 .chips-header{font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;margin:0.8rem 0 0.5rem;opacity:0.7}
 .chips{display:flex;flex-wrap:wrap;gap:0.4rem;margin-bottom:0.8rem}
 .chip{padding:0.3rem 0.8rem;border:1.5px solid currentColor;border-radius:999px;font-size:0.82rem;cursor:pointer;transition:all 0.15s;background:transparent;font-family:'Instrument Sans',sans-serif;opacity:0.75}
@@ -64,6 +64,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:str
 .compare-cell,.tip-cell{padding:0.8rem 1rem;font-size:1rem;line-height:1.7}
 .compare-header{font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;font-weight:600;opacity:0.6;margin-bottom:0.3rem}
 .no-rush{font-family:'Playfair Display',serif;font-style:italic;font-size:1rem;color:var(--mid);margin:1.5rem 0 0;text-align:left}
+.tool-table{width:100%;border-collapse:collapse;margin:0.8rem 0;font-size:0.95rem}
+.tool-table th{text-align:left;font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;font-weight:600;opacity:0.6;padding:0.5rem 0.8rem 0.5rem 0;border-bottom:2px solid currentColor}
+.tool-table td{padding:0.7rem 0.8rem 0.7rem 0;border-bottom:1px solid currentColor;line-height:1.6;vertical-align:top}
+.tool-table tr:last-child td{border-bottom:none}
+.tool-name{font-weight:700}
+.tool-link a{white-space:nowrap;font-weight:600}
 body.dark{--paper:#0D0D0D;--off:#131312;--ink:#F0EFE9;--line:#3A3A38;--mid:#666660;--accent:#4D8AFF;--red:#FF6644;background:var(--paper);color:var(--ink)}
 body.dark nav,body.dark .prog-bar{background:#0D0D0D;border-color:#222220}
 body.dark .nav-brand,body.dark .nav-crumb{border-color:#222220}
@@ -79,7 +85,7 @@ body.dark .tool-table td,.dark .tool-table th{border-color:#222220;color:#aaa}
 body.dark .complete{border-color:#222220}
 body.dark .complete p{color:#aaa}
 body.dark .beacon-nav{border-color:#222220}
-body.dark body::after{background-image:linear-gradient(to right,rgba(255,255,255,0.015) 1px,transparent 1px)}
+body.dark::after{background-image:linear-gradient(to right,rgba(255,255,255,0.015) 1px,transparent 1px)}
 @media(max-width:860px){.beacon-hero{grid-template-columns:1fr}.hero-bignum{display:none}.section,.complete{grid-template-columns:1fr;gap:1rem}.sec-left{display:flex;align-items:center;gap:0.8rem}.sec-icon{margin-bottom:0;font-size:1.1rem}}
 @media(max-width:640px){nav{flex-wrap:wrap;height:auto}.nav-brand{padding:0.7rem 1.2rem}.nav-crumb{display:none}.nav-actions{padding:0.7rem 1.2rem}.prog-bar{flex-wrap:wrap;height:auto}.prog-label,.prog-pct{padding:0.35rem 1rem}.prog-track-wrap{padding:0.35rem 1rem;border-right:none}.page{padding:7rem 1.2rem 4rem}}
 .beacon-nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 0;border-top:2px dashed var(--line);margin-top:1rem}
@@ -204,18 +210,19 @@ btn.addEventListener('click',()=>{
 function applyCalloutColors(){
   const dark=document.body.classList.contains('dark');
   document.querySelectorAll('.callout').forEach(el=>{
-    el.style.background=dark?el.dataset.darkBg:el.style.background.replace(/rgb[^)]+\)/,el.dataset.lightBg||el.style.background);
+    if(!el.dataset.lightBg)el.dataset.lightBg=el.style.background;
+    el.style.background=dark?el.dataset.darkBg:el.dataset.lightBg;
     const title=el.querySelector('.callout-title');
     const body=el.querySelector('.callout-body');
-    if(title){title.style.color=dark?title.dataset.darkColor:title.dataset.lightColor||title.style.color;}
-    if(body){body.style.color=dark?body.dataset.darkColor:body.dataset.lightColor||body.style.color;}
+    if(title){title.style.color=dark?title.dataset.darkColor:title.dataset.lightColor;}
+    if(body){body.style.color=dark?body.dataset.darkColor:body.dataset.lightColor;}
   });
 }
 
 const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')}),{threshold:0.07});
 document.querySelectorAll('.callout').forEach(el=>obs.observe(el));
 function copyPrompt(id){const t=document.getElementById(id).innerText;navigator.clipboard.writeText(t).then(()=>{const b=document.getElementById('copyBtn'+id);b.textContent='Copied!';b.classList.add('copied');setTimeout(()=>{b.textContent='Copy';b.classList.remove('copied')},2000)})}
-function swapTopic(chip,pid){document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));chip.classList.add('active');const t=chip.innerText;document.getElementById(pid).innerHTML=`"Explain [<em>${t}</em>] to me like I'm hearing about it for the first time. Keep it short and make it interesting."`}</em>] to me like I'm hearing about it for the first time. Keep it short and make it interesting."`}
+function swapTopic(chip,pid){document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));chip.classList.add('active');const t=chip.innerText;document.getElementById(pid).innerHTML=`"Explain [<em>${t}</em>] to me like I'm hearing about it for the first time. Keep it short and make it interesting."`}
 </script>
 </body>
 </html>
