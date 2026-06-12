@@ -55,32 +55,19 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:str
 .copy-btn:hover{background:var(--accent)}
 .copy-btn.copied{background:#007733}
 .prompt-text{padding:1rem 1.2rem;font-family:'IBM Plex Mono',monospace;font-size:0.9rem;line-height:1.8}
-.chips-header{font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;margin:0.8rem 0 0.5rem;opacity:0.7}
-.chips{display:flex;flex-wrap:wrap;gap:0.4rem;margin-bottom:0.8rem}
-.chip{padding:0.3rem 0.8rem;border:1.5px solid currentColor;border-radius:999px;font-size:0.82rem;cursor:pointer;transition:all 0.15s;background:transparent;font-family:'Instrument Sans',sans-serif;opacity:0.75}
-.chip:hover{opacity:1}
-.chip.active{opacity:1;font-weight:600}
-.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin:0.8rem 0;border-radius:6px;overflow:hidden}
-.tip-grid{display:grid;grid-template-columns:1fr;gap:2px;margin:0.8rem 0;border-radius:6px;overflow:hidden}
-.compare-cell,.tip-cell{padding:0.8rem 1rem;font-size:1rem;line-height:1.7}
-.compare-header{font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;font-weight:600;opacity:0.6;margin-bottom:0.3rem}
+.idea-list{display:grid;grid-template-columns:1fr;gap:2px;margin:0.8rem 0;border-radius:6px;overflow:hidden;background:color-mix(in srgb, currentColor 30%, transparent)}
+.idea-item{background:color-mix(in srgb, var(--paper) 80%, transparent);padding:0.6rem 1rem;font-size:0.95rem;line-height:1.6}
+.step-label{font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;margin:1rem 0 0.4rem;opacity:0.7}
 .no-rush{font-family:'Inter',sans-serif;font-style:italic;font-size:1rem;color:var(--mid);margin:1.5rem 0 0;text-align:left}
 body.dark{--paper:#0D0D0D;--off:#131312;--ink:#F0EFE9;--line:#3A3A38;--mid:#666660;--accent:#4D8AFF;--red:#FF6644;background:var(--paper);color:var(--ink)}
 body.dark nav,body.dark .prog-bar{background:#0D0D0D;border-color:#222220}
 body.dark .nav-brand,body.dark .nav-crumb{border-color:#222220}
 body.dark .prog-track-wrap{border-color:#222220}
 body.dark .hero-bignum{color:color-mix(in srgb, var(--accent) 22%, transparent)}
-body.dark .section{border-color:#222220}
-body.dark .sec-right p,.dark .sec-right li{color:#aaa}
 body.dark .prompt-wrap{border-color:#222220}
 body.dark .prompt-topbar{background:#111110;border-color:#222220}
-body.dark .usecase-grid{background:#222220}
-body.dark .usecase-item{background:#0D0D0D}
-body.dark .usecase-text{color:#888}
-body.dark .complete{border-color:#222220}
-body.dark .complete p{color:#aaa}
 body.dark::after{background-image:linear-gradient(to right,rgba(255,255,255,0.015) 1px,transparent 1px)}
-@media(max-width:860px){.beacon-hero{grid-template-columns:1fr}.hero-bignum{display:none}.section,.complete{grid-template-columns:1fr;gap:1rem}.sec-left{display:flex;align-items:center;gap:0.8rem}.sec-icon{margin-bottom:0;font-size:1.1rem}.usecase-grid{grid-template-columns:1fr}}
+@media(max-width:860px){.beacon-hero{grid-template-columns:1fr}.hero-bignum{display:none}}
 @media(max-width:640px){nav{flex-wrap:wrap;height:auto}.nav-brand{padding:0.7rem 1.2rem}.nav-crumb{display:none}.nav-actions{padding:0.7rem 1.2rem}.prog-bar{flex-wrap:wrap;height:auto}.prog-label,.prog-pct{padding:0.35rem 1rem}.prog-track-wrap{padding:0.35rem 1rem;border-right:none}.page{padding:7rem 1.2rem 4rem}}
 .beacon-nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 0;margin-top:1rem}
 .bn-prev{display:flex;align-items:center;gap:0.6rem;padding:0.6rem 1.2rem;border:2px solid var(--line);border-radius:999px;text-decoration:none;font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--mid);font-weight:600;transition:all 0.2s}
@@ -111,7 +98,7 @@ body.dark::after{background-image:linear-gradient(to right,rgba(255,255,255,0.01
         <span class="hero-num">Beacon 05</span>
       </div>
       <h1 class="hero-title">Lost in<br><span class="hero-title-accent">Translation?</span></h1>
-      <p class="hero-sub">You'll discover how AI can help you translate text, understand tricky phrases, and even pick up a few words in a new language.</p>
+      <p class="hero-sub">A menu in Italian, an email in French, a phrase you half-remember — your AI chat handles them all, and explains what they really mean.</p>
     </div>
     <div class="hero-bignum" aria-hidden="true">05</div>
   </div>
@@ -126,19 +113,11 @@ body.dark::after{background-image:linear-gradient(to right,rgba(255,255,255,0.01
   <div class="callout-body" data-light-color="#185FA5" style="color:#185FA5" data-dark-color="#85B7EB"><h3>Translate anything, instantly</h3>
       <p>Need to read a restaurant menu in Italian? Got an email in French and have no idea what it says? AI tools can translate almost any language — instantly, and for free.</p>
       <p>You don't need to copy-paste into a separate app. Just ask directly in the chat. It's as simple as typing what you need:</p>
-      <div class="usecase-grid">
-        <div class="usecase-item">
-          <p class="usecase-label">Translate to English</p>
-          <p class="usecase-text">"Please translate this into English: Bonjour, comment puis-je vous aider?"</p>
-        </div>
-        <div class="usecase-item">
-          <p class="usecase-label">Translate to another language</p>
-          <p class="usecase-text">"How do you say 'Where is the train station?' in Japanese?"</p>
-        </div>
-        <div class="usecase-item">
-          <p class="usecase-label">Check the tone</p>
-          <p class="usecase-text">"Translate this email from German, and let me know if the tone sounds formal or casual."</p></div>
-</div>
+      <div class="idea-list">
+        <div class="idea-item"><strong>Translate to English</strong><br>"Please translate this into English: Bonjour, comment puis-je vous aider?"</div>
+        <div class="idea-item"><strong>Translate to another language</strong><br>"How do you say 'Where is the train station?' in Japanese?"</div>
+        <div class="idea-item"><strong>Check the tone</strong><br>"Translate this email from German, and let me know if the tone sounds formal or casual."</div>
+      </div>
     </div>
   </div>
 
@@ -148,7 +127,7 @@ body.dark::after{background-image:linear-gradient(to right,rgba(255,255,255,0.01
       <p>AI doesn't just swap words. It understands context. You can also use AI as a gentle language tutor. Ask it to:</p>
       <ul>
         <li>Explain a grammar rule in simple terms</li>
-        <li>Give you 5 useful phrases for travelling in Spain</li>
+        <li>Give you 5 useful phrases for traveling in Spain</li>
         <li>Correct a sentence you wrote in French</li>
       </ul>
       <p>You're in control of the pace. Ask as many follow-up questions as you like.</p></div>
@@ -158,7 +137,7 @@ body.dark::after{background-image:linear-gradient(to right,rgba(255,255,255,0.01
   <div class="callout-title" data-light-color="#633806" style="color:#633806" data-dark-color="#FAC775"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">🧪</span> Try it now</div>
   <div class="callout-body" data-light-color="#854F0B" style="color:#854F0B" data-dark-color="#EF9F27"><h3>Two prompts, one conversation</h3>
       <p><em>Screens and menus may look slightly different — that's normal. Just explore and you'll find your way. 😊</em></p>
-      <p>Open <strong>Claude, ChatGPT, or Gemini</strong> — whichever you prefer.</p>
+      <p>Open <strong>ChatGPT, Claude, or Gemini</strong> — whichever you prefer.</p>
       <p class="step-label">Step 1 — Paste this prompt:</p>
       <div class="prompt-wrap">
         <div class="prompt-topbar"><span class="prompt-topbar-label">Ready-made prompt</span><button class="copy-btn" id="copyBtnp1" onclick="copyPrompt('p1')">Copy</button></div>
@@ -189,7 +168,7 @@ body.dark::after{background-image:linear-gradient(to right,rgba(255,255,255,0.01
   <div class="callout" data-light-bg="#EAF3DE" style="background:#EAF3DE;border:2px solid #7BBF3A" data-dark-bg="#173404">
   <div class="callout-title" data-light-color="#173404" style="color:#173404" data-dark-color="#C0DD97"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">✅</span> Beacon complete</div>
   <div class="callout-body" data-light-color="#27500A" style="color:#27500A" data-dark-color="#97C459"><h3>The world just got smaller.</h3>
-      <p>You now know how to use AI as your personal translator and language companion. That's a genuinely useful skill — whether you're travelling, working, or just curious.</p>
+      <p>You now know how to use AI as your personal translator and language companion. That's a genuinely useful skill — whether you're traveling, working, or just curious.</p>
       <p><strong>Up next — Beacon 6:</strong> Tell your story. You'll use AI to write a personal bio that actually sounds like you.</p></div>
 </div>
 
@@ -217,8 +196,6 @@ function applyCalloutColors(){
     if(body){body.style.color=dark?body.dataset.darkColor:body.dataset.lightColor;}
   });
 }
-const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')}),{threshold:0.07});
-document.querySelectorAll('.section,.complete').forEach(el=>obs.observe(el));
 function copyPrompt(id){const t=document.getElementById(id).innerText;navigator.clipboard.writeText(t).then(()=>{const b=document.getElementById('copyBtn'+id);b.textContent='Copied!';b.classList.add('copied');setTimeout(()=>{b.textContent='Copy';b.classList.remove('copied')},2000)})}
 </script>
 </body>
