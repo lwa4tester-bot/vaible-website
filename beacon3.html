@@ -61,6 +61,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:str
 .chip.active{opacity:1;font-weight:600}
 .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin:0.8rem 0;border-radius:6px;overflow:hidden}
 .tip-grid{display:grid;grid-template-columns:1fr;gap:2px;margin:0.8rem 0;border-radius:6px;overflow:hidden}
+.tool-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin:1rem 0;background:#6BAEE8;border-radius:6px;overflow:hidden}
+.tool-card{background:var(--paper);padding:1rem 1.1rem;display:flex;flex-direction:column;gap:0.35rem}
+.tool-card-dot{font-size:0.85rem;line-height:1}
+.tool-card-name{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:1.02rem;color:var(--ink)}
+.tool-card-desc{font-size:0.88rem;line-height:1.6}
+.tool-card-feel{font-size:0.84rem;line-height:1.6;font-style:italic;opacity:0.75}
+.tool-card-link{margin-top:auto;padding-top:0.4rem}
+.tool-card-link a{font-size:0.8rem;font-weight:600}
 .compare-cell,.tip-cell{padding:0.8rem 1rem;font-size:1rem;line-height:1.7}
 .compare-header{font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;font-weight:600;opacity:0.6;margin-bottom:0.3rem}
 .no-rush{font-family:'Inter',sans-serif;font-style:italic;font-size:1rem;color:var(--mid);margin:1.5rem 0 0;text-align:left}
@@ -69,16 +77,11 @@ body.dark nav,body.dark .prog-bar{background:#0D0D0D;border-color:#222220}
 body.dark .nav-brand,body.dark .nav-crumb{border-color:#222220}
 body.dark .prog-track-wrap{border-color:#222220}
 body.dark .hero-bignum{color:#161614}
-body.dark .section{border-color:#222220}
-body.dark .sec-right p,.dark .sec-right li{color:#aaa}
 body.dark .prompt-wrap{border-color:#222220}
 body.dark .prompt-topbar{background:#111110;border-color:#222220}
-body.dark .tool-cards{background:#222220}
+body.dark .tool-cards{background:#378ADD}
 body.dark .tool-card{background:#0D0D0D}
-body.dark .tool-card-desc,.dark .tool-card-feel{color:#888}
-body.dark .notice-list li{color:#aaa;border-color:#222220}
-body.dark .complete{border-color:#222220}
-body.dark .complete p{color:#aaa}
+body.dark .tool-card-link a{color:#B5D4F4}
 body.dark .beacon-nav{border-color:#222220}
 body.dark::after{background-image:linear-gradient(to right,rgba(255,255,255,0.015) 1px,transparent 1px)}
 @media(max-width:860px){.beacon-hero{grid-template-columns:1fr}.hero-bignum{display:none}.section,.complete{grid-template-columns:1fr;gap:1rem}.sec-left{display:flex;align-items:center;gap:0.8rem}.sec-icon{margin-bottom:0;font-size:1.1rem}.tool-cards{grid-template-columns:1fr}}
@@ -112,7 +115,7 @@ body.dark::after{background-image:linear-gradient(to right,rgba(255,255,255,0.01
         <span class="hero-num">Beacon 03</span>
       </div>
       <h1 class="hero-title">Pick Your<br>Companion</h1>
-      <p class="hero-sub">By the end of this Beacon, you'll have a feel for the three AI tools — and a sense of which one clicks with you.</p>
+      <p class="hero-sub">ChatGPT, Claude, or Gemini? Same question, three very different answers. Time to find your match.</p>
     </div>
     <div class="hero-bignum" aria-hidden="true">03</div>
   </div>
