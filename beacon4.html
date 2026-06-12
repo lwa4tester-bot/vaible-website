@@ -27,14 +27,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:str
 .prog-dot{position:absolute;top:-4px;width:9px;height:9px;border-radius:50%;background:var(--accent);transform:translateX(-50%)}
 .prog-pct{padding:0 1.5rem;font-size:0.65rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--mid);white-space:nowrap;height:100%;display:flex;align-items:center}
 .page{max-width:960px;margin:0 auto;padding:6.5rem 3rem 6rem;position:relative;z-index:1}
-.beacon-hero{display:grid;grid-template-columns:1fr auto;gap:3rem;align-items:end;padding-bottom:3rem;margin-bottom:3rem;border-bottom:1px solid var(--line)}
+.beacon-hero{display:grid;grid-template-columns:1fr auto;gap:3rem;align-items:end;padding-bottom:1rem;margin-bottom:1.5rem}
 .hero-meta{display:flex;align-items:center;gap:1.2rem;margin-bottom:1.5rem}
 .hero-tag{font-size:0.65rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);font-weight:600}
 .hero-sep{width:32px;height:1px;background:var(--line)}
 .hero-num{font-size:0.65rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--mid)}
 .hero-title{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:clamp(3rem,5vw,5.5rem);line-height:0.95;letter-spacing:-2px;color:var(--ink)}
-.hero-sub{margin-top:1.2rem;font-size:0.92rem;line-height:1.75;color:var(--mid);max-width:400px}
-.hero-bignum{font-family:'Playfair Display',serif;font-weight:900;font-style:italic;font-size:clamp(7rem,12vw,11rem);line-height:1;letter-spacing:-6px;color:var(--line);user-select:none;align-self:flex-end}
+.hero-title .hero-title-accent{color:var(--accent)}
+.hero-sub{margin-top:1.2rem;font-size:0.92rem;line-height:1.75;color:var(--mid);max-width:400px;border-left:2px solid var(--accent);padding-left:1rem}
+.hero-bignum{font-family:'Playfair Display',serif;font-weight:900;font-style:italic;font-size:clamp(7rem,12vw,11rem);line-height:1;letter-spacing:-6px;color:color-mix(in srgb, var(--accent) 13%, transparent);user-select:none;align-self:flex-end}
 .callout{border-radius:12px;padding:0 1.6rem 1.4rem;margin-bottom:12px;opacity:1;overflow:hidden}
 
 .callout-title{font-family:'Space Grotesk',sans-serif;font-size:1.25rem;font-weight:600;padding:1rem 1.6rem;margin:0 -1.6rem 1rem;background:color-mix(in srgb, currentColor 14%, transparent)}
@@ -55,20 +56,24 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:str
 .copy-btn.copied{background:#007733}
 .prompt-text{padding:1rem 1.2rem;font-family:'IBM Plex Mono',monospace;font-size:0.9rem;line-height:1.8}
 .chips-header{font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;margin:0.8rem 0 0.5rem;opacity:0.7}
-.chips{display:flex;flex-wrap:wrap;gap:0.4rem;margin-bottom:0.8rem}
-.chip{padding:0.3rem 0.8rem;border:1.5px solid currentColor;border-radius:999px;font-size:0.82rem;cursor:pointer;transition:all 0.15s;background:transparent;font-family:'Instrument Sans',sans-serif;opacity:0.75}
-.chip:hover{opacity:1}
-.chip.active{opacity:1;font-weight:600}
+.idea-list{display:grid;grid-template-columns:1fr;gap:2px;margin:0.8rem 0;border-radius:6px;overflow:hidden;background:color-mix(in srgb, currentColor 30%, transparent)}
+.idea-item{background:color-mix(in srgb, var(--paper) 80%, transparent);padding:0.6rem 1rem;font-size:0.95rem;line-height:1.6}
 .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin:0.8rem 0;border-radius:6px;overflow:hidden}
 .tip-grid{display:grid;grid-template-columns:1fr;gap:2px;margin:0.8rem 0;border-radius:6px;overflow:hidden}
 .compare-cell,.tip-cell{padding:0.8rem 1rem;font-size:1rem;line-height:1.7}
 .compare-header{font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;font-weight:600;opacity:0.6;margin-bottom:0.3rem}
+.followup-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin:0.8rem 0;border-radius:6px;overflow:hidden;background:color-mix(in srgb, currentColor 30%, transparent)}
+.followup-item{background:color-mix(in srgb, var(--paper) 80%, transparent);padding:0.8rem 1rem;font-size:0.95rem;line-height:1.6;font-style:italic}
+.example-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin:0.8rem 0;border-radius:6px;overflow:hidden;background:color-mix(in srgb, currentColor 30%, transparent)}
+.example-item{background:color-mix(in srgb, var(--paper) 80%, transparent);padding:0.8rem 1rem}
+.example-label{font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;font-weight:600;opacity:0.6;margin-bottom:0.3rem}
+.example-text{font-size:0.95rem;line-height:1.7;font-style:italic}
 .no-rush{font-family:'Inter',sans-serif;font-style:italic;font-size:1rem;color:var(--mid);margin:1.5rem 0 0;text-align:left}
 body.dark{--paper:#0D0D0D;--off:#131312;--ink:#F0EFE9;--line:#3A3A38;--mid:#666660;--accent:#4D8AFF;--red:#FF6644;background:var(--paper);color:var(--ink)}
 body.dark nav,body.dark .prog-bar{background:#0D0D0D;border-color:#222220}
 body.dark .nav-brand,body.dark .nav-crumb{border-color:#222220}
 body.dark .prog-track-wrap{border-color:#222220}
-body.dark .hero-bignum{color:#161614}
+body.dark .hero-bignum{color:color-mix(in srgb, var(--accent) 22%, transparent)}
 body.dark .section{border-color:#222220}
 body.dark .sec-right p,.dark .sec-right li{color:#aaa}
 body.dark .prompt-wrap{border-color:#222220}
@@ -109,8 +114,8 @@ body.dark::after{background-image:linear-gradient(to right,rgba(255,255,255,0.01
         <div class="hero-sep"></div>
         <span class="hero-num">Beacon 04</span>
       </div>
-      <h1 class="hero-title">Write It<br>Better</h1>
-      <p class="hero-sub">How to ask an AI to write a professional email for you — even when you're not sure what to say.</p>
+      <h1 class="hero-title">Write It<br><span class="hero-title-accent">Better</span></h1>
+      <p class="hero-sub">That email you've been putting off? Describe it in plain words, and AI writes it for you.</p>
     </div>
     <div class="hero-bignum" aria-hidden="true">04</div>
   </div>
@@ -149,13 +154,16 @@ body.dark::after{background-image:linear-gradient(to right,rgba(255,255,255,0.01
   <div class="callout-title" data-light-color="#633806" style="color:#633806" data-dark-color="#FAC775"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">🧪</span> Try it now</div>
   <div class="callout-body" data-light-color="#854F0B" style="color:#854F0B" data-dark-color="#EF9F27"><h3>Your turn</h3>
       <p><em>Screens and menus may look slightly different — that's normal. Just explore and you'll find your way. 😊</em></p>
-      <p>Open <strong>Claude, ChatGPT, or Gemini</strong> — whichever you prefer. Think of an email you've been putting off. A few ideas:</p>
-      <div class="chips">
-        <span class="chip">following up on something you never heard back about</span>
-        <span class="chip">saying no to an invitation without sounding rude</span>
-        <span class="chip">asking a colleague for a favour you feel awkward about</span>
-        <span class="chip">writing a polite complaint to a shop or service</span>
-        <span class="chip">thanking someone you should have thanked a while ago</span>
+      <p>Open <strong>ChatGPT, Claude, or Gemini</strong> — whichever you prefer. Think of an email you've been putting off. A few ideas:</p>
+      <div class="idea-list">
+        <div class="idea-item">following up on something you never heard back about</div>
+        <div class="idea-item">saying no to an invitation without sounding rude</div>
+        <div class="idea-item">asking a colleague for a favor you feel awkward about</div>
+        <div class="idea-item">writing a polite complaint to a shop or service</div>
+        <div class="idea-item">thanking someone you should have thanked a while ago</div>
+        <div class="idea-item">apologizing for a late reply</div>
+        <div class="idea-item">asking your landlord to fix something</div>
+        <div class="idea-item"><em>…or anything else you've been putting off</em></div>
       </div>
       <p>Describe your situation to the AI in plain words — like you'd explain it to a friend:</p>
       <div class="prompt-wrap">
