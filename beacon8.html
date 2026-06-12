@@ -27,14 +27,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:str
 .prog-dot{position:absolute;top:-4px;width:9px;height:9px;border-radius:50%;background:var(--accent);transform:translateX(-50%)}
 .prog-pct{padding:0 1.5rem;font-size:0.65rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--mid);white-space:nowrap;height:100%;display:flex;align-items:center}
 .page{max-width:960px;margin:0 auto;padding:6.5rem 3rem 6rem;position:relative;z-index:1}
-.beacon-hero{display:grid;grid-template-columns:1fr auto;gap:3rem;align-items:end;padding-bottom:3rem;margin-bottom:3rem;border-bottom:1px solid var(--line)}
+.beacon-hero{display:grid;grid-template-columns:1fr auto;gap:3rem;align-items:end;padding-bottom:1rem;margin-bottom:1.5rem}
 .hero-meta{display:flex;align-items:center;gap:1.2rem;margin-bottom:1.5rem}
 .hero-tag{font-size:0.65rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--accent);font-weight:600}
 .hero-sep{width:32px;height:1px;background:var(--line)}
 .hero-num{font-size:0.65rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--mid)}
 .hero-title{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:clamp(3rem,5vw,5.5rem);line-height:0.95;letter-spacing:-2px;color:var(--ink)}
-.hero-sub{margin-top:1.2rem;font-size:0.92rem;line-height:1.75;color:var(--mid);max-width:420px}
-.hero-bignum{font-family:'Playfair Display',serif;font-weight:900;font-style:italic;font-size:clamp(7rem,12vw,11rem);line-height:1;letter-spacing:-6px;color:var(--line);user-select:none;align-self:flex-end}
+.hero-title .hero-title-accent{color:var(--accent)}
+.hero-sub{margin-top:1.2rem;font-size:0.92rem;line-height:1.75;color:var(--mid);max-width:420px;border-left:2px solid var(--accent);padding-left:1rem}
+.hero-bignum{font-family:'Playfair Display',serif;font-weight:900;font-style:italic;font-size:clamp(7rem,12vw,11rem);line-height:1;letter-spacing:-6px;color:color-mix(in srgb, var(--accent) 13%, transparent);user-select:none;align-self:flex-end}
 .callout{border-radius:12px;padding:0 1.6rem 1.4rem;margin-bottom:12px;opacity:1;overflow:hidden}
 
 .callout-title{font-family:'Space Grotesk',sans-serif;font-size:1.25rem;font-weight:600;padding:1rem 1.6rem;margin:0 -1.6rem 1rem;background:color-mix(in srgb, currentColor 14%, transparent)}
@@ -68,7 +69,7 @@ body.dark{--paper:#0D0D0D;--off:#131312;--ink:#F0EFE9;--line:#3A3A38;--mid:#6666
 body.dark nav,body.dark .prog-bar{background:#0D0D0D;border-color:#222220}
 body.dark .nav-brand,body.dark .nav-crumb{border-color:#222220}
 body.dark .prog-track-wrap{border-color:#222220}
-body.dark .hero-bignum{color:#161614}
+body.dark .hero-bignum{color:color-mix(in srgb, var(--accent) 22%, transparent)}
 body.dark .section{border-color:#222220}
 body.dark .sec-right p{color:#aaa}
 body.dark .sec-right li{color:#aaa}
@@ -77,11 +78,10 @@ body.dark .prompt-topbar{background:#111110;border-color:#222220}
 body.dark .note-box{background:#131312;border-color:#333;color:#888}
 body.dark .complete{border-color:#222220}
 body.dark .complete p{color:#aaa}
-body.dark .beacon-nav{border-color:#222220}
 body.dark::after{background-image:linear-gradient(to right,rgba(255,255,255,0.015) 1px,transparent 1px)}
 @media(max-width:860px){.beacon-hero{grid-template-columns:1fr}.hero-bignum{display:none}.section,.complete{grid-template-columns:1fr;gap:1rem}.sec-left{display:flex;align-items:center;gap:0.8rem}.sec-icon{margin-bottom:0;font-size:1.1rem}}
 @media(max-width:640px){nav{flex-wrap:wrap;height:auto}.nav-brand{padding:0.7rem 1.2rem}.nav-crumb{display:none}.nav-actions{padding:0.7rem 1.2rem}.prog-bar{flex-wrap:wrap;height:auto}.prog-label,.prog-pct{padding:0.35rem 1rem}.prog-track-wrap{padding:0.35rem 1rem;border-right:none}.page{padding:7rem 1.2rem 4rem}}
-.beacon-nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 0;border-top:1px solid var(--line);margin-top:1rem}
+.beacon-nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 0;margin-top:1rem}
 .bn-prev{display:flex;align-items:center;gap:0.6rem;padding:0.6rem 1.2rem;border:2px solid var(--line);border-radius:999px;text-decoration:none;font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--mid);font-weight:600;transition:all 0.2s}
 .bn-prev:hover{border-color:var(--ink);color:var(--ink)}
 .bn-prev.disabled{opacity:0.3;pointer-events:none}
@@ -108,7 +108,7 @@ body.dark::after{background-image:linear-gradient(to right,rgba(255,255,255,0.01
         <div class="hero-sep"></div>
         <span class="hero-num">Beacon 08</span>
       </div>
-      <h1 class="hero-title">Fact<br>or Fiction</h1>
+      <h1 class="hero-title">Fact<br><span class="hero-title-accent">or Fiction</span></h1>
       <p class="hero-sub">You'll know when to trust AI — and when to double-check.</p>
     </div>
     <div class="hero-bignum" aria-hidden="true">08</div>
