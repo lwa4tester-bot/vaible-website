@@ -6,7 +6,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:ital,wght@0,400;1,400&family=Space+Grotesk:wght@600&family=Inter:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--paper:#FAF8F3;--ink:#0E0E0E;--mid:#7A7A7A;--line:#888780;--accent:#0041CC;--red:#CC3300;--off:#F4F3EF}
+:root{--paper:#FAF8F3;--ink:#0E0E0E;--mid:#7A7A7A;--line:#888780;--accent:#0041CC}
 html{scroll-behavior:smooth}
 body{background:var(--paper);color:var(--ink);font-family:'Instrument Sans',sans-serif;overflow-x:hidden}
 body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(to right,rgba(0,0,0,0.022) 1px,transparent 1px);background-size:80px 100%}
@@ -55,31 +55,19 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:str
 .copy-btn:hover{background:var(--accent)}
 .copy-btn.copied{background:#007733}
 .prompt-text{padding:1rem 1.2rem;font-family:'IBM Plex Mono',monospace;font-size:0.9rem;line-height:1.8}
-.chips-header{font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;margin:0.8rem 0 0.5rem;opacity:0.7}
-.chips{display:flex;flex-wrap:wrap;gap:0.4rem;margin-bottom:0.8rem}
-.chip{padding:0.3rem 0.8rem;border:1.5px solid currentColor;border-radius:999px;font-size:0.82rem;cursor:pointer;transition:all 0.15s;background:transparent;font-family:'Instrument Sans',sans-serif;opacity:0.75}
-.chip:hover{opacity:1}
-.chip.active{opacity:1;font-weight:600}
-.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin:0.8rem 0;border-radius:6px;overflow:hidden}
-.tip-grid{display:grid;grid-template-columns:1fr;gap:2px;margin:0.8rem 0;border-radius:6px;overflow:hidden}
-.compare-cell,.tip-cell{padding:0.8rem 1rem;font-size:1rem;line-height:1.7}
-.compare-header{font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;font-weight:600;opacity:0.6;margin-bottom:0.3rem}
+.note-box{background:color-mix(in srgb, currentColor 8%, transparent);border:1.5px solid color-mix(in srgb, currentColor 30%, transparent);border-radius:6px;padding:0.7rem 1rem;font-size:0.92rem;line-height:1.7;margin:0.5rem 0 1rem}
+.step-label{font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;margin:1rem 0 0.4rem;opacity:0.7}
 .no-rush{font-family:'Inter',sans-serif;font-style:italic;font-size:1rem;color:var(--mid);margin:1.5rem 0 0;text-align:left}
-body.dark{--paper:#0D0D0D;--off:#131312;--ink:#F0EFE9;--line:#3A3A38;--mid:#666660;--accent:#4D8AFF;--red:#FF6644;background:var(--paper);color:var(--ink)}
+body.dark{--paper:#0D0D0D;--ink:#F0EFE9;--line:#3A3A38;--mid:#666660;--accent:#4D8AFF;background:var(--paper);color:var(--ink)}
 body.dark nav,body.dark .prog-bar{background:#0D0D0D;border-color:#222220}
 body.dark .nav-brand,body.dark .nav-crumb{border-color:#222220}
 body.dark .prog-track-wrap{border-color:#222220}
 body.dark .hero-bignum{color:color-mix(in srgb, var(--accent) 22%, transparent)}
-body.dark .section{border-color:#222220}
-body.dark .sec-right p{color:#aaa}
-body.dark .sec-right li{color:#aaa}
 body.dark .prompt-wrap{border-color:#222220}
 body.dark .prompt-topbar{background:#111110;border-color:#222220}
 body.dark .note-box{background:#131312;border-color:#333;color:#888}
-body.dark .complete{border-color:#222220}
-body.dark .complete p{color:#aaa}
 body.dark::after{background-image:linear-gradient(to right,rgba(255,255,255,0.015) 1px,transparent 1px)}
-@media(max-width:860px){.beacon-hero{grid-template-columns:1fr}.hero-bignum{display:none}.section,.complete{grid-template-columns:1fr;gap:1rem}.sec-left{display:flex;align-items:center;gap:0.8rem}.sec-icon{margin-bottom:0;font-size:1.1rem}}
+@media(max-width:860px){.beacon-hero{grid-template-columns:1fr}.hero-bignum{display:none}}
 @media(max-width:640px){nav{flex-wrap:wrap;height:auto}.nav-brand{padding:0.7rem 1.2rem}.nav-crumb{display:none}.nav-actions{padding:0.7rem 1.2rem}.prog-bar{flex-wrap:wrap;height:auto}.prog-label,.prog-pct{padding:0.35rem 1rem}.prog-track-wrap{padding:0.35rem 1rem;border-right:none}.page{padding:7rem 1.2rem 4rem}}
 .beacon-nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 0;margin-top:1rem}
 .bn-prev{display:flex;align-items:center;gap:0.6rem;padding:0.6rem 1.2rem;border:2px solid var(--line);border-radius:999px;text-decoration:none;font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--mid);font-weight:600;transition:all 0.2s}
@@ -115,12 +103,16 @@ body.dark::after{background-image:linear-gradient(to right,rgba(255,255,255,0.01
   </div>
   <div class="callout" data-light-bg="#F1EFE8" style="background:#F1EFE8;border:2px solid #B8B4A8" data-dark-bg="#444441">
   <div class="callout-title" data-light-color="#2C2C2A" style="color:#2C2C2A" data-dark-color="#D3D1C7"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">🎯</span> What you'll learn</div>
-  <div class="callout-body" data-light-color="#444441" style="color:#444441" data-dark-color="#B4B2A9"><p>By the end of this Beacon, you'll know how to use two powerful AI tools — Perplexity and NotebookLM — to research smarter, not harder.</p></div>
+  <div class="callout-body" data-light-color="#444441" style="color:#444441" data-dark-color="#B4B2A9"><p>By the end of this Beacon, you'll know how to search the web with sources you can check — and how to ask questions about your own documents. Two new tools: Perplexity and NotebookLM.</p></div>
 </div>
 <div class="callout" data-light-bg="#E1F5EE" style="background:#E1F5EE;border:2px solid #3DB88A" data-dark-bg="#085041">
   <div class="callout-title" data-light-color="#085041" style="color:#085041" data-dark-color="#9FE1CB"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">🛠️</span> Meet the tools</div>
   <div class="callout-body" data-light-color="#0F6E56" style="color:#0F6E56" data-dark-color="#5DCAA5"><h3>Perplexity — your smart search engine</h3><p><strong>Perplexity</strong> is an AI-powered search engine. Instead of a list of links, you get a direct answer — with sources included. → <a href="https://perplexity.ai" target="_blank" style="color:var(--accent)">perplexity.ai</a></p><div class="note-box"><strong>Free tier:</strong> Unlimited basic searches. Pro Searches (advanced queries) capped at 5 per day.</div><h3>NotebookLM — your reading assistant</h3><p><strong>NotebookLM</strong> is a Google tool that lets you upload your own documents — and then ask questions about them. → <a href="https://notebooklm.google.com" target="_blank" style="color:var(--accent)">notebooklm.google.com</a></p><div class="note-box"><strong>Free tier:</strong> 100 notebooks, 50 sources per notebook, 50 chat queries per day, 3 Audio Overviews per day.</div>
 </div></div>
+<div class="callout" data-light-bg="#E6F1FB" style="background:#E6F1FB;border:2px solid #6BAEE8" data-dark-bg="#0C447C">
+  <div class="callout-title" data-light-color="#0C447C" style="color:#0C447C" data-dark-color="#B5D4F4"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">&#x1F50D;</span> Why not just ask a chatbot?</div>
+  <div class="callout-body" data-light-color="#185FA5" style="color:#185FA5" data-dark-color="#85B7EB"><h3>Research needs sources</h3><p>ChatGPT, Claude, and Gemini are great at writing, explaining, and brainstorming. But research needs one extra thing: you want to <em>see where the information comes from</em>.</p><p>That's exactly what these two tools add:</p><ul><li><strong>Perplexity</strong> searches the live internet and attaches sources to every answer — you can click and check each claim.</li><li><strong>NotebookLM</strong> doesn't search the internet at all. It reads only the documents <em>you</em> give it, so the answers stay grounded in your own material.</li></ul><p>Same question, two very different approaches. You'll feel the difference in a minute.</p></div>
+</div>
 <div class="callout" data-light-bg="#FAEEDA" style="background:#FAEEDA;border:2px solid #E8A020" data-dark-bg="#633806">
   <div class="callout-title" data-light-color="#633806" style="color:#633806" data-dark-color="#FAC775"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">🧪</span> Try it now</div>
   <div class="callout-body" data-light-color="#854F0B" style="color:#854F0B" data-dark-color="#EF9F27"><h3>Two tools, one topic</h3><p><em>Screens and menus may look slightly different — that's normal. Just explore and you'll find your way. 😊</em></p><p class="step-label">Step 1 — Perplexity</p><div class="prompt-wrap"><div class="prompt-topbar"><span class="prompt-topbar-label">Ready-made prompt</span><button class="copy-btn" id="copyBtnp1" onclick="copyPrompt('p1')">Copy</button></div><div class="prompt-text" id="p1">"What are the pros and cons of drinking coffee every day?"</div>
@@ -131,7 +123,7 @@ body.dark::after{background-image:linear-gradient(to right,rgba(255,255,255,0.01
 </div>
 <div class="callout" data-light-bg="#EEEDFE" style="background:#EEEDFE;border:2px solid #8880E8" data-dark-bg="#26215C">
   <div class="callout-title" data-light-color="#26215C" style="color:#26215C" data-dark-color="#CECBF6"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">💡</span> Good to know</div>
-  <div class="callout-body" data-light-color="#3C3489" style="color:#3C3489" data-dark-color="#AFA9EC"><h3>Use them together</h3><p><strong>Perplexity</strong> → when you want to search for something new on the internet. <strong>NotebookLM</strong> → when you already have a document and want to understand it better. Think of Perplexity as your smart search engine, and NotebookLM as your personal reading assistant.</p></div>
+  <div class="callout-body" data-light-color="#3C3489" style="color:#3C3489" data-dark-color="#AFA9EC"><h3>They make a great team</h3><p>Here's a trick for bigger research projects: use the two tools <em>in sequence</em>.</p><p>First, ask Perplexity to find good articles on your topic. Then copy the best source links into a NotebookLM notebook — and now you can ask detailed questions about all of them in one place.</p><p>Search wide with Perplexity, dig deep with NotebookLM. &#128522;</p></div>
 </div>
 <div class="callout" data-light-bg="#EAF3DE" style="background:#EAF3DE;border:2px solid #7BBF3A" data-dark-bg="#173404">
   <div class="callout-title" data-light-color="#173404" style="color:#173404" data-dark-color="#C0DD97"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">✅</span> Beacon complete</div>
@@ -161,8 +153,6 @@ function applyCalloutColors(){
     if(body){body.style.color=dark?body.dataset.darkColor:body.dataset.lightColor;}
   });
 }
-const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')}),{threshold:0.07});
-document.querySelectorAll('.section,.complete').forEach(el=>obs.observe(el));
 function copyPrompt(id){const t=document.getElementById(id).innerText;navigator.clipboard.writeText(t).then(()=>{const b=document.getElementById('copyBtn'+id);b.textContent='Copied!';b.classList.add('copied');setTimeout(()=>{b.textContent='Copy';b.classList.remove('copied')},2000)})}
 </script>
 </body>
