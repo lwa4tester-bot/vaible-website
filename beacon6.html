@@ -6,7 +6,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:ital,wght@0,400;1,400&family=Space+Grotesk:wght@600&family=Inter:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--paper:#FAF8F3;--ink:#0E0E0E;--mid:#7A7A7A;--line:#888780;--accent:#0041CC;--red:#CC3300;--off:#F4F3EF}
+:root{--paper:#FAF8F3;--ink:#0E0E0E;--mid:#7A7A7A;--line:#888780;--accent:#0041CC}
 html{scroll-behavior:smooth}
 body{background:var(--paper);color:var(--ink);font-family:'Instrument Sans',sans-serif;overflow-x:hidden}
 body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(to right,rgba(0,0,0,0.022) 1px,transparent 1px);background-size:80px 100%}
@@ -55,31 +55,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:str
 .copy-btn:hover{background:var(--accent)}
 .copy-btn.copied{background:#007733}
 .prompt-text{padding:1rem 1.2rem;font-family:'IBM Plex Mono',monospace;font-size:0.9rem;line-height:1.8}
-.chips-header{font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;margin:0.8rem 0 0.5rem;opacity:0.7}
-.chips{display:flex;flex-wrap:wrap;gap:0.4rem;margin-bottom:0.8rem}
-.chip{padding:0.3rem 0.8rem;border:1.5px solid currentColor;border-radius:999px;font-size:0.82rem;cursor:pointer;transition:all 0.15s;background:transparent;font-family:'Instrument Sans',sans-serif;opacity:0.75}
-.chip:hover{opacity:1}
-.chip.active{opacity:1;font-weight:600}
-.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin:0.8rem 0;border-radius:6px;overflow:hidden}
-.tip-grid{display:grid;grid-template-columns:1fr;gap:2px;margin:0.8rem 0;border-radius:6px;overflow:hidden}
-.compare-cell,.tip-cell{padding:0.8rem 1rem;font-size:1rem;line-height:1.7}
-.compare-header{font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;font-weight:600;opacity:0.6;margin-bottom:0.3rem}
 .no-rush{font-family:'Inter',sans-serif;font-style:italic;font-size:1rem;color:var(--mid);margin:1.5rem 0 0;text-align:left}
-body.dark{--paper:#0D0D0D;--off:#131312;--ink:#F0EFE9;--line:#3A3A38;--mid:#666660;--accent:#4D8AFF;--red:#FF6644;background:var(--paper);color:var(--ink)}
+body.dark{--paper:#0D0D0D;--ink:#F0EFE9;--line:#3A3A38;--mid:#666660;--accent:#4D8AFF;background:var(--paper);color:var(--ink)}
 body.dark nav,body.dark .prog-bar{background:#0D0D0D;border-color:#222220}
 body.dark .nav-brand,body.dark .nav-crumb{border-color:#222220}
 body.dark .prog-track-wrap{border-color:#222220}
 body.dark .hero-bignum{color:color-mix(in srgb, var(--accent) 22%, transparent)}
-body.dark .section{border-color:#222220}
-body.dark .sec-right p{color:#aaa}
-body.dark .sec-right li{color:#aaa}
-body.dark .prompt-wrap{border-color:#222220}
-body.dark .prompt-topbar{background:#111110;border-color:#222220}
-body.dark .note-box{background:#131312;border-color:#333;color:#888}
-body.dark .complete{border-color:#222220}
-body.dark .complete p{color:#aaa}
 body.dark::after{background-image:linear-gradient(to right,rgba(255,255,255,0.015) 1px,transparent 1px)}
-@media(max-width:860px){.beacon-hero{grid-template-columns:1fr}.hero-bignum{display:none}.section,.complete{grid-template-columns:1fr;gap:1rem}.sec-left{display:flex;align-items:center;gap:0.8rem}.sec-icon{margin-bottom:0;font-size:1.1rem}}
+@media(max-width:860px){.beacon-hero{grid-template-columns:1fr}.hero-bignum{display:none}}
 @media(max-width:640px){nav{flex-wrap:wrap;height:auto}.nav-brand{padding:0.7rem 1.2rem}.nav-crumb{display:none}.nav-actions{padding:0.7rem 1.2rem}.prog-bar{flex-wrap:wrap;height:auto}.prog-label,.prog-pct{padding:0.35rem 1rem}.prog-track-wrap{padding:0.35rem 1rem;border-right:none}.page{padding:7rem 1.2rem 4rem}}
 .beacon-nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 0;margin-top:1rem}
 .bn-prev{display:flex;align-items:center;gap:0.6rem;padding:0.6rem 1.2rem;border:2px solid var(--line);border-radius:999px;text-decoration:none;font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--mid);font-weight:600;transition:all 0.2s}
@@ -109,7 +92,7 @@ body.dark::after{background-image:linear-gradient(to right,rgba(255,255,255,0.01
         <span class="hero-num">Beacon 06</span>
       </div>
       <h1 class="hero-title">Tell<br><span class="hero-title-accent">Your Story</span></h1>
-      <p class="hero-sub">You'll use AI to write a personal bio that actually sounds like you — in minutes.</p>
+      <p class="hero-sub">One good bio opens many doors — let's write yours.</p>
     </div>
     <div class="hero-bignum" aria-hidden="true">06</div>
   </div>
@@ -123,7 +106,7 @@ body.dark::after{background-image:linear-gradient(to right,rgba(255,255,255,0.01
 </div>
 <div class="callout" data-light-bg="#FAEEDA" style="background:#FAEEDA;border:2px solid #E8A020" data-dark-bg="#633806">
   <div class="callout-title" data-light-color="#633806" style="color:#633806" data-dark-color="#FAC775"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">🧪</span> Try it now</div>
-  <div class="callout-body" data-light-color="#854F0B" style="color:#854F0B" data-dark-color="#EF9F27"><h3>Two versions, one you</h3><p><em>Screens and menus may look slightly different — that's normal. Just explore and you'll find your way. 😊</em></p><p>Open <strong>Claude, ChatGPT, or Gemini</strong> and fill in the brackets:</p><div class="prompt-wrap"><div class="prompt-topbar"><span class="prompt-topbar-label">Ready-made prompt</span><button class="copy-btn" id="copyBtnp1" onclick="copyPrompt('p1')">Copy</button></div><div class="prompt-text" id="p1">"Write two short personal bios for me — both 3–4 sentences. Use the same information for both, but make one formal and professional, the other warm and casual. I'm a [your role], I live in [location], and I enjoy [something you care about]."</div>
+  <div class="callout-body" data-light-color="#854F0B" style="color:#854F0B" data-dark-color="#EF9F27"><h3>Two versions, one you</h3><p><em>Screens and menus may look slightly different — that's normal. Just explore and you'll find your way. 😊</em></p><p>Open <strong>ChatGPT, Claude, or Gemini</strong> and fill in the brackets:</p><div class="prompt-wrap"><div class="prompt-topbar"><span class="prompt-topbar-label">Ready-made prompt</span><button class="copy-btn" id="copyBtnp1" onclick="copyPrompt('p1')">Copy</button></div><div class="prompt-text" id="p1">"Write two short personal bios for me — both 3–4 sentences. Use the same information for both, but make one formal and professional, the other warm and casual. I'm a [your role], I live in [location], and I enjoy [something you care about]."</div>
 </div><p>Read both versions. Then pick the one that feels more like you — or mix the two.</p></div></div>
 <div class="callout" data-light-bg="#FAECE7" style="background:#FAECE7;border:2px solid #E8724A" data-dark-bg="#4A1B0C">
   <div class="callout-title" data-light-color="#4A1B0C" style="color:#4A1B0C" data-dark-color="#F5C4B3"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">&#x1F440;</span> What to notice</div>
@@ -161,8 +144,6 @@ function applyCalloutColors(){
     if(body){body.style.color=dark?body.dataset.darkColor:body.dataset.lightColor;}
   });
 }
-const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')}),{threshold:0.07});
-document.querySelectorAll('.section,.complete').forEach(el=>obs.observe(el));
 function copyPrompt(id){const t=document.getElementById(id).innerText;navigator.clipboard.writeText(t).then(()=>{const b=document.getElementById('copyBtn'+id);b.textContent='Copied!';b.classList.add('copied');setTimeout(()=>{b.textContent='Copy';b.classList.remove('copied')},2000)})}
 </script>
 </body>
