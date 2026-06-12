@@ -33,7 +33,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:str
 .hero-sep{width:32px;height:1px;background:var(--line)}
 .hero-num{font-size:0.65rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--mid)}
 .hero-title{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:clamp(3rem,5vw,5.5rem);line-height:0.95;letter-spacing:-2px;color:var(--ink)}
-.hero-sub{margin-top:1.2rem;font-size:0.92rem;line-height:1.75;color:var(--mid);max-width:400px}
+.hero-title .hero-title-accent{color:var(--accent)}
+.hero-sub{margin-top:1.2rem;font-size:0.92rem;line-height:1.75;color:var(--mid);max-width:400px;border-left:2px solid var(--accent);padding-left:1rem}
 .hero-bignum{font-family:'Playfair Display',serif;font-weight:900;font-style:italic;font-size:clamp(7rem,12vw,11rem);line-height:1;letter-spacing:-6px;color:var(--line);user-select:none;align-self:flex-end}
 .callout{border-radius:12px;padding:0 1.6rem 1.4rem;margin-bottom:12px;opacity:1;overflow:hidden}
 
@@ -114,7 +115,7 @@ body.dark::after{background-image:linear-gradient(to right,rgba(255,255,255,0.01
         <div class="hero-sep"></div>
         <span class="hero-num">Beacon 03</span>
       </div>
-      <h1 class="hero-title">Pick Your<br>Companion</h1>
+      <h1 class="hero-title">Pick Your<br><span class="hero-title-accent">Companion</span></h1>
       <p class="hero-sub">ChatGPT, Claude, or Gemini? Same question, three very different answers. Time to find your match.</p>
     </div>
     <div class="hero-bignum" aria-hidden="true">03</div>
