@@ -106,6 +106,12 @@ body.dark::after{background-image:linear-gradient(to right,rgba(255,255,255,0.01
 .jump-overlay.visible{display:block}
 body.dark .jump-panel{background:#0D0D0D;border-color:#222220}
 body.dark .jump-sec-label{border-color:#222220}
+.step-badge{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:#633806;color:#FAEEDA;font-size:0.72rem;font-weight:700;flex-shrink:0;margin-top:1px}
+body.dark .step-badge{background:#EF9F27;color:#412402}
+.step-row{display:flex;align-items:flex-start;gap:0.65rem;margin:0.35rem 0}
+.option-badge{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;border:2px solid #854F0B;color:#633806;font-size:0.72rem;font-weight:700;flex-shrink:0;margin-top:1px;background:transparent}
+body.dark .option-badge{border-color:#EF9F27;color:#EF9F27}
+.option-row{display:flex;align-items:flex-start;gap:0.65rem;margin:0.35rem 0}
 </style>
 </head>
 <body>
@@ -174,15 +180,12 @@ body.dark .jump-sec-label{border-color:#222220}
   </div>
   <div class="callout" data-light-bg="#F1EFE8" style="background:#F1EFE8;border:2px solid #B8B4A8" data-dark-bg="#444441">
   <div class="callout-title" data-light-color="#2C2C2A" style="color:#2C2C2A" data-dark-color="#D3D1C7"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">🎯</span> What you'll learn</div>
-  <div class="callout-body" data-light-color="#444441" style="color:#444441" data-dark-color="#B4B2A9"><p>By the end of this Beacon, you'll know how to transform a photo using Canva's free</p>
-<p>editing tools — no design skills needed. You'll apply filters, adjust light and color,</p>
-<p>add text, and crop like a pro. The photo doesn't have to be perfect to start.</p>
-<p>That's exactly the point.</p></div>
+  <div class="callout-body" data-light-color="#444441" style="color:#444441" data-dark-color="#B4B2A9"><p>By the end of this Beacon, you'll know how to transform a photo using Canva's free editing tools — no design skills needed. You'll apply filters, adjust light and color, add text, and crop like a pro.</p>
+<p>The photo doesn't have to be perfect to start. That's exactly the point.</p></div>
 </div>
 <div class="callout" data-light-bg="#E6F1FB" style="background:#E6F1FB;border:2px solid #6BAEE8" data-dark-bg="#0C447C">
-  <div class="callout-title" data-light-color="#0C447C" style="color:#0C447C" data-dark-color="#B5D4F4"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">🖼</span> ️ Your photo, AI's hands</div>
-  <div class="callout-body" data-light-color="#185FA5" style="color:#185FA5" data-dark-color="#85B7EB"><p>Editing used to mean expensive software and hours of practice. Canva does the heavy</p>
-<p>lifting for you. You move a slider. It updates instantly. That's it.</p></div>
+  <div class="callout-title" data-light-color="#0C447C" style="color:#0C447C" data-dark-color="#B5D4F4"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">🖼️</span> Your photo, AI's hands</div>
+  <div class="callout-body" data-light-color="#185FA5" style="color:#185FA5" data-dark-color="#85B7EB"><p>Editing used to mean expensive software and hours of practice. Canva does the heavy lifting for you. You move a slider. It updates instantly. That's it.</p></div>
 </div>
 <div class="callout" data-light-bg="#E6F1FB" style="background:#E6F1FB;border:2px solid #6BAEE8" data-dark-bg="#0C447C">
   <div class="callout-title" data-light-color="#0C447C" style="color:#0C447C" data-dark-color="#B5D4F4"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">✨</span> Filters — one click, whole new mood</div>
@@ -193,17 +196,14 @@ body.dark .jump-sec-label{border-color:#222220}
 <div class="callout" data-light-bg="#E6F1FB" style="background:#E6F1FB;border:2px solid #6BAEE8" data-dark-bg="#0C447C">
   <div class="callout-title" data-light-color="#0C447C" style="color:#0C447C" data-dark-color="#B5D4F4"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">🎨</span> Adjust the look</div>
   <div class="callout-body" data-light-color="#185FA5" style="color:#185FA5" data-dark-color="#85B7EB"><p>Want your photo to feel warmer? Brighter? A little more dramatic?</p>
-<p>Click Adjust to change brightness, contrast, saturation, shadows, and more —</p>
-<p>with simple sliders.</p>
+<p>Click Adjust to change brightness, contrast, saturation, shadows, and more — with simple sliders.</p>
 <p>No photography experience needed. Just move until it looks right to you.</p></div>
 </div>
 <div class="callout" data-light-bg="#E6F1FB" style="background:#E6F1FB;border:2px solid #6BAEE8" data-dark-bg="#0C447C">
-  <div class="callout-title" data-light-color="#0C447C" style="color:#0C447C" data-dark-color="#B5D4F4"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">✂</span> ️ Crop and straighten</div>
-  <div class="callout-body" data-light-color="#185FA5" style="color:#185FA5" data-dark-color="#85B7EB"><p>Sometimes less is more. Cropping removes distractions and puts the focus exactly</p>
-<p>where you want it.</p>
+  <div class="callout-title" data-light-color="#0C447C" style="color:#0C447C" data-dark-color="#B5D4F4"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">✂️</span> Crop and straighten</div>
+  <div class="callout-body" data-light-color="#185FA5" style="color:#185FA5" data-dark-color="#85B7EB"><p>Sometimes less is more. Cropping removes distractions and puts the focus exactly where you want it.</p>
 <p>Click Crop → drag the edges → hit Done.</p>
-<p>Try the rule of thirds: place your subject slightly off-centre. It almost always</p>
-<p>looks better than dead centre.</p></div>
+<p>Try the rule of thirds: place your subject slightly off-centre. It almost always looks better than dead centre.</p></div>
 </div>
 <div class="callout" data-light-bg="#E6F1FB" style="background:#E6F1FB;border:2px solid #6BAEE8" data-dark-bg="#0C447C">
   <div class="callout-title" data-light-color="#0C447C" style="color:#0C447C" data-dark-color="#B5D4F4"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">🔤</span> Add text to your photo</div>
@@ -215,51 +215,45 @@ body.dark .jump-sec-label{border-color:#222220}
   <div class="callout-title" data-light-color="#633806" style="color:#633806" data-dark-color="#FAC775"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">🧪</span> Try it now</div>
   <div class="callout-body" data-light-color="#854F0B" style="color:#854F0B" data-dark-color="#EF9F27"><p>Screens and menus may look slightly different — that's normal. Just explore and you'll find your way. 😊</p>
 <p>You'll need a photo for this one. Here are two easy options:</p>
-<p>Option A — Use your own photo</p>
+<div class="option-row"><span class="option-badge">A</span><span>Use your own photo</span></div>
 <p>A selfie, a pet, a landscape — anything works.</p>
-<p>Option B — Grab a free stock photo</p>
+<div class="option-row"><span class="option-badge">B</span><span>Grab a free stock photo</span></div>
 <p>Go to 👉 <a href="https://unsplash.com/" target="_blank" style="color:var(--accent)">https://unsplash.com</a> and search for any of these:</p>
 <ol style="padding-left:1.4rem;margin:0.5rem 0">
-<li style="margin-bottom:0.4rem;color:#444">Coffee cup on a table</li>
-<li style="margin-bottom:0.4rem;color:#444">Dog in a park</li>
-<li style="margin-bottom:0.4rem;color:#444">Person smiling outdoors</li>
-<li style="margin-bottom:0.4rem;color:#444">Flowers in a vase</li>
-<li style="margin-bottom:0.4rem;color:#444">City street with buildings</li>
-<li style="margin-bottom:0.4rem;color:#444">Cat sitting by a window</li>
-<li style="margin-bottom:0.4rem;color:#444">Fruit on a white background</li>
-<li style="margin-bottom:0.4rem;color:#444">Hands holding a book</li>
-<li style="margin-bottom:0.4rem;color:#444">Bicycle leaning against a wall</li>
-<li style="margin-bottom:0.4rem;color:#444">Sunset over water</li>
+<li style="margin-bottom:0.4rem">Coffee cup on a table</li>
+<li style="margin-bottom:0.4rem">Dog in a park</li>
+<li style="margin-bottom:0.4rem">Person smiling outdoors</li>
+<li style="margin-bottom:0.4rem">Flowers in a vase</li>
+<li style="margin-bottom:0.4rem">City street with buildings</li>
+<li style="margin-bottom:0.4rem">Cat sitting by a window</li>
+<li style="margin-bottom:0.4rem">Fruit on a white background</li>
+<li style="margin-bottom:0.4rem">Hands holding a book</li>
+<li style="margin-bottom:0.4rem">Bicycle leaning against a wall</li>
+<li style="margin-bottom:0.4rem">Sunset over water</li>
 </ol>
 <p>Download one, then go to 👉 <a href="https://canva.com/" target="_blank" style="color:var(--accent)">https://canva.com</a> → click Photo editor → upload your photo.</p>
 <p>Now try this — 3 steps:</p>
-<p>Step 1 → Click Filters → try at least 5 different ones</p>
-<p>Step 2 → Click Adjust → move the Brightness and Contrast sliders until it feels right</p>
-<p>Step 3 → Click Crop → reframe the photo so the subject fills more of the image</p>
+<div class="step-row"><span class="step-badge">1</span><span>Click Filters → try at least 5 different ones</span></div>
+<div class="step-row"><span class="step-badge">2</span><span>Click Adjust → move the Brightness and Contrast sliders until it feels right</span></div>
+<div class="step-row"><span class="step-badge">3</span><span>Click Crop → reframe the photo so the subject fills more of the image</span></div>
 <p>Look at the result. Then look at where you started.</p></div>
 </div>
 <div class="callout" data-light-bg="#FAECE7" style="background:#FAECE7;border:2px solid #E8724A" data-dark-bg="#4A1B0C">
   <div class="callout-title" data-light-color="#4A1B0C" style="color:#4A1B0C" data-dark-color="#F5C4B3"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">&#x1F440;</span> What to notice</div>
-  <div class="callout-body" data-light-color="#712B13" style="color:#712B13" data-dark-color="#F0997B"><p>After applying a filter, look at how the mood of the photo changes — not just the</p>
-<p>colors. A warm filter feels inviting. A cool one feels distant. A faded one feels</p>
-<p>nostalgic. You didn't change the photo. You changed how it feels. That's the real</p>
-<p>power of editing.</p></div>
+  <div class="callout-body" data-light-color="#712B13" style="color:#712B13" data-dark-color="#F0997B"><p>After applying a filter, look at how the mood of the photo changes — not just the colors. A warm filter feels inviting. A cool one feels distant. A faded one feels nostalgic.</p>
+<p>You didn't change the photo. You changed how it feels. That's the real power of editing.</p></div>
 </div>
 <div class="callout" data-light-bg="#EEEDFE" style="background:#EEEDFE;border:2px solid #8880E8" data-dark-bg="#26215C">
   <div class="callout-title" data-light-color="#26215C" style="color:#26215C" data-dark-color="#CECBF6"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">💡</span> Good to know</div>
-  <div class="callout-body" data-light-color="#3C3489" style="color:#3C3489" data-dark-color="#AFA9EC"><p>All the tools in this Beacon — Filters, Adjust, Crop, and Text — are completely</p>
-<p>free on Canva's free plan. No subscription needed.</p>
+  <div class="callout-body" data-light-color="#3C3489" style="color:#3C3489" data-dark-color="#AFA9EC"><p>All the tools in this Beacon — Filters, Adjust, Crop, and Text — are completely free on Canva's free plan. No subscription needed.</p>
 <p>Nothing is permanent until you download. You can undo anything. Experiment freely.</p>
-<p>If you want to try AI-powered tools like Background Remover or Magic Eraser,</p>
-<p>those are available on Canva Pro — worth exploring if you use Canva regularly.</p></div>
+<p>If you want to try AI-powered tools like Background Remover or Magic Eraser, those are available on Canva Pro — worth exploring if you use Canva regularly.</p></div>
 </div>
 <div class="callout" data-light-bg="#EAF3DE" style="background:#EAF3DE;border:2px solid #7BBF3A" data-dark-bg="#173404">
   <div class="callout-title" data-light-color="#173404" style="color:#173404" data-dark-color="#C0DD97"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">✅</span> Beacon complete</div>
   <div class="callout-body" data-light-color="#27500A" style="color:#27500A" data-dark-color="#97C459"><p>You just edited a photo — no Photoshop, no tutorials, no fuss.</p>
 <p>Next up → Beacon 14: Style explorer</p>
-<p>You'll discover different visual styles — photorealistic, cartoon, painting, logo —</p>
-<p>and learn how to steer AI toward each one.</p>
-<p><em>No rush. Come back whenever you're ready. 🙂</em></p></div>
+<p>You'll discover different visual styles — photorealistic, cartoon, painting, logo — and learn how to steer AI toward each one.</p></div>
 </div>
   <p class="no-rush">No rush. Come back whenever you're ready. &#128578;</p>
   <div class="beacon-nav">
