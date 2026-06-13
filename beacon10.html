@@ -55,31 +55,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:str
 .copy-btn:hover{background:var(--accent)}
 .copy-btn.copied{background:#007733}
 .prompt-text{padding:1rem 1.2rem;font-family:'IBM Plex Mono',monospace;font-size:0.9rem;line-height:1.8}
-.chips-header{font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:600;margin:0.8rem 0 0.5rem;opacity:0.7}
-.chips{display:flex;flex-wrap:wrap;gap:0.4rem;margin-bottom:0.8rem}
-.chip{padding:0.3rem 0.8rem;border:1.5px solid currentColor;border-radius:999px;font-size:0.82rem;cursor:pointer;transition:all 0.15s;background:transparent;font-family:'Instrument Sans',sans-serif;opacity:0.75}
-.chip:hover{opacity:1}
-.chip.active{opacity:1;font-weight:600}
-.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin:0.8rem 0;border-radius:6px;overflow:hidden}
-.tip-grid{display:grid;grid-template-columns:1fr;gap:2px;margin:0.8rem 0;border-radius:6px;overflow:hidden}
-.compare-cell,.tip-cell{padding:0.8rem 1rem;font-size:1rem;line-height:1.7}
-.compare-header{font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;font-weight:600;opacity:0.6;margin-bottom:0.3rem}
 .no-rush{font-family:'Inter',sans-serif;font-style:italic;font-size:1rem;color:var(--mid);margin:1.5rem 0 0;text-align:left}
 body.dark{--paper:#0D0D0D;--off:#131312;--ink:#F0EFE9;--line:#3A3A38;--mid:#666660;--accent:#4D8AFF;--red:#FF6644;background:var(--paper);color:var(--ink)}
 body.dark nav,body.dark .prog-bar{background:#0D0D0D;border-color:#222220}
 body.dark .nav-brand,body.dark .nav-crumb{border-color:#222220}
 body.dark .prog-track-wrap{border-color:#222220}
 body.dark .hero-bignum{color:color-mix(in srgb, var(--accent) 22%, transparent)}
-body.dark .section{border-color:#222220}
-body.dark .sec-right p{color:#aaa}
-body.dark .sec-right li{color:#aaa}
 body.dark .prompt-wrap{border-color:#222220}
 body.dark .prompt-topbar{background:#111110;border-color:#222220}
-body.dark .note-box{background:#131312;border-color:#333;color:#888}
-body.dark .complete{border-color:#222220}
-body.dark .complete p{color:#aaa}
 body.dark::after{background-image:linear-gradient(to right,rgba(255,255,255,0.015) 1px,transparent 1px)}
-@media(max-width:860px){.beacon-hero{grid-template-columns:1fr}.hero-bignum{display:none}.section,.complete{grid-template-columns:1fr;gap:1rem}.sec-left{display:flex;align-items:center;gap:0.8rem}.sec-icon{margin-bottom:0;font-size:1.1rem}}
+@media(max-width:860px){.beacon-hero{grid-template-columns:1fr}.hero-bignum{display:none}}
 @media(max-width:640px){nav{flex-wrap:wrap;height:auto}.nav-brand{padding:0.7rem 1.2rem}.nav-crumb{display:none}.nav-actions{padding:0.7rem 1.2rem}.prog-bar{flex-wrap:wrap;height:auto}.prog-label,.prog-pct{padding:0.35rem 1rem}.prog-track-wrap{padding:0.35rem 1rem;border-right:none}.page{padding:7rem 1.2rem 4rem}}
 .beacon-nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 0;margin-top:1rem}
 .bn-prev{display:flex;align-items:center;gap:0.6rem;padding:0.6rem 1.2rem;border:2px solid var(--line);border-radius:999px;text-decoration:none;font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--mid);font-weight:600;transition:all 0.2s}
@@ -109,7 +94,7 @@ body.dark::after{background-image:linear-gradient(to right,rgba(255,255,255,0.01
         <span class="hero-num">Beacon 10</span>
       </div>
       <h1 class="hero-title">Paint<br><span class="hero-title-accent">With Words</span></h1>
-      <p class="hero-sub">You'll generate your first AI image — using just a few words. No design skills needed.</p>
+      <p class="hero-sub">Same prompt. Two tools. Completely different results.</p>
     </div>
     <div class="hero-bignum" aria-hidden="true">10</div>
   </div>
@@ -121,12 +106,12 @@ body.dark::after{background-image:linear-gradient(to right,rgba(255,255,255,0.01
 <div class="callout" data-light-bg="#FBE8F0" style="background:#FBE8F0;border:2px solid #E060A0" data-dark-bg="#5C0E33">
   <div class="callout-title" data-light-color="#5C0E33" style="color:#5C0E33" data-dark-color="#F5BBD6"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">🛠️</span> Meet the tool</div>
   <div class="callout-body" data-light-color="#8F1B52" style="color:#8F1B52" data-dark-color="#EE8FBC"><p><strong>Leonardo AI</strong> is a dedicated AI image generator — built specifically for creating visuals.</p>
-<p>You type a description, and it produces a beautiful image in seconds. Unlike Gemini, this is all it does — and it shows.</p>
+<p>You type a description, and it produces a beautiful image in seconds. Unlike Gemini, this is all it does — and the focus shows in the results.</p>
 <p>👉 <a href="https://leonardo.ai/" target="_blank" style="color:var(--accent)">https://leonardo.ai</a></p>
 <p>Click <strong>Sign in with Google</strong> — your Gmail account works instantly. No credit card needed.</p></div>
 </div>
 <div class="callout" data-light-bg="#E6F1FB" style="background:#E6F1FB;border:2px solid #6BAEE8" data-dark-bg="#0C447C">
-  <div class="callout-title" data-light-color="#0C447C" style="color:#0C447C" data-dark-color="#B5D4F4"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">🖼</span> ️ From words to pictures</div>
+  <div class="callout-title" data-light-color="#0C447C" style="color:#0C447C" data-dark-color="#B5D4F4"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">🖼️</span> From words to pictures</div>
   <div class="callout-body" data-light-color="#185FA5" style="color:#185FA5" data-dark-color="#85B7EB"><p>AI image tools work the same way as everything else you've done so far: you describe what you want, and the tool creates it.</p>
 <p>This description is called a <strong>prompt</strong> — the same word you've seen in Gemini and ChatGPT.</p>
 <p>The difference? The result is a visual, not a paragraph.</p>
@@ -138,7 +123,13 @@ body.dark::after{background-image:linear-gradient(to right,rgba(255,255,255,0.01
 <p><strong>Step 1 — Generate in Gemini</strong></p>
 <p>Go to 👉 <a href="https://gemini.google.com/" target="_blank" style="color:var(--accent)">https://gemini.google.com</a></p>
 <p>Type this prompt:</p>
-<p style="font-style:italic;border-left:3px solid var(--accent);padding-left:1rem;margin:0.8rem 0;color:#555"><em>Generate an image of a cozy reading nook with a warm lamp, autumn leaves outside the window, watercolor style</em></p>
+<div class="prompt-wrap">
+  <div class="prompt-topbar">
+    <span class="prompt-topbar-label">Ready-made prompt</span>
+    <button class="copy-btn" id="copyBtnprompt1" onclick="copyPrompt('prompt1')">Copy</button>
+  </div>
+  <div class="prompt-text" id="prompt1">Generate an image of a cozy reading nook with a warm lamp, autumn leaves outside the window, watercolor style</div>
+</div>
 <p><strong>Step 2 — Try the same prompt in Leonardo AI</strong></p>
 <p>Go to 👉 <a href="https://leonardo.ai/" target="_blank" style="color:var(--accent)">https://leonardo.ai</a> → sign in with Google → type the same prompt in the box at the top → click <strong>Generate</strong></p>
 <p>Compare the two results. Same words — different style, different mood, different feel.</p></div>
@@ -159,8 +150,7 @@ body.dark::after{background-image:linear-gradient(to right,rgba(255,255,255,0.01
 <div class="callout" data-light-bg="#EAF3DE" style="background:#EAF3DE;border:2px solid #7BBF3A" data-dark-bg="#173404">
   <div class="callout-title" data-light-color="#173404" style="color:#173404" data-dark-color="#C0DD97"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">✅</span> Beacon complete</div>
   <div class="callout-body" data-light-color="#27500A" style="color:#27500A" data-dark-color="#97C459"><p>You just created your first AI-generated images — in two different tools. 🎉</p>
-<p>Next up: <strong>Beacon 11 – Make it yours</strong> — where you'll use Leonardo AI and Canva AI to create something more personal: a profile picture, a cover image, or a poster. Your idea, your style.</p>
-<p><em>No rush. Come back whenever you're ready. 🙂</em></p></div>
+<p>Next up: <strong>Beacon 11 – Make it yours</strong> — where you'll use Leonardo AI and Canva AI to create something more personal: a profile picture, a cover image, or a poster. Your idea, your style.</p></div>
 </div>
   <p class="no-rush">No rush. Come back whenever you're ready. &#128578;</p>
   <div class="beacon-nav">
@@ -186,8 +176,6 @@ function applyCalloutColors(){
     if(body){body.style.color=dark?body.dataset.darkColor:body.dataset.lightColor;}
   });
 }
-const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')}),{threshold:0.07});
-document.querySelectorAll('.section,.complete').forEach(el=>obs.observe(el));
 function copyPrompt(id){const t=document.getElementById(id).innerText;navigator.clipboard.writeText(t).then(()=>{const b=document.getElementById('copyBtn'+id);b.textContent='Copied!';b.classList.add('copied');setTimeout(()=>{b.textContent='Copy';b.classList.remove('copied')},2000)})}
 </script>
 </body>
