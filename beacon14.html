@@ -186,13 +186,13 @@ body.dark .jump-sec-label{border-color:#222220}
 <p>One scene. Dozens of possible versions.</p></div>
 </div>
 <div class="callout" data-light-bg="#E6F1FB" style="background:#E6F1FB;border:2px solid #6BAEE8" data-dark-bg="#0C447C">
-  <div class="callout-title" data-light-color="#0C447C" style="color:#0C447C" data-dark-color="#B5D4F4"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">🖼</span> ️ Styles worth knowing</div>
+  <div class="callout-title" data-light-color="#0C447C" style="color:#0C447C" data-dark-color="#B5D4F4"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">🖼️</span> Styles worth knowing</div>
   <div class="callout-body" data-light-color="#185FA5" style="color:#185FA5" data-dark-color="#85B7EB"><p>Here are some of the most useful style keywords to experiment with:</p>
 <p><strong>Photorealistic</strong> — looks like a real photo. Sharp, detailed, believable.</p>
 <p><strong>Watercolor</strong> — soft edges, washes of color, gentle and painterly.</p>
 <p><strong>Oil painting</strong> — rich textures, dramatic light, looks like something hanging in a gallery.</p>
-<p><strong>Cartoon</strong> — bold outlines, flat colours, playful and graphic.</p>
-<p><strong>Anime</strong> — Japanese animation aesthetic, expressive characters, stylised detail.</p>
+<p><strong>Cartoon</strong> — bold outlines, flat colors, playful and graphic.</p>
+<p><strong>Anime</strong> — Japanese animation aesthetic, expressive characters, stylized detail.</p>
 <p><strong>Flat design</strong> — clean, minimal, icon-like. Great for logos and illustrations.</p>
 <p><strong>Pencil sketch</strong> — black and white, hand-drawn feel, raw and unfinished in the best way.</p>
 <p>None of these require different prompts. Just swap one word at the end.</p></div>
@@ -201,20 +201,35 @@ body.dark .jump-sec-label{border-color:#222220}
   <div class="callout-title" data-light-color="#633806" style="color:#633806" data-dark-color="#FAC775"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">🧪</span> Try it now</div>
   <div class="callout-body" data-light-color="#854F0B" style="color:#854F0B" data-dark-color="#EF9F27"><p>Screens and menus may look slightly different — that's normal. Just explore and you'll find your way. 😊</p>
 <p>Go to 👉 <a href="https://leonardo.ai/" target="_blank" style="color:var(--accent)">https://leonardo.ai</a> → sign in with Google → click the image generation box at the top.</p>
-<p><strong>Your base subject:</strong></p>
-<p style="font-style:italic;border-left:3px solid var(--accent);padding-left:1rem;margin:0.8rem 0;color:#555"><em>A fox sitting in a forest at dusk</em></p>
-<p>Now try it in at least <strong>three different styles</strong> — add the style keyword at the end of the prompt each time.</p>
-<p>Here are 7 to choose from:</p>
-<ol style="padding-left:1.4rem;margin:0.5rem 0">
-<li style="margin-bottom:0.4rem;color:#444"><em>A fox sitting in a forest at dusk — <strong>photorealistic</strong></em></li>
-<li style="margin-bottom:0.4rem;color:#444"><em>A fox sitting in a forest at dusk — <strong>watercolor</strong></em></li>
-<li style="margin-bottom:0.4rem;color:#444"><em>A fox sitting in a forest at dusk — <strong>oil painting</strong></em></li>
-<li style="margin-bottom:0.4rem;color:#444"><em>A fox sitting in a forest at dusk — <strong>cartoon</strong></em></li>
-<li style="margin-bottom:0.4rem;color:#444"><em>A fox sitting in a forest at dusk — <strong>anime</strong></em></li>
-<li style="margin-bottom:0.4rem;color:#444"><em>A fox sitting in a forest at dusk — <strong>flat design</strong></em></li>
-<li style="margin-bottom:0.4rem;color:#444"><em>A fox sitting in a forest at dusk — <strong>pencil sketch</strong></em></li>
-</ol>
-<p>Pick three that feel different from each other. Generate each one and look at what comes back.</p></div>
+<p>Try at least <strong>three different styles</strong> — pick three that feel different from each other, generate each one, and see what comes back.</p>
+<div class="prompt-wrap">
+  <div class="prompt-topbar"><span class="prompt-topbar-label">Photorealistic</span><button class="copy-btn" id="copyBtnb14p1" onclick="copyPrompt('b14p1')">Copy</button></div>
+  <div class="prompt-text" id="b14p1">A fox sitting in a forest at dusk — photorealistic</div>
+</div>
+<div class="prompt-wrap">
+  <div class="prompt-topbar"><span class="prompt-topbar-label">Watercolor</span><button class="copy-btn" id="copyBtnb14p2" onclick="copyPrompt('b14p2')">Copy</button></div>
+  <div class="prompt-text" id="b14p2">A fox sitting in a forest at dusk — watercolor</div>
+</div>
+<div class="prompt-wrap">
+  <div class="prompt-topbar"><span class="prompt-topbar-label">Oil painting</span><button class="copy-btn" id="copyBtnb14p3" onclick="copyPrompt('b14p3')">Copy</button></div>
+  <div class="prompt-text" id="b14p3">A fox sitting in a forest at dusk — oil painting</div>
+</div>
+<div class="prompt-wrap">
+  <div class="prompt-topbar"><span class="prompt-topbar-label">Cartoon</span><button class="copy-btn" id="copyBtnb14p4" onclick="copyPrompt('b14p4')">Copy</button></div>
+  <div class="prompt-text" id="b14p4">A fox sitting in a forest at dusk — cartoon</div>
+</div>
+<div class="prompt-wrap">
+  <div class="prompt-topbar"><span class="prompt-topbar-label">Anime</span><button class="copy-btn" id="copyBtnb14p5" onclick="copyPrompt('b14p5')">Copy</button></div>
+  <div class="prompt-text" id="b14p5">A fox sitting in a forest at dusk — anime</div>
+</div>
+<div class="prompt-wrap">
+  <div class="prompt-topbar"><span class="prompt-topbar-label">Flat design</span><button class="copy-btn" id="copyBtnb14p6" onclick="copyPrompt('b14p6')">Copy</button></div>
+  <div class="prompt-text" id="b14p6">A fox sitting in a forest at dusk — flat design</div>
+</div>
+<div class="prompt-wrap">
+  <div class="prompt-topbar"><span class="prompt-topbar-label">Pencil sketch</span><button class="copy-btn" id="copyBtnb14p7" onclick="copyPrompt('b14p7')">Copy</button></div>
+  <div class="prompt-text" id="b14p7">A fox sitting in a forest at dusk — pencil sketch</div>
+</div></div>
 </div>
 <div class="callout" data-light-bg="#FAECE7" style="background:#FAECE7;border:2px solid #E8724A" data-dark-bg="#4A1B0C">
   <div class="callout-title" data-light-color="#4A1B0C" style="color:#4A1B0C" data-dark-color="#F5C4B3"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">&#x1F440;</span> What to notice</div>
@@ -224,7 +239,7 @@ body.dark .jump-sec-label{border-color:#222220}
 </div>
 <div class="callout" data-light-bg="#EEEDFE" style="background:#EEEDFE;border:2px solid #8880E8" data-dark-bg="#26215C">
   <div class="callout-title" data-light-color="#26215C" style="color:#26215C" data-dark-color="#CECBF6"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">💡</span> Good to know</div>
-  <div class="callout-body" data-light-color="#3C3489" style="color:#3C3489" data-dark-color="#AFA9EC"><p>Style keywords can be combined. <em>"Watercolour with ink outlines"</em>, <em>"photorealistic with a painterly finish"</em>, or <em>"flat design, warm pastel colours"</em> all work.</p>
+  <div class="callout-body" data-light-color="#3C3489" style="color:#3C3489" data-dark-color="#AFA9EC"><p>Style keywords can be combined. <em>"Watercolor with ink outlines"</em>, <em>"photorealistic with a painterly finish"</em>, or <em>"flat design, warm pastel colors"</em> all work.</p>
 <p>The more you experiment, the faster you develop a feel for what each keyword does — and how small changes produce surprisingly different results.</p>
 <p>If a style doesn't look quite right on the first try, generate again. The same prompt gives different results every time.</p></div>
 </div>
@@ -232,8 +247,7 @@ body.dark .jump-sec-label{border-color:#222220}
   <div class="callout-title" data-light-color="#173404" style="color:#173404" data-dark-color="#C0DD97"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">✅</span> Beacon complete</div>
   <div class="callout-body" data-light-color="#27500A" style="color:#27500A" data-dark-color="#97C459"><p>You've just completed the entire <strong>Image Creation & Design</strong> block. 🎉</p>
 <p>Five Beacons. Four tools. A complete creative workflow — from your first generated image all the way to style exploration.</p>
-<p><strong>Next up: Beacon 15 – Your voice, amplified</strong> — a brand new block begins. We're moving into audio: turning text into spoken voice with ElevenLabs.</p>
-<p><em>No rush. Come back whenever you're ready. 🙂</em></p></div>
+<p><strong>Next up: Beacon 15 – Your voice, amplified</strong> — a brand new block begins. We're moving into audio: turning text into spoken voice with ElevenLabs.</p></div>
 </div>
   <p class="no-rush">No rush. Come back whenever you're ready. &#128578;</p>
   <div class="beacon-nav">
