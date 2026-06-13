@@ -87,6 +87,9 @@ body.dark::after{background-image:linear-gradient(to right,rgba(255,255,255,0.01
 .bn-prev.disabled{opacity:0.3;pointer-events:none}
 .bn-next{display:flex;align-items:center;gap:0.6rem;padding:0.6rem 1.2rem;background:var(--accent);border:2px solid var(--accent);border-radius:999px;text-decoration:none;font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;color:#fff;font-weight:600;transition:opacity 0.2s}
 .bn-next:hover{opacity:0.85}
+.step-badge-row{display:flex;align-items:center;gap:10px;margin:1.1rem 0 0.5rem}
+.step-badge{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.72rem;font-weight:700;flex-shrink:0;font-family:'Instrument Sans',sans-serif}
+.step-badge-title{font-weight:700;font-size:0.97rem}
 </style>
 </head>
 <body>
@@ -138,13 +141,13 @@ body.dark::after{background-image:linear-gradient(to right,rgba(255,255,255,0.01
   <div class="callout-title" data-light-color="#633806" style="color:#633806" data-dark-color="#FAC775"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">🧪</span> Try it now</div>
   <div class="callout-body" data-light-color="#854F0B" style="color:#854F0B" data-dark-color="#EF9F27"><p><em>Screens and menus may look slightly different — that's normal. Just explore and you'll find your way. 😊</em></p>
 <p>You're going to build a simple <strong>daily habit tracker</strong> — an app where you can tick off small habits each day, like drinking water, going for a walk, or reading for 10 minutes.</p>
-<p><strong>Step 1 — Sign in and start a new project</strong></p>
+<div class="step-badge-row"><div class="step-badge" data-light-badge-bg="#854F0B" data-light-badge-color="#FAEEDA" data-dark-badge-bg="#EF9F27" data-dark-badge-color="#633806" style="background:#854F0B;color:#FAEEDA">1</div><span class="step-badge-title">Sign in and start a new project</span></div>
 <p>Go to <a href="https://lovable.dev/" target="_blank" style="color:var(--accent)">https://lovable.dev</a> and sign up (or log in if you already have an account).</p>
 <p>On the main screen, you'll see a text box where you can describe your app. That's all you need.</p>
-<p><strong>Step 2 — Type this prompt and press Enter:</strong></p>
+<div class="step-badge-row"><div class="step-badge" data-light-badge-bg="#854F0B" data-light-badge-color="#FAEEDA" data-dark-badge-bg="#EF9F27" data-dark-badge-color="#633806" style="background:#854F0B;color:#FAEEDA">2</div><span class="step-badge-title">Type this prompt and press Enter:</span></div>
 <p style="font-style:italic;border-left:3px solid var(--accent);padding-left:1rem;margin:0.8rem 0;color:#555"><em>Build a simple daily habit tracker. It should show a list of habits I want to do each day — like drinking water, going for a walk, and reading for 10 minutes. I should be able to tick each one off, and the page should show how many I've completed today. Keep the design clean and friendly.</em></p>
 <p>Now sit back and watch. Lovable will write the code and build your app — usually in under a minute.</p>
-<p><strong>Step 3 — Open your app</strong></p>
+<div class="step-badge-row"><div class="step-badge" data-light-badge-bg="#854F0B" data-light-badge-color="#FAEEDA" data-dark-badge-bg="#EF9F27" data-dark-badge-color="#633806" style="background:#854F0B;color:#FAEEDA">3</div><span class="step-badge-title">Open your app</span></div>
 <p>When it's done, your app is already running in the right-hand preview panel. Try ticking off a habit — it works!</p>
 <p>To get a shareable link, click the <strong>blue share icon</strong> in the top right corner. A <strong>Publish</strong> panel will open. Work through the steps:</p>
 <ol style="padding-left:1.4rem;margin:0.5rem 0">
@@ -154,7 +157,7 @@ body.dark::after{background-image:linear-gradient(to right,rgba(255,255,255,0.01
 <li style="margin-bottom:0.4rem;color:#444">Click <strong>Publish</strong></li>
 </ol>
 <p>You'll see <strong>"Your app is live!"</strong> — with a real link like <em>good-deeds-today.lovable.app</em>. Click <strong>View app</strong> to open it in a browser, or <strong>Share</strong> to send the link to anyone.</p>
-<p><strong>Step 4 — Make one small change (optional)</strong></p>
+<div class="step-badge-row"><div class="step-badge" data-light-badge-bg="#854F0B" data-light-badge-color="#FAEEDA" data-dark-badge-bg="#EF9F27" data-dark-badge-color="#633806" style="background:#854F0B;color:#FAEEDA">4</div><span class="step-badge-title">Make one small change (optional)</span></div>
 <p>If you'd like to tweak something, just type a follow-up message — for example:</p>
 <p style="font-style:italic;border-left:3px solid var(--accent);padding-left:1rem;margin:0.8rem 0;color:#555"><em>Change the colour scheme to something calm and green.</em></p>
 <p>Or:</p>
@@ -217,6 +220,10 @@ function applyCalloutColors(){
     const body=el.querySelector('.callout-body');
     if(title){title.style.color=dark?title.dataset.darkColor:title.dataset.lightColor;}
     if(body){body.style.color=dark?body.dataset.darkColor:body.dataset.lightColor;}
+    el.querySelectorAll('.step-badge').forEach(badge=>{
+      badge.style.background=dark?badge.dataset.darkBadgeBg:badge.dataset.lightBadgeBg;
+      badge.style.color=dark?badge.dataset.darkBadgeColor:badge.dataset.lightBadgeColor;
+    });
   });
 }
 const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')}),{threshold:0.07});

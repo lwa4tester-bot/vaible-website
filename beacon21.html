@@ -87,6 +87,9 @@ body.dark::after{background-image:linear-gradient(to right,rgba(255,255,255,0.01
 .bn-prev.disabled{opacity:0.3;pointer-events:none}
 .bn-next{display:flex;align-items:center;gap:0.6rem;padding:0.6rem 1.2rem;background:var(--accent);border:2px solid var(--accent);border-radius:999px;text-decoration:none;font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;color:#fff;font-weight:600;transition:opacity 0.2s}
 .bn-next:hover{opacity:0.85}
+.step-badge-row{display:flex;align-items:center;gap:10px;margin:1.1rem 0 0.5rem}
+.step-badge{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.72rem;font-weight:700;flex-shrink:0;font-family:'Instrument Sans',sans-serif}
+.step-badge-title{font-weight:700;font-size:0.97rem}
 </style>
 </head>
 <body>
@@ -163,19 +166,19 @@ body.dark::after{background-image:linear-gradient(to right,rgba(255,255,255,0.01
 <div class="callout" data-light-bg="#FAEEDA" style="background:#FAEEDA;border:2px solid #E8A020" data-dark-bg="#633806">
   <div class="callout-title" data-light-color="#633806" style="color:#633806" data-dark-color="#FAC775"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">🧪</span> Try it now</div>
   <div class="callout-body" data-light-color="#854F0B" style="color:#854F0B" data-dark-color="#EF9F27"><p><em>Screens and menus may look slightly different — that's normal. Just explore and you'll find your way. 😊</em></p>
-<p><strong>Step 1 — Set up a quick spreadsheet</strong></p>
+<div class="step-badge-row"><div class="step-badge" data-light-badge-bg="#854F0B" data-light-badge-color="#FAEEDA" data-dark-badge-bg="#EF9F27" data-dark-badge-color="#633806" style="background:#854F0B;color:#FAEEDA">1</div><span class="step-badge-title">Set up a quick spreadsheet</span></div>
 <p>Open Google Sheets (<a href="https://sheets.google.com/" target="_blank" style="color:var(--accent)">https://sheets.google.com</a>) and create a new blank spreadsheet.</p>
 <p>In column A, type these labels in cells A1 to A5:</p>
 <p>Rent, Groceries, Transport, Internet, Coffee</p>
 <p>In column B, type these amounts next to them (one per row):</p>
 <p>850, 230, 60, 25, 40</p>
 <p>You now have a simple monthly expense list.</p>
-<p><strong>Step 2 — Ask ChatGPT for a formula</strong></p>
+<div class="step-badge-row"><div class="step-badge" data-light-badge-bg="#854F0B" data-light-badge-color="#FAEEDA" data-dark-badge-bg="#EF9F27" data-dark-badge-color="#633806" style="background:#854F0B;color:#FAEEDA">2</div><span class="step-badge-title">Ask ChatGPT for a formula</span></div>
 <p>Go to ChatGPT (<a href="https://chatgpt.com/" target="_blank" style="color:var(--accent)">https://chatgpt.com</a>) and paste in this ready-made prompt:</p>
 <p><em>"I'm using Google Sheets. I have expense labels in column A (rows 1–5) and amounts in column B (rows 1–5). Write me a formula that adds up all the amounts in column B. Then explain what the formula does in simple terms."</em></p>
 <p>Copy the formula ChatGPT gives you. Click on cell B6 in your spreadsheet and paste it in. Press Enter.</p>
 <p>You should see the total: <strong>1205</strong></p>
-<p><strong>Step 3 — Ask Claude to help you go further</strong></p>
+<div class="step-badge-row"><div class="step-badge" data-light-badge-bg="#854F0B" data-light-badge-color="#FAEEDA" data-dark-badge-bg="#EF9F27" data-dark-badge-color="#633806" style="background:#854F0B;color:#FAEEDA">3</div><span class="step-badge-title">Ask Claude to help you go further</span></div>
 <p>Now go to Claude (<a href="https://claude.ai/" target="_blank" style="color:var(--accent)">https://claude.ai</a>) and try this prompt:</p>
 <p><em>"I have a Google Sheets spreadsheet with expense labels in column A and amounts in column B (rows 1–5). I already have a SUM formula in B6. Now I want to find the highest amount in column B. Can you write the formula for that and explain it?"</em></p>
 <p>Paste the formula Claude gives you into cell B7.</p>
@@ -226,6 +229,10 @@ function applyCalloutColors(){
     const body=el.querySelector('.callout-body');
     if(title){title.style.color=dark?title.dataset.darkColor:title.dataset.lightColor;}
     if(body){body.style.color=dark?body.dataset.darkColor:body.dataset.lightColor;}
+    el.querySelectorAll('.step-badge').forEach(badge=>{
+      badge.style.background=dark?badge.dataset.darkBadgeBg:badge.dataset.lightBadgeBg;
+      badge.style.color=dark?badge.dataset.darkBadgeColor:badge.dataset.lightBadgeColor;
+    });
   });
 }
 const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')}),{threshold:0.07});

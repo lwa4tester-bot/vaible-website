@@ -87,6 +87,9 @@ body.dark::after{background-image:linear-gradient(to right,rgba(255,255,255,0.01
 .bn-prev.disabled{opacity:0.3;pointer-events:none}
 .bn-next{display:flex;align-items:center;gap:0.6rem;padding:0.6rem 1.2rem;background:var(--accent);border:2px solid var(--accent);border-radius:999px;text-decoration:none;font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;color:#fff;font-weight:600;transition:opacity 0.2s}
 .bn-next:hover{opacity:0.85}
+.step-badge-row{display:flex;align-items:center;gap:10px;margin:1.1rem 0 0.5rem}
+.step-badge{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.72rem;font-weight:700;flex-shrink:0;font-family:'Instrument Sans',sans-serif}
+.step-badge-title{font-weight:700;font-size:0.97rem}
 </style>
 </head>
 <body>
@@ -141,10 +144,10 @@ body.dark::after{background-image:linear-gradient(to right,rgba(255,255,255,0.01
   <div class="callout-body" data-light-color="#854F0B" style="color:#854F0B" data-dark-color="#EF9F27"><p>Screens and menus may look slightly different — that's normal. Just explore and you'll find your way. 😊</p>
 <p>Use the exact same prompt in both tools — then listen to what comes back.</p>
 <p><strong>Your prompt:</strong> <em>"Gentle acoustic song about a rainy afternoon, calm and cozy, soft guitar, a little nostalgic"</em></p>
-<p><strong>Step 1 — Suno</strong> → <a href="https://suno.com/" target="_blank" style="color:var(--accent)">https://suno.com</a></p>
-<p>Set the version to <strong>v4.5-all</strong> at the top. Turn Instrumental <strong>off</strong> if you want vocals. Paste the prompt and click <strong>Create</strong>. You'll get 4 versions — some may be v5.5 Preview (1 minute only). To download: <strong>...</strong> → <strong>Download</strong> → <strong>Download Anyway</strong></p>
-<p><strong>Step 2 — Sonauto</strong> → <a href="https://sonauto.ai/" target="_blank" style="color:var(--accent)">https://sonauto.ai</a></p>
-<p>Have your phone nearby — you may need two-factor authentication. Paste the same prompt and click <strong>Generate</strong>. You'll get 2 versions. Wait until fully loaded, then download: <strong>...</strong> → <strong>Download</strong></p>
+<div class="step-badge-row"><div class="step-badge" data-light-badge-bg="#854F0B" data-light-badge-color="#FAEEDA" data-dark-badge-bg="#EF9F27" data-dark-badge-color="#633806" style="background:#854F0B;color:#FAEEDA">1</div><span class="step-badge-title">Suno</strong> → <a href="https://suno.com/" target="_blank" style="color:var(--accent)">https://suno.com</a></p>
+<p>Set the version to <strong>v4.5-all</strong> at the top. Turn Instrumental <strong>off</strong> if you want vocals. Paste the prompt and click <strong>Create</strong>. You'll get 4 versions — some may be v5.5 Preview (1 minute only). To download: <strong>...</strong> → <strong>Download</strong> → <strong>Download Anyway</span></div>
+<div class="step-badge-row"><div class="step-badge" data-light-badge-bg="#854F0B" data-light-badge-color="#FAEEDA" data-dark-badge-bg="#EF9F27" data-dark-badge-color="#633806" style="background:#854F0B;color:#FAEEDA">2</div><span class="step-badge-title">Sonauto</strong> → <a href="https://sonauto.ai/" target="_blank" style="color:var(--accent)">https://sonauto.ai</a></p>
+<p>Have your phone nearby — you may need two-factor authentication. Paste the same prompt and click <strong>Generate</strong>. You'll get 2 versions. Wait until fully loaded, then download: <strong>...</strong> → <strong>Download</span></div>
 <p>Want to try a different mood instead? Pick one from the list and build your own prompt around it:</p>
 <ol style="padding-left:1.4rem;margin:0.5rem 0">
 <li style="margin-bottom:0.4rem;color:#444">A road trip song with the windows down</li>
@@ -192,6 +195,10 @@ function applyCalloutColors(){
     const body=el.querySelector('.callout-body');
     if(title){title.style.color=dark?title.dataset.darkColor:title.dataset.lightColor;}
     if(body){body.style.color=dark?body.dataset.darkColor:body.dataset.lightColor;}
+    el.querySelectorAll('.step-badge').forEach(badge=>{
+      badge.style.background=dark?badge.dataset.darkBadgeBg:badge.dataset.lightBadgeBg;
+      badge.style.color=dark?badge.dataset.darkBadgeColor:badge.dataset.lightBadgeColor;
+    });
   });
 }
 const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')}),{threshold:0.07});

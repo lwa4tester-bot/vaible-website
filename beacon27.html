@@ -87,6 +87,9 @@ body.dark::after{background-image:linear-gradient(to right,rgba(255,255,255,0.01
 .bn-prev.disabled{opacity:0.3;pointer-events:none}
 .bn-next{display:flex;align-items:center;gap:0.6rem;padding:0.6rem 1.2rem;background:var(--accent);border:2px solid var(--accent);border-radius:999px;text-decoration:none;font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;color:#fff;font-weight:600;transition:opacity 0.2s}
 .bn-next:hover{opacity:0.85}
+.step-badge-row{display:flex;align-items:center;gap:10px;margin:1.1rem 0 0.5rem}
+.step-badge{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.72rem;font-weight:700;flex-shrink:0;font-family:'Instrument Sans',sans-serif}
+.step-badge-title{font-weight:700;font-size:0.97rem}
 </style>
 </head>
 <body>
@@ -153,12 +156,12 @@ body.dark::after{background-image:linear-gradient(to right,rgba(255,255,255,0.01
   <div class="callout-title" data-light-color="#633806" style="color:#633806" data-dark-color="#FAC775"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">🧪</span> Try it now</div>
   <div class="callout-body" data-light-color="#854F0B" style="color:#854F0B" data-dark-color="#EF9F27"><p><em>Screens and menus may look slightly different — that's normal. Just explore and you'll find your way. 😊</em></p>
 <p>You're going to give Claude and ChatGPT the same agent-style goal — and see how each one approaches it.</p>
-<p><strong>Step 1 — Try it in Claude</strong></p>
+<div class="step-badge-row"><div class="step-badge" data-light-badge-bg="#854F0B" data-light-badge-color="#FAEEDA" data-dark-badge-bg="#EF9F27" data-dark-badge-color="#633806" style="background:#854F0B;color:#FAEEDA">1</div><span class="step-badge-title">Try it in Claude</span></div>
 <p>Go to → <a href="https://claude.ai/" target="_blank" style="color:var(--accent)">claude.ai</a></p>
 <p>Start a new chat and paste this prompt:</p>
 <p style="font-style:italic;border-left:3px solid var(--accent);padding-left:1rem;margin:0.8rem 0;color:#555"><em>"I want to start learning Spanish from scratch. I have 10 minutes a day. Please break this into a realistic 4-week plan: outline each week's focus, suggest one free resource for each week, and finish with a motivational note to keep me going."</em></p>
 <p>Watch how Claude structures its thinking. Does it give you weeks? Resources? Does it feel like a plan, not just a list?</p>
-<p><strong>Step 2 — Try the same goal in ChatGPT</strong></p>
+<div class="step-badge-row"><div class="step-badge" data-light-badge-bg="#854F0B" data-light-badge-color="#FAEEDA" data-dark-badge-bg="#EF9F27" data-dark-badge-color="#633806" style="background:#854F0B;color:#FAEEDA">2</div><span class="step-badge-title">Try the same goal in ChatGPT</span></div>
 <p>Go to → <a href="https://chatgpt.com/" target="_blank" style="color:var(--accent)">chatgpt.com</a></p>
 <p>Paste the exact same prompt and compare.</p>
 <p style="font-style:italic;border-left:3px solid var(--accent);padding-left:1rem;margin:0.8rem 0;color:#555"><em>"I want to start learning Spanish from scratch. I have 10 minutes a day. Please break this into a realistic 4-week plan: outline each week's focus, suggest one free resource for each week, and finish with a motivational note to keep me going."</em></p>
@@ -218,6 +221,10 @@ function applyCalloutColors(){
     const body=el.querySelector('.callout-body');
     if(title){title.style.color=dark?title.dataset.darkColor:title.dataset.lightColor;}
     if(body){body.style.color=dark?body.dataset.darkColor:body.dataset.lightColor;}
+    el.querySelectorAll('.step-badge').forEach(badge=>{
+      badge.style.background=dark?badge.dataset.darkBadgeBg:badge.dataset.lightBadgeBg;
+      badge.style.color=dark?badge.dataset.darkBadgeColor:badge.dataset.lightBadgeColor;
+    });
   });
 }
 const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')}),{threshold:0.07});

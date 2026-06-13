@@ -87,6 +87,9 @@ body.dark::after{background-image:linear-gradient(to right,rgba(255,255,255,0.01
 .bn-prev.disabled{opacity:0.3;pointer-events:none}
 .bn-next{display:flex;align-items:center;gap:0.6rem;padding:0.6rem 1.2rem;background:var(--accent);border:2px solid var(--accent);border-radius:999px;text-decoration:none;font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;color:#fff;font-weight:600;transition:opacity 0.2s}
 .bn-next:hover{opacity:0.85}
+.step-badge-row{display:flex;align-items:center;gap:10px;margin:1.1rem 0 0.5rem}
+.step-badge{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.72rem;font-weight:700;flex-shrink:0;font-family:'Instrument Sans',sans-serif}
+.step-badge-title{font-weight:700;font-size:0.97rem}
 </style>
 </head>
 <body>
@@ -152,7 +155,7 @@ body.dark::after{background-image:linear-gradient(to right,rgba(255,255,255,0.01
   <div class="callout-title" data-light-color="#633806" style="color:#633806" data-dark-color="#FAC775"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">🧪</span> Try it now</div>
   <div class="callout-body" data-light-color="#854F0B" style="color:#854F0B" data-dark-color="#EF9F27"><p><em>Screens and menus may look slightly different — that's normal. Just explore and you'll find your way. 😊</em></p>
 <p>Let's build your first AI morning routine — right now.</p>
-<p><strong>Step 1 — Open Claude</strong> (<a href="https://claude.ai/" target="_blank" style="color:var(--accent)">https://claude.ai</a>) and paste this prompt:</p>
+<div class="step-badge-row"><div class="step-badge" data-light-badge-bg="#854F0B" data-light-badge-color="#FAEEDA" data-dark-badge-bg="#EF9F27" data-dark-badge-color="#633806" style="background:#854F0B;color:#FAEEDA">1</div><span class="step-badge-title">Open Claude (<a href="https://claude.ai/" target="_blank" style="color:var(--accent)">https://claude.ai</a>) and paste this prompt:</span></div>
 <p style="font-style:italic;border-left:3px solid var(--accent);padding-left:1rem;margin:0.8rem 0;color:#555"><em>"Act as my personal assistant for the day. My name is [your name]. I have these tasks today:</em></p>
 <p style="font-style:italic;border-left:3px solid var(--accent);padding-left:1rem;margin:0.8rem 0;color:#555">- <em>Reply to an email from my kid's teacher</em></p>
 <p style="font-style:italic;border-left:3px solid var(--accent);padding-left:1rem;margin:0.8rem 0;color:#555">- <em>Prepare a short report for tomorrow's meeting</em></p>
@@ -160,7 +163,7 @@ body.dark::after{background-image:linear-gradient(to right,rgba(255,255,255,0.01
 <p style="font-style:italic;border-left:3px solid var(--accent);padding-left:1rem;margin:0.8rem 0;color:#555">- <em>Figure out what to cook for dinner this week</em></p>
 <p style="font-style:italic;border-left:3px solid var(--accent);padding-left:1rem;margin:0.8rem 0;color:#555"><em>I also want to make sure I take a short break at some point. Help me plan my morning."</em></p>
 <p>Read what it suggests. Notice how it organises your time — does it prioritise anything? Does it suggest something you hadn't thought of?</p>
-<p><strong>Step 2 — Try the same thing in ChatGPT</strong> (<a href="https://chatgpt.com/" target="_blank" style="color:var(--accent)">https://chatgpt.com</a>) using the same prompt.</p>
+<div class="step-badge-row"><div class="step-badge" data-light-badge-bg="#854F0B" data-light-badge-color="#FAEEDA" data-dark-badge-bg="#EF9F27" data-dark-badge-color="#633806" style="background:#854F0B;color:#FAEEDA">2</div><span class="step-badge-title">Try the same thing in ChatGPT (<a href="https://chatgpt.com/" target="_blank" style="color:var(--accent)">https://chatgpt.com</a>) using the same prompt.</span></div>
 <p>Compare the two responses. Which one felt more like a real assistant to you? Which response would you actually follow?</p>
 <p><strong>Not sure what to put in your task list? Here are some ideas:</strong></p>
 <ul style="padding-left:1.2rem;margin:0.5rem 0">
@@ -214,6 +217,10 @@ function applyCalloutColors(){
     const body=el.querySelector('.callout-body');
     if(title){title.style.color=dark?title.dataset.darkColor:title.dataset.lightColor;}
     if(body){body.style.color=dark?body.dataset.darkColor:body.dataset.lightColor;}
+    el.querySelectorAll('.step-badge').forEach(badge=>{
+      badge.style.background=dark?badge.dataset.darkBadgeBg:badge.dataset.lightBadgeBg;
+      badge.style.color=dark?badge.dataset.darkBadgeColor:badge.dataset.lightBadgeColor;
+    });
   });
 }
 const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')}),{threshold:0.07});

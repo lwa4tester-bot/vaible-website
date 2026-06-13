@@ -87,6 +87,9 @@ body.dark::after{background-image:linear-gradient(to right,rgba(255,255,255,0.01
 .bn-prev.disabled{opacity:0.3;pointer-events:none}
 .bn-next{display:flex;align-items:center;gap:0.6rem;padding:0.6rem 1.2rem;background:var(--accent);border:2px solid var(--accent);border-radius:999px;text-decoration:none;font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;color:#fff;font-weight:600;transition:opacity 0.2s}
 .bn-next:hover{opacity:0.85}
+.step-badge-row{display:flex;align-items:center;gap:10px;margin:1.1rem 0 0.5rem}
+.step-badge{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.72rem;font-weight:700;flex-shrink:0;font-family:'Instrument Sans',sans-serif}
+.step-badge-title{font-weight:700;font-size:0.97rem}
 </style>
 </head>
 <body>
@@ -143,14 +146,14 @@ body.dark::after{background-image:linear-gradient(to right,rgba(255,255,255,0.01
 <div class="callout" data-light-bg="#FAEEDA" style="background:#FAEEDA;border:2px solid #E8A020" data-dark-bg="#633806">
   <div class="callout-title" data-light-color="#633806" style="color:#633806" data-dark-color="#FAC775"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">🧪</span> Try it now</div>
   <div class="callout-body" data-light-color="#854F0B" style="color:#854F0B" data-dark-color="#EF9F27"><p>Screens and menus may look slightly different — that's normal. Just explore and you'll find your way. 😊</p>
-<p><strong>Step 1 — Open CapCut and go to AI captions</strong></p>
+<div class="step-badge-row"><div class="step-badge" data-light-badge-bg="#854F0B" data-light-badge-color="#FAEEDA" data-dark-badge-bg="#EF9F27" data-dark-badge-color="#633806" style="background:#854F0B;color:#FAEEDA">1</div><span class="step-badge-title">Open CapCut and go to AI captions</span></div>
 <ol style="padding-left:1.4rem;margin:0.5rem 0">
 <li style="margin-bottom:0.4rem;color:#444">Go to <a href="https://www.capcut.com/" target="_blank" style="color:var(--accent)">https://www.capcut.com</a> and click <strong>Try online for free</strong></li>
 <li style="margin-bottom:0.4rem;color:#444">Sign in with your Google account</li>
 <li style="margin-bottom:0.4rem;color:#444">On the home screen, look for the <strong>"You may want to try"</strong> row</li>
 <li style="margin-bottom:0.4rem;color:#444">Click <strong>AI captions</strong></li>
 </ol>
-<p><strong>Step 2 — Choose your video</strong></p>
+<div class="step-badge-row"><div class="step-badge" data-light-badge-bg="#854F0B" data-light-badge-color="#FAEEDA" data-dark-badge-bg="#EF9F27" data-dark-badge-color="#633806" style="background:#854F0B;color:#FAEEDA">2</div><span class="step-badge-title">Choose your video</span></div>
 <p>You have two options — pick whichever feels easier:</p>
 <p>📱 <strong>Use your own video</strong></p>
 <p>Click <strong>Upload video</strong> and choose a clip from your device.</p>
@@ -158,7 +161,7 @@ body.dark::after{background-image:linear-gradient(to right,rgba(255,255,255,0.01
 <p>🎬 <strong>Use a sample clip</strong></p>
 <p>Scroll down to <strong>"No videos? Try our sample clips"</strong></p>
 <p>Click <strong>Learn foreign language</strong> — CapCut loads it automatically.</p>
-<p><strong>Step 3 — Translate the captions</strong></p>
+<div class="step-badge-row"><div class="step-badge" data-light-badge-bg="#854F0B" data-light-badge-color="#FAEEDA" data-dark-badge-bg="#EF9F27" data-dark-badge-color="#633806" style="background:#854F0B;color:#FAEEDA">3</div><span class="step-badge-title">Translate the captions</span></div>
 <p>Look at the bottom left corner — find the <strong>xA icon</strong> in the Shortcuts row.</p>
 <p>Click it, pick a language, and see the translation appear instantly. 🌍</p></div>
 </div>
@@ -199,6 +202,10 @@ function applyCalloutColors(){
     const body=el.querySelector('.callout-body');
     if(title){title.style.color=dark?title.dataset.darkColor:title.dataset.lightColor;}
     if(body){body.style.color=dark?body.dataset.darkColor:body.dataset.lightColor;}
+    el.querySelectorAll('.step-badge').forEach(badge=>{
+      badge.style.background=dark?badge.dataset.darkBadgeBg:badge.dataset.lightBadgeBg;
+      badge.style.color=dark?badge.dataset.darkBadgeColor:badge.dataset.lightBadgeColor;
+    });
   });
 }
 const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')}),{threshold:0.07});
