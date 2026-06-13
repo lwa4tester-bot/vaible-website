@@ -90,6 +90,26 @@ body.dark::after{background-image:linear-gradient(to right,rgba(255,255,255,0.01
 .step-badge-row{display:flex;align-items:center;gap:10px;margin:1.1rem 0 0.5rem}
 .step-badge{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.72rem;font-weight:700;flex-shrink:0;font-family:'Instrument Sans',sans-serif}
 .step-badge-title{font-weight:700;font-size:0.97rem}
+
+.prog-label{cursor:pointer;user-select:none;transition:color 0.15s}
+.prog-label:hover{color:var(--ink)}
+.prog-label-inner{display:flex;align-items:center;gap:0.4rem}
+.prog-chevron{font-size:0.55rem;transition:transform 0.2s;display:inline-block}
+.jump-open .prog-chevron{transform:rotate(180deg)}
+.jump-panel{display:none;position:fixed;top:84px;left:0;right:0;z-index:197;background:var(--paper);border-bottom:2px solid var(--line);max-height:60vh;overflow-y:auto;padding:1.2rem 2rem 1.4rem}
+.jump-panel.visible{display:block}
+.jump-section-label{font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--mid);font-weight:600;margin:0.9rem 0 0.4rem;padding-bottom:0.2rem;border-bottom:1px solid var(--line)}
+.jump-section-label:first-child{margin-top:0}
+.jump-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:3px;margin-bottom:0.2rem}
+.jump-item{display:flex;align-items:baseline;gap:0.5rem;padding:0.35rem 0.6rem;border-radius:6px;text-decoration:none;color:var(--ink);font-size:0.8rem;line-height:1.3;transition:background 0.12s}
+.jump-item:hover{background:var(--off)}
+.jump-item.current{background:var(--accent);color:#fff;font-weight:600}
+.jump-item.current:hover{background:var(--accent)}
+.jump-num{font-size:0.65rem;color:var(--mid);min-width:1.2rem;flex-shrink:0}
+.jump-item.current .jump-num{color:rgba(255,255,255,0.7)}
+.jump-overlay{display:none;position:fixed;inset:0;z-index:196}
+.jump-overlay.visible{display:block}
+body.dark .jump-panel{background:#0D0D0D;border-color:#222220}
 </style>
 </head>
 <body>
@@ -99,9 +119,63 @@ body.dark::after{background-image:linear-gradient(to right,rgba(255,255,255,0.01
   <div class="nav-actions"><a href="index.html" class="nav-back">&larr; All Beacons</a><button class="theme-btn" id="themeToggle">&#9790; Dark</button></div>
 </nav>
 <div class="prog-bar">
-  <div class="prog-label">Beacon 28 of 30</div>
+  <div class="prog-label" id="progLabel"><span class="prog-label-inner">Beacon 28 of 30<span class="prog-chevron">▾</span></span></div>
   <div class="prog-track-wrap"><div class="prog-track"><div class="prog-fill" style="width:93%"></div><div class="prog-dot" style="left:93%"></div></div></div>
   <div class="prog-pct">93% complete</div>
+</div>
+<div class="jump-overlay" id="jumpOverlay"></div>
+<div class="jump-panel" id="jumpPanel">
+  <div class="jump-section-label">🚀 Intro</div>
+  <div class="jump-grid">
+    <a href="beacon1.html" class="jump-item"><span class="jump-num">1</span>Welcome aboard</a>
+    <a href="beacon2.html" class="jump-item"><span class="jump-num">2</span>How to talk to AI</a>
+    <a href="beacon3.html" class="jump-item"><span class="jump-num">3</span>Pick your companion</a>
+  </div>
+  <div class="jump-section-label">📝 Text & Communication</div>
+  <div class="jump-grid">
+    <a href="beacon4.html" class="jump-item"><span class="jump-num">4</span>Write it better</a>
+    <a href="beacon5.html" class="jump-item"><span class="jump-num">5</span>Lost in translation?</a>
+    <a href="beacon6.html" class="jump-item"><span class="jump-num">6</span>Tell your story</a>
+    <a href="beacon7.html" class="jump-item"><span class="jump-num">7</span>Research like a pro</a>
+    <a href="beacon8.html" class="jump-item"><span class="jump-num">8</span>Fact or fiction?</a>
+    <a href="beacon9.html" class="jump-item"><span class="jump-num">9</span>Summarize the world</a>
+  </div>
+  <div class="jump-section-label">🎨 Image Creation & Design</div>
+  <div class="jump-grid">
+    <a href="beacon10.html" class="jump-item"><span class="jump-num">10</span>Paint with words</a>
+    <a href="beacon11.html" class="jump-item"><span class="jump-num">11</span>Make it yours</a>
+    <a href="beacon12.html" class="jump-item"><span class="jump-num">12</span>Design without designer</a>
+    <a href="beacon13.html" class="jump-item"><span class="jump-num">13</span>Edit like magic</a>
+    <a href="beacon14.html" class="jump-item"><span class="jump-num">14</span>Style explorer</a>
+  </div>
+  <div class="jump-section-label">🎬 Video & Audio</div>
+  <div class="jump-grid">
+    <a href="beacon15.html" class="jump-item"><span class="jump-num">15</span>Your voice, amplified</a>
+    <a href="beacon16.html" class="jump-item"><span class="jump-num">16</span>Music from nothing</a>
+    <a href="beacon17.html" class="jump-item"><span class="jump-num">17</span>Caption it</a>
+    <a href="beacon18.html" class="jump-item"><span class="jump-num">18</span>Moving pictures</a>
+    <a href="beacon19.html" class="jump-item"><span class="jump-num">19</span>Your AI podcast</a>
+  </div>
+  <div class="jump-section-label">💻 Everyday Productivity</div>
+  <div class="jump-grid">
+    <a href="beacon20.html" class="jump-item"><span class="jump-num">20</span>Plan your week</a>
+    <a href="beacon21.html" class="jump-item"><span class="jump-num">21</span>Tame the spreadsheet</a>
+    <a href="beacon22.html" class="jump-item"><span class="jump-num">22</span>Never forget a meeting</a>
+    <a href="beacon23.html" class="jump-item"><span class="jump-num">23</span>Your personal assistant</a>
+    <a href="beacon24.html" class="jump-item"><span class="jump-num">24</span>Presentations, effortlessly</a>
+  </div>
+  <div class="jump-section-label">🤖 Advanced Tools</div>
+  <div class="jump-grid">
+    <a href="beacon25.html" class="jump-item"><span class="jump-num">25</span>Automate the boring stuff</a>
+    <a href="beacon26.html" class="jump-item"><span class="jump-num">26</span>Build without code</a>
+    <a href="beacon27.html" class="jump-item"><span class="jump-num">27</span>AI agents unleashed</a>
+    <a href="beacon28.html" class="jump-item current"><span class="jump-num">28</span>Your custom chatbot</a>
+    <a href="beacon29.html" class="jump-item"><span class="jump-num">29</span>Connect the dots</a>
+  </div>
+  <div class="jump-section-label">🏁 Closing</div>
+  <div class="jump-grid">
+    <a href="beacon30.html" class="jump-item"><span class="jump-num">30</span>Who are you now?</a>
+  </div>
 </div>
 <div class="page">
   <div class="beacon-hero">
@@ -238,6 +312,32 @@ function applyCalloutColors(){
 const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')}),{threshold:0.07});
 document.querySelectorAll('.section,.complete').forEach(el=>obs.observe(el));
 function copyPrompt(id){const t=document.getElementById(id).innerText;navigator.clipboard.writeText(t).then(()=>{const b=document.getElementById('copyBtn'+id);b.textContent='Copied!';b.classList.add('copied');setTimeout(()=>{b.textContent='Copy';b.classList.remove('copied')},2000)})}
+</script>
+<script>
+(function(){
+  var label=document.querySelector('.prog-label');
+  var panel=document.getElementById('jumpPanel');
+  var overlay=document.getElementById('jumpOverlay');
+  if(!label||!panel)return;
+  label.addEventListener('click',function(){
+    var open=panel.classList.contains('visible');
+    panel.classList.toggle('visible',!open);
+    overlay.classList.toggle('visible',!open);
+    label.classList.toggle('jump-open',!open);
+  });
+  overlay.addEventListener('click',function(){
+    panel.classList.remove('visible');
+    overlay.classList.remove('visible');
+    label.classList.remove('jump-open');
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'){
+      panel.classList.remove('visible');
+      overlay.classList.remove('visible');
+      label.classList.remove('jump-open');
+    }
+  });
+})();
 </script>
 </body>
 </html>
