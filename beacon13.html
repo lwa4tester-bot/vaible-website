@@ -113,7 +113,7 @@ body.dark .step-badge{background:#EF9F27;color:#412402}
 body.dark .option-badge{border-color:#EF9F27;color:#EF9F27}
 .option-row{display:flex;align-items:flex-start;gap:0.65rem;margin:0.35rem 0}
 </style>
-<script>(function(){if(localStorage.getItem("vaible-theme")==="dark"){document.documentElement.classList.add("dark-preload");document.addEventListener("DOMContentLoaded",function(){document.body.classList.add("dark");document.documentElement.classList.remove("dark-preload");var btn=document.getElementById("themeToggle");if(btn)btn.textContent="○ Light";});}})();</script>
+<script>(function(){if(localStorage.getItem("vaible-theme")==="dark"){document.documentElement.classList.add("dark-preload");document.addEventListener("DOMContentLoaded",function(){document.body.classList.add("dark");document.documentElement.classList.remove("dark-preload");var btn=document.getElementById("themeToggle");if(btn)btn.textContent="○ Light";if(typeof applyCalloutColors==="function")applyCalloutColors();});}})();</script>
 </head>
 <body>
 <nav>
