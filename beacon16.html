@@ -202,20 +202,33 @@ body.dark .jump-sec-label{border-color:#222220}
   <div class="callout-title" data-light-color="#633806" style="color:#633806" data-dark-color="#FAC775"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">🧪</span> Try it now</div>
   <div class="callout-body" data-light-color="#854F0B" style="color:#854F0B" data-dark-color="#EF9F27"><p>Screens and menus may look slightly different — that's normal. Just explore and you'll find your way. 😊</p>
 <p>Use the exact same prompt in both tools — then listen to what comes back.</p>
-<p><strong>Your prompt:</strong> <em>"Gentle acoustic song about a rainy afternoon, calm and cozy, soft guitar, a little nostalgic"</em></p>
-<div class="step-badge-row"><div class="step-badge" data-light-badge-bg="#854F0B" data-light-badge-color="#FAEEDA" data-dark-badge-bg="#EF9F27" data-dark-badge-color="#633806" style="background:#854F0B;color:#FAEEDA">1</div><span class="step-badge-title">Suno</strong> → <a href="https://suno.com/" target="_blank" style="color:var(--accent)">https://suno.com</a></p>
-<p>Set the version to <strong>v4.5-all</strong> at the top. Turn Instrumental <strong>off</strong> if you want vocals. Paste the prompt and click <strong>Create</strong>. You'll get 4 versions — some may be v5.5 Preview (1 minute only). To download: <strong>...</strong> → <strong>Download</strong> → <strong>Download Anyway</span></div>
-<div class="step-badge-row"><div class="step-badge" data-light-badge-bg="#854F0B" data-light-badge-color="#FAEEDA" data-dark-badge-bg="#EF9F27" data-dark-badge-color="#633806" style="background:#854F0B;color:#FAEEDA">2</div><span class="step-badge-title">Sonauto</strong> → <a href="https://sonauto.ai/" target="_blank" style="color:var(--accent)">https://sonauto.ai</a></p>
-<p>Have your phone nearby — you may need two-factor authentication. Paste the same prompt and click <strong>Generate</strong>. You'll get 2 versions. Wait until fully loaded, then download: <strong>...</strong> → <strong>Download</span></div>
+<p><strong>Your prompt:</strong></p>
+<div class="prompt-wrap" id="prompt-b16-main">
+  <div class="prompt-topbar">
+    <span class="prompt-topbar-label">Ready-made prompt</span>
+    <button class="copy-btn" id="copyBtnprompt-b16-main" onclick="copyPrompt('prompt-b16-main')">Copy</button>
+  </div>
+  <div class="prompt-text" id="prompt-b16-main-text">Gentle acoustic song about a rainy afternoon, calm and cozy, soft guitar, a little nostalgic</div>
+</div>
+<div class="step-badge-row">
+  <div class="step-badge" data-light-badge-bg="#854F0B" data-light-badge-color="#FAEEDA" data-dark-badge-bg="#EF9F27" data-dark-badge-color="#633806" style="background:#854F0B;color:#FAEEDA">1</div>
+  <span class="step-badge-title">Suno → <a href="https://suno.com/" target="_blank" style="color:var(--accent)">https://suno.com</a></span>
+</div>
+<p>Set the version to <strong>v4.5-all</strong> at the top. Turn Instrumental <strong>off</strong> if you want vocals. Paste the prompt and click <strong>Create</strong>. You'll get 4 versions — some may be v5.5 Preview (1 minute only). To download: <strong>...</strong> → <strong>Download</strong> → <strong>Download Anyway</strong>.</p>
+<div class="step-badge-row">
+  <div class="step-badge" data-light-badge-bg="#854F0B" data-light-badge-color="#FAEEDA" data-dark-badge-bg="#EF9F27" data-dark-badge-color="#633806" style="background:#854F0B;color:#FAEEDA">2</div>
+  <span class="step-badge-title">Sonauto → <a href="https://sonauto.ai/" target="_blank" style="color:var(--accent)">https://sonauto.ai</a></span>
+</div>
+<p>Have your phone nearby — you may need two-factor authentication. Paste the same prompt and click <strong>Generate</strong>. You'll get 2 versions. Wait until fully loaded, then download: <strong>...</strong> → <strong>Download</strong>.</p>
 <p>Want to try a different mood instead? Pick one from the list and build your own prompt around it:</p>
 <ol style="padding-left:1.4rem;margin:0.5rem 0">
-<li style="margin-bottom:0.4rem;color:#444">A road trip song with the windows down</li>
-<li style="margin-bottom:0.4rem;color:#444">A motivational gym anthem</li>
-<li style="margin-bottom:0.4rem;color:#444">A lullaby for a restless night</li>
-<li style="margin-bottom:0.4rem;color:#444">A jazz café on a Friday evening</li>
-<li style="margin-bottom:0.4rem;color:#444">A heroic moment from an imaginary film</li>
-<li style="margin-bottom:0.4rem;color:#444">A cheerful birthday song</li>
-<li style="margin-bottom:0.4rem;color:#444">A quiet, melancholy song about missing someone</li>
+<li style="margin-bottom:0.4rem">A road trip song with the windows down</li>
+<li style="margin-bottom:0.4rem">A motivational gym anthem</li>
+<li style="margin-bottom:0.4rem">A lullaby for a restless night</li>
+<li style="margin-bottom:0.4rem">A jazz café on a Friday evening</li>
+<li style="margin-bottom:0.4rem">A heroic moment from an imaginary film</li>
+<li style="margin-bottom:0.4rem">A cheerful birthday song</li>
+<li style="margin-bottom:0.4rem">A quiet, melancholy song about missing someone</li>
 </ol></div>
 </div>
 <div class="callout" data-light-bg="#FAECE7" style="background:#FAECE7;border:2px solid #E8724A" data-dark-bg="#4A1B0C">
@@ -249,7 +262,9 @@ function applyCalloutColors(){
   const dark=document.body.classList.contains('dark');
   document.querySelectorAll('.callout').forEach(el=>{
     if(!el.dataset.lightBg)el.dataset.lightBg=el.style.background;
+    if(!el.dataset.lightBorder)el.dataset.lightBorder=el.style.border;
     el.style.background=dark?el.dataset.darkBg:el.dataset.lightBg;
+    if(el.dataset.darkBorder)el.style.border=dark?el.dataset.darkBorder:el.dataset.lightBorder;
     const title=el.querySelector('.callout-title');
     const body=el.querySelector('.callout-body');
     if(title){title.style.color=dark?title.dataset.darkColor:title.dataset.lightColor;}
@@ -260,9 +275,10 @@ function applyCalloutColors(){
     });
   });
 }
+applyCalloutColors();
 const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')}),{threshold:0.07});
 document.querySelectorAll('.section,.complete').forEach(el=>obs.observe(el));
-function copyPrompt(id){const t=document.getElementById(id).innerText;navigator.clipboard.writeText(t).then(()=>{const b=document.getElementById('copyBtn'+id);b.textContent='Copied!';b.classList.add('copied');setTimeout(()=>{b.textContent='Copy';b.classList.remove('copied')},2000)})}
+function copyPrompt(id){const t=document.getElementById(id+'-text').innerText;navigator.clipboard.writeText(t).then(()=>{const b=document.getElementById('copyBtn'+id);b.textContent='Copied!';b.classList.add('copied');setTimeout(()=>{b.textContent='Copy';b.classList.remove('copied')},2000)})}
 </script>
 <script>
 (function(){
