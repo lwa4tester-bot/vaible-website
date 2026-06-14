@@ -197,10 +197,10 @@ body.dark .jump-sec-label{border-color:#222220}
   <div class="callout-body" data-light-color="#185FA5" style="color:#185FA5" data-dark-color="#85B7EB"><p>Gamma makes the first version, but you decide what stays.</p>
 <p>Before it generates, you can choose:</p>
 <ul style="padding-left:1.2rem;margin:0.5rem 0">
-<li style="margin-bottom:0.4rem;color:#444"><strong>How many slides</strong> you want</li>
-<li style="margin-bottom:0.4rem;color:#444"><strong>How much text</strong> per slide (minimal, concise, detailed)</li>
-<li style="margin-bottom:0.4rem;color:#444"><strong>The visual theme</strong> — colours and style</li>
-<li style="margin-bottom:0.4rem;color:#444"><strong>The image style</strong> — illustrated, photographic, abstract</li>
+<li style="margin-bottom:0.4rem;color:inherit"><strong>How many slides</strong> you want</li>
+<li style="margin-bottom:0.4rem;color:inherit"><strong>How much text</strong> per slide (minimal, concise, detailed)</li>
+<li style="margin-bottom:0.4rem;color:inherit"><strong>The visual theme</strong> — colours and style</li>
+<li style="margin-bottom:0.4rem;color:inherit"><strong>The image style</strong> — illustrated, photographic, abstract</li>
 </ul>
 <p>And once the presentation is ready, every slide is editable. Click on any text to change it. Don't like an image? Replace it in one click.</p></div>
 </div>
@@ -218,7 +218,10 @@ body.dark .jump-sec-label{border-color:#222220}
 <p>Click <strong>New</strong> or look for the <strong>Generate</strong> option. Make sure <strong>Presentation</strong> is selected at the top.</p>
 <div class="step-badge-row"><div class="step-badge" data-light-badge-bg="#854F0B" data-light-badge-color="#FAEEDA" data-dark-badge-bg="#EF9F27" data-dark-badge-color="#633806" style="background:#854F0B;color:#FAEEDA">3</div><span class="step-badge-title">Enter your prompt</span></div>
 <p>In the text box, type:</p>
-<p style="font-style:italic;border-left:3px solid var(--accent);padding-left:1rem;margin:0.8rem 0;color:#555"><em>A short introduction to the benefits of walking every day — 5 slides</em></p>
+<div class="prompt-wrap">
+<div class="prompt-topbar"><span class="prompt-topbar-label">Ready-made prompt</span><button class="copy-btn" id="copyBtnp1" onclick="copyPrompt('p1')">Copy</button></div>
+<div class="prompt-text" id="p1">A short introduction to the benefits of walking every day — 5 slides</div>
+</div>
 <p>Leave the other settings as they are (the defaults work great) and click <strong>Generate outline</strong>.</p>
 <div class="step-badge-row"><div class="step-badge" data-light-badge-bg="#854F0B" data-light-badge-color="#FAEEDA" data-dark-badge-bg="#EF9F27" data-dark-badge-color="#633806" style="background:#854F0B;color:#FAEEDA">4</div><span class="step-badge-title">Review the outline</span></div>
 <p>Gamma shows you the slide structure before it builds anything. Have a quick look — you can edit titles or bullet points here if you want. When you're happy, scroll down and click <strong>Generate</strong>.</p>
@@ -228,14 +231,14 @@ body.dark .jump-sec-label{border-color:#222220}
 <p>Click <strong>Share</strong> in the top right corner, then <strong>Export</strong>. Try downloading it as a PowerPoint or PDF.</p>
 <p><strong>Want to try a different topic? Here are some ideas:</strong></p>
 <ul style="padding-left:1.2rem;margin:0.5rem 0">
-<li style="margin-bottom:0.4rem;color:#444">How to start a vegetable garden at home</li>
-<li style="margin-bottom:0.4rem;color:#444">5 ways to save money on groceries</li>
-<li style="margin-bottom:0.4rem;color:#444">A beginner's guide to better sleep</li>
-<li style="margin-bottom:0.4rem;color:#444">Things to do in [your city] this weekend</li>
-<li style="margin-bottom:0.4rem;color:#444">How to plan a family trip on a budget</li>
-<li style="margin-bottom:0.4rem;color:#444">The basics of recycling at home</li>
-<li style="margin-bottom:0.4rem;color:#444">Simple stretches to do at your desk</li>
-<li style="margin-bottom:0.4rem;color:#444">How to teach kids good money habits</li>
+<li style="margin-bottom:0.4rem;color:inherit">How to start a vegetable garden at home</li>
+<li style="margin-bottom:0.4rem;color:inherit">5 ways to save money on groceries</li>
+<li style="margin-bottom:0.4rem;color:inherit">A beginner's guide to better sleep</li>
+<li style="margin-bottom:0.4rem;color:inherit">Things to do in [your city] this weekend</li>
+<li style="margin-bottom:0.4rem;color:inherit">How to plan a family trip on a budget</li>
+<li style="margin-bottom:0.4rem;color:inherit">The basics of recycling at home</li>
+<li style="margin-bottom:0.4rem;color:inherit">Simple stretches to do at your desk</li>
+<li style="margin-bottom:0.4rem;color:inherit">How to teach kids good money habits</li>
 </ul></div>
 </div>
 <div class="callout" data-light-bg="#FAECE7" style="background:#FAECE7;border:2px solid #E8724A" data-dark-bg="#4A1B0C">
@@ -261,7 +264,7 @@ body.dark .jump-sec-label{border-color:#222220}
   <div class="callout-body" data-light-color="#27500A" style="color:#27500A" data-dark-color="#97C459"><p>You've just built a presentation from a single sentence. Design, images, structure — all done in minutes.</p>
 <p><strong>Up next — Beacon 25: Automate the boring stuff.</strong></p>
 <p>You'll get your first look at Make.com — a tool that connects apps and runs tasks automatically, so you don't have to.</p>
-<p>No rush. Come back whenever you're ready. 🙂</p></div>
+</div>
 </div>
   <p class="no-rush">No rush. Come back whenever you're ready. &#128578;</p>
   <div class="beacon-nav">
@@ -270,6 +273,7 @@ body.dark .jump-sec-label{border-color:#222220}
   </div>
 </div>
 <script>
+document.addEventListener('DOMContentLoaded',function(){applyCalloutColors();});
 const btn=document.getElementById('themeToggle');
 btn.addEventListener('click',()=>{
   document.body.classList.toggle('dark');
