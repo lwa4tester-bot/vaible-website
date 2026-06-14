@@ -188,9 +188,9 @@ body.dark .jump-sec-label{border-color:#222220}
 <p>The idea is simple: <em>when something happens in one place, Make does something in another place — automatically.</em></p>
 <p>For example:</p>
 <ul style="padding-left:1.2rem;margin:0.5rem 0">
-<li style="margin-bottom:0.4rem;color:#444">When you receive an email with an attachment → save it to Google Drive</li>
-<li style="margin-bottom:0.4rem;color:#444">When a new row is added to a spreadsheet → send yourself a reminder</li>
-<li style="margin-bottom:0.4rem;color:#444">When you fill out a form → get a notification on your phone</li>
+<li style="margin-bottom:0.4rem;color:inherit">When you receive an email with an attachment → save it to Google Drive</li>
+<li style="margin-bottom:0.4rem;color:inherit">When a new row is added to a spreadsheet → send yourself a reminder</li>
+<li style="margin-bottom:0.4rem;color:inherit">When you fill out a form → get a notification on your phone</li>
 </ul>
 <p>Make.com works with thousands of apps. Today you'll use Google services — because you already have a Gmail account.</p>
 <p>🔗 Go to: <a href="https://www.make.com/" target="_blank" style="color:var(--accent)">https://www.make.com</a> and click <strong>Get started free</strong>.</p>
@@ -198,7 +198,7 @@ body.dark .jump-sec-label{border-color:#222220}
 <p>Make will then ask you a few questions about yourself — just pick the options that feel right and continue. At the end, click <strong>Get started</strong>.</p></div>
 </div>
 <div class="callout" data-light-bg="#E6F1FB" style="background:#E6F1FB;border:2px solid #6BAEE8" data-dark-bg="#0C447C">
-  <div class="callout-title" data-light-color="#0C447C" style="color:#0C447C" data-dark-color="#B5D4F4"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">⚙</span> ️ **What is a scenario?**</div>
+  <div class="callout-title" data-light-color="#0C447C" style="color:#0C447C" data-dark-color="#B5D4F4"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">⚙️</span> What is a scenario?</div>
   <div class="callout-body" data-light-color="#185FA5" style="color:#185FA5" data-dark-color="#85B7EB"><p>In Make.com, your automation is called a <strong>scenario</strong>.</p>
 <p>A scenario has two parts:</p>
 <p><strong>Trigger</strong> — the thing that starts the automation.</p>
@@ -209,7 +209,7 @@ body.dark .jump-sec-label{border-color:#222220}
 <p>Every time the trigger fires, Make runs the action automatically — even if you're not at your computer.</p></div>
 </div>
 <div class="callout" data-light-bg="#E6F1FB" style="background:#E6F1FB;border:2px solid #6BAEE8" data-dark-bg="#0C447C">
-  <div class="callout-title" data-light-color="#0C447C" style="color:#0C447C" data-dark-color="#B5D4F4"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">📦</span> **How Make.com counts usage**</div>
+  <div class="callout-title" data-light-color="#0C447C" style="color:#0C447C" data-dark-color="#B5D4F4"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">📦</span> How Make.com counts usage</div>
   <div class="callout-body" data-light-color="#185FA5" style="color:#185FA5" data-dark-color="#85B7EB"><p>Make.com's free plan gives you <strong>1,000 operations per month</strong>.</p>
 <p>An operation is one step in your scenario. So a trigger + one action = 2 operations per run.</p>
 <p>For a simple automation that runs once a day, 1,000 operations is plenty of room to explore.</p>
@@ -226,27 +226,27 @@ body.dark .jump-sec-label{border-color:#222220}
 <p>Leave it open — you'll come back to it.</p>
 <div class="step-badge-row"><div class="step-badge" data-light-badge-bg="#854F0B" data-light-badge-color="#FAEEDA" data-dark-badge-bg="#EF9F27" data-dark-badge-color="#633806" style="background:#854F0B;color:#FAEEDA">2</div><span class="step-badge-title">Build your scenario in Make</span></div>
 <ol style="padding-left:1.4rem;margin:0.5rem 0">
-<li style="margin-bottom:0.4rem;color:#444">Go to <a href="https://www.make.com/" target="_blank" style="color:var(--accent)">https://www.make.com</a>, sign in, and click <strong>+ Create scenario</strong> in the top right corner</li>
-<li style="margin-bottom:0.4rem;color:#444">A tip window may appear — just close it with the <strong>X</strong></li>
-<li style="margin-bottom:0.4rem;color:#444">Click the large <strong>+</strong> circle in the middle of the screen</li>
-<li style="margin-bottom:0.4rem;color:#444">Search for <strong>Google Sheets</strong> and select it</li>
-<li style="margin-bottom:0.4rem;color:#444">Choose the trigger: <strong>Watch New Rows</strong> — don't worry if you see a small "Acid" badge next to it, that's normal</li>
-<li style="margin-bottom:0.4rem;color:#444">Click <strong>Create a connection</strong>, then <strong>Sign in with Google</strong></li>
-<li style="margin-bottom:0.4rem;color:#444">An permission screen will appear — tick <strong>both checkboxes</strong> (Google Drive + Google Sheets) or click <strong>Select all</strong>, then click <strong>Continue</strong>. This is important — without it, Make can't find your spreadsheet.</li>
-<li style="margin-bottom:0.4rem;color:#444">Back in the Google Sheets settings, click <strong>Click here to choose file</strong> under Spreadsheet ID and select <strong>My Automation Test</strong>. Leave all other fields as they are and click <strong>Save</strong></li>
-<li style="margin-bottom:0.4rem;color:#444">A "Choose where to start" window appears — select <strong>All</strong> and click <strong>Save</strong></li>
-<li style="margin-bottom:0.4rem;color:#444">Click the small <strong>+</strong> button to the right of the Google Sheets block</li>
-<li style="margin-bottom:0.4rem;color:#444">Search for <strong>Gmail</strong> and select <strong>Send an email</strong></li>
-<li style="margin-bottom:0.4rem;color:#444">Click <strong>Create a connection</strong>, then <strong>Sign in with Google</strong> again</li>
-<li style="margin-bottom:0.4rem;color:#444">Fill in:</li>
+<li style="margin-bottom:0.4rem;color:inherit">Go to <a href="https://www.make.com/" target="_blank" style="color:var(--accent)">https://www.make.com</a>, sign in, and click <strong>+ Create scenario</strong> in the top right corner</li>
+<li style="margin-bottom:0.4rem;color:inherit">A tip window may appear — just close it with the <strong>X</strong></li>
+<li style="margin-bottom:0.4rem;color:inherit">Click the large <strong>+</strong> circle in the middle of the screen</li>
+<li style="margin-bottom:0.4rem;color:inherit">Search for <strong>Google Sheets</strong> and select it</li>
+<li style="margin-bottom:0.4rem;color:inherit">Choose the trigger: <strong>Watch New Rows</strong> — don't worry if you see a small "Acid" badge next to it, that's normal</li>
+<li style="margin-bottom:0.4rem;color:inherit">Click <strong>Create a connection</strong>, then <strong>Sign in with Google</strong></li>
+<li style="margin-bottom:0.4rem;color:inherit">An permission screen will appear — tick <strong>both checkboxes</strong> (Google Drive + Google Sheets) or click <strong>Select all</strong>, then click <strong>Continue</strong>. This is important — without it, Make can't find your spreadsheet.</li>
+<li style="margin-bottom:0.4rem;color:inherit">Back in the Google Sheets settings, click <strong>Click here to choose file</strong> under Spreadsheet ID and select <strong>My Automation Test</strong>. Leave all other fields as they are and click <strong>Save</strong></li>
+<li style="margin-bottom:0.4rem;color:inherit">A "Choose where to start" window appears — select <strong>All</strong> and click <strong>Save</strong></li>
+<li style="margin-bottom:0.4rem;color:inherit">Click the small <strong>+</strong> button to the right of the Google Sheets block</li>
+<li style="margin-bottom:0.4rem;color:inherit">Search for <strong>Gmail</strong> and select <strong>Send an email</strong></li>
+<li style="margin-bottom:0.4rem;color:inherit">Click <strong>Create a connection</strong>, then <strong>Sign in with Google</strong> again</li>
+<li style="margin-bottom:0.4rem;color:inherit">Fill in:</li>
 </ol>
 <p>- <strong>To:</strong> click <strong>+ Add recipient</strong> and enter your Gmail address</p>
 <p>- <strong>Subject:</strong> <code style="background:var(--off);padding:0.1em 0.4em;border-radius:3px;font-size:0.85em">New row added to my sheet!</code></p>
 <p>- <strong>Content:</strong> <code style="background:var(--off);padding:0.1em 0.4em;border-radius:3px;font-size:0.85em">A new task was just added.</code></p>
 <ol style="padding-left:1.4rem;margin:0.5rem 0">
-<li style="margin-bottom:0.4rem;color:#444">Click <strong>Save</strong></li>
-<li style="margin-bottom:0.4rem;color:#444">Click <strong>Run once</strong> (bottom left), then switch to your Google Sheet and add a new row: <code style="background:var(--off);padding:0.1em 0.4em;border-radius:3px;font-size:0.85em">Buy groceries | Pending | Today</code></li>
-<li style="margin-bottom:0.4rem;color:#444">Check your inbox — the email should arrive within a minute! 📬</li>
+<li style="margin-bottom:0.4rem;color:inherit">Click <strong>Save</strong></li>
+<li style="margin-bottom:0.4rem;color:inherit">Click <strong>Run once</strong> (bottom left), then switch to your Google Sheet and add a new row: <code style="background:var(--off);padding:0.1em 0.4em;border-radius:3px;font-size:0.85em">Buy groceries | Pending | Today</code></li>
+<li style="margin-bottom:0.4rem;color:inherit">Check your inbox — the email should arrive within a minute! 📬</li>
 </ol></div>
 </div>
 <div class="callout" data-light-bg="#FAECE7" style="background:#FAECE7;border:2px solid #E8724A" data-dark-bg="#4A1B0C">
@@ -273,7 +273,7 @@ body.dark .jump-sec-label{border-color:#222220}
   <div class="callout-body" data-light-color="#27500A" style="color:#27500A" data-dark-color="#97C459"><p>You just built your first real automation. No code. No IT department. Just a trigger, an action, and a rule that works while you sleep.</p>
 <p><strong>Up next → Beacon 26: Build without code</strong></p>
 <p>You'll use an AI tool called Lovable to create a simple app — just by describing what you want. Yes, really.</p>
-<p>No rush. Come back whenever you're ready. 🙂</p></div>
+</div>
 </div>
   <p class="no-rush">No rush. Come back whenever you're ready. &#128578;</p>
   <div class="beacon-nav">
