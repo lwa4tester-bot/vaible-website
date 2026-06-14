@@ -64,6 +64,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:str
 .tip-grid{display:grid;grid-template-columns:1fr;gap:2px;margin:0.8rem 0;border-radius:6px;overflow:hidden}
 .compare-cell,.tip-cell{padding:0.8rem 1rem;font-size:1rem;line-height:1.7}
 .compare-header{font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;font-weight:600;opacity:0.6;margin-bottom:0.3rem}
+
+.step-badge-row{display:flex;align-items:center;gap:0.7rem;margin:1rem 0 0.3rem}
+.step-badge{display:inline-flex;align-items:center;justify-content:center;width:1.7rem;height:1.7rem;border-radius:50%;font-size:0.8rem;font-weight:700;flex-shrink:0}
+.step-badge-title{font-family:'Instrument Sans',sans-serif;font-weight:700;font-size:0.95rem}
 .no-rush{font-family:'Inter',sans-serif;font-style:italic;font-size:1rem;color:var(--mid);margin:1.5rem 0 0;text-align:left}
 body.dark{--paper:#0D0D0D;--off:#131312;--ink:#F0EFE9;--line:#3A3A38;--mid:#666660;--accent:#4D8AFF;--red:#FF6644;background:var(--paper);color:var(--ink)}
 body.dark nav,body.dark .prog-bar{background:#0D0D0D;border-color:#222220}
@@ -177,10 +181,10 @@ body.dark .jump-sec-label{border-color:#222220}
   <div class="callout-title" data-light-color="#2C2C2A" style="color:#2C2C2A" data-dark-color="#D3D1C7"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">🎯</span> What you'll learn</div>
   <div class="callout-body" data-light-color="#444441" style="color:#444441" data-dark-color="#B4B2A9"><p>By the end of this Beacon, you'll know how to:</p>
 <ul style="padding-left:1.2rem;margin:0.5rem 0">
-<li style="margin-bottom:0.4rem;color:#444">Upload notes or a transcript from any group meeting and let AI pull out the key points</li>
-<li style="margin-bottom:0.4rem;color:#444">Use NotebookLM to summarise what was discussed</li>
-<li style="margin-bottom:0.4rem;color:#444">Use Claude to turn those notes into clear action items</li>
-<li style="margin-bottom:0.4rem;color:#444">Never leave a meeting wondering "wait, what did we agree on?"</li>
+<li >Upload notes or a transcript from any group meeting and let AI pull out the key points</li>
+<li >Use NotebookLM to summarise what was discussed</li>
+<li >Use Claude to turn those notes into clear action items</li>
+<li >Never leave a meeting wondering "wait, what did we agree on?"</li>
 </ul></div>
 </div>
 <div class="callout" data-light-bg="#FBE8F0" style="background:#FBE8F0;border:2px solid #E060A0" data-dark-bg="#5C0E33">
@@ -190,7 +194,7 @@ body.dark .jump-sec-label{border-color:#222220}
 <p>→ Go to NotebookLM: <a href="https://notebooklm.google.com/" target="_blank" style="color:var(--accent)">https://notebooklm.google.com</a></p></div>
 </div>
 <div class="callout" data-light-bg="#E6F1FB" style="background:#E6F1FB;border:2px solid #6BAEE8" data-dark-bg="#0C447C">
-  <div class="callout-title" data-light-color="#0C447C" style="color:#0C447C" data-dark-color="#B5D4F4"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">📌</span> **Meetings are full</div>
+  <div class="callout-title" data-light-color="#0C447C" style="color:#0C447C" data-dark-color="#B5D4F4"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">📌</span> Meetings are full of good intentions</div>
   <div class="callout-body" data-light-color="#185FA5" style="color:#185FA5" data-dark-color="#85B7EB"><p>You sit through an hour-long staff meeting. People talk, decisions get made, someone volunteers for something. Then it's over — and a few days later, nobody's quite sure who was supposed to do what.</p>
 <p>Sound familiar?</p>
 <p>AI can help. Not by attending the meeting for you — but by reading your notes and doing the hard work of summarising them.</p>
@@ -198,25 +202,61 @@ body.dark .jump-sec-label{border-color:#222220}
 <p>Two tools, one smooth flow.</p></div>
 </div>
 <div class="callout" data-light-bg="#E6F1FB" style="background:#E6F1FB;border:2px solid #6BAEE8" data-dark-bg="#0C447C">
-  <div class="callout-title" data-light-color="#0C447C" style="color:#0C447C" data-dark-color="#B5D4F4"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">📌</span> **Step 1 — Get your</div>
+  <div class="callout-title" data-light-color="#0C447C" style="color:#0C447C" data-dark-color="#B5D4F4"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">📌</span> Step 1 — Get your notes ready</div>
   <div class="callout-body" data-light-color="#185FA5" style="color:#185FA5" data-dark-color="#85B7EB"><p>You don't need a recording or a fancy transcript. Rough notes typed up after the meeting work perfectly well — even bullet points are fine. NotebookLM is good at making sense of messy input.</p>
 <p>If your school or organisation does record meetings, many tools can generate a transcript automatically:</p>
 <ul style="padding-left:1.2rem;margin:0.5rem 0">
-<li style="margin-bottom:0.4rem;color:#444"><strong>Google Meet</strong> → after the call, check your Google Drive</li>
-<li style="margin-bottom:0.4rem;color:#444"><strong>Zoom</strong> → enable transcription in settings → it saves automatically</li>
+<li ><strong>Google Meet</strong> → after the call, check your Google Drive</li>
+<li ><strong>Zoom</strong> → enable transcription in settings → it saves automatically</li>
 </ul>
 <p>For this Beacon, we've prepared a sample set of meeting notes you can use — no recording needed. 👇</p></div>
 </div>
 <div class="callout" data-light-bg="#E6F1FB" style="background:#E6F1FB;border:2px solid #6BAEE8" data-dark-bg="#0C447C">
-  <div class="callout-title" data-light-color="#0C447C" style="color:#0C447C" data-dark-color="#B5D4F4"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">📌</span> **Step 2 — Upload to</div>
+  <div class="callout-title" data-light-color="#0C447C" style="color:#0C447C" data-dark-color="#B5D4F4"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">📌</span> Step 2 — Upload to NotebookLM</div>
   <div class="callout-body" data-light-color="#185FA5" style="color:#185FA5" data-dark-color="#85B7EB"><p>NotebookLM works with "notebooks" — each one is a separate project where you upload your sources.</p>
 <p>Here's how it works:</p>
 <ol style="padding-left:1.4rem;margin:0.5rem 0">
-<li style="margin-bottom:0.4rem;color:#444">Open NotebookLM and create a new notebook</li>
-<li style="margin-bottom:0.4rem;color:#444">Upload your notes or paste them as text</li>
-<li style="margin-bottom:0.4rem;color:#444">Once they're uploaded, NotebookLM has read them — now you can ask it anything</li>
+<li >Open NotebookLM and create a new notebook</li>
+<li >Upload your notes or paste them as text</li>
+<li >Once they're uploaded, NotebookLM has read them — now you can ask it anything</li>
 </ol>
 <p>It's a bit like having a very attentive colleague who never forgets a word that was said.</p></div>
+</div>
+<div class="callout" data-light-bg="#FEF7E6" style="background:#FEF7E6;border:2px solid #F0C040" data-dark-bg="#3D2E00">
+  <div class="callout-title" data-light-color="#633806" style="color:#633806" data-dark-color="#FAC775"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">🧪</span> Try it now</div>
+  <div class="callout-body" data-light-color="#854F0B" style="color:#854F0B" data-dark-color="#EF9F27"><p><em>Screens and menus may look slightly different — that's normal. Just explore and you'll find your way. 😊</em></p>
+<p>For this exercise, you'll use a sample set of meeting notes from a fictional school staff meeting. No recording needed — just copy and paste the text below.</p>
+<div class="step-badge-row"><div class="step-badge" data-light-badge-bg="#854F0B" data-light-badge-color="#FAEEDA" data-dark-badge-bg="#EF9F27" data-dark-badge-color="#633806" style="background:#854F0B;color:#FAEEDA">1</div><span class="step-badge-title">Upload the sample notes to NotebookLM</span></div>
+<p>Open NotebookLM (<a href="https://notebooklm.google.com/" target="_blank" style="color:var(--accent)">https://notebooklm.google.com</a>) and create a new notebook. Choose <strong>Paste text</strong> as your source, and paste in these sample meeting notes:</p>
+<div class="prompt-wrap"><div class="prompt-topbar"><span class="prompt-topbar-label">Sample meeting notes</span><button class="copy-btn" id="copyBtnb22-notes" onclick="copyPrompt('b22-notes')">Copy</button></div><div class="prompt-text" id="b22-notes">Staff Meeting Notes – Riverside Primary School
+Date: Tuesday, 10 June
+Present: Ms. Carter (head teacher), Mr. Osei (Year 4), Ms. Novak (Year 6), Mrs. Patel (SENCO), Mr. Flynn (caretaker)
+
+1. End-of-year event
+The school summer fair is confirmed for 28 June. Ms. Novak will coordinate the stalls. Mr. Osei offered to organise the games area. Volunteers still needed for the bake sale — Mrs. Patel said she'd ask parents via the newsletter.
+
+2. Building maintenance
+Mr. Flynn flagged a leak in the Year 5 corridor. Repair is booked for next Monday. Ms. Carter asked Mr. Flynn to send her a written update once it's done.
+
+3. Reading initiative
+The school is trialling a new reading programme from September. Mrs. Patel will review the materials and report back at the next meeting. Mr. Osei suggested involving Year 3 as well — agreed to explore.
+
+4. Staff training day
+Confirmed for 4 July. Ms. Carter to send out the agenda by end of this week. All staff to confirm attendance by Friday.
+
+5. Any other business
+Ms. Novak raised concerns about the playground rota. Mr. Flynn to check the schedule and redistribute duties where needed. Next meeting: 24 June, 4pm.</div></div>
+<p>Once uploaded, ask NotebookLM to summarise the notes using this prompt:</p>
+<div class="prompt-wrap"><div class="prompt-topbar"><span class="prompt-topbar-label">Ready-made prompt — NotebookLM</span><button class="copy-btn" id="copyBtnb22-nlm" onclick="copyPrompt('b22-nlm')">Copy</button></div><div class="prompt-text" id="b22-nlm">Please give me a short summary of these meeting notes. What were the main topics discussed?</div></div>
+<p>Copy the summary NotebookLM gives you — you'll need it in the next step.</p>
+<div class="step-badge-row"><div class="step-badge" data-light-badge-bg="#854F0B" data-light-badge-color="#FAEEDA" data-dark-badge-bg="#EF9F27" data-dark-badge-color="#633806" style="background:#854F0B;color:#FAEEDA">2</div><span class="step-badge-title">Turn the summary into action items with Claude</span></div>
+<p>Open Claude (<a href="https://claude.ai/" target="_blank" style="color:var(--accent)">https://claude.ai</a>) and paste in both the summary and the original notes, then use this prompt:</p>
+<div class="prompt-wrap"><div class="prompt-topbar"><span class="prompt-topbar-label">Ready-made prompt — Claude</span><button class="copy-btn" id="copyBtnb22-claude" onclick="copyPrompt('b22-claude')">Copy</button></div><div class="prompt-text" id="b22-claude">Here are notes from a staff meeting, followed by a short summary. Please turn them into a clear action item list. For each action, include: who is responsible, what they need to do, and the deadline if one was mentioned.
+
+[Paste the original meeting notes here]
+
+[Paste the NotebookLM summary here]</div></div>
+<p>Replace the two placeholders with your actual content, then send the prompt.</p></div>
 </div>
 <div class="callout" data-light-bg="#FAECE7" style="background:#FAECE7;border:2px solid #E8724A" data-dark-bg="#4A1B0C">
   <div class="callout-title" data-light-color="#4A1B0C" style="color:#4A1B0C" data-dark-color="#F5C4B3"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">&#x1F440;</span> What to notice</div>
@@ -243,7 +283,7 @@ body.dark .jump-sec-label{border-color:#222220}
 <p>No more "wait, who was supposed to do that?" moments.</p>
 <p><strong>Up next:</strong> Beacon 23 – Your personal assistant</p>
 <p>You'll set up a simple daily AI routine — a morning briefing, a task list, a check-in. Small habits, big difference.</p>
-<p>No rush. Come back whenever you're ready. 🙂</p></div>
+</div>
 </div>
   <p class="no-rush">No rush. Come back whenever you're ready. &#128578;</p>
   <div class="beacon-nav">
@@ -269,6 +309,10 @@ function applyCalloutColors(){
     const body=el.querySelector('.callout-body');
     if(title){title.style.color=dark?title.dataset.darkColor:title.dataset.lightColor;}
     if(body){body.style.color=dark?body.dataset.darkColor:body.dataset.lightColor;}
+    el.querySelectorAll('.step-badge').forEach(badge=>{
+      badge.style.background=dark?badge.dataset.darkBadgeBg:badge.dataset.lightBadgeBg;
+      badge.style.color=dark?badge.dataset.darkBadgeColor:badge.dataset.lightBadgeColor;
+    });
   });
 }
 const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')}),{threshold:0.07});
