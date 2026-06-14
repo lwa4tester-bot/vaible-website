@@ -185,18 +185,18 @@ body.dark .jump-sec-label{border-color:#222220}
 <p>By the end, you'll see how AI tools don't just work alone — they work <em>together</em>.</p></div>
 </div>
 <div class="callout" data-light-bg="#E6F1FB" style="background:#E6F1FB;border:2px solid #6BAEE8" data-dark-bg="#0C447C">
-  <div class="callout-title" data-light-color="#0C447C" style="color:#0C447C" data-dark-color="#B5D4F4"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">📌</span> **What kind of proje</div>
+  <div class="callout-title" data-light-color="#0C447C" style="color:#0C447C" data-dark-color="#B5D4F4"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">📌</span> What kind of project?</div>
   <div class="callout-body" data-light-color="#185FA5" style="color:#185FA5" data-dark-color="#85B7EB"><p>Imagine you want to create a short personal newsletter — something you could send to friends, share online, or just keep for yourself.</p>
 <p>Here's what goes into it:</p>
 <ul style="padding-left:1.2rem;margin:0.5rem 0">
-<li style="margin-bottom:0.4rem;color:#444">A short written intro (your words, AI-polished)</li>
-<li style="margin-bottom:0.4rem;color:#444">An image that matches your topic</li>
-<li style="margin-bottom:0.4rem;color:#444">A short AI-generated audio clip — like a spoken intro</li>
+<li style="margin-bottom:0.4rem">A short written intro (your words, AI-polished)</li>
+<li style="margin-bottom:0.4rem">An image that matches your topic</li>
+<li style="margin-bottom:0.4rem">A short AI-generated audio clip — like a spoken intro</li>
 </ul>
 <p>That's three tools. Three skills. One project.</p></div>
 </div>
 <div class="callout" data-light-bg="#E6F1FB" style="background:#E6F1FB;border:2px solid #6BAEE8" data-dark-bg="#0C447C">
-  <div class="callout-title" data-light-color="#0C447C" style="color:#0C447C" data-dark-color="#B5D4F4"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">📌</span> **The tools you'll u</div>
+  <div class="callout-title" data-light-color="#0C447C" style="color:#0C447C" data-dark-color="#B5D4F4"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">📌</span> The tools you'll use</div>
   <div class="callout-body" data-light-color="#185FA5" style="color:#185FA5" data-dark-color="#85B7EB"><p>You've already met all of them:</p>
 <p><strong>✍️ Text</strong> → Gemini, ChatGPT or Claude</p>
 <p><strong>🎨 Image</strong> → Leonardo AI or any image tool from the course</p>
@@ -210,21 +210,27 @@ body.dark .jump-sec-label{border-color:#222220}
 <div class="step-badge-row"><div class="step-badge" data-light-badge-bg="#854F0B" data-light-badge-color="#FAEEDA" data-dark-badge-bg="#EF9F27" data-dark-badge-color="#633806" style="background:#854F0B;color:#FAEEDA">1</div><span class="step-badge-title">Write your intro</span></div>
 <p>Pick a topic that feels personal to you. Here are some ideas:</p>
 <ul style="padding-left:1.2rem;margin:0.5rem 0">
-<li style="margin-bottom:0.4rem;color:#444">Something I learned this month</li>
-<li style="margin-bottom:0.4rem;color:#444">A place I'd love to visit</li>
-<li style="margin-bottom:0.4rem;color:#444">A book or film that stuck with me</li>
-<li style="margin-bottom:0.4rem;color:#444">My morning routine</li>
-<li style="margin-bottom:0.4rem;color:#444">A small win I'm proud of</li>
-<li style="margin-bottom:0.4rem;color:#444">A skill I want to learn</li>
-<li style="margin-bottom:0.4rem;color:#444">How I use technology in daily life</li>
+<li style="margin-bottom:0.4rem">Something I learned this month</li>
+<li style="margin-bottom:0.4rem">A place I'd love to visit</li>
+<li style="margin-bottom:0.4rem">A book or film that stuck with me</li>
+<li style="margin-bottom:0.4rem">My morning routine</li>
+<li style="margin-bottom:0.4rem">A small win I'm proud of</li>
+<li style="margin-bottom:0.4rem">A skill I want to learn</li>
+<li style="margin-bottom:0.4rem">How I use technology in daily life</li>
 </ul>
 <p>"Open your favourite AI writing tool from the course and paste this prompt…”</p>
-<p style="font-style:italic;border-left:3px solid var(--accent);padding-left:1rem;margin:0.8rem 0;color:#555"><em>"Write a short, warm newsletter intro (around 80 words) on this topic: [your topic]. Friendly tone, like writing to a friend. First person."</em></p>
+<div class="prompt-wrap">
+<div class="prompt-topbar"><span class="prompt-topbar-label">Ready-made prompt</span><button class="copy-btn" id="copyBtnp1" onclick="copyPrompt('p1')">Copy</button></div>
+<div class="prompt-text" id="p1">Write a short, warm newsletter intro (around 80 words) on this topic: [your topic]. Friendly tone, like writing to a friend. First person.</div>
+</div>
 <p>Copy the result. You'll use it in Step 3.</p>
 <div class="step-badge-row"><div class="step-badge" data-light-badge-bg="#854F0B" data-light-badge-color="#FAEEDA" data-dark-badge-bg="#EF9F27" data-dark-badge-color="#633806" style="background:#854F0B;color:#FAEEDA">2</div><span class="step-badge-title">Create your image (Leonardo AI)</span></div>
 <p>Go to <a href="https://app.leonardo.ai/" target="_blank" style="color:var(--accent)"><strong>https://app.leonardo.ai</strong></a></p>
 <p>Use this ready-made prompt — or adapt it to match your topic:</p>
-<p style="font-style:italic;border-left:3px solid var(--accent);padding-left:1rem;margin:0.8rem 0;color:#555"><em>"A warm, editorial-style illustration for a personal newsletter about [your topic]. Soft colors, cozy atmosphere, no text."</em></p>
+<div class="prompt-wrap">
+<div class="prompt-topbar"><span class="prompt-topbar-label">Ready-made prompt</span><button class="copy-btn" id="copyBtnp2" onclick="copyPrompt('p2')">Copy</button></div>
+<div class="prompt-text" id="p2">A warm, editorial-style illustration for a personal newsletter about [your topic]. Soft colors, cozy atmosphere, no text.</div>
+</div>
 <p>Download the image when you're happy with it.</p>
 <div class="step-badge-row"><div class="step-badge" data-light-badge-bg="#854F0B" data-light-badge-color="#FAEEDA" data-dark-badge-bg="#EF9F27" data-dark-badge-color="#633806" style="background:#854F0B;color:#FAEEDA">3</div><span class="step-badge-title">Record your audio intro (ElevenLabs)</span></div>
 <p>Go to <a href="https://elevenlabs.io/" target="_blank" style="color:var(--accent)"><strong>https://elevenlabs.io</strong></a></p>
@@ -253,7 +259,7 @@ body.dark .jump-sec-label{border-color:#222220}
 <p>That wasn't just an exercise — it was a real creative project, made with real tools, by you.</p>
 <p>One Beacon left.</p>
 <p>In <strong>Beacon 30 – Who are you now?</strong>, we'll look back at everything you've done — and you'll draw your own personal AI map.</p>
-<p>No rush. Come back whenever you're ready. 🙂</p></div>
+</div>
 </div>
   <p class="no-rush">No rush. Come back whenever you're ready. &#128578;</p>
   <div class="beacon-nav">
