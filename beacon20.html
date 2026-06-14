@@ -110,7 +110,6 @@ body.dark::after{background-image:linear-gradient(to right,rgba(255,255,255,0.01
 body.dark .jump-panel{background:#0D0D0D;border-color:#222220}
 body.dark .jump-sec-label{border-color:#222220}
 </style>
-<script>(function(){if(localStorage.getItem("vaible-theme")==="dark"){document.documentElement.classList.add("dark-preload");document.addEventListener("DOMContentLoaded",function(){document.body.classList.add("dark");document.documentElement.classList.remove("dark-preload");var btn=document.getElementById("themeToggle");if(btn)btn.textContent="○ Light";});}})();</script>
 </head>
 <body>
 <nav>
@@ -181,9 +180,9 @@ body.dark .jump-sec-label{border-color:#222220}
   <div class="callout-body" data-light-color="#444441" style="color:#444441" data-dark-color="#B4B2A9"><p>By the end of this Beacon, you'll know how to use AI to help you plan a realistic week — without overcomplicating it.</p>
 <p>You'll learn how to:</p>
 <ul style="padding-left:1.2rem;margin:0.5rem 0">
-<li style="margin-bottom:0.4rem;color:#444">Use Google Calendar to block time for your actual priorities</li>
-<li style="margin-bottom:0.4rem;color:#444">Let Notion AI help you turn a messy to-do list into a proper weekly plan</li>
-<li style="margin-bottom:0.4rem;color:#444">See how a little AI assistance can make planning feel less overwhelming</li>
+<li style="margin-bottom:0.4rem">Use Google Calendar to block time for your actual priorities</li>
+<li style="margin-bottom:0.4rem">Let Notion AI help you turn a messy to-do list into a proper weekly plan</li>
+<li style="margin-bottom:0.4rem">See how a little AI assistance can make planning feel less overwhelming</li>
 </ul></div>
 </div>
 <div class="callout" data-light-bg="#FBE8F0" style="background:#FBE8F0;border:2px solid #E060A0" data-dark-bg="#5C0E33">
@@ -240,7 +239,7 @@ body.dark .jump-sec-label{border-color:#222220}
 </div>
 <div class="callout" data-light-bg="#EEEDFE" style="background:#EEEDFE;border:2px solid #8880E8" data-dark-bg="#26215C">
   <div class="callout-title" data-light-color="#26215C" style="color:#26215C" data-dark-color="#CECBF6"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">💡</span> Good to know</div>
-  <div class="callout-body" data-light-color="#3C3489" style="color:#3C3489" data-dark-color="#AFA9EC"><p><strong>Notion AI is part of a trial on the free plan.</strong> You'll have enough uses to complete this Beacon comfortably, but if you run out, you can refresh the page or come back the next day — the trial resets periodically.</p>
+  <div class="callout-body" data-light-color="#3C3489" style="color:#3C3489" data-dark-color="#AFA9EC"><p><strong>Notion AI is part of a trial on the free plan.</strong> You'll have a limited number of AI responses available — enough to complete this Beacon comfortably. If you reach the limit, you can wait until the next month or upgrade to a paid plan.</p>
 <p><strong>You don't need to use Notion long-term.</strong> The planning technique works anywhere — a notebook, a Google Doc, even a voice memo. Notion AI just makes the process faster and more interactive.</p>
 <p><strong>Google Calendar syncs across devices.</strong> If you add events on your computer, they'll appear on your phone too — as long as you're signed in with the same Google account.</p></div>
 </div>
@@ -249,7 +248,7 @@ body.dark .jump-sec-label{border-color:#222220}
   <div class="callout-body" data-light-color="#27500A" style="color:#27500A" data-dark-color="#97C459"><p>You've just built a weekly plan with the help of AI — and put it somewhere you'll actually see it.</p>
 <p>That's a small habit with a big payoff. The more you do it, the easier it gets.</p>
 <p><strong>Up next — B21: Tame the spreadsheet.</strong> Formulas, data, and spreadsheets don't have to be scary. In the next Beacon, you'll see how ChatGPT and Claude can do the heavy lifting — no programming needed.</p>
-<p>No rush. Come back whenever you're ready. 🙂</p></div>
+</div>
 </div>
   <p class="no-rush">No rush. Come back whenever you're ready. &#128578;</p>
   <div class="beacon-nav">
@@ -261,9 +260,7 @@ body.dark .jump-sec-label{border-color:#222220}
 const btn=document.getElementById('themeToggle');
 btn.addEventListener('click',()=>{
   document.body.classList.toggle('dark');
-  const isDark=document.body.classList.contains('dark');
-  btn.textContent=isDark?'○ Light':'☾ Dark';
-  localStorage.setItem('vaible-theme',isDark?'dark':'light');
+  btn.textContent=document.body.classList.contains('dark')?'○ Light':'☾ Dark';
   applyCalloutColors();
 });
 function applyCalloutColors(){
