@@ -198,9 +198,9 @@ body.dark .jump-sec-label{border-color:#222220}
   <div class="callout-body" data-light-color="#185FA5" style="color:#185FA5" data-dark-color="#85B7EB"><p>One of the most useful things about ElevenLabs is that it handles multiple languages naturally.</p>
 <p>Type in English, French, Spanish, German — or mix them — and the voice will follow along without missing a beat. This makes it useful for:</p>
 <ul style="padding-left:1.2rem;margin:0.5rem 0">
-<li style="margin-bottom:0.4rem;color:#444">Listening to a text in a language you're learning</li>
-<li style="margin-bottom:0.4rem;color:#444">Creating a narration for an audience in another country</li>
-<li style="margin-bottom:0.4rem;color:#444">Simply hearing how your own writing sounds when read aloud</li>
+<li >Listening to a text in a language you're learning</li>
+<li >Creating a narration for an audience in another country</li>
+<li >Simply hearing how your own writing sounds when read aloud</li>
 </ul></div>
 </div>
 <div class="callout" data-light-bg="#FAEEDA" style="background:#FAEEDA;border:2px solid #E8A020" data-dark-bg="#633806">
@@ -210,18 +210,21 @@ body.dark .jump-sec-label{border-color:#222220}
 <p>You'll go through a short setup — answer what feels right, and click <strong>Skip</strong> whenever you see the option. It takes about a minute.</p>
 <p>Once you're in, click <strong>Text to Speech</strong> in the left sidebar.</p>
 <div class="step-badge-row"><div class="step-badge" data-light-badge-bg="#854F0B" data-light-badge-color="#FAEEDA" data-dark-badge-bg="#EF9F27" data-dark-badge-color="#633806" style="background:#854F0B;color:#FAEEDA">2</div><span class="step-badge-title">Pick any voice from the list, paste the text below into the text box, and press Generate:</span></div>
-<p><em>"Good morning. Today is a great day to try something new. You've already come so far — and this is just the beginning."</em></p>
+<div class="prompt-wrap">
+<div class="prompt-topbar"><span class="prompt-topbar-label">Ready-made prompt</span><button class="copy-btn" onclick="copyPrompt('p15')">Copy</button></div>
+<div class="prompt-text" id="p15">Good morning. Today is a great day to try something new. You've already come so far — and this is just the beginning.</div>
+</div>
 <p>Then generate the same text with two or three different voices. Notice how the same words feel completely different depending on who is "speaking" them.</p>
 <p><strong>Want to try your own text? Here are some ideas:</strong></p>
 <ol style="padding-left:1.4rem;margin:0.5rem 0">
-<li style="margin-bottom:0.4rem;color:#444">A short introduction of yourself</li>
-<li style="margin-bottom:0.4rem;color:#444">A birthday message for a friend</li>
-<li style="margin-bottom:0.4rem;color:#444">A motivational quote you love</li>
-<li style="margin-bottom:0.4rem;color:#444">A recipe intro — <em>"Welcome to today's recipe..."</em></li>
-<li style="margin-bottom:0.4rem;color:#444">A fake movie trailer narration</li>
-<li style="margin-bottom:0.4rem;color:#444">A short travel guide for your hometown</li>
-<li style="margin-bottom:0.4rem;color:#444">A calming bedtime story opening line</li>
-<li style="margin-bottom:0.4rem;color:#444">A news-style headline read aloud</li>
+<li >A short introduction of yourself</li>
+<li >A birthday message for a friend</li>
+<li >A motivational quote you love</li>
+<li >A recipe intro — <em>"Welcome to today's recipe..."</em></li>
+<li >A fake movie trailer narration</li>
+<li >A short travel guide for your hometown</li>
+<li >A calming bedtime story opening line</li>
+<li >A news-style headline read aloud</li>
 </ol></div>
 </div>
 <div class="callout" data-light-bg="#FAECE7" style="background:#FAECE7;border:2px solid #E8724A" data-dark-bg="#4A1B0C">
@@ -241,7 +244,7 @@ body.dark .jump-sec-label{border-color:#222220}
   <div class="callout-body" data-light-color="#27500A" style="color:#27500A" data-dark-color="#97C459"><p>You just turned text into a human-sounding voice. That's genuinely impressive — and you did it in minutes.</p>
 <p><strong>Up next → Beacon 16: Music from nothing</strong></p>
 <p>You've heard AI speak. Next, you'll hear it compose. 🎵</p>
-<p>No rush. Come back whenever you're ready. 🙂</p></div>
+</div>
 </div>
   <p class="no-rush">No rush. Come back whenever you're ready. &#128578;</p>
   <div class="beacon-nav">
@@ -271,6 +274,7 @@ function applyCalloutColors(){
     });
   });
 }
+applyCalloutColors();
 const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')}),{threshold:0.07});
 document.querySelectorAll('.section,.complete').forEach(el=>obs.observe(el));
 function copyPrompt(id){const t=document.getElementById(id).innerText;navigator.clipboard.writeText(t).then(()=>{const b=document.getElementById('copyBtn'+id);b.textContent='Copied!';b.classList.add('copied');setTimeout(()=>{b.textContent='Copy';b.classList.remove('copied')},2000)})}
