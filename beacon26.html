@@ -191,10 +191,10 @@ body.dark .jump-sec-label{border-color:#222220}
 <p>Sign up for free — no credit card needed.</p>
 <p><strong>A few things to know about the free plan:</strong></p>
 <ul style="padding-left:1.2rem;margin:0.5rem 0">
-<li style="margin-bottom:0.4rem;color:#444">You get <strong>5 credits per day</strong> (about 30 per month)</li>
-<li style="margin-bottom:0.4rem;color:#444">Each message you send uses roughly 1 credit</li>
-<li style="margin-bottom:0.4rem;color:#444">Your app will be published at a public link (a lovable.app address)</li>
-<li style="margin-bottom:0.4rem;color:#444">That's more than enough for this Beacon</li>
+<li style="margin-bottom:0.4rem;">You get <strong>5 credits per day</strong> (about 30 per month)</li>
+<li style="margin-bottom:0.4rem;">Each message you send uses roughly 1 credit</li>
+<li style="margin-bottom:0.4rem;">Your app will be published at a public link (a lovable.app address)</li>
+<li style="margin-bottom:0.4rem;">That's more than enough for this Beacon</li>
 </ul></div>
 </div>
 <div class="callout" data-light-bg="#FAEEDA" style="background:#FAEEDA;border:2px solid #E8A020" data-dark-bg="#633806">
@@ -205,23 +205,32 @@ body.dark .jump-sec-label{border-color:#222220}
 <p>Go to <a href="https://lovable.dev/" target="_blank" style="color:var(--accent)">https://lovable.dev</a> and sign up (or log in if you already have an account).</p>
 <p>On the main screen, you'll see a text box where you can describe your app. That's all you need.</p>
 <div class="step-badge-row"><div class="step-badge" data-light-badge-bg="#854F0B" data-light-badge-color="#FAEEDA" data-dark-badge-bg="#EF9F27" data-dark-badge-color="#633806" style="background:#854F0B;color:#FAEEDA">2</div><span class="step-badge-title">Type this prompt and press Enter:</span></div>
-<p style="font-style:italic;border-left:3px solid var(--accent);padding-left:1rem;margin:0.8rem 0;color:#555"><em>Build a simple daily habit tracker. It should show a list of habits I want to do each day — like drinking water, going for a walk, and reading for 10 minutes. I should be able to tick each one off, and the page should show how many I've completed today. Keep the design clean and friendly.</em></p>
+<div class="prompt-wrap">
+<div class="prompt-topbar"><span class="prompt-topbar-label">Ready-made prompt</span><button class="copy-btn" id="copyBtnp1" onclick="copyPrompt('p1')">Copy</button></div>
+<div class="prompt-text" id="p1">Build a simple daily habit tracker. It should show a list of habits I want to do each day — like drinking water, going for a walk, and reading for 10 minutes. I should be able to tick each one off, and the page should show how many I've completed today. Keep the design clean and friendly.</div>
+</div>
 <p>Now sit back and watch. Lovable will write the code and build your app — usually in under a minute.</p>
 <div class="step-badge-row"><div class="step-badge" data-light-badge-bg="#854F0B" data-light-badge-color="#FAEEDA" data-dark-badge-bg="#EF9F27" data-dark-badge-color="#633806" style="background:#854F0B;color:#FAEEDA">3</div><span class="step-badge-title">Open your app</span></div>
 <p>When it's done, your app is already running in the right-hand preview panel. Try ticking off a habit — it works!</p>
 <p>To get a shareable link, click the <strong>blue share icon</strong> in the top right corner. A <strong>Publish</strong> panel will open. Work through the steps:</p>
 <ol style="padding-left:1.4rem;margin:0.5rem 0">
-<li style="margin-bottom:0.4rem;color:#444">Your website URL is already set — click <strong>Continue</strong></li>
-<li style="margin-bottom:0.4rem;color:#444">Leave visibility on <strong>Public</strong> — click <strong>Continue</strong></li>
-<li style="margin-bottom:0.4rem;color:#444">Leave the website info blank — click <strong>Continue</strong></li>
-<li style="margin-bottom:0.4rem;color:#444">Click <strong>Publish</strong></li>
+<li style="margin-bottom:0.4rem;">Your website URL is already set — click <strong>Continue</strong></li>
+<li style="margin-bottom:0.4rem;">Leave visibility on <strong>Public</strong> — click <strong>Continue</strong></li>
+<li style="margin-bottom:0.4rem;">Leave the website info blank — click <strong>Continue</strong></li>
+<li style="margin-bottom:0.4rem;">Click <strong>Publish</strong></li>
 </ol>
 <p>You'll see <strong>"Your app is live!"</strong> — with a real link like <em>good-deeds-today.lovable.app</em>. Click <strong>View app</strong> to open it in a browser, or <strong>Share</strong> to send the link to anyone.</p>
 <div class="step-badge-row"><div class="step-badge" data-light-badge-bg="#854F0B" data-light-badge-color="#FAEEDA" data-dark-badge-bg="#EF9F27" data-dark-badge-color="#633806" style="background:#854F0B;color:#FAEEDA">4</div><span class="step-badge-title">Make one small change (optional)</span></div>
 <p>If you'd like to tweak something, just type a follow-up message — for example:</p>
-<p style="font-style:italic;border-left:3px solid var(--accent);padding-left:1rem;margin:0.8rem 0;color:#555"><em>Change the colour scheme to something calm and green.</em></p>
+<div class="prompt-wrap">
+<div class="prompt-topbar"><span class="prompt-topbar-label">Ready-made prompt</span><button class="copy-btn" id="copyBtnp2" onclick="copyPrompt('p2')">Copy</button></div>
+<div class="prompt-text" id="p2">Change the colour scheme to something calm and green.</div>
+</div>
 <p>Or:</p>
-<p style="font-style:italic;border-left:3px solid var(--accent);padding-left:1rem;margin:0.8rem 0;color:#555"><em>Add a fourth habit: "No phone before breakfast."</em></p>
+<div class="prompt-wrap">
+<div class="prompt-topbar"><span class="prompt-topbar-label">Ready-made prompt</span><button class="copy-btn" id="copyBtnp3" onclick="copyPrompt('p3')">Copy</button></div>
+<div class="prompt-text" id="p3">Add a fourth habit: "No phone before breakfast."</div>
+</div>
 <p>Lovable will update the app instantly.</p></div>
 </div>
 <div class="callout" data-light-bg="#FAECE7" style="background:#FAECE7;border:2px solid #E8724A" data-dark-bg="#4A1B0C">
@@ -240,13 +249,13 @@ body.dark .jump-sec-label{border-color:#222220}
 <p>Come back tomorrow with fresh credits and keep refining. You might add more habits, change the colours, or try a completely different app idea.</p>
 <p><strong>Some ideas if you want to try another app:</strong></p>
 <ul style="padding-left:1.2rem;margin:0.5rem 0">
-<li style="margin-bottom:0.4rem;color:#444">A simple recipe card with ingredients and steps</li>
-<li style="margin-bottom:0.4rem;color:#444">A "things I'm grateful for" journal</li>
-<li style="margin-bottom:0.4rem;color:#444">A birthday reminder list</li>
-<li style="margin-bottom:0.4rem;color:#444">A packing list for travel</li>
-<li style="margin-bottom:0.4rem;color:#444">A reading list with checkboxes</li>
-<li style="margin-bottom:0.4rem;color:#444">A quiz with 3 questions about your favourite topic</li>
-<li style="margin-bottom:0.4rem;color:#444">A countdown timer to a date you're looking forward to</li>
+<li style="margin-bottom:0.4rem;">A simple recipe card with ingredients and steps</li>
+<li style="margin-bottom:0.4rem;">A "things I'm grateful for" journal</li>
+<li style="margin-bottom:0.4rem;">A birthday reminder list</li>
+<li style="margin-bottom:0.4rem;">A packing list for travel</li>
+<li style="margin-bottom:0.4rem;">A reading list with checkboxes</li>
+<li style="margin-bottom:0.4rem;">A quiz with 3 questions about your favourite topic</li>
+<li style="margin-bottom:0.4rem;">A countdown timer to a date you're looking forward to</li>
 </ul>
 <p>Each one is just a prompt away.</p></div>
 </div>
@@ -258,7 +267,6 @@ body.dark .jump-sec-label{border-color:#222220}
 <p>You've used AI to create content, images, music, video, automations, and now apps. In the next Beacon, we look at something a little different — AI that can <em>take action</em> on your behalf. What is an AI agent, and what can it actually do?</p>
 <p>No rush. Come back whenever you're ready. 🙂</p></div>
 </div>
-  <p class="no-rush">No rush. Come back whenever you're ready. &#128578;</p>
   <div class="beacon-nav">
     <a href="beacon25.html" class="bn-prev">← Beacon 25</a>
     <a href="beacon27.html" class="bn-next">Beacon 27 →</a>
