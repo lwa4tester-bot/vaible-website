@@ -179,10 +179,10 @@ body.dark .jump-sec-label{border-color:#222220}
   <div class="callout" data-light-bg="#F1EFE8" style="background:#F1EFE8;border:2px solid #B8B4A8" data-dark-bg="#444441">
   <div class="callout-title" data-light-color="#2C2C2A" style="color:#2C2C2A" data-dark-color="#D3D1C7"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">🎯</span> What you'll learn</div>
   <div class="callout-body" data-light-color="#444441" style="color:#444441" data-dark-color="#B4B2A9"><ul style="padding-left:1.2rem;margin:0.5rem 0">
-<li style="margin-bottom:0.4rem;color:#444">What an AI agent actually is — and why it's different from a regular chat</li>
-<li style="margin-bottom:0.4rem;color:#444">How to give an AI a multi-step task and watch it work through it</li>
-<li style="margin-bottom:0.4rem;color:#444">How to use Claude and ChatGPT as simple agents for real tasks</li>
-<li style="margin-bottom:0.4rem;color:#444">Why this feels like a big leap — and why it's more approachable than it sounds</li>
+<li style="margin-bottom:0.4rem">What an AI agent actually is — and why it's different from a regular chat</li>
+<li style="margin-bottom:0.4rem">How to give an AI a multi-step task and watch it work through it</li>
+<li style="margin-bottom:0.4rem">How to use Claude and ChatGPT as simple agents for real tasks</li>
+<li style="margin-bottom:0.4rem">Why this feels like a big leap — and why it's more approachable than it sounds</li>
 </ul></div>
 </div>
 <div class="callout" data-light-bg="#FBE8F0" style="background:#FBE8F0;border:2px solid #E060A0" data-dark-bg="#5C0E33">
@@ -208,7 +208,10 @@ body.dark .jump-sec-label{border-color:#222220}
   <div class="callout-body" data-light-color="#185FA5" style="color:#185FA5" data-dark-color="#85B7EB"><p>You don't need to press a special button. The trick is how you phrase your request.</p>
 <p><strong>Instead of asking one narrow question</strong>, give the AI a broader goal with context — and ask it to think through the steps itself.</p>
 <p>Here's the pattern:</p>
-<p style="font-style:italic;border-left:3px solid var(--accent);padding-left:1rem;margin:0.8rem 0;color:#555"><em>"I want to [goal]. Please break this down into steps, work through each one, and give me a final result."</em></p>
+<div class="prompt-wrap">
+  <div class="prompt-topbar"><span class="prompt-topbar-label">Pattern</span><button class="copy-btn" id="copyBtnpattern" onclick="copyPrompt('promptpattern')">Copy</button></div>
+  <div class="prompt-text" id="promptpattern">"I want to [goal]. Please break this down into steps, work through each one, and give me a final result."</div>
+</div>
 <p>That's it. The AI will plan its own approach, execute it step by step, and show you the work.</p>
 <p>Some tools — like Claude's Projects feature or ChatGPT's memory settings — let you build on this over time. But even in a single conversation, you can experience what agent-style AI feels like.</p></div>
 </div>
@@ -219,21 +222,27 @@ body.dark .jump-sec-label{border-color:#222220}
 <div class="step-badge-row"><div class="step-badge" data-light-badge-bg="#854F0B" data-light-badge-color="#FAEEDA" data-dark-badge-bg="#EF9F27" data-dark-badge-color="#633806" style="background:#854F0B;color:#FAEEDA">1</div><span class="step-badge-title">Try it in Claude</span></div>
 <p>Go to → <a href="https://claude.ai/" target="_blank" style="color:var(--accent)">claude.ai</a></p>
 <p>Start a new chat and paste this prompt:</p>
-<p style="font-style:italic;border-left:3px solid var(--accent);padding-left:1rem;margin:0.8rem 0;color:#555"><em>"I want to start learning Spanish from scratch. I have 10 minutes a day. Please break this into a realistic 4-week plan: outline each week's focus, suggest one free resource for each week, and finish with a motivational note to keep me going."</em></p>
+<div class="prompt-wrap">
+  <div class="prompt-topbar"><span class="prompt-topbar-label">Ready-made prompt</span><button class="copy-btn" id="copyBtnp1" onclick="copyPrompt('promptp1')">Copy</button></div>
+  <div class="prompt-text" id="promptp1">I want to start learning Spanish from scratch. I have 10 minutes a day. Please break this into a realistic 4-week plan: outline each week's focus, suggest one free resource for each week, and finish with a motivational note to keep me going.</div>
+</div>
 <p>Watch how Claude structures its thinking. Does it give you weeks? Resources? Does it feel like a plan, not just a list?</p>
 <div class="step-badge-row"><div class="step-badge" data-light-badge-bg="#854F0B" data-light-badge-color="#FAEEDA" data-dark-badge-bg="#EF9F27" data-dark-badge-color="#633806" style="background:#854F0B;color:#FAEEDA">2</div><span class="step-badge-title">Try the same goal in ChatGPT</span></div>
 <p>Go to → <a href="https://chatgpt.com/" target="_blank" style="color:var(--accent)">chatgpt.com</a></p>
 <p>Paste the exact same prompt and compare.</p>
-<p style="font-style:italic;border-left:3px solid var(--accent);padding-left:1rem;margin:0.8rem 0;color:#555"><em>"I want to start learning Spanish from scratch. I have 10 minutes a day. Please break this into a realistic 4-week plan: outline each week's focus, suggest one free resource for each week, and finish with a motivational note to keep me going."</em></p>
+<div class="prompt-wrap">
+  <div class="prompt-topbar"><span class="prompt-topbar-label">Ready-made prompt</span><button class="copy-btn" id="copyBtnp2" onclick="copyPrompt('promptp2')">Copy</button></div>
+  <div class="prompt-text" id="promptp2">I want to start learning Spanish from scratch. I have 10 minutes a day. Please break this into a realistic 4-week plan: outline each week's focus, suggest one free resource for each week, and finish with a motivational note to keep me going.</div>
+</div>
 <p><strong>Want to try your own goal instead?</strong> Here are some ideas:</p>
 <ul style="padding-left:1.2rem;margin:0.5rem 0">
-<li style="margin-bottom:0.4rem;color:#444">Plan a weekend trip to a city you've never visited</li>
-<li style="margin-bottom:0.4rem;color:#444">Create a beginner fitness routine for someone with no equipment</li>
-<li style="margin-bottom:0.4rem;color:#444">Draft a 30-day reading plan for a book genre you want to explore</li>
-<li style="margin-bottom:0.4rem;color:#444">Prepare for a job interview in a field you're curious about</li>
-<li style="margin-bottom:0.4rem;color:#444">Build a simple budget plan for a month of saving</li>
-<li style="margin-bottom:0.4rem;color:#444">Design a meal plan for one week on a tight budget</li>
-<li style="margin-bottom:0.4rem;color:#444">Create a learning path for a hobby you've always wanted to try</li>
+<li style="margin-bottom:0.4rem">Plan a weekend trip to a city you've never visited</li>
+<li style="margin-bottom:0.4rem">Create a beginner fitness routine for someone with no equipment</li>
+<li style="margin-bottom:0.4rem">Draft a 30-day reading plan for a book genre you want to explore</li>
+<li style="margin-bottom:0.4rem">Prepare for a job interview in a field you're curious about</li>
+<li style="margin-bottom:0.4rem">Build a simple budget plan for a month of saving</li>
+<li style="margin-bottom:0.4rem">Design a meal plan for one week on a tight budget</li>
+<li style="margin-bottom:0.4rem">Create a learning path for a hobby you've always wanted to try</li>
 </ul></div>
 </div>
 <div class="callout" data-light-bg="#FAECE7" style="background:#FAECE7;border:2px solid #E8724A" data-dark-bg="#4A1B0C">
@@ -256,8 +265,7 @@ body.dark .jump-sec-label{border-color:#222220}
   <div class="callout-title" data-light-color="#173404" style="color:#173404" data-dark-color="#C0DD97"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">✅</span> Beacon complete</div>
   <div class="callout-body" data-light-color="#27500A" style="color:#27500A" data-dark-color="#97C459"><p>You just experienced what it feels like when AI works <em>through</em> a goal — not just <em>at</em> a question.</p>
 <p>That shift in how you give instructions? That's a superpower now.</p>
-<p><strong>Up next → Beacon 28: Your custom chatbot</strong> — where you'll build your own personalised Claude assistant that remembers who you are and what you need. 🙂</p>
-<p><em>No rush. Come back whenever you're ready. 🙂</em></p></div>
+<p><strong>Up next → Beacon 28: Your custom chatbot</strong> — where you'll build your own personalised Claude assistant that remembers who you are and what you need. 🙂</p></div>
 </div>
   <p class="no-rush">No rush. Come back whenever you're ready. &#128578;</p>
   <div class="beacon-nav">
