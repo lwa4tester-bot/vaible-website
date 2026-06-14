@@ -184,8 +184,8 @@ body.dark .jump-sec-label{border-color:#222220}
   <div class="callout-body" data-light-color="#185FA5" style="color:#185FA5" data-dark-color="#85B7EB"><p>A podcast sounds complicated. But at its core, it's just a voice telling a story.</p>
 <p>You already know how to do the hard part:</p>
 <ul style="padding-left:1.2rem;margin:0.5rem 0">
-<li style="margin-bottom:0.4rem;color:#444">In <strong>B15</strong>, you used ElevenLabs to turn text into a natural-sounding voice.</li>
-<li style="margin-bottom:0.4rem;color:#444">In <strong>B17</strong>, you used <strong>CapCut AI</strong> to add captions and audio edits to a video.</li>
+<li style="margin-bottom:0.4rem">In <strong>B15</strong>, you used ElevenLabs to turn text into a natural-sounding voice.</li>
+<li style="margin-bottom:0.4rem">In <strong>B17</strong>, you used <strong>CapCut AI</strong> to add captions and audio edits to a video.</li>
 </ul>
 <p>In this Beacon, you'll combine them — write a short script, generate the voice with ElevenLabs, then bring it into CapCut to add a music background and simple polish.</p>
 <p>No microphone. No recording studio. Just a few lines of text and two tools you've already met.</p></div>
@@ -195,9 +195,9 @@ body.dark .jump-sec-label{border-color:#222220}
   <div class="callout-body" data-light-color="#185FA5" style="color:#185FA5" data-dark-color="#85B7EB"><p>The script is everything. A good podcast moment doesn't need to be long — it needs to feel like someone is talking <em>to you</em>, not at you.</p>
 <p>Here's a simple format that works every time:</p>
 <ol style="padding-left:1.4rem;margin:0.5rem 0">
-<li style="margin-bottom:0.4rem;color:#444"><strong>Open with a question or a moment</strong> — something the listener can relate to</li>
-<li style="margin-bottom:0.4rem;color:#444"><strong>Share a thought or a little story</strong> — 3–5 sentences is plenty</li>
-<li style="margin-bottom:0.4rem;color:#444"><strong>End with one takeaway</strong> — something they'll remember</li>
+<li style="margin-bottom:0.4rem"><strong>Open with a question or a moment</strong> — something the listener can relate to</li>
+<li style="margin-bottom:0.4rem"><strong>Share a thought or a little story</strong> — 3–5 sentences is plenty</li>
+<li style="margin-bottom:0.4rem"><strong>End with one takeaway</strong> — something they'll remember</li>
 </ol>
 <p>Aim for around <strong>60–90 words</strong>. That's roughly 30–45 seconds of audio — the perfect length for a first attempt.</p>
 <p>You can write the script yourself, or ask ChatGPT or Claude to help you draft one. Just give it a topic and say: <em>"Write me a short, friendly 60-word podcast script about [your topic]."</em></p></div>
@@ -209,20 +209,26 @@ body.dark .jump-sec-label{border-color:#222220}
 <p>Go to <a href="https://elevenlabs.io/" target="_blank" style="color:var(--accent)"><strong>https://elevenlabs.io</strong></a> and sign in.</p>
 <p>Write or paste your script into the text box. Choose a voice that matches the mood — warm, calm, and conversational works best for a podcast feel. Generate the audio and <strong>download the MP3 file</strong> to your device.</p>
 <p>Here's a ready-made script if you'd like to start with something:</p>
-<p style="font-style:italic;border-left:3px solid var(--accent);padding-left:1rem;margin:0.8rem 0;color:#555"><em>"Have you ever felt like there's just too much to learn and not enough time? I used to feel that way about technology. Then I started experimenting — just five minutes a day, no pressure. Turns out, curiosity is the only skill you actually need. Everything else follows."</em></p>
+<div class="prompt-wrap">
+<div class="prompt-topbar">
+<span class="prompt-topbar-label">Ready-made script</span>
+<button class="copy-btn" onclick="copyPrompt('p19script')" id="copyBtnp19script">Copy</button>
+</div>
+<div class="prompt-text" id="p19script">Have you ever felt like there's just too much to learn and not enough time? I used to feel that way about technology. Then I started experimenting — just five minutes a day, no pressure. Turns out, curiosity is the only skill you actually need. Everything else follows.</div>
+</div>
 <div class="step-badge-row"><div class="step-badge" data-light-badge-bg="#854F0B" data-light-badge-color="#FAEEDA" data-dark-badge-bg="#EF9F27" data-dark-badge-color="#633806" style="background:#854F0B;color:#FAEEDA">2</div><span class="step-badge-title">Add music and finish it in CapCut AI</span></div>
 <p>Go to <a href="https://www.capcut.com/" target="_blank" style="color:var(--accent)"><strong>https://www.capcut.com</strong></a> and open a new project.</p>
 <p>Import your downloaded MP3 as the main audio track. Then browse the <strong>Music</strong> library and add a soft background track — look for "podcast", "calm", or "lo-fi" in the search bar. Adjust the background music volume so the voice stays clearly in front.</p>
 <p>Export your finished piece using the <strong>Download</strong> button.</p>
 <p><em>Idea bank — pick a topic that feels natural to you:</em></p>
 <ol style="padding-left:1.4rem;margin:0.5rem 0">
-<li style="margin-bottom:0.4rem;color:#444">Something small you learned recently</li>
-<li style="margin-bottom:0.4rem;color:#444">A morning habit you've kept (or tried to keep)</li>
-<li style="margin-bottom:0.4rem;color:#444">One thing that surprised you about AI</li>
-<li style="margin-bottom:0.4rem;color:#444">A place you've always wanted to visit</li>
-<li style="margin-bottom:0.4rem;color:#444">Advice you'd give your younger self</li>
-<li style="margin-bottom:0.4rem;color:#444">A book, film, or song that stayed with you</li>
-<li style="margin-bottom:0.4rem;color:#444">One thing that made you smile this week</li>
+<li style="margin-bottom:0.4rem">Something small you learned recently</li>
+<li style="margin-bottom:0.4rem">A morning habit you've kept (or tried to keep)</li>
+<li style="margin-bottom:0.4rem">One thing that surprised you about AI</li>
+<li style="margin-bottom:0.4rem">A place you've always wanted to visit</li>
+<li style="margin-bottom:0.4rem">Advice you'd give your younger self</li>
+<li style="margin-bottom:0.4rem">A book, film, or song that stayed with you</li>
+<li style="margin-bottom:0.4rem">One thing that made you smile this week</li>
 </ol></div>
 </div>
 <div class="callout" data-light-bg="#FAECE7" style="background:#FAECE7;border:2px solid #E8724A" data-dark-bg="#4A1B0C">
@@ -242,7 +248,7 @@ body.dark .jump-sec-label{border-color:#222220}
   <div class="callout-body" data-light-color="#27500A" style="color:#27500A" data-dark-color="#97C459"><p>You just made a podcast. With a script, a voice, a soundtrack — the whole thing.</p>
 <p>You've now completed the full <strong>Video & Audio block</strong>. From voice cloning to music generation to captions to video to podcast — you've covered more ground than most people ever will.</p>
 <p><strong>Up next — B20: Plan your week.</strong> We're moving into the Everyday Productivity block. You'll see how AI can help you think through your week, organize tasks, and actually stay on top of things — without any complicated apps.</p>
-<p>No rush. Come back whenever you're ready. 🙂</p></div>
+</div>
 </div>
   <p class="no-rush">No rush. Come back whenever you're ready. &#128578;</p>
   <div class="beacon-nav">
@@ -272,6 +278,7 @@ function applyCalloutColors(){
     });
   });
 }
+applyCalloutColors();
 const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')}),{threshold:0.07});
 document.querySelectorAll('.section,.complete').forEach(el=>obs.observe(el));
 function copyPrompt(id){const t=document.getElementById(id).innerText;navigator.clipboard.writeText(t).then(()=>{const b=document.getElementById('copyBtn'+id);b.textContent='Copied!';b.classList.add('copied');setTimeout(()=>{b.textContent='Copy';b.classList.remove('copied')},2000)})}
