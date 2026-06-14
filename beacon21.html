@@ -182,9 +182,9 @@ body.dark .jump-sec-label{border-color:#222220}
 <p>In this Beacon, you'll use AI to do the tricky parts for you. No programming knowledge needed. No prior Excel experience required.</p>
 <p>By the end, you'll know how to:</p>
 <ul style="padding-left:1.2rem;margin:0.5rem 0">
-<li style="margin-bottom:0.4rem;color:#444">Ask AI to write a formula — and understand what it actually does</li>
-<li style="margin-bottom:0.4rem;color:#444">Sort and filter data without guessing</li>
-<li style="margin-bottom:0.4rem;color:#444">Fix errors with a little help from your AI assistant</li>
+<li style="margin-bottom:0.4rem">Ask AI to write a formula — and understand what it actually does</li>
+<li style="margin-bottom:0.4rem">Sort and filter data without guessing</li>
+<li style="margin-bottom:0.4rem">Fix errors with a little help from your AI assistant</li>
 </ul></div>
 </div>
 <div class="callout" data-light-bg="#FBE8F0" style="background:#FBE8F0;border:2px solid #E060A0" data-dark-bg="#5C0E33">
@@ -235,12 +235,12 @@ body.dark .jump-sec-label{border-color:#222220}
 <p>You now have a simple monthly expense list.</p>
 <div class="step-badge-row"><div class="step-badge" data-light-badge-bg="#854F0B" data-light-badge-color="#FAEEDA" data-dark-badge-bg="#EF9F27" data-dark-badge-color="#633806" style="background:#854F0B;color:#FAEEDA">2</div><span class="step-badge-title">Ask ChatGPT for a formula</span></div>
 <p>Go to ChatGPT (<a href="https://chatgpt.com/" target="_blank" style="color:var(--accent)">https://chatgpt.com</a>) and paste in this ready-made prompt:</p>
-<p><em>"I'm using Google Sheets. I have expense labels in column A (rows 1–5) and amounts in column B (rows 1–5). Write me a formula that adds up all the amounts in column B. Then explain what the formula does in simple terms."</em></p>
+<div class="prompt-wrap"><div class="prompt-topbar"><span class="prompt-topbar-label">Ready-made prompt</span><button class="copy-btn" id="copyBtngsheet-prompt-1" onclick="copyPrompt('gsheet-prompt-1')">Copy</button></div><div class="prompt-text" id="gsheet-prompt-1">I'm using Google Sheets. I have expense labels in column A (rows 1–5) and amounts in column B (rows 1–5). Write me a formula that adds up all the amounts in column B. Then explain what the formula does in simple terms.</div></div>
 <p>Copy the formula ChatGPT gives you. Click on cell B6 in your spreadsheet and paste it in. Press Enter.</p>
 <p>You should see the total: <strong>1205</strong></p>
 <div class="step-badge-row"><div class="step-badge" data-light-badge-bg="#854F0B" data-light-badge-color="#FAEEDA" data-dark-badge-bg="#EF9F27" data-dark-badge-color="#633806" style="background:#854F0B;color:#FAEEDA">3</div><span class="step-badge-title">Ask Claude to help you go further</span></div>
 <p>Now go to Claude (<a href="https://claude.ai/" target="_blank" style="color:var(--accent)">https://claude.ai</a>) and try this prompt:</p>
-<p><em>"I have a Google Sheets spreadsheet with expense labels in column A and amounts in column B (rows 1–5). I already have a SUM formula in B6. Now I want to find the highest amount in column B. Can you write the formula for that and explain it?"</em></p>
+<div class="prompt-wrap"><div class="prompt-topbar"><span class="prompt-topbar-label">Ready-made prompt</span><button class="copy-btn" id="copyBtngsheet-prompt-2" onclick="copyPrompt('gsheet-prompt-2')">Copy</button></div><div class="prompt-text" id="gsheet-prompt-2">I have a Google Sheets spreadsheet with expense labels in column A and amounts in column B (rows 1–5). I already have a SUM formula in B6. Now I want to find the highest amount in column B. Can you write the formula for that and explain it?</div></div>
 <p>Paste the formula Claude gives you into cell B7.</p>
 <p>You should see <strong>850</strong> — the highest single expense (Rent).</p></div>
 </div>
@@ -265,7 +265,7 @@ body.dark .jump-sec-label{border-color:#222220}
 <p>That's a genuinely useful skill. Spreadsheets will never feel quite as intimidating again.</p>
 <p><strong>Up next: Beacon 22 – Plan like a pro</strong></p>
 <p>You'll use AI to help you build a simple project plan — tasks, deadlines, and priorities — without any special software.</p>
-<p>No rush. Come back whenever you're ready. 🙂</p></div>
+</div>
 </div>
   <p class="no-rush">No rush. Come back whenever you're ready. &#128578;</p>
   <div class="beacon-nav">
@@ -297,6 +297,7 @@ function applyCalloutColors(){
     });
   });
 }
+applyCalloutColors();
 const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')}),{threshold:0.07});
 document.querySelectorAll('.section,.complete').forEach(el=>obs.observe(el));
 function copyPrompt(id){const t=document.getElementById(id).innerText;navigator.clipboard.writeText(t).then(()=>{const b=document.getElementById('copyBtn'+id);b.textContent='Copied!';b.classList.add('copied');setTimeout(()=>{b.textContent='Copy';b.classList.remove('copied')},2000)})}
