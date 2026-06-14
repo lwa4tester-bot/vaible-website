@@ -207,10 +207,10 @@ body.dark .jump-sec-label{border-color:#222220}
   <div class="callout-body" data-light-color="#854F0B" style="color:#854F0B" data-dark-color="#EF9F27"><p>Screens and menus may look slightly different — that's normal. Just explore and you'll find your way. 😊</p>
 <div class="step-badge-row"><div class="step-badge" data-light-badge-bg="#854F0B" data-light-badge-color="#FAEEDA" data-dark-badge-bg="#EF9F27" data-dark-badge-color="#633806" style="background:#854F0B;color:#FAEEDA">1</div><span class="step-badge-title">Open CapCut and go to AI captions</span></div>
 <ol style="padding-left:1.4rem;margin:0.5rem 0">
-<li style="margin-bottom:0.4rem;color:#444">Go to <a href="https://www.capcut.com/" target="_blank" style="color:var(--accent)">https://www.capcut.com</a> and click <strong>Try online for free</strong></li>
-<li style="margin-bottom:0.4rem;color:#444">Sign in with your Google account</li>
-<li style="margin-bottom:0.4rem;color:#444">On the home screen, look for the <strong>"You may want to try"</strong> row</li>
-<li style="margin-bottom:0.4rem;color:#444">Click <strong>AI captions</strong></li>
+<li>Go to <a href="https://www.capcut.com/" target="_blank" style="color:var(--accent)">https://www.capcut.com</a> and click <strong>Try online for free</strong></li>
+<li>Sign in with your Google account</li>
+<li>On the home screen, look for the <strong>"You may want to try"</strong> row</li>
+<li>Click <strong>AI captions</strong></li>
 </ol>
 <div class="step-badge-row"><div class="step-badge" data-light-badge-bg="#854F0B" data-light-badge-color="#FAEEDA" data-dark-badge-bg="#EF9F27" data-dark-badge-color="#633806" style="background:#854F0B;color:#FAEEDA">2</div><span class="step-badge-title">Choose your video</span></div>
 <p>You have two options — pick whichever feels easier:</p>
@@ -237,7 +237,7 @@ body.dark .jump-sec-label{border-color:#222220}
 <p>That's a real skill. Content creators pay professionals to do exactly this.</p>
 <p><strong>Next up → Beacon 18: Moving pictures</strong> 🎬</p>
 <p>You'll create your first AI-generated video clip — from just a few words of text.</p>
-<p>No rush. Come back whenever you're ready. 🙂</p></div>
+</div>
 </div>
   <p class="no-rush">No rush. Come back whenever you're ready. &#128578;</p>
   <div class="beacon-nav">
@@ -252,6 +252,7 @@ btn.addEventListener('click',()=>{
   btn.textContent=document.body.classList.contains('dark')?'○ Light':'☾ Dark';
   applyCalloutColors();
 });
+applyCalloutColors();
 function applyCalloutColors(){
   const dark=document.body.classList.contains('dark');
   document.querySelectorAll('.callout').forEach(el=>{
