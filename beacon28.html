@@ -110,6 +110,7 @@ body.dark::after{background-image:linear-gradient(to right,rgba(255,255,255,0.01
 body.dark .jump-panel{background:#0D0D0D;border-color:#222220}
 body.dark .jump-sec-label{border-color:#222220}
 </style>
+<script>(function(){if(localStorage.getItem("vaible-theme")==="dark"){document.documentElement.classList.add("dark-preload");document.addEventListener("DOMContentLoaded",function(){document.body.classList.add("dark");document.documentElement.classList.remove("dark-preload");var btn=document.getElementById("themeToggle");if(btn)btn.textContent="○ Light";});}})();</script>
 </head>
 <body>
 <nav>
@@ -276,7 +277,9 @@ body.dark .jump-sec-label{border-color:#222220}
 const btn=document.getElementById('themeToggle');
 btn.addEventListener('click',()=>{
   document.body.classList.toggle('dark');
-  btn.textContent=document.body.classList.contains('dark')?'○ Light':'☾ Dark';
+  const isDark=document.body.classList.contains('dark');
+  btn.textContent=isDark?'○ Light':'☾ Dark';
+  localStorage.setItem('vaible-theme',isDark?'dark':'light');
   applyCalloutColors();
 });
 function applyCalloutColors(){
