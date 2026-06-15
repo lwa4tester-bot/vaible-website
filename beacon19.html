@@ -113,15 +113,15 @@ body.dark .jump-sec-label{border-color:#222220}
 .jump-meta{font-size:0.82rem;font-weight:600;color:var(--mid);padding:0.38rem 1.2rem;display:flex;align-items:center;gap:0.5rem;text-decoration:none;transition:background 0.12s}
 .jump-meta:hover{background:var(--off);color:var(--ink)}
 .jump-divider{border-bottom:1px solid var(--line);margin:0.3rem 0 0.5rem}
-.font-size-btns{display:flex;align-items:center;gap:2px;border:1px solid var(--line);border-radius:999px;overflow:hidden;height:28px}.font-size-btn{background:none;border:none;cursor:pointer;font-size:0.72rem;font-weight:600;color:var(--mid);padding:0 0.55rem;height:100%;transition:background 0.15s,color 0.15s;line-height:1;font-family:inherit}.font-size-btn:hover{background:var(--off);color:var(--ink)}.font-size-btn.active{background:var(--ink);color:var(--paper)}.font-size-btn+.font-size-btn{border-left:1px solid var(--line)}
+.ts-wrap{display:flex;flex-direction:column;align-items:center;gap:3px;padding:0 1.2rem;height:100%;justify-content:center;border-right:1px solid var(--line)}.ts-label{font-size:0.55rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--mid);line-height:1}.font-size-btns{display:flex;align-items:center;border:1px solid var(--line);border-radius:999px;overflow:visible;height:22px;position:relative}.ts-btn-wrap{position:relative;height:22px;display:flex;align-items:center}.ts-btn-wrap:first-child .font-size-btn{border-radius:999px 0 0 999px;border-left:none}.ts-btn-wrap:last-child .font-size-btn{border-radius:0 999px 999px 0}.font-size-btn{background:none;border:none;border-left:1px solid var(--line);cursor:pointer;color:var(--mid);padding:0 7px;height:22px;display:flex;align-items:center;justify-content:center;font-family:inherit;font-weight:600;transition:background 0.15s,color 0.15s}.font-size-btn:hover{background:var(--off);color:var(--ink)}.font-size-btn.active{background:var(--ink);color:var(--paper)}.ts-tooltip{display:none;position:absolute;bottom:calc(100% + 5px);left:50%;transform:translateX(-50%);background:var(--ink);color:var(--paper);font-size:0.6rem;white-space:nowrap;padding:2px 7px;border-radius:4px;pointer-events:none;z-index:999}.ts-btn-wrap:hover .ts-tooltip{display:block}body.dark .ts-wrap{border-color:#222220}body.dark .font-size-btns{border-color:#3A3A38}body.dark .font-size-btn{border-color:#3A3A38;color:#666660}body.dark .font-size-btn:hover{background:#131312;color:#F0EFE9}body.dark .font-size-btn.active{background:#F0EFE9;color:#0D0D0D}body.dark .ts-tooltip{background:#F0EFE9;color:#0D0D0D}
 </style>
 <script>(function(){if(localStorage.getItem("vaible-theme")==="dark"){document.documentElement.classList.add("dark-preload");document.addEventListener("DOMContentLoaded",function(){document.body.classList.add("dark");document.documentElement.classList.remove("dark-preload");var btn=document.getElementById("themeToggle");if(btn)btn.textContent="○ Light";if(typeof applyCalloutColors==="function")applyCalloutColors();});}})();</script>
 </head>
 <body>
 <nav>
   <div class="nav-brand"><a href="index.html" class="nav-logo">v<strong>AI</strong>ble</a></div>
-  <div class="nav-crumb">Video & Audio</div>
-  <div class="nav-actions"><div class="font-size-btns"><button class="font-size-btn" data-size="S" aria-label="Small text" style="font-size:0.6rem">A</button><button class="font-size-btn" data-size="M" aria-label="Medium text" style="font-size:0.78rem">A</button><button class="font-size-btn" data-size="L" aria-label="Large text" style="font-size:1rem">A</button></div><a href="index.html" class="nav-back">&larr; All Beacons</a><button class="theme-btn" id="themeToggle">&#9790; Dark</button></div>
+  <div class="nav-crumb">Video & Audio</div><div class="ts-wrap"><span class="ts-label">Text size</span><div class="font-size-btns"><div class="ts-btn-wrap"><button class="font-size-btn" data-size="S" style="font-size:0.6rem">A</button><span class="ts-tooltip">Small</span></div><div class="ts-btn-wrap"><button class="font-size-btn" data-size="M" style="font-size:0.78rem">A</button><span class="ts-tooltip">Medium</span></div><div class="ts-btn-wrap"><button class="font-size-btn" data-size="L" style="font-size:1rem">A</button><span class="ts-tooltip">Large</span></div></div></div>
+  <div class="nav-actions"><a href="index.html" class="nav-back">&larr; All Beacons</a><button class="theme-btn" id="themeToggle">&#9790; Dark</button></div>
 </nav>
 <div class="prog-bar">
   <div class="prog-label" id="progLabel"><span class="prog-label-inner">Beacon 19 of 30<span class="prog-chevron">▾</span></span></div>
@@ -322,6 +322,7 @@ function copyPrompt(id){const t=document.getElementById(id).innerText;navigator.
   if(cur)cur.scrollIntoView({block:'center'});
 })();
 </script>
+
 <script>
 (function(){
   var sizes={S:0.95,M:1.1,L:1.3};
