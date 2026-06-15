@@ -89,6 +89,10 @@ body.dark::after{background-image:linear-gradient(to right,rgba(255,255,255,0.01
 .jump-overlay.visible{display:block}
 body.dark .jump-panel{background:#0D0D0D;border-color:#222220}
 body.dark .jump-sec-label{border-color:#222220}
+
+.jump-meta{font-size:0.82rem;font-weight:600;color:var(--mid);padding:0.38rem 1.2rem;display:flex;align-items:center;gap:0.5rem;text-decoration:none;transition:background 0.12s}
+.jump-meta:hover{background:var(--off);color:var(--ink)}
+.jump-divider{border-bottom:1px solid var(--line);margin:0.3rem 0 0.5rem}
 </style>
 <script>(function(){if(localStorage.getItem("vaible-theme")==="dark"){document.documentElement.classList.add("dark-preload");document.addEventListener("DOMContentLoaded",function(){document.body.classList.add("dark");document.documentElement.classList.remove("dark-preload");var btn=document.getElementById("themeToggle");if(btn)btn.textContent="○ Light";if(typeof applyCalloutColors==="function")applyCalloutColors();});}})();</script>
 </head>
@@ -105,6 +109,9 @@ body.dark .jump-sec-label{border-color:#222220}
 </div>
 <div class="jump-overlay" id="jumpOverlay"></div>
 <div class="jump-panel" id="jumpPanel">
+  <a href="index.html" class="jump-item jump-meta">🏠 Home</a>
+  <a href="prerequisites.html" class="jump-item jump-meta">📋 Prerequisites</a>
+  <div class="jump-divider"></div>
   <div class="jump-sec-label">🚀 Intro</div>
   <a href="beacon1.html" class="jump-item"><span class="jump-num">1</span>Welcome aboard</a>
   <a href="beacon2.html" class="jump-item"><span class="jump-num">2</span>How to talk to AI</a>
