@@ -36,7 +36,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:str
 .hero-title .hero-title-accent{color:var(--accent)}
 .hero-sub{margin-top:1.2rem;font-size:0.92rem;line-height:1.75;color:var(--mid);max-width:400px;border-left:2px solid var(--accent);padding-left:1rem}
 .hero-bignum{font-family:'Playfair Display',serif;font-weight:900;font-style:italic;font-size:clamp(7rem,12vw,11rem);line-height:1;letter-spacing:-6px;color:color-mix(in srgb, var(--accent) 13%, transparent);user-select:none;align-self:flex-end}
-.callout{border-radius:12px;padding:0 1.6rem 1.4rem;margin-bottom:12px;opacity:1;overflow:hidden}
+.callout{border-radius:12px;padding:0 1.6rem 1.4rem;margin-bottom:12px;opacity:1;overflow:visible}
 
 .callout-title{font-family:'Space Grotesk',sans-serif;font-size:1.25rem;font-weight:600;padding:1rem 1.6rem;margin:0 -1.6rem 1rem;background:color-mix(in srgb, currentColor 14%, transparent)}
 .callout-body{font-family:'Inter',sans-serif;font-size:1.05rem;line-height:1.95}
@@ -87,7 +87,7 @@ body.dark .complete{border-color:#222220}
 body.dark .complete p{color:#aaa}
 body.dark::after{background-image:linear-gradient(to right,rgba(255,255,255,0.015) 1px,transparent 1px)}
 @media(max-width:860px){.beacon-hero{grid-template-columns:1fr}.hero-bignum{display:none}.section,.complete{grid-template-columns:1fr;gap:1rem}.sec-left{display:flex;align-items:center;gap:0.8rem}.sec-icon{margin-bottom:0;font-size:1.1rem}}
-@media(max-width:640px){nav{flex-wrap:wrap;height:auto}.nav-brand{padding:0.7rem 1.2rem}.nav-crumb{display:none}.nav-actions{padding:0.7rem 1.2rem}.prog-bar{flex-wrap:wrap;height:auto}.prog-label,.prog-pct{padding:0.35rem 1rem}.prog-track-wrap{padding:0.35rem 1rem;border-right:none}.page{padding:7rem 1.2rem 4rem}}
+@media(max-width:640px){nav{flex-wrap:wrap;height:auto}.nav-brand{padding:0.7rem 1.2rem}.nav-crumb{display:none}.nav-actions{padding:0.7rem 1.2rem}.prog-bar{flex-wrap:wrap;height:auto}.prog-label,.prog-pct{padding:0.35rem 1rem}.prog-track-wrap{padding:0.35rem 1rem;border-right:none}.page{padding:7rem 1.2rem 4rem}.tool-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}.tool-table{font-size:0.82rem}.tool-table td,.tool-table th{padding:0.5rem 0.5rem 0.5rem 0}}
 .beacon-nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 0;margin-top:1rem}
 .bn-prev{display:flex;align-items:center;gap:0.6rem;padding:0.6rem 1.2rem;border:2px solid var(--line);border-radius:999px;text-decoration:none;font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--mid);font-weight:600;transition:all 0.2s}
 .bn-prev:hover{border-color:var(--ink);color:var(--ink)}
@@ -206,14 +206,14 @@ body.dark .jump-sec-label{border-color:#222220}
   <div class="callout" data-light-bg="#E6F1FB" style="background:#E6F1FB;border:2px solid #6BAEE8" data-dark-bg="#0C447C">
   <div class="callout-title" data-light-color="#0C447C" style="color:#0C447C" data-dark-color="#B5D4F4"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">🔦</span> The three tools</div>
   <div class="callout-body" data-light-color="#185FA5" style="color:#185FA5" data-dark-color="#85B7EB"><h3>Meet your companions</h3>
-      <table class="tool-table">
+      <div class="tool-table-wrap"><table class="tool-table">
         <thead><tr><th>Tool</th><th>Best for</th><th>Note</th><th>Link</th></tr></thead>
         <tbody>
-          <tr><td><span class="tool-name">ChatGPT</span></td><td>Versatile, reliable, great for everyday tasks</td><td>—</td><td class="tool-link"><a href="https://chatgpt.com" target="_blank">chatgpt.com →</a></td></tr>
-          <tr><td><span class="tool-name">Claude</span></td><td>Longer texts, nuanced, careful thinking</td><td>Sign in with Gmail on first visit</td><td class="tool-link"><a href="https://claude.ai" target="_blank">claude.ai →</a></td></tr>
-          <tr><td><span class="tool-name">Gemini</span></td><td>Direct, friendly, conversational tone</td><td>Sign in with your Google account</td><td class="tool-link"><a href="https://gemini.google.com" target="_blank">gemini.google.com →</a></td></tr>
+          <tr><td><span class="tool-name">ChatGPT</span></td><td>Versatile, reliable, great for everyday tasks</td><td>Sign up with email or Google</td><td class="tool-link"><a href="https://chatgpt.com" target="_blank">chatgpt.com →</a></td></tr>
+          <tr><td><span class="tool-name">Claude</span></td><td>Longer texts, nuanced, careful thinking</td><td>Sign up with email or Google</td><td class="tool-link"><a href="https://claude.ai" target="_blank">claude.ai →</a></td></tr>
+          <tr><td><span class="tool-name">Gemini</span></td><td>Direct, friendly, conversational tone</td><td>Sign up with email or Google</td><td class="tool-link"><a href="https://gemini.google.com" target="_blank">gemini.google.com →</a></td></tr>
         </tbody>
-      </table></div>
+      </table></div></div>
 </div>
 
   <div class="callout" data-light-bg="#FAEEDA" style="background:#FAEEDA;border:2px solid #E8A020" data-dark-bg="#633806">
