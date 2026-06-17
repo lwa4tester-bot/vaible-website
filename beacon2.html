@@ -119,7 +119,16 @@ body.dark .jump-sec-label{border-color:#222220}
 .jump-meta{font-size:0.82rem;font-weight:600;color:var(--mid);padding:0.38rem 1.2rem;display:flex;align-items:center;gap:0.5rem;text-decoration:none;transition:background 0.12s}
 .jump-meta:hover{background:var(--off);color:var(--ink)}
 .jump-divider{border-bottom:1px solid var(--line);margin:0.3rem 0 0.5rem}
-.ts-wrap{display:flex;flex-direction:column;align-items:center;gap:3px;padding:0 1.2rem;height:100%;justify-content:center;border-right:1px solid var(--line)}.ts-label{font-size:0.55rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--mid);line-height:1}.font-size-btns{display:flex;align-items:center;border:1px solid var(--line);border-radius:999px;overflow:visible;height:22px;position:relative}.ts-btn-wrap{position:relative;height:22px;display:flex;align-items:center}.ts-btn-wrap:first-child .font-size-btn{border-radius:999px 0 0 999px;border-left:none}.ts-btn-wrap:last-child .font-size-btn{border-radius:0 999px 999px 0}.font-size-btn{background:none;border:none;border-left:1px solid var(--line);cursor:pointer;color:var(--mid);padding:0 7px;height:22px;display:flex;align-items:center;justify-content:center;font-family:inherit;font-weight:600;transition:background 0.15s,color 0.15s}.font-size-btn:hover{background:var(--off);color:var(--ink)}.font-size-btn.active{background:var(--ink);color:var(--paper)}.ts-tooltip{display:none;position:absolute;bottom:calc(100% + 5px);left:50%;transform:translateX(-50%);background:var(--ink);color:var(--paper);font-size:0.6rem;white-space:nowrap;padding:2px 7px;border-radius:4px;pointer-events:none;z-index:999}.ts-btn-wrap:hover .ts-tooltip{display:block}body.dark .ts-wrap{border-color:#222220}body.dark .font-size-btns{border-color:#3A3A38}body.dark .font-size-btn{border-color:#3A3A38;color:#666660}body.dark .font-size-btn:hover{background:#131312;color:#F0EFE9}body.dark .font-size-btn.active{background:#F0EFE9;color:#0D0D0D}body.dark .ts-tooltip{background:#F0EFE9;color:#0D0D0D}
+.ts-wrap{display:flex;flex-direction:column;align-items:center;gap:3px;padding:0 1.2rem;height:100%;justify-content:center;border-right:1px solid var(--line)}.ts-label{font-size:0.55rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--mid);line-height:1}.font-size-btns{display:flex;align-items:center;border:1px solid var(--line);border-radius:999px;overflow:visible;height:22px;position:relative}.ts-btn-wrap{position:relative;height:22px;display:flex;align-items:center}.ts-btn-wrap:first-child .font-size-btn{border-radius:999px 0 0 999px;border-left:none}.ts-btn-wrap:last-child .font-size-btn{border-radius:0 999px 999px 0}.font-size-btn{background:none;border:none;border-left:1px solid var(--line);cursor:pointer;color:var(--mid);padding:0 7px;height:22px;display:flex;align-items:center;justify-content:center;font-family:inherit;font-weight:600;transition:background 0.15s,color 0.15s}.font-size-btn:hover{background:var(--off);color:var(--ink)}.font-size-btn.active{background:var(--ink);color:var(--paper)}.ts-tooltip{display:none;position:absolute;bottom:calc(100% + 5px);left:50%;transform:translateX(-50%);background:var(--ink);color:var(--paper);font-size:0.6rem;white-space:nowrap;padding:2px 7px;border-radius:4px;pointer-events:none;z-index:999}.ts-btn-wrap:hover .ts-tooltip{display:block}.ba-list{display:flex;flex-direction:column;gap:1.2rem;margin:0.8rem 0}
+.ba-pair{display:flex;flex-direction:column;gap:0.3rem}
+.ba-card{border-radius:8px;padding:0.75rem 1rem;font-size:0.97rem;line-height:1.7}
+.ba-vague{background:rgba(0,0,0,0.06);opacity:0.8}
+.ba-better{background:rgba(0,0,0,0.09);font-weight:500}
+.ba-label{display:inline-block;font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;font-weight:700;margin-bottom:0.25rem;opacity:0.6}
+.ba-arrow{text-align:center;font-size:1rem;opacity:0.4;line-height:1}
+body.dark .ba-vague{background:rgba(255,255,255,0.05)}
+body.dark .ba-better{background:rgba(255,255,255,0.09)}
+body.dark .ts-wrap{border-color:#222220}body.dark .font-size-btns{border-color:#3A3A38}body.dark .font-size-btn{border-color:#3A3A38;color:#666660}body.dark .font-size-btn:hover{background:#131312;color:#F0EFE9}body.dark .font-size-btn.active{background:#F0EFE9;color:#0D0D0D}body.dark .ts-tooltip{background:#F0EFE9;color:#0D0D0D}
 </style>
 <script>(function(){var applyOnLoad=function(){if(typeof applyCalloutColors==="function")applyCalloutColors();};if(localStorage.getItem("vaible-theme")==="dark"){document.documentElement.classList.add("dark-preload");document.addEventListener("DOMContentLoaded",function(){document.body.classList.add("dark");document.documentElement.classList.remove("dark-preload");var btn=document.getElementById("themeToggle");if(btn)btn.textContent="○ Light";applyOnLoad();});}else{document.addEventListener("DOMContentLoaded",function(){applyOnLoad();});}})();</script>
 </head>
@@ -209,16 +218,23 @@ body.dark .jump-sec-label{border-color:#222220}
   <div class="callout-title" data-light-color="#0C447C" style="color:#0C447C" data-dark-color="#B5D4F4"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">🔑</span> One simple rule</div>
   <div class="callout-body" data-light-color="#185FA5" style="color:#185FA5" data-dark-color="#85B7EB"><h3>Be specific</h3>
       <p>The more specific your prompt, the better the answer.</p>
-      <div class="compare-grid">
-        <div class="compare-cell header">Vague prompt</div>
-        <div class="compare-cell header">Better prompt</div>
-        <div class="compare-cell"><p>Write something about cats.</p></div>
-        <div class="compare-cell"><p>Write a short, funny paragraph about why cats ignore their owners.</p></div>
-        <div class="compare-cell"><p>Help me with my email.</p></div>
-        <div class="compare-cell"><p>Help me write a polite email to cancel a dentist appointment.</p></div>
-        <div class="compare-cell"><p>Give me ideas.</p></div>
-        <div class="compare-cell"><p>Give me 5 ideas for a birthday gift for my 70-year-old mother who loves gardening.</p></div>
-</div>
+      <div class="ba-list">
+        <div class="ba-pair">
+          <div class="ba-card ba-vague"><span class="ba-label">Vague</span><p>Write something about cats.</p></div>
+          <div class="ba-arrow">↓</div>
+          <div class="ba-card ba-better"><span class="ba-label">Better</span><p>Write a short, funny paragraph about why cats ignore their owners.</p></div>
+        </div>
+        <div class="ba-pair">
+          <div class="ba-card ba-vague"><span class="ba-label">Vague</span><p>Help me with my email.</p></div>
+          <div class="ba-arrow">↓</div>
+          <div class="ba-card ba-better"><span class="ba-label">Better</span><p>Help me write a polite email to cancel a dentist appointment.</p></div>
+        </div>
+        <div class="ba-pair">
+          <div class="ba-card ba-vague"><span class="ba-label">Vague</span><p>Give me ideas.</p></div>
+          <div class="ba-arrow">↓</div>
+          <div class="ba-card ba-better"><span class="ba-label">Better</span><p>Give me 5 ideas for a birthday gift for my 70-year-old mother who loves gardening.</p></div>
+        </div>
+      </div>
     </div>
   </div>
 
