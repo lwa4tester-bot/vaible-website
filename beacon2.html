@@ -63,7 +63,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:str
 .compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin:0.8rem 0;border-radius:6px;overflow:hidden}
 .tip-grid{display:grid;grid-template-columns:1fr;gap:2px;margin:0.8rem 0;border-radius:6px;overflow:hidden}
 .compare-cell,.tip-cell{padding:0.8rem 1rem;font-size:1rem;line-height:1.7}
+.compare-cell.header{font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;opacity:0.7;background:rgba(0,0,0,0.06)}
 .compare-header{font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;font-weight:600;opacity:0.6;margin-bottom:0.3rem}
+.tip-item{display:flex;align-items:flex-start;gap:0.9rem;padding:0.75rem 1rem;background:rgba(0,0,0,0.04);border-radius:6px;margin-bottom:6px}
+.tip-num{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:1rem;min-width:1.4rem;flex-shrink:0;opacity:0.5}
+.tip-text{font-size:0.97rem;line-height:1.7}
+.step-label{font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:700;margin:1rem 0 0.4rem;opacity:0.75}
 .no-rush{font-family:'Inter',sans-serif;font-style:italic;font-size:1rem;color:var(--mid);margin:1.5rem 0 0;text-align:left}
 body.dark{--paper:#0D0D0D;--off:#131312;--ink:#F0EFE9;--line:#3A3A38;--mid:#666660;--accent:#4D8AFF;--red:#FF6644;background:var(--paper);color:var(--ink)}
 body.dark nav,body.dark .prog-bar{background:#0D0D0D;border-color:#222220}
@@ -116,7 +121,7 @@ body.dark .jump-sec-label{border-color:#222220}
 .jump-divider{border-bottom:1px solid var(--line);margin:0.3rem 0 0.5rem}
 .ts-wrap{display:flex;flex-direction:column;align-items:center;gap:3px;padding:0 1.2rem;height:100%;justify-content:center;border-right:1px solid var(--line)}.ts-label{font-size:0.55rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--mid);line-height:1}.font-size-btns{display:flex;align-items:center;border:1px solid var(--line);border-radius:999px;overflow:visible;height:22px;position:relative}.ts-btn-wrap{position:relative;height:22px;display:flex;align-items:center}.ts-btn-wrap:first-child .font-size-btn{border-radius:999px 0 0 999px;border-left:none}.ts-btn-wrap:last-child .font-size-btn{border-radius:0 999px 999px 0}.font-size-btn{background:none;border:none;border-left:1px solid var(--line);cursor:pointer;color:var(--mid);padding:0 7px;height:22px;display:flex;align-items:center;justify-content:center;font-family:inherit;font-weight:600;transition:background 0.15s,color 0.15s}.font-size-btn:hover{background:var(--off);color:var(--ink)}.font-size-btn.active{background:var(--ink);color:var(--paper)}.ts-tooltip{display:none;position:absolute;bottom:calc(100% + 5px);left:50%;transform:translateX(-50%);background:var(--ink);color:var(--paper);font-size:0.6rem;white-space:nowrap;padding:2px 7px;border-radius:4px;pointer-events:none;z-index:999}.ts-btn-wrap:hover .ts-tooltip{display:block}body.dark .ts-wrap{border-color:#222220}body.dark .font-size-btns{border-color:#3A3A38}body.dark .font-size-btn{border-color:#3A3A38;color:#666660}body.dark .font-size-btn:hover{background:#131312;color:#F0EFE9}body.dark .font-size-btn.active{background:#F0EFE9;color:#0D0D0D}body.dark .ts-tooltip{background:#F0EFE9;color:#0D0D0D}
 </style>
-<script>(function(){if(localStorage.getItem("vaible-theme")==="dark"){document.documentElement.classList.add("dark-preload");document.addEventListener("DOMContentLoaded",function(){document.body.classList.add("dark");document.documentElement.classList.remove("dark-preload");var btn=document.getElementById("themeToggle");if(btn)btn.textContent="○ Light";if(typeof applyCalloutColors==="function")applyCalloutColors();});}})();</script>
+<script>(function(){var applyOnLoad=function(){if(typeof applyCalloutColors==="function")applyCalloutColors();};if(localStorage.getItem("vaible-theme")==="dark"){document.documentElement.classList.add("dark-preload");document.addEventListener("DOMContentLoaded",function(){document.body.classList.add("dark");document.documentElement.classList.remove("dark-preload");var btn=document.getElementById("themeToggle");if(btn)btn.textContent="○ Light";applyOnLoad();});}else{document.addEventListener("DOMContentLoaded",function(){applyOnLoad();});}})();</script>
 </head>
 <body>
 <nav>
