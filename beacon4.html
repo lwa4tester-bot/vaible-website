@@ -68,6 +68,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:str
 .example-item{background:color-mix(in srgb, var(--paper) 80%, transparent);padding:0.8rem 1rem}
 .example-label{font-size:0.62rem;letter-spacing:0.14em;text-transform:uppercase;font-weight:600;opacity:0.6;margin-bottom:0.3rem}
 .example-text{font-size:0.95rem;line-height:1.7;font-style:italic}
+.disclaimer{font-family:'Courier New',Courier,monospace;font-size:0.82rem;color:inherit;margin:0.5rem 0;padding-left:1rem;border-left:2px solid currentColor;opacity:0.75}
 .no-rush{font-family:'Inter',sans-serif;font-style:italic;font-size:1rem;color:var(--mid);margin:1.5rem 0 0;text-align:left}
 body.dark{--paper:#0D0D0D;--off:#131312;--ink:#F0EFE9;--line:#3A3A38;--mid:#666660;--accent:#4D8AFF;--red:#FF6644;background:var(--paper);color:var(--ink)}
 body.dark nav,body.dark .prog-bar{background:#0D0D0D;border-color:#222220}
@@ -220,7 +221,6 @@ body.dark .jump-sec-label{border-color:#222220}
   <div class="callout" data-light-bg="#FAEEDA" style="background:#FAEEDA;border:2px solid #E8A020" data-dark-bg="#633806">
   <div class="callout-title" data-light-color="#633806" style="color:#633806" data-dark-color="#FAC775"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">🧪</span> Try it now</div>
   <div class="callout-body" data-light-color="#854F0B" style="color:#854F0B" data-dark-color="#EF9F27"><h3>Your turn</h3>
-      <p><em>Screens and menus may look slightly different — that's normal. Just explore and you'll find your way. 😊</em></p>
       <p>Open <strong>ChatGPT, Claude, or Gemini</strong> — whichever you prefer. Think of an email you've been putting off. A few ideas:</p>
       <div class="idea-list">
         <div class="idea-item">following up on something you never heard back about</div>
@@ -237,6 +237,7 @@ body.dark .jump-sec-label{border-color:#222220}
         <div class="prompt-topbar"><span class="prompt-topbar-label">Ready-made prompt</span><button class="copy-btn" id="copyBtnp2" onclick="copyPrompt('p2')">Copy</button></div>
         <div class="prompt-text" id="p2">"Write a short, polite email to follow up on a job application I sent two weeks ago. I haven't heard back. I want to sound professional but not pushy."</div>
 </div>
+      <p class="disclaimer">Screens and menus may look slightly different — that's normal. Just explore and you'll find your way. 😊</p>
       <p>Read the result. Then ask for one small change — just to see what happens.</p>
     </div>
   </div>
