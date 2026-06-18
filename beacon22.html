@@ -68,6 +68,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:str
 .step-badge-row{display:flex;align-items:center;gap:0.7rem;margin:1rem 0 0.3rem}
 .step-badge{display:inline-flex;align-items:center;justify-content:center;width:1.7rem;height:1.7rem;border-radius:50%;font-size:0.8rem;font-weight:700;flex-shrink:0}
 .step-badge-title{font-family:'Instrument Sans',sans-serif;font-weight:700;font-size:0.95rem}
+.disclaimer{font-family:'Courier New',Courier,monospace;font-size:0.82rem;color:inherit;margin:0.5rem 0;padding-left:1rem;border-left:2px solid currentColor;opacity:0.75}
 .no-rush{font-family:'Inter',sans-serif;font-style:italic;font-size:1rem;color:var(--mid);margin:1.5rem 0 0;text-align:left}
 body.dark{--paper:#0D0D0D;--off:#131312;--ink:#F0EFE9;--line:#3A3A38;--mid:#666660;--accent:#4D8AFF;--red:#FF6644;background:var(--paper);color:var(--ink)}
 body.dark nav,body.dark .prog-bar{background:#0D0D0D;border-color:#222220}
@@ -232,8 +233,7 @@ body.dark .jump-sec-label{border-color:#222220}
 </div>
 <div class="callout" data-light-bg="#FEF7E6" style="background:#FEF7E6;border:2px solid #F0C040" data-dark-bg="#3D2E00">
   <div class="callout-title" data-light-color="#633806" style="color:#633806" data-dark-color="#FAC775"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">🧪</span> Try it now</div>
-  <div class="callout-body" data-light-color="#854F0B" style="color:#854F0B" data-dark-color="#EF9F27"><p><em>Screens and menus may look slightly different — that's normal. Just explore and you'll find your way. 😊</em></p>
-<p>For this exercise, you'll use a sample set of meeting notes from a fictional school staff meeting. No recording needed — just copy and paste the text below.</p>
+  <div class="callout-body" data-light-color="#854F0B" style="color:#854F0B" data-dark-color="#EF9F27"><p>For this exercise, you'll use a sample set of meeting notes from a fictional school staff meeting. No recording needed — just copy and paste the text below.</p>
 <div class="step-badge-row"><div class="step-badge" data-light-badge-bg="#854F0B" data-light-badge-color="#FAEEDA" data-dark-badge-bg="#EF9F27" data-dark-badge-color="#633806" style="background:#854F0B;color:#FAEEDA">1</div><span class="step-badge-title">Upload the sample notes to NotebookLM</span></div>
 <p>Open NotebookLM (<a href="https://notebooklm.google.com/" target="_blank" style="color:var(--accent)">https://notebooklm.google.com</a>) and create a new notebook. Choose <strong>Paste text</strong> as your source, and paste in these sample meeting notes:</p>
 <div class="prompt-wrap"><div class="prompt-topbar"><span class="prompt-topbar-label">Sample meeting notes</span><button class="copy-btn" id="copyBtnb22-notes" onclick="copyPrompt('b22-notes')">Copy</button></div><div class="prompt-text" id="b22-notes">Staff Meeting Notes – Riverside Primary School
@@ -266,6 +266,7 @@ Ms. Novak raised concerns about the playground rota. Mr. Flynn to check the sche
 [Paste the NotebookLM summary here]</div></div>
 <p>Replace the two placeholders with your actual content, then send the prompt.</p></div>
 </div>
+      <p class="disclaimer">Screens and menus may look slightly different — that's normal. Just explore and you'll find your way. 😊</p>
 <div class="callout" data-light-bg="#FAECE7" style="background:#FAECE7;border:2px solid #E8724A" data-dark-bg="#4A1B0C">
   <div class="callout-title" data-light-color="#4A1B0C" style="color:#4A1B0C" data-dark-color="#F5C4B3"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">&#x1F440;</span> What to notice</div>
   <div class="callout-body" data-light-color="#712B13" style="color:#712B13" data-dark-color="#F0997B"><p>Look at the action items Claude produced — specifically the structure it used.</p>

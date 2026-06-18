@@ -69,6 +69,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:str
 .tip-num{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:1rem;min-width:1.4rem;flex-shrink:0;opacity:0.5}
 .tip-text{font-size:0.97rem;line-height:1.7}
 .step-label{font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:700;margin:1rem 0 0.4rem;opacity:0.75}
+.disclaimer{font-family:'Courier New',Courier,monospace;font-size:0.82rem;color:inherit;margin:0.5rem 0;padding-left:1rem;border-left:2px solid currentColor;opacity:0.75}
 .no-rush{font-family:'Inter',sans-serif;font-style:italic;font-size:1rem;color:var(--mid);margin:1.5rem 0 0;text-align:left}
 body.dark{--paper:#0D0D0D;--off:#131312;--ink:#F0EFE9;--line:#3A3A38;--mid:#666660;--accent:#4D8AFF;--red:#FF6644;background:var(--paper);color:var(--ink)}
 body.dark nav,body.dark .prog-bar{background:#0D0D0D;border-color:#222220}
@@ -260,9 +261,9 @@ body.dark .ts-wrap{border-color:#222220}body.dark .font-size-btns{border-color:#
 
   <div class="callout" data-light-bg="#FAEEDA" style="background:#FAEEDA;border:2px solid #E8A020" data-dark-bg="#633806">
   <div class="callout-title" data-light-color="#633806" style="color:#633806" data-dark-color="#FAC775"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">🧪</span> Try it now</div>
-  <div class="callout-body" data-light-color="#854F0B" style="color:#854F0B" data-dark-color="#EF9F27"><h3>See the difference yourself</h3>
-      <p><em>Screens and menus may look slightly different — that's normal. Just explore and you'll find your way. 😊</em></p>
-      <p>Open <strong>Claude, ChatGPT, or Gemini</strong> — whichever you prefer.</p>
+  <div class="callout-body
+      <p class="disclaimer">Screens and menus may look slightly different — that's normal. Just explore and you'll find your way. 😊</p>" data-light-color="#854F0B" style="color:#854F0B" data-dark-color="#EF9F27"><h3>See the difference yourself</h3>
+            <p>Open <strong>Claude, ChatGPT, or Gemini</strong> — whichever you prefer.</p>
       <p class="step-label">Step 1 — Send this first:</p>
       <div class="prompt-wrap">
         <div class="prompt-topbar"><span class="prompt-topbar-label">Vague prompt</span><button class="copy-btn" id="copyBtnp1" onclick="copyPrompt('p1')">Copy</button></div>
