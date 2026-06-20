@@ -88,8 +88,8 @@ body.dark::after{background-image:linear-gradient(to right,rgba(255,255,255,0.01
 .bn-prev.disabled{opacity:0.3;pointer-events:none}
 .bn-next{display:flex;align-items:center;gap:0.6rem;padding:0.6rem 1.2rem;background:var(--accent);border:2px solid var(--accent);border-radius:999px;text-decoration:none;font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;color:#fff;font-weight:600;transition:opacity 0.2s}
 .bn-next:hover{opacity:0.85}
-.step-badge-row{display:flex;align-items:center;gap:10px;margin:1.1rem 0 0.5rem}
-.step-badge{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.72rem;font-weight:700;flex-shrink:0;font-family:'Instrument Sans',sans-serif}
+.step-badge-row{display:flex;align-items:flex-start;gap:10px;margin:1.1rem 0 0.5rem}
+.step-badge{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.72rem;font-weight:700;flex-shrink:0;font-family:'Instrument Sans',sans-serif;margin-top:0.2rem}
 .step-badge-title{font-weight:700;font-size:0.97rem}
 
 .prog-label{cursor:pointer;user-select:none;transition:color 0.15s}
@@ -116,7 +116,26 @@ body.dark .jump-sec-label{border-color:#222220}
 .jump-divider{border-bottom:1px solid var(--line);margin:0.3rem 0 0.5rem}
 .ts-wrap{display:flex;flex-direction:column;align-items:center;gap:3px;padding:0 1.2rem;height:100%;justify-content:center;border-right:1px solid var(--line)}.ts-label{font-size:0.55rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--mid);line-height:1}.font-size-btns{display:flex;align-items:center;border:1px solid var(--line);border-radius:999px;overflow:visible;height:22px;position:relative}.ts-btn-wrap{position:relative;height:22px;display:flex;align-items:center}.ts-btn-wrap:first-child .font-size-btn{border-radius:999px 0 0 999px;border-left:none}.ts-btn-wrap:last-child .font-size-btn{border-radius:0 999px 999px 0}.font-size-btn{background:none;border:none;border-left:1px solid var(--line);cursor:pointer;color:var(--mid);padding:0 7px;height:22px;display:flex;align-items:center;justify-content:center;font-family:inherit;font-weight:600;transition:background 0.15s,color 0.15s}.font-size-btn:hover{background:var(--off);color:var(--ink)}.font-size-btn.active{background:var(--ink);color:var(--paper)}.ts-tooltip{display:none;position:absolute;bottom:calc(100% + 5px);left:50%;transform:translateX(-50%);background:var(--ink);color:var(--paper);font-size:0.6rem;white-space:nowrap;padding:2px 7px;border-radius:4px;pointer-events:none;z-index:999}.ts-btn-wrap:hover .ts-tooltip{display:block}body.dark .ts-wrap{border-color:#222220}body.dark .font-size-btns{border-color:#3A3A38}body.dark .font-size-btn{border-color:#3A3A38;color:#666660}body.dark .font-size-btn:hover{background:#131312;color:#F0EFE9}body.dark .font-size-btn.active{background:#F0EFE9;color:#0D0D0D}body.dark .ts-tooltip{background:#F0EFE9;color:#0D0D0D}
 </style>
-<script>(function(){if(localStorage.getItem("vaible-theme")==="dark"){document.documentElement.classList.add("dark-preload");document.addEventListener("DOMContentLoaded",function(){document.body.classList.add("dark");document.documentElement.classList.remove("dark-preload");var btn=document.getElementById("themeToggle");if(btn)btn.textContent="○ Light";if(typeof applyCalloutColors==="function")applyCalloutColors();});}})();</script>
+<script>
+function applyCalloutColors(){
+  const dark=document.body.classList.contains('dark');
+  document.querySelectorAll('.callout').forEach(el=>{
+    if(!el.dataset.lightBg)el.dataset.lightBg=el.style.background;
+    el.style.background=dark?el.dataset.darkBg:el.dataset.lightBg;
+    const border=dark?el.dataset.darkBorder:el.dataset.lightBorder;
+    if(border)el.style.border=border;
+    const title=el.querySelector('.callout-title');
+    const body=el.querySelector('.callout-body');
+    if(title){title.style.color=dark?title.dataset.darkColor:title.dataset.lightColor;}
+    if(body){body.style.color=dark?body.dataset.darkColor:body.dataset.lightColor;}
+    el.querySelectorAll('.step-badge').forEach(badge=>{
+      badge.style.background=dark?badge.dataset.darkBadgeBg:badge.dataset.lightBadgeBg;
+      badge.style.color=dark?badge.dataset.darkBadgeColor:badge.dataset.lightBadgeColor;
+    });
+  });
+}
+(function(){if(localStorage.getItem("vaible-theme")==="dark"){document.documentElement.classList.add("dark-preload");document.addEventListener("DOMContentLoaded",function(){document.body.classList.add("dark");document.documentElement.classList.remove("dark-preload");var btn=document.getElementById("themeToggle");if(btn)btn.textContent="○ Light";applyCalloutColors();});}})();
+</script>
 </head>
 <body>
 <nav>
@@ -185,34 +204,34 @@ body.dark .jump-sec-label{border-color:#222220}
     </div>
     <div class="hero-bignum" aria-hidden="true">17</div>
   </div>
-  <div class="callout" data-light-bg="#F1EFE8" style="background:#F1EFE8;border:2px solid #B8B4A8" data-dark-bg="#444441">
+  <div class="callout" data-light-bg="#F1EFE8" data-light-border="2px solid #B8B4A8" data-dark-border="2px solid #555550" style="background:#F1EFE8;border:2px solid #B8B4A8" data-dark-bg="#444441">
   <div class="callout-title" data-light-color="#2C2C2A" style="color:#2C2C2A" data-dark-color="#D3D1C7"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">🎯</span> What you'll learn</div>
   <div class="callout-body" data-light-color="#444441" style="color:#444441" data-dark-color="#B4B2A9"><p>In this Beacon, you'll watch AI turn spoken words into text — automatically.</p>
 <p>No typing. No transcribing. Just press a button and let CapCut listen.</p>
 <p>You'll also try translating those captions into another language — in one click.</p></div>
 </div>
-<div class="callout" data-light-bg="#FBE8F0" style="background:#FBE8F0;border:2px solid #E060A0" data-dark-bg="#5C0E33">
+<div class="callout" data-light-bg="#FBE8F0" data-light-border="2px solid #E060A0" data-dark-border="2px solid #A03070" style="background:#FBE8F0;border:2px solid #E060A0" data-dark-bg="#5C0E33">
   <div class="callout-title" data-light-color="#5C0E33" style="color:#5C0E33" data-dark-color="#F5BBD6"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">🛠️</span> Meet the tool</div>
   <div class="callout-body" data-light-color="#8F1B52" style="color:#8F1B52" data-dark-color="#EE8FBC"><p><strong>CapCut</strong> is a free video editing tool — simple enough for beginners, powerful enough for professionals.</p>
 <p>Its AI features are genuinely impressive. And you can use it right in your browser.</p>
 <p>👉 Open CapCut here → <a href="https://www.capcut.com/" target="_blank" style="color:var(--accent)">https://www.capcut.com</a></p>
 <p>No download needed. A free account is all you need to get started.</p></div>
 </div>
-<div class="callout" data-light-bg="#E6F1FB" style="background:#E6F1FB;border:2px solid #6BAEE8" data-dark-bg="#0C447C">
+<div class="callout" data-light-bg="#E6F1FB" data-light-border="2px solid #6BAEE8" data-dark-border="2px solid #2A6099" style="background:#E6F1FB;border:2px solid #6BAEE8" data-dark-bg="#0C447C">
   <div class="callout-title" data-light-color="#0C447C" style="color:#0C447C" data-dark-color="#B5D4F4"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">🎤</span> Why captions matter</div>
   <div class="callout-body" data-light-color="#185FA5" style="color:#185FA5" data-dark-color="#85B7EB"><p>Captions make videos easier to follow — even without sound.</p>
 <p>They help people who speak a different language. They make your content accessible to more people.</p>
 <p>Adding them used to take hours of careful work.</p>
 <p>Now AI does it in seconds.</p></div>
 </div>
-<div class="callout" data-light-bg="#E6F1FB" style="background:#E6F1FB;border:2px solid #6BAEE8" data-dark-bg="#0C447C">
+<div class="callout" data-light-bg="#E6F1FB" data-light-border="2px solid #6BAEE8" data-dark-border="2px solid #2A6099" style="background:#E6F1FB;border:2px solid #6BAEE8" data-dark-bg="#0C447C">
   <div class="callout-title" data-light-color="#0C447C" style="color:#0C447C" data-dark-color="#B5D4F4"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">✂</span> ️ How it works</div>
   <div class="callout-body" data-light-color="#185FA5" style="color:#185FA5" data-dark-color="#85B7EB"><p>CapCut's AI listens to the audio in your video.</p>
 <p>It writes out the words — and times them, so each caption appears at exactly the right moment.</p>
 <p>Then, if you want, it translates everything into another language. Automatically.</p>
 <p>You don't need to know the language. You don't need to type a single word.</p></div>
 </div>
-<div class="callout" data-light-bg="#FAEEDA" style="background:#FAEEDA;border:2px solid #E8A020" data-dark-bg="#633806">
+<div class="callout" data-light-bg="#FAEEDA" data-light-border="2px solid #E8A020" data-dark-border="2px solid #A06010" style="background:#FAEEDA;border:2px solid #E8A020" data-dark-bg="#633806">
   <div class="callout-title" data-light-color="#633806" style="color:#633806" data-dark-color="#FAC775"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">🧪</span> Try it now</div>
   <div class="callout-body" data-light-color="#854F0B" style="color:#854F0B" data-dark-color="#EF9F27"><div class="step-badge-row"><div class="step-badge" data-light-badge-bg="#854F0B" data-light-badge-color="#FAEEDA" data-dark-badge-bg="#EF9F27" data-dark-badge-color="#633806" style="background:#854F0B;color:#FAEEDA">1</div><span class="step-badge-title">Open CapCut and go to AI captions</span></div>
 <ol style="padding-left:1.4rem;margin:0.5rem 0">
@@ -231,16 +250,26 @@ body.dark .jump-sec-label{border-color:#222220}
 <p>Click <strong>Learn foreign language</strong> — CapCut loads it automatically.</p>
 <div class="step-badge-row"><div class="step-badge" data-light-badge-bg="#854F0B" data-light-badge-color="#FAEEDA" data-dark-badge-bg="#EF9F27" data-dark-badge-color="#633806" style="background:#854F0B;color:#FAEEDA">3</div><span class="step-badge-title">Translate the captions</span></div>
 <p>Look at the bottom left corner — find the <strong>xA icon</strong> in the Shortcuts row.</p>
-<p>Click it, pick a language, and see the translation appear instantly. 🌍</p></div>
+<p>Click it, pick a language, and see the translation appear instantly. 🌍</p>
+<h3>Now try it with your own words</h3>
+<p>Once your captions are ready, ask one of the AI tools this:</p>
+<div class="prompt-wrap">
+  <div class="prompt-topbar">
+    <span class="prompt-topbar-label">Prompt</span>
+    <button class="copy-btn" onclick="copyPrompt('p17')">Copy</button>
+  </div>
+  <div class="prompt-text" id="p17">I just watched a short video with AI-generated captions. Write me 3 short sentences I could add as an intro caption — something that makes a viewer want to keep watching. The video is about [describe your video topic in a few words].</div>
 </div>
-<div class="callout" data-light-bg="#EEEDFE" style="background:#EEEDFE;border:2px solid #8880E8" data-dark-bg="#26215C">
+<span class="disclaimer">Screens and menus may look slightly different — that's normal. Just explore and you'll find your way. 😊</span></div>
+</div>
+<div class="callout" data-light-bg="#EEEDFE" data-light-border="2px solid #8880E8" data-dark-border="2px solid #5550B0" style="background:#EEEDFE;border:2px solid #8880E8" data-dark-bg="#26215C">
   <div class="callout-title" data-light-color="#26215C" style="color:#26215C" data-dark-color="#CECBF6"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">💡</span> Good to know</div>
   <div class="callout-body" data-light-color="#3C3489" style="color:#3C3489" data-dark-color="#AFA9EC"><p>CapCut works best with clear audio. Background noise can confuse it — but it still does remarkably well.</p>
 <p>If a caption isn't quite right, you can click on it and fix it manually. It only takes a second.</p>
 <p>The free version includes everything you need for this Beacon. No payment required.</p>
 <p>CapCut is also available as a mobile app — so you can do all of this from your phone if you prefer.</p></div>
 </div>
-<div class="callout" data-light-bg="#EAF3DE" style="background:#EAF3DE;border:2px solid #7BBF3A" data-dark-bg="#173404">
+<div class="callout" data-light-bg="#EAF3DE" data-light-border="2px solid #7BBF3A" data-dark-border="2px solid #3A7010" style="background:#EAF3DE;border:2px solid #7BBF3A" data-dark-bg="#173404">
   <div class="callout-title" data-light-color="#173404" style="color:#173404" data-dark-color="#C0DD97"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">✅</span> Beacon complete</div>
   <div class="callout-body" data-light-color="#27500A" style="color:#27500A" data-dark-color="#97C459"><p>You just added captions and translated a video — without touching a single subtitle file.</p>
 <p>That's a real skill. Content creators pay professionals to do exactly this.</p>
@@ -264,21 +293,6 @@ btn.addEventListener('click',()=>{
   applyCalloutColors();
 });
 applyCalloutColors();
-function applyCalloutColors(){
-  const dark=document.body.classList.contains('dark');
-  document.querySelectorAll('.callout').forEach(el=>{
-    if(!el.dataset.lightBg)el.dataset.lightBg=el.style.background;
-    el.style.background=dark?el.dataset.darkBg:el.dataset.lightBg;
-    const title=el.querySelector('.callout-title');
-    const body=el.querySelector('.callout-body');
-    if(title){title.style.color=dark?title.dataset.darkColor:title.dataset.lightColor;}
-    if(body){body.style.color=dark?body.dataset.darkColor:body.dataset.lightColor;}
-    el.querySelectorAll('.step-badge').forEach(badge=>{
-      badge.style.background=dark?badge.dataset.darkBadgeBg:badge.dataset.lightBadgeBg;
-      badge.style.color=dark?badge.dataset.darkBadgeColor:badge.dataset.lightBadgeColor;
-    });
-  });
-}
 const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')}),{threshold:0.07});
 document.querySelectorAll('.section,.complete').forEach(el=>obs.observe(el));
 function copyPrompt(id){const t=document.getElementById(id).innerText;navigator.clipboard.writeText(t).then(()=>{const b=document.getElementById('copyBtn'+id);b.textContent='Copied!';b.classList.add('copied');setTimeout(()=>{b.textContent='Copy';b.classList.remove('copied')},2000)})}
