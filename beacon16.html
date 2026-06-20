@@ -88,8 +88,8 @@ body.dark::after{background-image:linear-gradient(to right,rgba(255,255,255,0.01
 .bn-prev.disabled{opacity:0.3;pointer-events:none}
 .bn-next{display:flex;align-items:center;gap:0.6rem;padding:0.6rem 1.2rem;background:var(--accent);border:2px solid var(--accent);border-radius:999px;text-decoration:none;font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;color:#fff;font-weight:600;transition:opacity 0.2s}
 .bn-next:hover{opacity:0.85}
-.step-badge-row{display:flex;align-items:center;gap:10px;margin:1.1rem 0 0.5rem}
-.step-badge{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.72rem;font-weight:700;flex-shrink:0;font-family:'Instrument Sans',sans-serif}
+.step-badge-row{display:flex;align-items:flex-start;gap:10px;margin:1.1rem 0 0.5rem}
+.step-badge{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.72rem;font-weight:700;flex-shrink:0;font-family:'Instrument Sans',sans-serif;margin-top:0.2rem}
 .step-badge-title{font-weight:700;font-size:0.97rem}
 
 .prog-label{cursor:pointer;user-select:none;transition:color 0.15s}
@@ -116,7 +116,26 @@ body.dark .jump-sec-label{border-color:#222220}
 .jump-divider{border-bottom:1px solid var(--line);margin:0.3rem 0 0.5rem}
 .ts-wrap{display:flex;flex-direction:column;align-items:center;gap:3px;padding:0 1.2rem;height:100%;justify-content:center;border-right:1px solid var(--line)}.ts-label{font-size:0.55rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--mid);line-height:1}.font-size-btns{display:flex;align-items:center;border:1px solid var(--line);border-radius:999px;overflow:visible;height:22px;position:relative}.ts-btn-wrap{position:relative;height:22px;display:flex;align-items:center}.ts-btn-wrap:first-child .font-size-btn{border-radius:999px 0 0 999px;border-left:none}.ts-btn-wrap:last-child .font-size-btn{border-radius:0 999px 999px 0}.font-size-btn{background:none;border:none;border-left:1px solid var(--line);cursor:pointer;color:var(--mid);padding:0 7px;height:22px;display:flex;align-items:center;justify-content:center;font-family:inherit;font-weight:600;transition:background 0.15s,color 0.15s}.font-size-btn:hover{background:var(--off);color:var(--ink)}.font-size-btn.active{background:var(--ink);color:var(--paper)}.ts-tooltip{display:none;position:absolute;bottom:calc(100% + 5px);left:50%;transform:translateX(-50%);background:var(--ink);color:var(--paper);font-size:0.6rem;white-space:nowrap;padding:2px 7px;border-radius:4px;pointer-events:none;z-index:999}.ts-btn-wrap:hover .ts-tooltip{display:block}body.dark .ts-wrap{border-color:#222220}body.dark .font-size-btns{border-color:#3A3A38}body.dark .font-size-btn{border-color:#3A3A38;color:#666660}body.dark .font-size-btn:hover{background:#131312;color:#F0EFE9}body.dark .font-size-btn.active{background:#F0EFE9;color:#0D0D0D}body.dark .ts-tooltip{background:#F0EFE9;color:#0D0D0D}
 </style>
-<script>(function(){if(localStorage.getItem("vaible-theme")==="dark"){document.documentElement.classList.add("dark-preload");document.addEventListener("DOMContentLoaded",function(){document.body.classList.add("dark");document.documentElement.classList.remove("dark-preload");var btn=document.getElementById("themeToggle");if(btn)btn.textContent="○ Light";if(typeof applyCalloutColors==="function")applyCalloutColors();});}})();</script>
+<script>
+function applyCalloutColors(){
+  const dark=document.body.classList.contains('dark');
+  document.querySelectorAll('.callout').forEach(el=>{
+    if(!el.dataset.lightBg)el.dataset.lightBg=el.style.background;
+    if(!el.dataset.lightBorder)el.dataset.lightBorder=el.style.border;
+    el.style.background=dark?el.dataset.darkBg:el.dataset.lightBg;
+    if(el.dataset.darkBorder)el.style.border=dark?el.dataset.darkBorder:el.dataset.lightBorder;
+    const title=el.querySelector('.callout-title');
+    const body=el.querySelector('.callout-body');
+    if(title){title.style.color=dark?title.dataset.darkColor:title.dataset.lightColor;}
+    if(body){body.style.color=dark?body.dataset.darkColor:body.dataset.lightColor;}
+    el.querySelectorAll('.step-badge').forEach(badge=>{
+      badge.style.background=dark?badge.dataset.darkBadgeBg:badge.dataset.lightBadgeBg;
+      badge.style.color=dark?badge.dataset.darkBadgeColor:badge.dataset.lightBadgeColor;
+    });
+  });
+}
+(function(){if(localStorage.getItem("vaible-theme")==="dark"){document.documentElement.classList.add("dark-preload");document.addEventListener("DOMContentLoaded",function(){document.body.classList.add("dark");document.documentElement.classList.remove("dark-preload");var btn=document.getElementById("themeToggle");if(btn)btn.textContent="○ Light";applyCalloutColors();});}})();
+</script>
 </head>
 <body>
 <nav>
@@ -185,21 +204,21 @@ body.dark .jump-sec-label{border-color:#222220}
     </div>
     <div class="hero-bignum" aria-hidden="true">16</div>
   </div>
-  <div class="callout" data-light-bg="#F1EFE8" style="background:#F1EFE8;border:2px solid #B8B4A8" data-dark-bg="#444441">
+  <div class="callout" data-light-bg="#F1EFE8" data-light-border="2px solid #B8B4A8" style="background:#F1EFE8;border:2px solid #B8B4A8" data-dark-bg="#444441" data-dark-border="2px solid #6B6860">
   <div class="callout-title" data-light-color="#2C2C2A" style="color:#2C2C2A" data-dark-color="#D3D1C7"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">🎯</span> What you'll learn</div>
   <div class="callout-body" data-light-color="#444441" style="color:#444441" data-dark-color="#B4B2A9"><p>You've heard AI can write, draw, and even speak in someone else's voice.</p>
 <p>Now it's going to compose music for you.</p>
 <p>In this Beacon, you'll type a short description of a mood, a scene, or a feeling — and two AI tools will turn it into a full song. Vocals. Instruments. Melody. All from a few words.</p>
 <p>No musical talent required.</p></div>
 </div>
-<div class="callout" data-light-bg="#FBE8F0" style="background:#FBE8F0;border:2px solid #E060A0" data-dark-bg="#5C0E33">
+<div class="callout" data-light-bg="#FBE8F0" data-light-border="2px solid #E060A0" style="background:#FBE8F0;border:2px solid #E060A0" data-dark-bg="#5C0E33" data-dark-border="2px solid #C0407A">
   <div class="callout-title" data-light-color="#5C0E33" style="color:#5C0E33" data-dark-color="#F5BBD6"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">🛠️</span> Meet the tools</div>
   <div class="callout-body" data-light-color="#8F1B52" style="color:#8F1B52" data-dark-color="#EE8FBC"><p><strong>Suno</strong> → <a href="https://suno.com/" target="_blank" style="color:var(--accent)">https://suno.com</a></p>
 <p>One of the most popular AI music generators out there. Type a prompt, press Create, and within seconds you have a complete song — lyrics, melody, vocals and all. Fast, surprisingly polished, and free to try.</p>
 <p><strong>Sonauto</strong> → <a href="https://sonauto.ai/" target="_blank" style="color:var(--accent)">https://sonauto.ai</a></p>
 <p>A slightly different take on the same idea. Sonauto lets you steer the mood, genre, and energy in its own way. Same concept — words in, music out — but the result often has a very different feel.</p></div>
 </div>
-<div class="callout" data-light-bg="#E6F1FB" style="background:#E6F1FB;border:2px solid #6BAEE8" data-dark-bg="#0C447C">
+<div class="callout" data-light-bg="#E6F1FB" data-light-border="2px solid #6BAEE8" style="background:#E6F1FB;border:2px solid #6BAEE8" data-dark-bg="#0C447C" data-dark-border="2px solid #2D6FAA">
   <div class="callout-title" data-light-color="#0C447C" style="color:#0C447C" data-dark-color="#B5D4F4"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">🎼</span> Prompting music is different</div>
   <div class="callout-body" data-light-color="#185FA5" style="color:#185FA5" data-dark-color="#85B7EB"><p>When you chat with Claude or ChatGPT, you ask questions.</p>
 <p>With music generators, you paint a picture.</p>
@@ -208,7 +227,7 @@ body.dark .jump-sec-label{border-color:#222220}
 <p><strong>This doesn't get very far:</strong><em>"Make me a song."</em></p>
 <p>The more specific you are about the feeling, the more the result will surprise you in a good way.</p></div>
 </div>
-<div class="callout" data-light-bg="#FAEEDA" style="background:#FAEEDA;border:2px solid #E8A020" data-dark-bg="#633806">
+<div class="callout" data-light-bg="#FAEEDA" data-light-border="2px solid #E8A020" style="background:#FAEEDA;border:2px solid #E8A020" data-dark-bg="#633806" data-dark-border="2px solid #B07010">
   <div class="callout-title" data-light-color="#633806" style="color:#633806" data-dark-color="#FAC775"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">🧪</span> Try it now</div>
   <div class="callout-body" data-light-color="#854F0B" style="color:#854F0B" data-dark-color="#EF9F27"><p>Use the exact same prompt in both tools — then listen to what comes back.</p>
 <p><strong>Your prompt:</strong></p>
@@ -219,7 +238,6 @@ body.dark .jump-sec-label{border-color:#222220}
   </div>
   <div class="prompt-text" id="prompt-b16-main-text">Gentle acoustic song about a rainy afternoon, calm and cozy, soft guitar, a little nostalgic</div>
 </div>
-      <p class="disclaimer">Screens and menus may look slightly different — that's normal. Just explore and you'll find your way. 😊</p>
 <div class="step-badge-row">
   <div class="step-badge" data-light-badge-bg="#854F0B" data-light-badge-color="#FAEEDA" data-dark-badge-bg="#EF9F27" data-dark-badge-color="#633806" style="background:#854F0B;color:#FAEEDA">1</div>
   <span class="step-badge-title">Suno → <a href="https://suno.com/" target="_blank" style="color:var(--accent)">https://suno.com</a></span>
@@ -239,15 +257,16 @@ body.dark .jump-sec-label{border-color:#222220}
 <li style="margin-bottom:0.4rem">A heroic moment from an imaginary film</li>
 <li style="margin-bottom:0.4rem">A cheerful birthday song</li>
 <li style="margin-bottom:0.4rem">A quiet, melancholy song about missing someone</li>
-</ol></div>
+</ol>
+<p class="disclaimer">Screens and menus may look slightly different — that's normal. Just explore and you'll find your way. 😊</p></div>
 </div>
-<div class="callout" data-light-bg="#FAECE7" style="background:#FAECE7;border:2px solid #E8724A" data-dark-bg="#4A1B0C">
+<div class="callout" data-light-bg="#FAECE7" data-light-border="2px solid #E8724A" style="background:#FAECE7;border:2px solid #E8724A" data-dark-bg="#4A1B0C" data-dark-border="2px solid #B04830">
   <div class="callout-title" data-light-color="#4A1B0C" style="color:#4A1B0C" data-dark-color="#F5C4B3"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">&#x1F440;</span> What to notice</div>
   <div class="callout-body" data-light-color="#712B13" style="color:#712B13" data-dark-color="#F0997B"><p>Listen to both songs without judgment. Then ask yourself: which one felt closer to what you had in your head?</p>
 <p>The same sentence produced two completely different songs. That's not a flaw — that's each AI interpreting your words through its own creative lens.</p>
 <p><strong>The aha:</strong> Your prompt wasn't a command. It was an invitation. And each tool accepted it differently.</p></div>
 </div>
-<div class="callout" data-light-bg="#EEEDFE" style="background:#EEEDFE;border:2px solid #8880E8" data-dark-bg="#26215C">
+<div class="callout" data-light-bg="#EEEDFE" data-light-border="2px solid #8880E8" style="background:#EEEDFE;border:2px solid #8880E8" data-dark-bg="#26215C" data-dark-border="2px solid #5550B0">
   <div class="callout-title" data-light-color="#26215C" style="color:#26215C" data-dark-color="#CECBF6"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">💡</span> Good to know</div>
   <div class="callout-body" data-light-color="#3C3489" style="color:#3C3489" data-dark-color="#AFA9EC"><p><strong>Suno collects your prompts and may use them to train their AI models.</strong> Avoid typing anything personal — stick to moods, genres, and fictional scenes.</p>
 <p>AI-generated music sits in a legal grey area — copyright rules vary by platform and country. For personal enjoyment, learning, or sharing with friends, you're absolutely fine. Downloading is free via <strong>Download Anyway</strong> — but commercial use requires a paid plan.</p>
@@ -270,23 +289,6 @@ btn.addEventListener('click',()=>{
   localStorage.setItem('vaible-theme',isDark?'dark':'light');
   applyCalloutColors();
 });
-function applyCalloutColors(){
-  const dark=document.body.classList.contains('dark');
-  document.querySelectorAll('.callout').forEach(el=>{
-    if(!el.dataset.lightBg)el.dataset.lightBg=el.style.background;
-    if(!el.dataset.lightBorder)el.dataset.lightBorder=el.style.border;
-    el.style.background=dark?el.dataset.darkBg:el.dataset.lightBg;
-    if(el.dataset.darkBorder)el.style.border=dark?el.dataset.darkBorder:el.dataset.lightBorder;
-    const title=el.querySelector('.callout-title');
-    const body=el.querySelector('.callout-body');
-    if(title){title.style.color=dark?title.dataset.darkColor:title.dataset.lightColor;}
-    if(body){body.style.color=dark?body.dataset.darkColor:body.dataset.lightColor;}
-    el.querySelectorAll('.step-badge').forEach(badge=>{
-      badge.style.background=dark?badge.dataset.darkBadgeBg:badge.dataset.lightBadgeBg;
-      badge.style.color=dark?badge.dataset.darkBadgeColor:badge.dataset.lightBadgeColor;
-    });
-  });
-}
 applyCalloutColors();
 const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')}),{threshold:0.07});
 document.querySelectorAll('.section,.complete').forEach(el=>obs.observe(el));
