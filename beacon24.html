@@ -88,8 +88,8 @@ body.dark::after{background-image:linear-gradient(to right,rgba(255,255,255,0.01
 .bn-prev.disabled{opacity:0.3;pointer-events:none}
 .bn-next{display:flex;align-items:center;gap:0.6rem;padding:0.6rem 1.2rem;background:var(--accent);border:2px solid var(--accent);border-radius:999px;text-decoration:none;font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;color:#fff;font-weight:600;transition:opacity 0.2s}
 .bn-next:hover{opacity:0.85}
-.step-badge-row{display:flex;align-items:center;gap:10px;margin:1.1rem 0 0.5rem}
-.step-badge{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.72rem;font-weight:700;flex-shrink:0;font-family:'Instrument Sans',sans-serif}
+.step-badge-row{display:flex;align-items:flex-start;gap:10px;margin:1.1rem 0 0.5rem}
+.step-badge{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.72rem;font-weight:700;flex-shrink:0;font-family:'Instrument Sans',sans-serif;margin-top:0.2rem}
 .step-badge-title{font-weight:700;font-size:0.97rem}
 
 .prog-label{cursor:pointer;user-select:none;transition:color 0.15s}
@@ -185,23 +185,23 @@ body.dark .jump-sec-label{border-color:#222220}
     </div>
     <div class="hero-bignum" aria-hidden="true">24</div>
   </div>
-  <div class="callout" data-light-bg="#F1EFE8" style="background:#F1EFE8;border:2px solid #B8B4A8" data-dark-bg="#444441">
+  <div class="callout" data-light-bg="#F1EFE8" style="background:#F1EFE8;border:2px solid #B8B4A8" data-dark-bg="#444441" data-light-border="#B8B4A8" data-dark-border="#444441">
   <div class="callout-title" data-light-color="#2C2C2A" style="color:#2C2C2A" data-dark-color="#D3D1C7"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">🎯</span> What you'll learn</div>
   <div class="callout-body" data-light-color="#444441" style="color:#444441" data-dark-color="#B4B2A9"><p>By the end of this Beacon, you'll know how to turn a simple idea into a beautiful, ready-to-present slide deck — in just a few minutes. No design skills needed. No PowerPoint frustration. Just a short prompt, and Gamma does the rest.</p></div>
 </div>
-<div class="callout" data-light-bg="#FBE8F0" style="background:#FBE8F0;border:2px solid #E060A0" data-dark-bg="#5C0E33">
+<div class="callout" data-light-bg="#FBE8F0" style="background:#FBE8F0;border:2px solid #E060A0" data-dark-bg="#5C0E33" data-light-border="#E060A0" data-dark-border="#5C0E33">
   <div class="callout-title" data-light-color="#5C0E33" style="color:#5C0E33" data-dark-color="#F5BBD6"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">🛠️</span> Meet the tool</div>
   <div class="callout-body" data-light-color="#8F1B52" style="color:#8F1B52" data-dark-color="#EE8FBC"><p><strong>Gamma</strong> — <a href="https://gamma.app/" target="_blank" style="color:var(--accent)">https://gamma.app</a></p>
 <p>Gamma is an AI-powered presentation tool. You describe what you want, and it builds the slides for you — with layout, text, and images already in place. The result looks professional straight away, and you can edit anything you don't like.</p>
 <p>Gamma works in your browser. You'll need to create a free account — your Gmail address is perfect for this.</p></div>
 </div>
-<div class="callout" data-light-bg="#E6F1FB" style="background:#E6F1FB;border:2px solid #6BAEE8" data-dark-bg="#0C447C">
+<div class="callout" data-light-bg="#E6F1FB" style="background:#E6F1FB;border:2px solid #6BAEE8" data-dark-bg="#0C447C" data-light-border="#6BAEE8" data-dark-border="#0C447C">
   <div class="callout-title" data-light-color="#0C447C" style="color:#0C447C" data-dark-color="#B5D4F4"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">✨</span> From idea to slides in minutes</div>
   <div class="callout-body" data-light-color="#185FA5" style="color:#185FA5" data-dark-color="#85B7EB"><p>Most people spend hours on presentations. Choosing a template, arranging text, finding images, tweaking colours — it adds up fast.</p>
 <p>Gamma flips that around. You start with a sentence or two describing your topic, and Gamma builds the whole thing. You review it, adjust what you want, and you're done.</p>
 <p>It's not magic — but it's pretty close. 😊</p></div>
 </div>
-<div class="callout" data-light-bg="#E6F1FB" style="background:#E6F1FB;border:2px solid #6BAEE8" data-dark-bg="#0C447C">
+<div class="callout" data-light-bg="#E6F1FB" style="background:#E6F1FB;border:2px solid #6BAEE8" data-dark-bg="#0C447C" data-light-border="#6BAEE8" data-dark-border="#0C447C">
   <div class="callout-title" data-light-color="#0C447C" style="color:#0C447C" data-dark-color="#B5D4F4"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">🎨</span> You're still in control</div>
   <div class="callout-body" data-light-color="#185FA5" style="color:#185FA5" data-dark-color="#85B7EB"><p>Gamma makes the first version, but you decide what stays.</p>
 <p>Before it generates, you can choose:</p>
@@ -213,12 +213,12 @@ body.dark .jump-sec-label{border-color:#222220}
 </ul>
 <p>And once the presentation is ready, every slide is editable. Click on any text to change it. Don't like an image? Replace it in one click.</p></div>
 </div>
-<div class="callout" data-light-bg="#E6F1FB" style="background:#E6F1FB;border:2px solid #6BAEE8" data-dark-bg="#0C447C">
+<div class="callout" data-light-bg="#E6F1FB" style="background:#E6F1FB;border:2px solid #6BAEE8" data-dark-bg="#0C447C" data-light-border="#6BAEE8" data-dark-border="#0C447C">
   <div class="callout-title" data-light-color="#0C447C" style="color:#0C447C" data-dark-color="#B5D4F4"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">💾</span> Your presentation is saved automatically</div>
   <div class="callout-body" data-light-color="#185FA5" style="color:#185FA5" data-dark-color="#85B7EB"><p>You don't need to click "Save." Gamma saves everything to your account as you work. You can come back later, make changes, or share it with someone directly from Gamma.</p>
 <p>When you're ready to take it elsewhere, you can export it — as a PowerPoint file, a Google Slides presentation, a PDF, or a set of images. Just click <strong>Share</strong> in the top right corner, then choose <strong>Export</strong>.</p></div>
 </div>
-<div class="callout" data-light-bg="#FAEEDA" style="background:#FAEEDA;border:2px solid #E8A020" data-dark-bg="#633806">
+<div class="callout" data-light-bg="#FAEEDA" style="background:#FAEEDA;border:2px solid #E8A020" data-dark-bg="#633806" data-light-border="#E8A020" data-dark-border="#633806">
   <div class="callout-title" data-light-color="#633806" style="color:#633806" data-dark-color="#FAC775"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">🧪</span> Try it now</div>
   <div class="callout-body" data-light-color="#854F0B" style="color:#854F0B" data-dark-color="#EF9F27"><div class="step-badge-row"><div class="step-badge" data-light-badge-bg="#854F0B" data-light-badge-color="#FAEEDA" data-dark-badge-bg="#EF9F27" data-dark-badge-color="#633806" style="background:#854F0B;color:#FAEEDA">1</div><span class="step-badge-title">Go to Gamma</span></div>
 <p>Open <a href="https://gamma.app/" target="_blank" style="color:var(--accent)">https://gamma.app</a> and sign in with your Gmail account. If it's your first time, Gamma will ask a few quick questions (personal use, team size, how you heard about them) — just pick whatever fits and move on.</p>
@@ -246,14 +246,15 @@ body.dark .jump-sec-label{border-color:#222220}
 <li style="margin-bottom:0.4rem;color:inherit">The basics of recycling at home</li>
 <li style="margin-bottom:0.4rem;color:inherit">Simple stretches to do at your desk</li>
 <li style="margin-bottom:0.4rem;color:inherit">How to teach kids good money habits</li>
-</ul></div>
+</ul>
+<div class="disclaimer">Screens and menus may look slightly different — that's normal. Just explore and you'll find your way. 😊</div></div>
 </div>
-<div class="callout" data-light-bg="#FAECE7" style="background:#FAECE7;border:2px solid #E8724A" data-dark-bg="#4A1B0C">
+<div class="callout" data-light-bg="#FAECE7" style="background:#FAECE7;border:2px solid #E8724A" data-dark-bg="#4A1B0C" data-light-border="#E8724A" data-dark-border="#4A1B0C">
   <div class="callout-title" data-light-color="#4A1B0C" style="color:#4A1B0C" data-dark-color="#F5C4B3"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">&#x1F440;</span> What to notice</div>
   <div class="callout-body" data-light-color="#712B13" style="color:#712B13" data-dark-color="#F0997B"><p>Look at the slide titles Gamma chose. You asked for a short introduction — notice how it created a logical flow on its own: a problem, a solution, benefits, practical tips, and a closing call to action.</p>
 <p>The "aha" here: <strong>you gave Gamma one sentence, and it made all the editorial decisions for you.</strong> That's the real time-saver — not just the design, but the thinking.</p></div>
 </div>
-<div class="callout" data-light-bg="#EEEDFE" style="background:#EEEDFE;border:2px solid #8880E8" data-dark-bg="#26215C">
+<div class="callout" data-light-bg="#EEEDFE" style="background:#EEEDFE;border:2px solid #8880E8" data-dark-bg="#26215C" data-light-border="#8880E8" data-dark-border="#26215C">
   <div class="callout-title" data-light-color="#26215C" style="color:#26215C" data-dark-color="#CECBF6"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">💡</span> Good to know</div>
   <div class="callout-body" data-light-color="#3C3489" style="color:#3C3489" data-dark-color="#AFA9EC"><p><strong>The free plan gives you 400 credits.</strong></p>
 <p>Each presentation uses some credits. 400 is enough to create several decks and explore the tool comfortably — no payment needed.</p>
@@ -266,7 +267,7 @@ body.dark .jump-sec-label{border-color:#222220}
 <p><strong>Gamma works in other languages too.</strong></p>
 <p>On the Generate screen, there's a language dropdown — set to English by default. You can switch it to your own language before generating, and Gamma will create the whole presentation in that language instead.</p></div>
 </div>
-<div class="callout" data-light-bg="#EAF3DE" style="background:#EAF3DE;border:2px solid #7BBF3A" data-dark-bg="#173404">
+<div class="callout" data-light-bg="#EAF3DE" style="background:#EAF3DE;border:2px solid #7BBF3A" data-dark-bg="#173404" data-light-border="#7BBF3A" data-dark-border="#173404">
   <div class="callout-title" data-light-color="#173404" style="color:#173404" data-dark-color="#C0DD97"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">✅</span> Beacon complete</div>
   <div class="callout-body" data-light-color="#27500A" style="color:#27500A" data-dark-color="#97C459"><p>You've just built a presentation from a single sentence. Design, images, structure — all done in minutes.</p>
 <p><strong>Up next — Beacon 25: Automate the boring stuff.</strong></p>
@@ -280,7 +281,6 @@ body.dark .jump-sec-label{border-color:#222220}
   </div>
 </div>
 <script>
-document.addEventListener('DOMContentLoaded',function(){applyCalloutColors();});
 const btn=document.getElementById('themeToggle');
 btn.addEventListener('click',()=>{
   document.body.classList.toggle('dark');
