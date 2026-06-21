@@ -192,7 +192,7 @@ body.dark .jump-sec-label{border-color:#222220}
 <ul style="padding-left:1.2rem;margin:0.5rem 0">
 <li >Upload notes or a transcript from any group meeting and let AI pull out the key points</li>
 <li >Use NotebookLM to summarise what was discussed</li>
-<li >Use Claude to turn those notes into clear action items</li>
+<li >Use an AI chatbot to turn those notes into clear action items</li>
 <li >Never leave a meeting wondering "wait, what did we agree on?"</li>
 </ul></div>
 </div>
@@ -207,7 +207,7 @@ body.dark .jump-sec-label{border-color:#222220}
   <div class="callout-body" data-light-color="#185FA5" style="color:#185FA5" data-dark-color="#85B7EB"><p>You sit through an hour-long staff meeting. People talk, decisions get made, someone volunteers for something. Then it's over — and a few days later, nobody's quite sure who was supposed to do what.</p>
 <p>Sound familiar?</p>
 <p>AI can help. Not by attending the meeting for you — but by reading your notes and doing the hard work of summarising them.</p>
-<p>Here's the workflow: you give your notes to NotebookLM, get a clean summary, then hand that to Claude to turn into a clear action list.</p>
+<p>Here's the workflow: you give your notes to NotebookLM, get a clean summary, then hand that to your AI chatbot to turn into a clear action list.</p>
 <p>Two tools, one smooth flow.</p></div>
 </div>
 <div class="callout" data-light-bg="#E6F1FB" style="background:#E6F1FB;border:2px solid #6BAEE8" data-dark-bg="#0C447C" data-light-border="#6BAEE8" data-dark-border="#0C447C">
@@ -257,9 +257,9 @@ Ms. Novak raised concerns about the playground rota. Mr. Flynn to check the sche
 <p>Once uploaded, ask NotebookLM to summarise the notes using this prompt:</p>
 <div class="prompt-wrap"><div class="prompt-topbar"><span class="prompt-topbar-label">Ready-made prompt — NotebookLM</span><button class="copy-btn" id="copyBtnb22-nlm" onclick="copyPrompt('b22-nlm')">Copy</button></div><div class="prompt-text" id="b22-nlm">Please give me a short summary of these meeting notes. What were the main topics discussed?</div></div>
 <p>Copy the summary NotebookLM gives you — you'll need it in the next step.</p>
-<div class="step-badge-row"><div class="step-badge" data-light-badge-bg="#854F0B" data-light-badge-color="#FAEEDA" data-dark-badge-bg="#EF9F27" data-dark-badge-color="#633806" style="background:#854F0B;color:#FAEEDA">2</div><span class="step-badge-title">Turn the summary into action items with Claude</span></div>
-<p>Open Claude (<a href="https://claude.ai/" target="_blank" style="color:var(--accent)">https://claude.ai</a>) and paste in both the summary and the original notes, then use this prompt:</p>
-<div class="prompt-wrap"><div class="prompt-topbar"><span class="prompt-topbar-label">Ready-made prompt — Claude</span><button class="copy-btn" id="copyBtnb22-claude" onclick="copyPrompt('b22-claude')">Copy</button></div><div class="prompt-text" id="b22-claude">Here are notes from a staff meeting, followed by a short summary. Please turn them into a clear action item list. For each action, include: who is responsible, what they need to do, and the deadline if one was mentioned.
+<div class="step-badge-row"><div class="step-badge" data-light-badge-bg="#854F0B" data-light-badge-color="#FAEEDA" data-dark-badge-bg="#EF9F27" data-dark-badge-color="#633806" style="background:#854F0B;color:#FAEEDA">2</div><span class="step-badge-title">Turn the summary into action items with your AI chatbot</span></div>
+<p>Open your preferred AI chatbot — ChatGPT, Claude, or Gemini — and paste in both the summary and the original notes, then use this prompt:</p>
+<div class="prompt-wrap"><div class="prompt-topbar"><span class="prompt-topbar-label">Ready-made prompt — AI chatbot</span><button class="copy-btn" id="copyBtnb22-claude" onclick="copyPrompt('b22-claude')">Copy</button></div><div class="prompt-text" id="b22-claude">Here are notes from a staff meeting, followed by a short summary. Please turn them into a clear action item list. For each action, include: who is responsible, what they need to do, and the deadline if one was mentioned.
 
 [Paste the original meeting notes here]
 
@@ -269,22 +269,22 @@ Ms. Novak raised concerns about the playground rota. Mr. Flynn to check the sche
 </div>
 <div class="callout" data-light-bg="#FAECE7" style="background:#FAECE7;border:2px solid #E8724A" data-dark-bg="#4A1B0C" data-light-border="#E8724A" data-dark-border="#4A1B0C">
   <div class="callout-title" data-light-color="#4A1B0C" style="color:#4A1B0C" data-dark-color="#F5C4B3"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">&#x1F440;</span> What to notice</div>
-  <div class="callout-body" data-light-color="#712B13" style="color:#712B13" data-dark-color="#F0997B"><p>Look at the action items Claude produced — specifically the structure it used.</p>
+  <div class="callout-body" data-light-color="#712B13" style="color:#712B13" data-dark-color="#F0997B"><p>Look at the action items your chatbot produced — specifically the structure it used.</p>
 <p>It didn't just list tasks randomly. It organised them by person, added the deadline where one was mentioned, and noted where follow-up is still needed.</p>
-<p>That's the insight: Claude isn't just copying information — it's reorganising it into a format that's actually useful. The same words, made actionable.</p></div>
+<p>That's the insight: the AI isn't just copying information — it's reorganising it into a format that's actually useful. The same words, made actionable.</p></div>
 </div>
 <div class="callout" data-light-bg="#EEEDFE" style="background:#EEEDFE;border:2px solid #8880E8" data-dark-bg="#26215C" data-light-border="#8880E8" data-dark-border="#26215C">
   <div class="callout-title" data-light-color="#26215C" style="color:#26215C" data-dark-color="#CECBF6"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">💡</span> Good to know</div>
   <div class="callout-body" data-light-color="#3C3489" style="color:#3C3489" data-dark-color="#AFA9EC"><p><strong>Do I need a recording?</strong></p>
 <p>No — typed notes or even rough bullet points work fine. The AI is good at making sense of imperfect input.</p>
 <p><strong>What if the notes are messy or incomplete?</strong></p>
-<p>That's fine. You can ask Claude to "clean up" rough notes first, then turn them into action items. It works surprisingly well even with gaps.</p>
+<p>That's fine. You can ask your chatbot to "clean up" rough notes first, then turn them into action items. It works surprisingly well even with gaps.</p>
 <p><strong>Can I use this for other types of meetings?</strong></p>
 <p>Absolutely — parent evenings, committee meetings, community groups, book clubs. Anywhere people meet and decisions get made, this workflow helps.</p>
 <p><strong>Does NotebookLM store my data?</strong></p>
 <p>Your notebooks are private and stored in your Google account. You can delete them any time.</p>
 <p><strong>Why do we paste both the notes and the summary?</strong></p>
-<p>The summary from NotebookLM gives a good overview, but it sometimes leaves out names. By including the original notes too, Claude has everything it needs to assign tasks to the right people.</p></div>
+<p>The summary from NotebookLM gives a good overview, but it sometimes leaves out names. By including the original notes too, your chatbot has everything it needs to assign tasks to the right people.</p></div>
 </div>
 <div class="callout" data-light-bg="#EAF3DE" style="background:#EAF3DE;border:2px solid #7BBF3A" data-dark-bg="#173404" data-light-border="#7BBF3A" data-dark-border="#173404">
   <div class="callout-title" data-light-color="#173404" style="color:#173404" data-dark-color="#C0DD97"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">✅</span> Beacon complete</div>
