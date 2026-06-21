@@ -88,8 +88,8 @@ body.dark::after{background-image:linear-gradient(to right,rgba(255,255,255,0.01
 .bn-prev.disabled{opacity:0.3;pointer-events:none}
 .bn-next{display:flex;align-items:center;gap:0.6rem;padding:0.6rem 1.2rem;background:var(--accent);border:2px solid var(--accent);border-radius:999px;text-decoration:none;font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;color:#fff;font-weight:600;transition:opacity 0.2s}
 .bn-next:hover{opacity:0.85}
-.step-badge-row{display:flex;align-items:center;gap:10px;margin:1.1rem 0 0.5rem}
-.step-badge{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.72rem;font-weight:700;flex-shrink:0;font-family:'Instrument Sans',sans-serif}
+.step-badge-row{display:flex;align-items:flex-start;gap:10px;margin:1.1rem 0 0.5rem}
+.step-badge{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.72rem;font-weight:700;flex-shrink:0;font-family:'Instrument Sans',sans-serif;margin-top:0.2rem}
 .step-badge-title{font-weight:700;font-size:0.97rem}
 
 .prog-label{cursor:pointer;user-select:none;transition:color 0.15s}
@@ -185,24 +185,24 @@ body.dark .jump-sec-label{border-color:#222220}
     </div>
     <div class="hero-bignum" aria-hidden="true">23</div>
   </div>
-  <div class="callout" data-light-bg="#F1EFE8" style="background:#F1EFE8;border:2px solid #B8B4A8" data-dark-bg="#444441">
+  <div class="callout" data-light-bg="#F1EFE8" data-light-border="#B8B4A8" style="background:#F1EFE8;border:2px solid #B8B4A8" data-dark-bg="#444441" data-dark-border="#444441">
   <div class="callout-title" data-light-color="#2C2C2A" style="color:#2C2C2A" data-dark-color="#D3D1C7"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">🎯</span> What you'll learn</div>
   <div class="callout-body" data-light-color="#444441" style="color:#444441" data-dark-color="#B4B2A9"><p>By the end of this Beacon, you'll know how to use AI as a real personal assistant — not just for one-off questions, but as part of a simple daily routine. You'll see how to get a morning briefing, plan your day, and set yourself up for a calmer, more organised week.</p></div>
 </div>
-<div class="callout" data-light-bg="#E6F1FB" style="background:#E6F1FB;border:2px solid #6BAEE8" data-dark-bg="#0C447C">
+<div class="callout" data-light-bg="#E6F1FB" data-light-border="#6BAEE8" style="background:#E6F1FB;border:2px solid #6BAEE8" data-dark-bg="#0C447C" data-dark-border="#0C447C">
   <div class="callout-title" data-light-color="#0C447C" style="color:#0C447C" data-dark-color="#B5D4F4"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">🧠</span> AI as a daily habit</div>
   <div class="callout-body" data-light-color="#185FA5" style="color:#185FA5" data-dark-color="#85B7EB"><p>You've learned a lot in this course. You can write emails, summarise documents, make images, and edit videos. But here's the thing most people miss: AI becomes truly useful when you use it <em>regularly</em>, not just occasionally.</p>
 <p>Think of it like a coffee machine. Having one is nice. But the real value comes from making it part of your morning.</p>
 <p>This Beacon is about building that habit — starting small, keeping it easy, and making AI feel like a natural part of your day.</p></div>
 </div>
-<div class="callout" data-light-bg="#E6F1FB" style="background:#E6F1FB;border:2px solid #6BAEE8" data-dark-bg="#0C447C">
+<div class="callout" data-light-bg="#E6F1FB" data-light-border="#6BAEE8" style="background:#E6F1FB;border:2px solid #6BAEE8" data-dark-bg="#0C447C" data-dark-border="#0C447C">
   <div class="callout-title" data-light-color="#0C447C" style="color:#0C447C" data-dark-color="#B5D4F4"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">📅</span> The morning briefing</div>
   <div class="callout-body" data-light-color="#185FA5" style="color:#185FA5" data-dark-color="#85B7EB"><p>One of the simplest and most powerful AI habits is the <strong>morning check-in</strong>. Instead of starting your day scattered, you open Claude, ChatGPT, or Gemini and ask:</p>
 <p style="font-style:italic;border-left:3px solid var(--accent);padding-left:1rem;margin:0.8rem 0;color:#555"><em>"Help me plan my day. I have a team meeting at 10am, a report to finish by Friday, and I want to leave early today. What should I focus on first?"</em></p>
 <p>That's it. You get a calm, clear starting point for the day — in under a minute.</p>
 <p>You don't need to install anything. You don't need a special plan. You just need to make it a habit.</p></div>
 </div>
-<div class="callout" data-light-bg="#E6F1FB" style="background:#E6F1FB;border:2px solid #6BAEE8" data-dark-bg="#0C447C">
+<div class="callout" data-light-bg="#E6F1FB" data-light-border="#6BAEE8" style="background:#E6F1FB;border:2px solid #6BAEE8" data-dark-bg="#0C447C" data-dark-border="#0C447C">
   <div class="callout-title" data-light-color="#0C447C" style="color:#0C447C" data-dark-color="#B5D4F4"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">📝</span> Adapting to what you need</div>
   <div class="callout-body" data-light-color="#185FA5" style="color:#185FA5" data-dark-color="#85B7EB"><p>The beauty of using Claude, ChatGPT, or Gemini as a personal assistant is that you can change what you ask — every single day.</p>
 <p>Some days you need to think through a problem:</p>
@@ -213,14 +213,14 @@ body.dark .jump-sec-label{border-color:#222220}
 <p style="font-style:italic;border-left:3px solid var(--accent);padding-left:1rem;margin:0.8rem 0;color:#555"><em>"I wrote this message to a client. Does it sound professional?"</em></p>
 <p>There's no fixed formula. The best personal assistant adapts to you — and so does AI.</p></div>
 </div>
-<div class="callout" data-light-bg="#E6F1FB" style="background:#E6F1FB;border:2px solid #6BAEE8" data-dark-bg="#0C447C">
+<div class="callout" data-light-bg="#E6F1FB" data-light-border="#6BAEE8" style="background:#E6F1FB;border:2px solid #6BAEE8" data-dark-bg="#0C447C" data-dark-border="#0C447C">
   <div class="callout-title" data-light-color="#0C447C" style="color:#0C447C" data-dark-color="#B5D4F4"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">🔁</span> The weekly reset</div>
   <div class="callout-body" data-light-color="#185FA5" style="color:#185FA5" data-dark-color="#85B7EB"><p>Another habit worth building: the <strong>end-of-week reset</strong>.</p>
 <p>On Friday afternoon (or Sunday evening), take 5 minutes and ask:</p>
 <p style="font-style:italic;border-left:3px solid var(--accent);padding-left:1rem;margin:0.8rem 0;color:#555"><em>"Here's what I got done this week: [list]. And here's what's coming up next week: [list]. Help me think about priorities and anything I might be forgetting."</em></p>
 <p>This isn't about productivity pressure. It's about starting the next week with a clear head instead of a foggy one.</p></div>
 </div>
-<div class="callout" data-light-bg="#FAEEDA" style="background:#FAEEDA;border:2px solid #E8A020" data-dark-bg="#633806">
+<div class="callout" data-light-bg="#FAEEDA" data-light-border="#E8A020" style="background:#FAEEDA;border:2px solid #E8A020" data-dark-bg="#633806" data-dark-border="#633806">
   <div class="callout-title" data-light-color="#633806" style="color:#633806" data-dark-color="#FAC775"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">🧪</span> Try it now</div>
   <div class="callout-body" data-light-color="#854F0B" style="color:#854F0B" data-dark-color="#EF9F27"><p>Let's build your first AI morning routine — right now.</p>
 <div class="step-badge-row"><div class="step-badge" data-light-badge-bg="#854F0B" data-light-badge-color="#FAEEDA" data-dark-badge-bg="#EF9F27" data-dark-badge-color="#633806" style="background:#854F0B;color:#FAEEDA">1</div><span class="step-badge-title">Open Claude (<a href="https://claude.ai/" target="_blank" style="color:var(--accent)">https://claude.ai</a>) and paste this prompt:</span></div>
@@ -250,13 +250,13 @@ I also want to make sure I take a short break at some point. Help me plan my mor
 <li style="margin-bottom:0.4rem">Think through a decision you've been avoiding</li>
 </ul></div>
 </div>
-<div class="callout" data-light-bg="#FAECE7" style="background:#FAECE7;border:2px solid #E8724A" data-dark-bg="#4A1B0C">
+<div class="callout" data-light-bg="#FAECE7" data-light-border="#E8724A" style="background:#FAECE7;border:2px solid #E8724A" data-dark-bg="#4A1B0C" data-dark-border="#4A1B0C">
   <div class="callout-title" data-light-color="#4A1B0C" style="color:#4A1B0C" data-dark-color="#F5C4B3"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">&#x1F440;</span> What to notice</div>
   <div class="callout-body" data-light-color="#712B13" style="color:#712B13" data-dark-color="#F0997B"><p>After Steps 2 and 3, look at all three responses side by side.</p>
 <p>Notice whether one breaks your day into time blocks, while another gives a simple list — or one asks a follow-up question before diving in.</p>
 <p>The "aha" here: <strong>these are three different AI personalities</strong>. Same question, different instincts. None of them is wrong — but one might just click better with how <em>you</em> think.</p></div>
 </div>
-<div class="callout" data-light-bg="#EEEDFE" style="background:#EEEDFE;border:2px solid #8880E8" data-dark-bg="#26215C">
+<div class="callout" data-light-bg="#EEEDFE" data-light-border="#8880E8" style="background:#EEEDFE;border:2px solid #8880E8" data-dark-bg="#26215C" data-dark-border="#26215C">
   <div class="callout-title" data-light-color="#26215C" style="color:#26215C" data-dark-color="#CECBF6"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">💡</span> Good to know</div>
   <div class="callout-body" data-light-color="#3C3489" style="color:#3C3489" data-dark-color="#AFA9EC"><p><strong>You don't need to remember anything between sessions.</strong></p>
 <p>Claude, ChatGPT, and Gemini don't keep your history by default — each conversation starts fresh. That's actually fine for a daily routine. Think of it as a clean slate every morning.</p>
