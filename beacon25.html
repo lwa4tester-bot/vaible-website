@@ -88,8 +88,8 @@ body.dark::after{background-image:linear-gradient(to right,rgba(255,255,255,0.01
 .bn-prev.disabled{opacity:0.3;pointer-events:none}
 .bn-next{display:flex;align-items:center;gap:0.6rem;padding:0.6rem 1.2rem;background:var(--accent);border:2px solid var(--accent);border-radius:999px;text-decoration:none;font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;color:#fff;font-weight:600;transition:opacity 0.2s}
 .bn-next:hover{opacity:0.85}
-.step-badge-row{display:flex;align-items:center;gap:10px;margin:1.1rem 0 0.5rem}
-.step-badge{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.72rem;font-weight:700;flex-shrink:0;font-family:'Instrument Sans',sans-serif}
+.step-badge-row{display:flex;align-items:flex-start;gap:10px;margin:1.1rem 0 0.5rem}
+.step-badge{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.72rem;font-weight:700;flex-shrink:0;font-family:'Instrument Sans',sans-serif;margin-top:0.2rem}
 .step-badge-title{font-weight:700;font-size:0.97rem}
 
 .prog-label{cursor:pointer;user-select:none;transition:color 0.15s}
@@ -185,13 +185,13 @@ body.dark .jump-sec-label{border-color:#222220}
     </div>
     <div class="hero-bignum" aria-hidden="true">25</div>
   </div>
-  <div class="callout" data-light-bg="#F1EFE8" style="background:#F1EFE8;border:2px solid #B8B4A8" data-dark-bg="#444441">
+  <div class="callout" data-light-bg="#F1EFE8" style="background:#F1EFE8;border:2px solid #B8B4A8" data-dark-bg="#444441" data-light-border="#B8B4A8" data-dark-border="#444441">
   <div class="callout-title" data-light-color="#2C2C2A" style="color:#2C2C2A" data-dark-color="#D3D1C7"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">🎯</span> What you'll learn</div>
   <div class="callout-body" data-light-color="#444441" style="color:#444441" data-dark-color="#B4B2A9"><p>In this Beacon, you'll discover what automation actually means — and build your first one.</p>
 <p>You'll use a tool called <a href="http://make.com/" target="_blank" style="color:var(--accent)">Make.com</a> to create a simple "if this happens, do that" rule — without writing a single line of code.</p>
 <p>By the end, you'll have your very first automated workflow running in the real world.</p></div>
 </div>
-<div class="callout" data-light-bg="#FBE8F0" style="background:#FBE8F0;border:2px solid #E060A0" data-dark-bg="#5C0E33">
+<div class="callout" data-light-bg="#FBE8F0" style="background:#FBE8F0;border:2px solid #E060A0" data-dark-bg="#5C0E33" data-light-border="#E060A0" data-dark-border="#5C0E33">
   <div class="callout-title" data-light-color="#5C0E33" style="color:#5C0E33" data-dark-color="#F5BBD6"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">🛠️</span> Meet the tool</div>
   <div class="callout-body" data-light-color="#8F1B52" style="color:#8F1B52" data-dark-color="#EE8FBC"><p><strong>Make.com</strong> is a visual automation platform. Instead of writing code, you drag and drop blocks to connect apps and create rules.</p>
 <p>The idea is simple: <em>when something happens in one place, Make does something in another place — automatically.</em></p>
@@ -206,7 +206,7 @@ body.dark .jump-sec-label{border-color:#222220}
 <p>On the sign-up page, click <strong>Sign up with Google</strong> and follow the steps — you'll enter your name and country, then click <strong>Sign up for free</strong>.</p>
 <p>Make will then ask you a few questions about yourself — just pick the options that feel right and continue. At the end, click <strong>Get started</strong>.</p></div>
 </div>
-<div class="callout" data-light-bg="#E6F1FB" style="background:#E6F1FB;border:2px solid #6BAEE8" data-dark-bg="#0C447C">
+<div class="callout" data-light-bg="#E6F1FB" style="background:#E6F1FB;border:2px solid #6BAEE8" data-dark-bg="#0C447C" data-light-border="#6BAEE8" data-dark-border="#0C447C">
   <div class="callout-title" data-light-color="#0C447C" style="color:#0C447C" data-dark-color="#B5D4F4"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">⚙️</span> What is a scenario?</div>
   <div class="callout-body" data-light-color="#185FA5" style="color:#185FA5" data-dark-color="#85B7EB"><p>In Make.com, your automation is called a <strong>scenario</strong>.</p>
 <p>A scenario has two parts:</p>
@@ -217,16 +217,16 @@ body.dark .jump-sec-label{border-color:#222220}
 <p>That's it. Trigger → Action. If this, then that.</p>
 <p>Every time the trigger fires, Make runs the action automatically — even if you're not at your computer.</p></div>
 </div>
-<div class="callout" data-light-bg="#E6F1FB" style="background:#E6F1FB;border:2px solid #6BAEE8" data-dark-bg="#0C447C">
+<div class="callout" data-light-bg="#E6F1FB" style="background:#E6F1FB;border:2px solid #6BAEE8" data-dark-bg="#0C447C" data-light-border="#6BAEE8" data-dark-border="#0C447C">
   <div class="callout-title" data-light-color="#0C447C" style="color:#0C447C" data-dark-color="#B5D4F4"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">📦</span> How Make.com counts usage</div>
   <div class="callout-body" data-light-color="#185FA5" style="color:#185FA5" data-dark-color="#85B7EB"><p>Make.com's free plan gives you <strong>1,000 operations per month</strong>.</p>
 <p>An operation is one step in your scenario. So a trigger + one action = 2 operations per run.</p>
 <p>For a simple automation that runs once a day, 1,000 operations is plenty of room to explore.</p>
 <p>You also get <strong>2 active scenarios</strong> on the free plan — more than enough to get started.</p></div>
 </div>
-<div class="callout" data-light-bg="#FAEEDA" style="background:#FAEEDA;border:2px solid #E8A020" data-dark-bg="#633806">
+<div class="callout" data-light-bg="#FAEEDA" style="background:#FAEEDA;border:2px solid #E8A020" data-dark-bg="#633806" data-light-border="#E8A020" data-dark-border="#633806">
   <div class="callout-title" data-light-color="#633806" style="color:#633806" data-dark-color="#FAC775"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">🧪</span> Try it now</div>
-  <div class="callout-body" data-light-color="#854F0B" style="color:#854F0B" data-dark-color="#EF9F27"><p class="disclaimer">Screens and menus may look slightly different — that's normal. Just explore and you'll find your way. 😊</p>
+  <div class="callout-body" data-light-color="#854F0B" style="color:#854F0B" data-dark-color="#EF9F27">
 <p>You're going to build a real automation. When you add a row to a Google Sheet, Make will send you a confirmation email.</p>
 <div class="step-badge-row"><div class="step-badge" data-light-badge-bg="#854F0B" data-light-badge-color="#FAEEDA" data-dark-badge-bg="#EF9F27" data-dark-badge-color="#633806" style="background:#854F0B;color:#FAEEDA">1</div><span class="step-badge-title">Set up your Google Sheet</span></div>
 <p>Open Google Sheets (sheets.google.com) and create a new blank spreadsheet. Name it <strong>"My Automation Test"</strong>.</p>
@@ -256,15 +256,16 @@ body.dark .jump-sec-label{border-color:#222220}
 <li style="margin-bottom:0.4rem;color:inherit">Click <strong>Save</strong></li>
 <li style="margin-bottom:0.4rem;color:inherit">Click <strong>Run once</strong> (bottom left), then switch to your Google Sheet and add a new row: <code style="background:var(--off);padding:0.1em 0.4em;border-radius:3px;font-size:0.85em">Buy groceries | Pending | Today</code></li>
 <li style="margin-bottom:0.4rem;color:inherit">Check your inbox — the email should arrive within a minute! 📬</li>
-</ol></div>
+</ol>
+<p class="disclaimer">Screens and menus may look slightly different — that's normal. Just explore and you'll find your way. 😊</p></div>
 </div>
-<div class="callout" data-light-bg="#FAECE7" style="background:#FAECE7;border:2px solid #E8724A" data-dark-bg="#4A1B0C">
+<div class="callout" data-light-bg="#FAECE7" style="background:#FAECE7;border:2px solid #E8724A" data-dark-bg="#4A1B0C" data-light-border="#E8724A" data-dark-border="#4A1B0C">
   <div class="callout-title" data-light-color="#4A1B0C" style="color:#4A1B0C" data-dark-color="#F5C4B3"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">&#x1F440;</span> What to notice</div>
   <div class="callout-body" data-light-color="#712B13" style="color:#712B13" data-dark-color="#F0997B"><p>After the scenario runs, look at the two blocks on the canvas. Each one now has a small <strong>✓1</strong> badge at the top — that means one item passed through each step successfully.</p>
 <p>Click on either badge to see exactly what data Make processed.</p>
 <p>That's the moment it clicks: <em>Make didn't just run your code — it read a real row from a real spreadsheet and sent a real email. You built something that works.</em></p></div>
 </div>
-<div class="callout" data-light-bg="#EEEDFE" style="background:#EEEDFE;border:2px solid #8880E8" data-dark-bg="#26215C">
+<div class="callout" data-light-bg="#EEEDFE" style="background:#EEEDFE;border:2px solid #8880E8" data-dark-bg="#26215C" data-light-border="#8880E8" data-dark-border="#26215C">
   <div class="callout-title" data-light-color="#26215C" style="color:#26215C" data-dark-color="#CECBF6"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">💡</span> Good to know</div>
   <div class="callout-body" data-light-color="#3C3489" style="color:#3C3489" data-dark-color="#AFA9EC"><p><strong>Make runs on a schedule, not instantly.</strong></p>
 <p>On the free plan, your scenario checks for new rows every <strong>15 minutes</strong> when running automatically. The <strong>Run once</strong> button bypasses this — great for testing.</p>
@@ -277,7 +278,7 @@ body.dark .jump-sec-label{border-color:#222220}
 <p><strong>Automation isn't just for tech people.</strong></p>
 <p>The whole point of Make is that anyone can build workflows. If you can describe a rule in plain English — "when this happens, do that" — you can build it here.</p></div>
 </div>
-<div class="callout" data-light-bg="#EAF3DE" style="background:#EAF3DE;border:2px solid #7BBF3A" data-dark-bg="#173404">
+<div class="callout" data-light-bg="#EAF3DE" style="background:#EAF3DE;border:2px solid #7BBF3A" data-dark-bg="#173404" data-light-border="#7BBF3A" data-dark-border="#173404">
   <div class="callout-title" data-light-color="#173404" style="color:#173404" data-dark-color="#C0DD97"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">✅</span> Beacon complete</div>
   <div class="callout-body" data-light-color="#27500A" style="color:#27500A" data-dark-color="#97C459"><p>You just built your first real automation. No code. No IT department. Just a trigger, an action, and a rule that works while you sleep.</p>
 <p><strong>Up next → Beacon 26: Build without code</strong></p>
