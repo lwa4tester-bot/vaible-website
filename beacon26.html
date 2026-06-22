@@ -88,8 +88,8 @@ body.dark::after{background-image:linear-gradient(to right,rgba(255,255,255,0.01
 .bn-prev.disabled{opacity:0.3;pointer-events:none}
 .bn-next{display:flex;align-items:center;gap:0.6rem;padding:0.6rem 1.2rem;background:var(--accent);border:2px solid var(--accent);border-radius:999px;text-decoration:none;font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;color:#fff;font-weight:600;transition:opacity 0.2s}
 .bn-next:hover{opacity:0.85}
-.step-badge-row{display:flex;align-items:center;gap:10px;margin:1.1rem 0 0.5rem}
-.step-badge{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.72rem;font-weight:700;flex-shrink:0;font-family:'Instrument Sans',sans-serif}
+.step-badge-row{display:flex;align-items:flex-start;gap:10px;margin:1.1rem 0 0.5rem}
+.step-badge{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.72rem;font-weight:700;flex-shrink:0;font-family:'Instrument Sans',sans-serif;margin-top:0.2rem}
 .step-badge-title{font-weight:700;font-size:0.97rem}
 
 .prog-label{cursor:pointer;user-select:none;transition:color 0.15s}
@@ -200,10 +200,9 @@ body.dark .jump-sec-label{border-color:#222220}
 <p>Sign up for free — no credit card needed.</p>
 <p><strong>A few things to know about the free plan:</strong></p>
 <ul style="padding-left:1.2rem;margin:0.5rem 0">
-<li style="margin-bottom:0.4rem;">You get <strong>5 credits per day</strong> (about 30 per month)</li>
+<li style="margin-bottom:0.4rem;">You get a limited number of free credits each day — more than enough for this Beacon</li>
 <li style="margin-bottom:0.4rem;">Each message you send uses roughly 1 credit</li>
 <li style="margin-bottom:0.4rem;">Your app will be published at a public link (a lovable.app address)</li>
-<li style="margin-bottom:0.4rem;">That's more than enough for this Beacon</li>
 </ul></div>
 </div>
 <div class="callout" data-light-bg="#FAEEDA" style="background:#FAEEDA;border:2px solid #E8A020" data-dark-bg="#633806">
@@ -238,7 +237,8 @@ body.dark .jump-sec-label{border-color:#222220}
 <div class="prompt-wrap">
 <div class="prompt-topbar"><span class="prompt-topbar-label">Ready-made prompt</span><button class="copy-btn" id="copyBtnp3" onclick="copyPrompt('p3')">Copy</button></div>
 <div class="prompt-text" id="p3">Add a fourth habit: "No phone before breakfast."</div>
-</div><p>Lovable will update the app instantly.</p></div>
+</div><p>Lovable will update the app instantly.</p>
+<p class="disclaimer">⚠️ Screens and menus may look slightly different — that's normal. Just explore and you'll find your way. 😊</p></div>
 </div>
 <div class="callout" data-light-bg="#FAECE7" style="background:#FAECE7;border:2px solid #E8724A" data-dark-bg="#4A1B0C">
   <div class="callout-title" data-light-color="#4A1B0C" style="color:#4A1B0C" data-dark-color="#F5C4B3"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">&#x1F440;</span> What to notice</div>
@@ -249,11 +249,11 @@ body.dark .jump-sec-label{border-color:#222220}
 <div class="callout" data-light-bg="#EEEDFE" style="background:#EEEDFE;border:2px solid #8880E8" data-dark-bg="#26215C">
   <div class="callout-title" data-light-color="#26215C" style="color:#26215C" data-dark-color="#CECBF6"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">💡</span> Good to know</div>
   <div class="callout-body" data-light-color="#3C3489" style="color:#3C3489" data-dark-color="#AFA9EC"><p><strong>About the free plan credits:</strong></p>
-<p>Each message you send uses roughly one credit. You have 5 per day — so plan your prompts thoughtfully. One well-written prompt is usually better than five quick ones.</p>
+<p>Each message you send uses roughly one credit. You have a limited number of free credits each day — so plan your prompts thoughtfully. One well-written prompt is usually better than five quick ones.</p>
 <p><strong>Your app has a real link:</strong></p>
 <p>Lovable publishes your app online automatically. The address will look something like <em>yourproject.lovable.app</em>. You can share it with anyone — they can open it in a browser, no download needed.</p>
 <p><strong>You can always keep editing:</strong></p>
-<p>Come back tomorrow with fresh credits and keep refining. You might add more habits, change the colours, or try a completely different app idea.</p>
+<p>Come back when your credits refresh and keep refining. You might add more habits, change the colours, or try a completely different app idea.</p>
 <p><strong>Some ideas if you want to try another app:</strong></p>
 <ul style="padding-left:1.2rem;margin:0.5rem 0">
 <li style="margin-bottom:0.4rem;">A simple recipe card with ingredients and steps</li>
@@ -272,8 +272,9 @@ body.dark .jump-sec-label{border-color:#222220}
 <p>That's not a small thing. Not long ago, this would have taken a developer days to create. You did it in minutes, with a sentence.</p>
 <p><strong>Next up → Beacon 27: AI agents unleashed</strong></p>
 <p>You've used AI to create content, images, music, video, automations, and now apps. In the next Beacon, we look at something a little different — AI that can <em>take action</em> on your behalf. What is an AI agent, and what can it actually do?</p>
-<p>No rush. Come back whenever you're ready. 🙂</p></div>
 </div>
+</div>
+<p class="no-rush">No rush. Come back whenever you're ready. 🙂</p>
   <div class="beacon-nav">
     <a href="beacon25.html" class="bn-prev">← Beacon 25</a>
     <a href="beacon27.html" class="bn-next">Beacon 27 →</a>
