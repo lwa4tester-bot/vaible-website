@@ -88,8 +88,8 @@ body.dark::after{background-image:linear-gradient(to right,rgba(255,255,255,0.01
 .bn-prev.disabled{opacity:0.3;pointer-events:none}
 .bn-next{display:flex;align-items:center;gap:0.6rem;padding:0.6rem 1.2rem;background:var(--accent);border:2px solid var(--accent);border-radius:999px;text-decoration:none;font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;color:#fff;font-weight:600;transition:opacity 0.2s}
 .bn-next:hover{opacity:0.85}
-.step-badge-row{display:flex;align-items:center;gap:10px;margin:1.1rem 0 0.5rem}
-.step-badge{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.72rem;font-weight:700;flex-shrink:0;font-family:'Instrument Sans',sans-serif}
+.step-badge-row{display:flex;align-items:flex-start;gap:10px;margin:1.1rem 0 0.5rem}
+.step-badge{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.72rem;font-weight:700;flex-shrink:0;font-family:'Instrument Sans',sans-serif;margin-top:0.2rem}
 .step-badge-title{font-weight:700;font-size:0.97rem}
 
 .prog-label{cursor:pointer;user-select:none;transition:color 0.15s}
@@ -185,7 +185,7 @@ body.dark .jump-sec-label{border-color:#222220}
     </div>
     <div class="hero-bignum" aria-hidden="true">29</div>
   </div>
-  <div class="callout" data-light-bg="#F1EFE8" style="background:#F1EFE8;border:2px solid #B8B4A8" data-dark-bg="#444441">
+  <div class="callout" data-light-bg="#F1EFE8" style="background:#F1EFE8;border:2px solid #B8B4A8" data-dark-bg="#444441" data-light-border="#B8B4A8" data-dark-border="#6E6C66">
   <div class="callout-title" data-light-color="#2C2C2A" style="color:#2C2C2A" data-dark-color="#D3D1C7"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">🎯</span> What you'll learn</div>
   <div class="callout-body" data-light-color="#444441" style="color:#444441" data-dark-color="#B4B2A9"><p>In this Beacon, you won't learn a new tool.</p>
 <p>You already have everything you need.</p>
@@ -193,7 +193,7 @@ body.dark .jump-sec-label{border-color:#222220}
 <p>You'll take one small, real-life project — and use the tools you've met throughout this course to bring it to life, step by step.</p>
 <p>By the end, you'll see how AI tools don't just work alone — they work <em>together</em>.</p></div>
 </div>
-<div class="callout" data-light-bg="#E6F1FB" style="background:#E6F1FB;border:2px solid #6BAEE8" data-dark-bg="#0C447C">
+<div class="callout" data-light-bg="#E6F1FB" style="background:#E6F1FB;border:2px solid #6BAEE8" data-dark-bg="#0C447C" data-light-border="#6BAEE8" data-dark-border="#3A7EC0">
   <div class="callout-title" data-light-color="#0C447C" style="color:#0C447C" data-dark-color="#B5D4F4"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">📌</span> What kind of project?</div>
   <div class="callout-body" data-light-color="#185FA5" style="color:#185FA5" data-dark-color="#85B7EB"><p>Imagine you want to create a short personal newsletter — something you could send to friends, share online, or just keep for yourself.</p>
 <p>Here's what goes into it:</p>
@@ -204,7 +204,7 @@ body.dark .jump-sec-label{border-color:#222220}
 </ul>
 <p>That's three tools. Three skills. One project.</p></div>
 </div>
-<div class="callout" data-light-bg="#E6F1FB" style="background:#E6F1FB;border:2px solid #6BAEE8" data-dark-bg="#0C447C">
+<div class="callout" data-light-bg="#E6F1FB" style="background:#E6F1FB;border:2px solid #6BAEE8" data-dark-bg="#0C447C" data-light-border="#6BAEE8" data-dark-border="#3A7EC0">
   <div class="callout-title" data-light-color="#0C447C" style="color:#0C447C" data-dark-color="#B5D4F4"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">📌</span> The tools you'll use</div>
   <div class="callout-body" data-light-color="#185FA5" style="color:#185FA5" data-dark-color="#85B7EB"><p>You've already met all of them:</p>
 <p><strong>✍️ Text</strong> → Gemini, ChatGPT or Claude</p>
@@ -212,7 +212,7 @@ body.dark .jump-sec-label{border-color:#222220}
 <p><strong>🔊 Audio</strong> → ElevenLabs</p>
 <p>No new sign-ups. No new interfaces. Just tools you already know.</p></div>
 </div>
-<div class="callout" data-light-bg="#FAEEDA" style="background:#FAEEDA;border:2px solid #E8A020" data-dark-bg="#633806">
+<div class="callout" data-light-bg="#FAEEDA" style="background:#FAEEDA;border:2px solid #E8A020" data-dark-bg="#633806" data-light-border="#E8A020" data-dark-border="#B87010">
   <div class="callout-title" data-light-color="#633806" style="color:#633806" data-dark-color="#FAC775"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">🧪</span> Try it now</div>
   <div class="callout-body" data-light-color="#854F0B" style="color:#854F0B" data-dark-color="#EF9F27"><p>You'll build your mini-newsletter in three steps. Take your time — there's no rush.</p>
 <div class="step-badge-row"><div class="step-badge" data-light-badge-bg="#854F0B" data-light-badge-color="#FAEEDA" data-dark-badge-bg="#EF9F27" data-dark-badge-color="#633806" style="background:#854F0B;color:#FAEEDA">1</div><span class="step-badge-title">Write your intro</span></div>
@@ -239,16 +239,16 @@ body.dark .jump-sec-label{border-color:#222220}
 <div class="prompt-topbar"><span class="prompt-topbar-label">Ready-made prompt</span><button class="copy-btn" id="copyBtnp2" onclick="copyPrompt('p2')">Copy</button></div>
 <div class="prompt-text" id="p2">A warm, editorial-style illustration for a personal newsletter about [your topic]. Soft colors, cozy atmosphere, no text.</div>
 </div>
-      <p class="disclaimer">Screens and menus may look slightly different — that's normal. Just explore and you'll find your way. 😊</p>
 <p>Download the image when you're happy with it.</p>
 <div class="step-badge-row"><div class="step-badge" data-light-badge-bg="#854F0B" data-light-badge-color="#FAEEDA" data-dark-badge-bg="#EF9F27" data-dark-badge-color="#633806" style="background:#854F0B;color:#FAEEDA">3</div><span class="step-badge-title">Record your audio intro (ElevenLabs)</span></div>
 <p>Go to <a href="https://elevenlabs.io/" target="_blank" style="color:var(--accent)"><strong>https://elevenlabs.io</strong></a></p>
 <p>Paste the text you got from Step 1 into the text box.</p>
 <p>Choose a voice you like, then click <strong>Generate</strong>.</p>
 <p>Listen back. Does it sound like something you'd actually want to hear?</p>
-<p>If yes — you're done. ✅</p></div>
+<p>If yes — you're done. ✅</p>
+      <p class="disclaimer">Screens and menus may look slightly different — that's normal. Just explore and you'll find your way. 😊</p></div>
 </div>
-<div class="callout" data-light-bg="#FAECE7" style="background:#FAECE7;border:2px solid #E8724A" data-dark-bg="#4A1B0C">
+<div class="callout" data-light-bg="#FAECE7" style="background:#FAECE7;border:2px solid #E8724A" data-dark-bg="#4A1B0C" data-light-border="#E8724A" data-dark-border="#B84A20">
   <div class="callout-title" data-light-color="#4A1B0C" style="color:#4A1B0C" data-dark-color="#F5C4B3"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">&#x1F440;</span> What to notice</div>
   <div class="callout-body" data-light-color="#712B13" style="color:#712B13" data-dark-color="#F0997B"><p>Look at what you just made.</p>
 <p>You started with an idea — and ended up with a piece of writing, a visual, and a voice.</p>
@@ -256,13 +256,13 @@ body.dark .jump-sec-label{border-color:#222220}
 <p>Notice how the tools didn't fight each other — the text fed the audio, the topic shaped the image. That's not a coincidence. That's what it looks like when you're in control.</p>
 <p>The bigger insight: <strong>you were the creative director the whole time.</strong></p></div>
 </div>
-<div class="callout" data-light-bg="#EEEDFE" style="background:#EEEDFE;border:2px solid #8880E8" data-dark-bg="#26215C">
+<div class="callout" data-light-bg="#EEEDFE" style="background:#EEEDFE;border:2px solid #8880E8" data-dark-bg="#26215C" data-light-border="#8880E8" data-dark-border="#5850C0">
   <div class="callout-title" data-light-color="#26215C" style="color:#26215C" data-dark-color="#CECBF6"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">💡</span> Good to know</div>
   <div class="callout-body" data-light-color="#3C3489" style="color:#3C3489" data-dark-color="#AFA9EC"><p>This kind of "AI workflow" — where one tool's output becomes another tool's input — is how a lot of real creative work gets done today.</p>
 <p>You don't need to use every tool every time. Some projects only need one. Some need three.</p>
 <p>The point is: you now know how to choose.</p></div>
 </div>
-<div class="callout" data-light-bg="#EAF3DE" style="background:#EAF3DE;border:2px solid #7BBF3A" data-dark-bg="#173404">
+<div class="callout" data-light-bg="#EAF3DE" style="background:#EAF3DE;border:2px solid #7BBF3A" data-dark-bg="#173404" data-light-border="#7BBF3A" data-dark-border="#4A8F18">
   <div class="callout-title" data-light-color="#173404" style="color:#173404" data-dark-color="#C0DD97"><span style="font-size:2rem;vertical-align:middle;margin-right:0.3rem">✅</span> Beacon complete</div>
   <div class="callout-body" data-light-color="#27500A" style="color:#27500A" data-dark-color="#97C459"><p>You just connected the dots. 🔗</p>
 <p>That wasn't just an exercise — it was a real creative project, made with real tools, by you.</p>
