@@ -73,9 +73,14 @@ nav{
 .hero-title{
   font-family:'Playfair Display',serif;font-style:italic;font-weight:700;
   font-size:clamp(3.5rem,6vw,6.5rem);line-height:0.95;letter-spacing:-2px;
-  margin-bottom:1.5rem;
+  margin-bottom:1.5rem;perspective:900px;
 }
 .hero-title em{font-style:normal;color:var(--accent)}
+.spin-word{display:inline-block;transform-style:preserve-3d;animation:globeSpin 1.2s cubic-bezier(0.4,0,0.2,1) forwards}
+.spin-word.d1{animation-delay:0.08s}
+.spin-word.d2{animation-delay:0.16s}
+@keyframes globeSpin{0%{transform:rotateY(-180deg);opacity:0}60%{opacity:1}100%{transform:rotateY(0deg);opacity:1}}
+@media(prefers-reduced-motion:reduce){.spin-word{animation:none;opacity:1;transform:none}}
 .hero-sub{font-size:1rem;line-height:1.8;color:var(--mid);max-width:400px;margin-bottom:2.5rem}
 .hero-actions{display:flex;align-items:center;gap:2rem}
 .btn-primary{
@@ -351,7 +356,7 @@ body.dark body::after{background-image:linear-gradient(to right,rgba(255,255,255
   <div class="hero-main">
     <div>
       <span class="hero-tag">Free · Self-paced · No sign-up required</span>
-      <h1 class="hero-title">AI for<br>plain<br><em>people.</em></h1>
+      <h1 class="hero-title"><span class="spin-word">AI for</span><br><span class="spin-word d1">plain</span><br><span class="spin-word d2"><em>people.</em></span></h1>
       <p class="hero-sub">Not just for CEOs. A friendly, self-paced course for curious people who want to use AI in everyday life — no tech background needed, no pressure.</p>
       <div class="hero-actions">
         <a href="prerequisites.html" class="btn-primary">Start the course →</a>
