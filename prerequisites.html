@@ -135,7 +135,8 @@ body.dark{--paper:#0D0D0D;--off:#131312;--ink:#F0EFE9;--line:#3A3A38;--mid:#6666
 body.dark nav{background:#0D0D0D}
 body.dark .tier-card{background:#0D0D0D}
 body.dark .verdict-item{background:#131312}
-body.dark .warning-box,.dark .update-note{background:#131312}
+body.dark .warning-box,body.dark .update-note{background:#131312}
+body.dark .warning-box{color:#aaa}
 body.dark .sec-right p{color:#aaa}
 body.dark .step{color:#aaa}
 body.dark body::after{background-image:linear-gradient(to right,rgba(255,255,255,0.015) 1px,transparent 1px)}
@@ -232,9 +233,9 @@ body.dark body::after{background-image:linear-gradient(to right,rgba(255,255,255
           <p class="tier-model">Claude Sonnet · Free tier</p>
           <div class="tier-rows">
             <div class="tier-row"><span class="tier-key">Model</span><span class="tier-val good">Sonnet (mid-tier)</span></div>
-            <div class="tier-row"><span class="tier-key">Message limit</span><span class="tier-val warn">~15–40 / 5 hrs</span></div>
-            <div class="tier-row"><span class="tier-key">Context window</span><span class="tier-val good">200K tokens</span></div>
-            <div class="tier-row"><span class="tier-key">File uploads</span><span class="tier-val good">✓ 20 files/chat</span></div>
+            <div class="tier-row"><span class="tier-key">Message limit</span><span class="tier-val warn">Limited · 5-hr window</span></div>
+            <div class="tier-row"><span class="tier-key">Context window</span><span class="tier-val good">Very large context</span></div>
+            <div class="tier-row"><span class="tier-key">File uploads</span><span class="tier-val good">✓ Multiple per chat</span></div>
             <div class="tier-row"><span class="tier-key">Web search</span><span class="tier-val good">✓ Included</span></div>
             <div class="tier-row"><span class="tier-key">Opus model</span><span class="tier-val warn">Paid only</span></div>
           </div>
@@ -246,8 +247,8 @@ body.dark body::after{background-image:linear-gradient(to right,rgba(255,255,255
           <div class="tier-rows">
             <div class="tier-row"><span class="tier-key">Model</span><span class="tier-val good">2.5 Flash</span></div>
             <div class="tier-row"><span class="tier-key">Message limit</span><span class="tier-val good">Generous for most</span></div>
-            <div class="tier-row"><span class="tier-key">Context window</span><span class="tier-val good">1M tokens</span></div>
-            <div class="tier-row"><span class="tier-key">Image generation</span><span class="tier-val good">✓ ~100/day</span></div>
+            <div class="tier-row"><span class="tier-key">Context window</span><span class="tier-val good">Exceptionally large context</span></div>
+            <div class="tier-row"><span class="tier-key">Image generation</span><span class="tier-val good">✓ Daily limit applies</span></div>
             <div class="tier-row"><span class="tier-key">Google Workspace</span><span class="tier-val good">✓ Included</span></div>
             <div class="tier-row"><span class="tier-key">Pro models</span><span class="tier-val warn">Paid only</span></div>
           </div>
@@ -262,7 +263,7 @@ body.dark body::after{background-image:linear-gradient(to right,rgba(255,255,255
 
       <div class="update-note">
         <span class="update-icon">🔄</span>
-        <span>Free tier details change from time to time. If something looks different from what's described here, that's normal — just ask the tool directly: <em>"What can I do for free on this plan?"</em></span>
+        <span>Free tier details change from time to time, and each tool regularly releases newer, more capable models. If something looks different from what's described here, that's normal — just ask the tool directly: <em>"What can I do for free on this plan?"</em></span>
       </div>
     </div>
   </div>
