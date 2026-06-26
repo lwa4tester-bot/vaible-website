@@ -19,6 +19,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:str
 .nav-back{font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--mid);text-decoration:none;transition:color 0.2s}
 .nav-back:hover{color:var(--ink)}
 .theme-btn{background:none;border:none;cursor:pointer;font-family:'Instrument Sans',sans-serif;font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--mid)}
+.nav-feedback{display:flex;align-items:center;padding:0 1.2rem;height:100%;border-left:1px solid var(--line)}.nav-feedback a{display:flex;align-items:center;gap:0.4rem;font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);text-decoration:none;font-weight:600}.nav-feedback a:hover{opacity:0.7}
 .prog-bar{position:fixed;top:52px;left:0;right:0;z-index:199;height:32px;background:var(--paper);border-bottom:1px solid var(--line);display:flex;align-items:center}
 .prog-label{padding:0 1.5rem;font-size:0.65rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--mid);white-space:nowrap;border-right:1px solid var(--line);height:100%;display:flex;align-items:center}
 .prog-track-wrap{flex:1;height:100%;display:flex;align-items:center;padding:0 1.5rem;border-right:1px solid var(--line)}
@@ -122,7 +123,7 @@ body.dark .jump-sec-label{border-color:#222220}
 <nav>
   <div class="nav-brand"><a href="index.html" class="nav-logo">v<strong>AI</strong>ble</a></div>
   <div class="nav-crumb">Everyday Productivity</div><div class="ts-wrap"><span class="ts-label">Text size</span><div class="font-size-btns"><div class="ts-btn-wrap"><button class="font-size-btn" data-size="S" style="font-size:0.6rem">A</button><span class="ts-tooltip">Small</span></div><div class="ts-btn-wrap"><button class="font-size-btn" data-size="M" style="font-size:0.78rem">A</button><span class="ts-tooltip">Medium</span></div><div class="ts-btn-wrap"><button class="font-size-btn" data-size="L" style="font-size:1rem">A</button><span class="ts-tooltip">Large</span></div></div></div>
-  <div class="nav-actions"><a href="index.html" class="nav-back">&larr; All Beacons</a><button class="theme-btn" id="themeToggle">&#9790; Dark</button></div>
+  <div class="nav-feedback"><a href="mailto:feedback@vaible.org"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0041CC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>Feedback</a></div><div class="nav-actions"><a href="index.html" class="nav-back">&larr; All Beacons</a><button class="theme-btn" id="themeToggle">&#9790; Dark</button></div>
 </nav>
 <div class="prog-bar">
   <div class="prog-label" id="progLabel"><span class="prog-label-inner">Beacon 23 of 30<span class="prog-chevron">▾</span></span></div>
