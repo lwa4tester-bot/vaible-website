@@ -71,16 +71,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:str
 .share-block{margin:2.5rem 0 0;text-align:center}
 .share-title{font-family:'Instrument Sans',sans-serif;font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--mid);margin-bottom:1rem}
 .share-btns{display:flex;flex-wrap:wrap;justify-content:center;gap:0.6rem}
-.share-btn{display:inline-flex;align-items:center;gap:0.45rem;padding:0.5rem 1.1rem;border-radius:999px;font-family:'Instrument Sans',sans-serif;font-size:0.78rem;font-weight:600;letter-spacing:0.04em;text-decoration:none;border:none;cursor:pointer;transition:opacity 0.2s}
-.share-btn:hover{opacity:0.82}
-.share-btn-fb{background:#1877F2;color:#fff}
-.share-btn-wa{background:#25D366;color:#fff}
-.share-btn-li{background:#0A66C2;color:#fff}
-.share-btn-copy{background:#0041CC;color:#fff}
+.share-btn{display:inline-flex;align-items:center;gap:0.45rem;padding:0.5rem 1.1rem;border-radius:999px;font-family:'Instrument Sans',sans-serif;font-size:0.78rem;font-weight:600;letter-spacing:0.04em;text-decoration:none;border:none;cursor:pointer;transition:opacity 0.2s;background:var(--ink);color:var(--paper)}
+.share-btn:hover{opacity:0.75}
+.share-btn-fb{background:var(--ink);color:var(--paper)}
+.share-btn-wa{background:var(--ink);color:var(--paper)}
+.share-btn-li{background:var(--ink);color:var(--paper)}
+.share-btn-copy{background:var(--ink);color:var(--paper)}
 .share-btn-copy.copied{background:#007733}
 body.dark .share-title{color:#666660}
 .coffee{margin:3rem 0 0;padding:2rem 2rem;text-align:center;border-radius:12px;border:2px solid #B8B4A8;background:#fff}
-.coffee-title{font-family:'Playfair Display',serif;font-style:italic;font-size:1.8rem;margin-bottom:0.8rem}
+.coffee-title{font-family:'Playfair Display',serif;font-style:italic;font-size:1.8rem;margin-bottom:0.4rem}
 .coffee-sub{font-size:0.88rem;line-height:1.8;color:var(--mid);margin-bottom:2rem}
 .btn-coffee{display:inline-flex;align-items:center;gap:8px;background:#FAEEDA;color:#412402;font-size:0.82rem;letter-spacing:0.04em;font-weight:500;padding:0.55rem 1.4rem;border-radius:999px;text-decoration:none;border:none;transition:background 0.2s}
 .btn-coffee:hover{background:#FAC775}
@@ -257,7 +257,7 @@ body.dark .jump-sec-label{border-color:#222220}
   <p class="no-rush">No rush. Come back whenever you're ready. &#128578;</p>
   <div class="coffee">
     <p class="share-title">Enjoyed it? Share with a friend.</p>
-    <div class="share-btns" style="margin-bottom:2rem;">
+    <div class="share-btns" style="margin-bottom:2.5rem;">
       <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fvaible.org" target="_blank" rel="noopener" class="share-btn share-btn-fb">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
         Facebook
