@@ -419,6 +419,15 @@ function copyShareLink(btn){navigator.clipboard.writeText('https://vaible.org').
     return /^[\x00-\xFF\u2018\u2019\u201C\u201D\u2013\u2014\u2026]*$/.test(text);
   }
 
+  // Cyrillic, Greek, Vietnamese, and every extended-Latin diacritic (ő, ű,
+  // ș, ł…) are covered by the font we host ourselves — fast, same-origin,
+  // no third-party dependency. Only true non-Latin scripts need a
+  // best-effort fetch from Google Fonts, with a hard timeout so it can
+  // never hang the button.
+  function needsExoticScript(text){
+    return /[\u3040-\u30FF\uFF66-\uFF9F\uAC00-\uD7A3\u4E00-\u9FFF\u3400-\u4DBF\u0600-\u06FF\u0750-\u077F\u0590-\u05FF\u0900-\u097F\u0E00-\u0E7F]/.test(text);
+  }
+
   function pickFontFamily(text){
     if(/[\u3040-\u30FF\uFF66-\uFF9F]/.test(text))return 'Noto Sans JP';
     if(/[\uAC00-\uD7A3]/.test(text))return 'Noto Sans KR';
@@ -426,16 +435,27 @@ function copyShareLink(btn){navigator.clipboard.writeText('https://vaible.org').
     if(/[\u0600-\u06FF\u0750-\u077F]/.test(text))return 'Noto Sans Arabic';
     if(/[\u0590-\u05FF]/.test(text))return 'Noto Sans Hebrew';
     if(/[\u0900-\u097F]/.test(text))return 'Noto Sans Devanagari';
-    if(/[\u0E00-\u0E7F]/.test(text))return 'Noto Sans Thai';
-    return 'Noto Sans'; // covers Cyrillic, Greek, extended Latin (ő, ű, ș, ł…), Vietnamese
+    return 'Noto Sans Thai';
+  }
+
+  function fetchWithTimeout(url,ms){
+    var controller=new AbortController();
+    var id=setTimeout(function(){controller.abort();},ms);
+    return fetch(url,{signal:controller.signal}).finally(function(){clearTimeout(id);});
+  }
+
+  async function fetchSelfHostedFontBytes(){
+    var res=await fetchWithTimeout('notosans-variable.ttf',8000);
+    if(!res.ok)throw new Error('self-hosted-font-missing');
+    return await res.arrayBuffer();
   }
 
   async function fetchGoogleFontBytes(family,text,weight){
     var cssUrl='https://fonts.googleapis.com/css2?family='+encodeURIComponent(family)+':wght@'+weight+'&text='+encodeURIComponent(text)+'&display=swap';
-    var css=await (await fetch(cssUrl)).text();
+    var css=await (await fetchWithTimeout(cssUrl,4000)).text();
     var match=css.match(/url\((https:\/\/fonts\.gstatic\.com\/[^)]+)\)/);
     if(!match)throw new Error('font-not-found');
-    var buf=await (await fetch(match[1])).arrayBuffer();
+    var buf=await (await fetchWithTimeout(match[1],4000)).arrayBuffer();
     return buf;
   }
 
@@ -451,6 +471,7 @@ function copyShareLink(btn){navigator.clipboard.writeText('https://vaible.org').
     var originalLabel=btn.innerHTML;
     btn.innerHTML='Preparing…';
     try{
+      await Promise.race([(async function(){
       var PDFLib=window.PDFLib;
       var PDFDocument=PDFLib.PDFDocument,rgb=PDFLib.rgb,StandardFonts=PDFLib.StandardFonts;
       var pdfDoc=await PDFDocument.create();
@@ -472,12 +493,17 @@ function copyShareLink(btn){navigator.clipboard.writeText('https://vaible.org').
         btn.innerHTML='Loading font for your name…';
         try{
           if(!fontkitRegistered){pdfDoc.registerFontkit(window.fontkit);fontkitRegistered=true;}
-          var family=pickFontFamily(name);
-          var fontBytes=await fetchGoogleFontBytes(family,name,700);
+          var fontBytes;
+          if(needsExoticScript(name)){
+            var family=pickFontFamily(name);
+            fontBytes=await fetchGoogleFontBytes(family,name,700);
+          }else{
+            fontBytes=await fetchSelfHostedFontBytes();
+          }
           nameFont=await pdfDoc.embedFont(fontBytes,{subset:true});
         }catch(fontErr){
-          // No internet for the font fetch, or an unsupported script —
-          // fall back gracefully instead of failing the whole certificate.
+          // Font fetch failed or timed out — fall back gracefully instead
+          // of failing the whole certificate.
           nameFont=await pdfDoc.embedFont(StandardFonts.TimesRomanBoldItalic);
         }
         btn.innerHTML='Preparing…';
@@ -541,6 +567,7 @@ function copyShareLink(btn){navigator.clipboard.writeText('https://vaible.org').
       a.remove();
       setTimeout(function(){URL.revokeObjectURL(url)},2000);
       hint.textContent='Your certificate has downloaded. Congratulations! 🎉';
+      })(),new Promise(function(_,reject){setTimeout(function(){reject(new Error('timeout'));},20000);})]);
     }catch(err){
       hint.textContent="Something went wrong generating the certificate. If your name uses a less common script, check your internet connection and try again.";
     }finally{
