@@ -414,7 +414,8 @@ function copyShareLink(btn){navigator.clipboard.writeText('https://vaible.org').
   // Standard PDF fonts only support Western-European accented Latin letters
   // (Windows-1252 range). Anything outside that — Hungarian ő/ű, Cyrillic,
   // Greek, CJK, Arabic, Hebrew, Thai, Devanagari, etc. — needs a real
-  // Unicode font, fetched and subset to just the characters actually typed.
+  // Unicode font, fetched and embedded in full (subsetting is skipped —
+  // it can corrupt glyphs in large, multi-script fonts like Noto Sans).
   function isWinAnsiSafe(text){
     return /^[\x00-\xFF\u2018\u2019\u201C\u201D\u2013\u2014\u2026]*$/.test(text);
   }
@@ -500,7 +501,7 @@ function copyShareLink(btn){navigator.clipboard.writeText('https://vaible.org').
           }else{
             fontBytes=await fetchSelfHostedFontBytes();
           }
-          nameFont=await pdfDoc.embedFont(fontBytes,{subset:true});
+          nameFont=await pdfDoc.embedFont(fontBytes,{subset:false});
         }catch(fontErr){
           // Font fetch failed or timed out — fall back gracefully instead
           // of failing the whole certificate.
