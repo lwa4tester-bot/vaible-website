@@ -86,6 +86,17 @@ body.dark .share-title{color:#666660}
 .coffee-sub{font-size:0.88rem;line-height:1.8;color:var(--mid);margin-bottom:2rem}
 .btn-coffee{display:inline-flex;align-items:center;gap:8px;background:#FAEEDA;color:#412402;font-size:0.82rem;letter-spacing:0.04em;font-weight:500;padding:0.55rem 1.4rem;border-radius:999px;text-decoration:none;border:none;transition:background 0.2s}
 .btn-coffee:hover{background:#FAC775}
+.cert{margin:2.5rem 0 0;padding:2rem 2rem;text-align:center;border-radius:12px;border:2px solid var(--accent);background:#fff}
+.cert-title{font-family:'Playfair Display',serif;font-style:italic;font-size:1.8rem;margin-bottom:0.4rem}
+.cert-sub{font-size:0.88rem;line-height:1.8;color:var(--mid);margin-bottom:1.5rem;max-width:460px;margin-left:auto;margin-right:auto}
+.cert-form{display:flex;gap:0.6rem;justify-content:center;flex-wrap:wrap}
+.cert-input{padding:0.6rem 1rem;border:1.5px solid var(--line);border-radius:8px;font-family:'Inter',sans-serif;font-size:0.95rem;min-width:220px;background:var(--paper);color:var(--ink)}
+.cert-input:focus{outline:none;border-color:var(--accent)}
+.btn-cert{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;font-size:0.82rem;letter-spacing:0.04em;font-weight:600;padding:0.6rem 1.4rem;border-radius:999px;border:none;cursor:pointer;transition:opacity 0.2s;font-family:'Instrument Sans',sans-serif}
+.btn-cert:hover{opacity:0.85}
+.btn-cert:disabled{opacity:0.5;cursor:not-allowed}
+.cert-hint{font-size:0.72rem;color:var(--mid);margin-top:0.8rem}
+.cert-note{font-size:0.72rem;color:var(--mid);margin-top:1.1rem;line-height:1.6;font-style:italic;max-width:460px;margin-left:auto;margin-right:auto}
 body.dark{--paper:#0D0D0D;--off:#131312;--ink:#F0EFE9;--line:#3A3A38;--mid:#666660;--accent:#4D8AFF;--red:#FF6644;background:var(--paper);color:var(--ink)}
 body.dark nav,body.dark .prog-bar{background:#0D0D0D;border-color:#222220}
 body.dark .nav-brand,body.dark .nav-crumb{border-color:#222220}
@@ -93,6 +104,8 @@ body.dark .prog-track-wrap{border-color:#222220}
 body.dark .hero-bignum{color:color-mix(in srgb, var(--accent) 22%, transparent)}
 body.dark .coffee{background:#0D0D0D;border-color:#3A3A38}
 body.dark .coffee-sub{color:#aaa}
+body.dark .cert{background:#0D0D0D}
+body.dark .cert-sub{color:#aaa}
 body.dark .section{border-color:#222220}
 body.dark .sec-right p{color:#aaa}
 body.dark .sec-right li{color:#aaa}
@@ -258,6 +271,16 @@ body.dark .jump-sec-label{border-color:#222220}
 <p>Go do something great. You've got the tools. 🙂</p></div>
 </div>
   <p class="no-rush">No rush. Come back whenever you're ready. &#128578;</p>
+  <div class="cert">
+    <h2 class="cert-title">Get your certificate</h2>
+    <p class="cert-sub">Type your name the way you'd like to see it, and your certificate downloads right away. Nothing is sent anywhere — it's all made in your browser.</p>
+    <div class="cert-form">
+      <input type="text" id="certName" class="cert-input" placeholder="Your name" maxlength="60">
+      <button id="certBtn" class="btn-cert">Download certificate &#128220;</button>
+    </div>
+    <p class="cert-note">A small honesty note: we don't track which Beacons you've actually opened, so this works whenever you feel ready — even on day one. It's a personal keepsake to mark your own journey, not a verified credential. We trust you to know what you've really learned. 🙂</p>
+    <p class="cert-hint" id="certHint"></p>
+  </div>
   <div class="coffee">
     <p class="share-title">Enjoyed it? Share with a friend.</p>
     <div class="share-btns" style="margin-bottom:2.5rem;">
@@ -358,6 +381,119 @@ function copyShareLink(btn){navigator.clipboard.writeText('https://vaible.org').
     document.querySelectorAll('.font-size-btn').forEach(function(b){
       b.addEventListener('click',function(){applySize(b.dataset.size);});
     });
+  });
+})();
+</script>
+<script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+<script>
+(function(){
+  var input=document.getElementById('certName');
+  var btn=document.getElementById('certBtn');
+  var hint=document.getElementById('certHint');
+  if(!btn)return;
+
+  function wrapLine(text,font,size,maxWidth){
+    var words=text.split(' ');
+    var lines=[];
+    var cur='';
+    words.forEach(function(w){
+      var test=cur?cur+' '+w:w;
+      if(font.widthOfTextAtSize(test,size)>maxWidth&&cur){
+        lines.push(cur);
+        cur=w;
+      }else{
+        cur=test;
+      }
+    });
+    if(cur)lines.push(cur);
+    return lines;
+  }
+
+  btn.addEventListener('click',async function(){
+    var name=(input.value||'').trim();
+    if(!name){
+      hint.textContent='Please type your name first.';
+      input.focus();
+      return;
+    }
+    hint.textContent='';
+    btn.disabled=true;
+    var originalLabel=btn.innerHTML;
+    btn.innerHTML='Preparing…';
+    try{
+      var PDFLib=window.PDFLib;
+      var PDFDocument=PDFLib.PDFDocument,rgb=PDFLib.rgb,StandardFonts=PDFLib.StandardFonts;
+      var pdfDoc=await PDFDocument.create();
+      var page=pdfDoc.addPage([842,595]);
+      var w=842,h=595;
+
+      var accent=rgb(0/255,65/255,204/255);
+      var ink=rgb(0.05,0.05,0.05);
+      var mid=rgb(0.47,0.47,0.47);
+
+      var titleFont=await pdfDoc.embedFont(StandardFonts.TimesRomanItalic);
+      var nameFont=await pdfDoc.embedFont(StandardFonts.TimesRomanBoldItalic);
+      var bodyFont=await pdfDoc.embedFont(StandardFonts.Helvetica);
+      var boldFont=await pdfDoc.embedFont(StandardFonts.HelveticaBold);
+
+      page.drawRectangle({x:24,y:24,width:w-48,height:h-48,borderColor:accent,borderWidth:2});
+      page.drawRectangle({x:32,y:32,width:w-64,height:h-64,borderColor:accent,borderWidth:0.75});
+
+      page.drawText('vAIble',{x:w/2-titleFont.widthOfTextAtSize('vAIble',30)/2,y:h-100,size:30,font:titleFont,color:accent});
+
+      var kicker='C E R T I F I C A T E   O F   C O M P L E T I O N';
+      page.drawText(kicker,{x:w/2-bodyFont.widthOfTextAtSize(kicker,10)/2,y:h-128,size:10,font:bodyFont,color:mid});
+
+      var lead='This certifies that';
+      page.drawText(lead,{x:w/2-bodyFont.widthOfTextAtSize(lead,12)/2,y:h-190,size:12,font:bodyFont,color:mid});
+
+      var nameSize=34;
+      var nameWidth=nameFont.widthOfTextAtSize(name,nameSize);
+      var maxNameWidth=w-160;
+      if(nameWidth>maxNameWidth){
+        nameSize=nameSize*(maxNameWidth/nameWidth);
+        nameWidth=nameFont.widthOfTextAtSize(name,nameSize);
+      }
+      var nameY=h-235;
+      page.drawText(name,{x:w/2-nameWidth/2,y:nameY,size:nameSize,font:nameFont,color:ink});
+      page.drawLine({start:{x:w/2-maxNameWidth/2,y:nameY-10},end:{x:w/2+maxNameWidth/2,y:nameY-10},thickness:0.75,color:accent});
+
+      var bodyLines=wrapLine('has completed all 30 beacons of the vAIble AI literacy course, exploring 15 AI tools for everyday life',bodyFont,12,420);
+      var by=h-280;
+      bodyLines.forEach(function(line){
+        page.drawText(line,{x:w/2-bodyFont.widthOfTextAtSize(line,12)/2,y:by,size:12,font:bodyFont,color:mid});
+        by-=20;
+      });
+
+      var dateStr=new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
+      page.drawText('Date',{x:70,y:90,size:9,font:bodyFont,color:mid});
+      page.drawText(dateStr,{x:70,y:74,size:12,font:boldFont,color:ink});
+
+      var site='vaible.org';
+      page.drawText(site,{x:w-70-titleFont.widthOfTextAtSize(site,14),y:78,size:14,font:titleFont,color:accent});
+      var tagline='no rush, no pressure';
+      page.drawText(tagline,{x:w-70-bodyFont.widthOfTextAtSize(tagline,9),y:64,size:9,font:bodyFont,color:mid});
+
+      var fineprint='Self-reported completion, not an independently verified credential.';
+      page.drawText(fineprint,{x:w/2-bodyFont.widthOfTextAtSize(fineprint,7.5)/2,y:44,size:7.5,font:bodyFont,color:mid});
+
+      var pdfBytes=await pdfDoc.save();
+      var blob=new Blob([pdfBytes],{type:'application/pdf'});
+      var url=URL.createObjectURL(blob);
+      var a=document.createElement('a');
+      a.href=url;
+      a.download='vAIble-certificate-'+name.replace(/[^a-z0-9]+/gi,'-').toLowerCase()+'.pdf';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      setTimeout(function(){URL.revokeObjectURL(url)},2000);
+      hint.textContent='Your certificate has downloaded. Congratulations! 🎉';
+    }catch(err){
+      hint.textContent="Something went wrong generating the certificate. Please try again.";
+    }finally{
+      btn.disabled=false;
+      btn.innerHTML=originalLabel;
+    }
   });
 })();
 </script>
