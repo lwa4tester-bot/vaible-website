@@ -445,7 +445,7 @@ function copyShareLink(btn){navigator.clipboard.writeText('https://vaible.org').
   }
 
   async function fetchSelfHostedFontBytes(){
-    var res=await fetchWithTimeout('notosans-variable.ttf',8000);
+    var res=await fetchWithTimeout('notosans-bold.ttf',8000);
     if(!res.ok)throw new Error('self-hosted-font-missing');
     return await res.arrayBuffer();
   }
