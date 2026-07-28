@@ -451,13 +451,49 @@ function copyShareLink(btn){navigator.clipboard.writeText('https://vaible.org').
     return await res.arrayBuffer();
   }
 
-  async function fetchGoogleFontBytes(family,text,weight){
-    var cssUrl='https://fonts.googleapis.com/css2?family='+encodeURIComponent(family)+':wght@'+weight+'&text='+encodeURIComponent(text)+'&display=swap';
-    var css=await (await fetchWithTimeout(cssUrl,4000)).text();
-    var match=css.match(/url\((https:\/\/fonts\.gstatic\.com\/[^)]+)\)/);
-    if(!match)throw new Error('font-not-found');
-    var buf=await (await fetchWithTimeout(match[1],4000)).arrayBuffer();
-    return buf;
+  // fontkit (the library that lets pdf-lib embed custom fonts) cannot
+  // decompress WOFF2, which is the only format Google Fonts serves to
+  // modern browsers — embedding those bytes directly produces corrupted
+  // glyphs. Instead, for exotic scripts we let the BROWSER'S OWN font
+  // engine (which handles WOFF2 perfectly) render the name onto a canvas,
+  // and embed that as a PNG image in the PDF instead of as vector text.
+  async function renderExoticNameToPng(name,family){
+    var linkId='vaible-cert-font-link';
+    var existing=document.getElementById(linkId);
+    if(existing)existing.remove();
+    var link=document.createElement('link');
+    link.id=linkId;
+    link.rel='stylesheet';
+    link.href='https://fonts.googleapis.com/css2?family='+encodeURIComponent(family)+':wght@700&text='+encodeURIComponent(name)+'&display=block';
+    var loadPromise=new Promise(function(resolve,reject){
+      link.onload=resolve;
+      link.onerror=function(){reject(new Error('font-css-failed'));};
+    });
+    document.head.appendChild(link);
+    await Promise.race([loadPromise,new Promise(function(_,rej){setTimeout(function(){rej(new Error('font-css-timeout'));},5000);})]);
+    await Promise.race([document.fonts.load('700 100px "'+family+'"',name),new Promise(function(_,rej){setTimeout(function(){rej(new Error('font-load-timeout'));},5000);})]);
+
+    var scale=4,fontPx=90;
+    var measureCanvas=document.createElement('canvas');
+    var mctx=measureCanvas.getContext('2d');
+    mctx.font='700 '+(fontPx*scale)+'px "'+family+'"';
+    var textWidth=Math.ceil(mctx.measureText(name).width);
+    var padding=18*scale;
+
+    var canvas=document.createElement('canvas');
+    canvas.width=textWidth+padding*2;
+    canvas.height=Math.ceil(fontPx*scale*1.35);
+    var ctx=canvas.getContext('2d');
+    ctx.font='700 '+(fontPx*scale)+'px "'+family+'"';
+    ctx.fillStyle='#0d0d0d';
+    ctx.textBaseline='alphabetic';
+    ctx.textAlign='left';
+    ctx.fillText(name,padding,canvas.height*0.72);
+
+    var blob=await new Promise(function(resolve){canvas.toBlob(resolve,'image/png');});
+    if(!blob)throw new Error('canvas-export-failed');
+    var buf=await blob.arrayBuffer();
+    return {bytes:buf,widthPx:canvas.width,heightPx:canvas.height};
   }
 
   btn.addEventListener('click',async function(){
@@ -487,27 +523,34 @@ function copyShareLink(btn){navigator.clipboard.writeText('https://vaible.org').
       var bodyFont=await pdfDoc.embedFont(StandardFonts.Helvetica);
       var boldFont=await pdfDoc.embedFont(StandardFonts.HelveticaBold);
 
-      var nameFont;
+      var nameFont,nameImage=null;
       if(isWinAnsiSafe(name)){
         nameFont=await pdfDoc.embedFont(StandardFonts.TimesRomanBoldItalic);
+      }else if(needsExoticScript(name)){
+        btn.innerHTML='Loading font for your name…';
+        try{
+          var family=pickFontFamily(name);
+          var png=await renderExoticNameToPng(name,family);
+          nameImage=await pdfDoc.embedPng(png.bytes);
+          nameImage.__pxWidth=png.widthPx;
+          nameImage.__pxHeight=png.heightPx;
+        }catch(imgErr){
+          nameFont=null; // signals: could not render this name at all
+        }
+        btn.innerHTML='Preparing…';
       }else{
         btn.innerHTML='Loading font for your name…';
         try{
           if(!fontkitRegistered){pdfDoc.registerFontkit(window.fontkit);fontkitRegistered=true;}
-          var fontBytes;
-          if(needsExoticScript(name)){
-            var family=pickFontFamily(name);
-            fontBytes=await fetchGoogleFontBytes(family,name,700);
-          }else{
-            fontBytes=await fetchSelfHostedFontBytes();
-          }
+          var fontBytes=await fetchSelfHostedFontBytes();
           nameFont=await pdfDoc.embedFont(fontBytes,{subset:false});
         }catch(fontErr){
-          // Font fetch failed or timed out — fall back gracefully instead
-          // of failing the whole certificate.
           nameFont=await pdfDoc.embedFont(StandardFonts.TimesRomanBoldItalic);
         }
         btn.innerHTML='Preparing…';
+      }
+      if(!nameFont&&!nameImage){
+        throw new Error('name-render-failed');
       }
 
       page.drawRectangle({x:24,y:24,width:w-48,height:h-48,borderColor:accent,borderWidth:2});
@@ -522,19 +565,31 @@ function copyShareLink(btn){navigator.clipboard.writeText('https://vaible.org').
       page.drawText(lead,{x:w/2-bodyFont.widthOfTextAtSize(lead,12)/2,y:h-190,size:12,font:bodyFont,color:mid});
 
       var nameSize=34;
-      var nameWidth;
-      try{
-        nameWidth=nameFont.widthOfTextAtSize(name,nameSize);
-      }catch(e){
-        nameWidth=nameFont.widthOfTextAtSize('?',nameSize)*name.length;
-      }
       var maxNameWidth=w-160;
-      if(nameWidth>maxNameWidth){
-        nameSize=nameSize*(maxNameWidth/nameWidth);
-        nameWidth=nameFont.widthOfTextAtSize(name,nameSize);
-      }
       var nameY=h-235;
-      page.drawText(name,{x:w/2-nameWidth/2,y:nameY,size:nameSize,font:nameFont,color:ink});
+      if(nameImage){
+        var displayHeight=40;
+        var scaleFactor=displayHeight/nameImage.__pxHeight;
+        var displayWidth=nameImage.__pxWidth*scaleFactor;
+        if(displayWidth>maxNameWidth){
+          scaleFactor=scaleFactor*(maxNameWidth/displayWidth);
+          displayWidth=nameImage.__pxWidth*scaleFactor;
+          displayHeight=nameImage.__pxHeight*scaleFactor;
+        }
+        page.drawImage(nameImage,{x:w/2-displayWidth/2,y:nameY-displayHeight*0.62,width:displayWidth,height:displayHeight});
+      }else{
+        var nameWidth;
+        try{
+          nameWidth=nameFont.widthOfTextAtSize(name,nameSize);
+        }catch(e){
+          nameWidth=nameFont.widthOfTextAtSize('?',nameSize)*name.length;
+        }
+        if(nameWidth>maxNameWidth){
+          nameSize=nameSize*(maxNameWidth/nameWidth);
+          nameWidth=nameFont.widthOfTextAtSize(name,nameSize);
+        }
+        page.drawText(name,{x:w/2-nameWidth/2,y:nameY,size:nameSize,font:nameFont,color:ink});
+      }
       page.drawLine({start:{x:w/2-maxNameWidth/2,y:nameY-10},end:{x:w/2+maxNameWidth/2,y:nameY-10},thickness:0.75,color:accent});
 
       var bodyLines=wrapLine('has completed all 30 beacons of the vAIble AI literacy course, exploring 15 AI tools for everyday life',bodyFont,12,420);
@@ -570,7 +625,11 @@ function copyShareLink(btn){navigator.clipboard.writeText('https://vaible.org').
       hint.textContent='Your certificate has downloaded. Congratulations! 🎉';
       })(),new Promise(function(_,reject){setTimeout(function(){reject(new Error('timeout'));},20000);})]);
     }catch(err){
-      hint.textContent="Something went wrong generating the certificate. If your name uses a less common script, check your internet connection and try again.";
+      if(err&&err.message==='name-render-failed'){
+        hint.textContent="We couldn't render the characters in your name right now. Please check your internet connection and try again.";
+      }else{
+        hint.textContent="Something went wrong generating the certificate. Please try again.";
+      }
     }finally{
       btn.disabled=false;
       btn.innerHTML=originalLabel;
