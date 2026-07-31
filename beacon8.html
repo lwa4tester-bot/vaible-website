@@ -206,7 +206,7 @@ body.dark .jump-sec-label{border-color:#222220}
   <div class="callout-body" data-light-color="#27500A" style="color:#27500A" data-dark-color="#97C459"><h3>You're a smart AI user now.</h3><p>You now know how to be a critical AI user — not just a passive one.</p><p><strong>Up next — Beacon 9:</strong> Summarize the World. You'll learn how to take any long document and get the key points in minutes.</p></div>
 </div>
   <p class="no-rush">No rush. Come back whenever you're ready. &#128578;</p>
-  <p class="beacon-feedback">Spotted something odd, or have an idea? <a href="mailto:feedback@vaible.org">feedback@vaible.org</a></p>
+  <p class="beacon-feedback">Spotted something odd, or have an idea? <a href="#" onclick="openFeedbackModal(); return false;">Send feedback</a></p>
   <div class="beacon-nav">
     <a href="beacon7.html" class="bn-prev">← Beacon 7</a>
     <a href="beacon9.html" class="bn-next">Beacon 9 →</a>
@@ -285,5 +285,118 @@ function copyPrompt(id){const t=document.getElementById(id).innerText;navigator.
 </script>
 <script data-goatcounter="https://vaible.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
+
+<!-- ============================================================
+     vAIble Feedback Modal — Web3Forms
+     Form: "vAIble Feedback" — access key: 2548db71-9368-4482-907f-941dc3fb47c8
+     ============================================================ -->
+<div id="feedbackModal" class="feedback-modal-overlay" style="display:none;">
+  <div class="feedback-modal-box">
+    <button class="feedback-modal-close" onclick="closeFeedbackModal()" aria-label="Close">&times;</button>
+    <h2 class="feedback-modal-title">Send us feedback</h2>
+    <p class="feedback-modal-sub">We read every message. Thanks for taking the time.</p>
+
+    <form id="feedbackForm">
+      <input type="hidden" name="access_key" value="2548db71-9368-4482-907f-941dc3fb47c8">
+      <input type="hidden" name="subject" value="vAIble feedback">
+      <input type="hidden" name="from_name" value="vAIble website">
+
+      <!-- Honeypot spam-védelem: ez a mező rejtve marad a valódi látogatók elől -->
+      <input type="checkbox" name="botcheck" class="feedback-honeypot" tabindex="-1" autocomplete="off">
+
+      <label for="feedbackEmail" class="feedback-label">Your email (optional, if you'd like a reply)</label>
+      <input type="email" id="feedbackEmail" name="email" class="feedback-input" placeholder="you@example.com">
+
+      <label for="feedbackMessage" class="feedback-label">Your message</label>
+      <textarea id="feedbackMessage" name="message" class="feedback-textarea" rows="5" required placeholder="What's on your mind?"></textarea>
+
+      <button type="submit" class="feedback-submit-btn" id="feedbackSubmitBtn">Send</button>
+      <p id="feedbackStatus" class="feedback-status"></p>
+    </form>
+  </div>
+</div>
+
+<style>
+.feedback-modal-overlay{
+  position:fixed;inset:0;background:rgba(0,0,0,0.5);
+  display:flex;align-items:center;justify-content:center;
+  z-index:9999;padding:1.5rem;
+}
+.feedback-modal-box{
+  background:var(--paper,#fff);border-radius:12px;
+  max-width:440px;width:100%;padding:2rem;
+  position:relative;
+}
+.feedback-modal-close{
+  position:absolute;top:0.8rem;right:1rem;
+  background:none;border:none;font-size:1.5rem;
+  cursor:pointer;color:var(--mid,#666);line-height:1;
+}
+.feedback-modal-title{font-size:1.3rem;margin:0 0 0.4rem;font-weight:600}
+.feedback-modal-sub{font-size:0.85rem;color:var(--mid,#666);margin:0 0 1.2rem}
+.feedback-label{display:block;font-size:0.8rem;font-weight:600;margin:0.8rem 0 0.3rem}
+.feedback-input,.feedback-textarea{
+  width:100%;padding:0.6rem 0.8rem;border:1px solid var(--line,#ddd);
+  border-radius:6px;font-size:0.9rem;font-family:inherit;
+  box-sizing:border-box;
+}
+.feedback-honeypot{display:none !important}
+.feedback-submit-btn{
+  margin-top:1.2rem;width:100%;padding:0.7rem;
+  background:var(--accent,#c9622a);color:#fff;border:none;
+  border-radius:6px;font-size:0.95rem;font-weight:600;cursor:pointer;
+}
+.feedback-submit-btn:disabled{opacity:0.6;cursor:default}
+.feedback-status{font-size:0.85rem;margin-top:0.7rem;text-align:center}
+</style>
+
+<script>
+function openFeedbackModal(){
+  document.getElementById('feedbackModal').style.display = 'flex';
+}
+function closeFeedbackModal(){
+  document.getElementById('feedbackModal').style.display = 'none';
+}
+document.getElementById('feedbackModal').addEventListener('click', function(e){
+  if(e.target === this) closeFeedbackModal();
+});
+
+document.getElementById('feedbackForm').addEventListener('submit', async function(e){
+  e.preventDefault();
+  const form = e.target;
+  const btn = document.getElementById('feedbackSubmitBtn');
+  const status = document.getElementById('feedbackStatus');
+
+  btn.disabled = true;
+  btn.textContent = 'Sending...';
+  status.textContent = '';
+
+  try {
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify(Object.fromEntries(new FormData(form))),
+    });
+    const data = await res.json();
+
+    if (data.success) {
+      status.textContent = 'Thank you! Your message was sent.';
+      status.style.color = 'green';
+      form.reset();
+      setTimeout(closeFeedbackModal, 1800);
+    } else {
+      status.textContent = 'Something went wrong. Please try again.';
+      status.style.color = 'crimson';
+    }
+  } catch (err) {
+    status.textContent = 'Network error. Please try again.';
+    status.style.color = 'crimson';
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Send';
+  }
+});
+</script>
+
 </body>
 </html>
